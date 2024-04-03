@@ -1,0 +1,139 @@
+---
+title: Almacenamiento en caché
+description: Obtenga información sobre cómo habilitar el almacenamiento en caché para su Adobe Commerce en entornos de infraestructura en la nube.
+feature: Cloud, Cache, Routes
+exl-id: 4856aa94-2947-4dc8-b0d1-0960869dc39c
+source-git-commit: 7b9c6a4cd17069c25455195bd8f273664b8a29eb
+workflow-type: tm+mt
+source-wordcount: '378'
+ht-degree: 0%
+
+---
+
+# Almacenamiento en caché
+
+Puede habilitar el almacenamiento en caché en el entorno de su proyecto de infraestructura en la nube. Si deshabilita el almacenamiento en caché, Adobe Commerce proporciona directamente los archivos.
+
+{{route-placeholder}}
+
+## Configuración del almacenamiento en caché
+
+Habilite el almacenamiento en caché para su aplicación configurando las reglas de caché en la `.magento/routes.yaml` como se indica a continuación:
+
+```yaml
+http://{default}/:
+    type: upstream
+    upstream: php:php
+    cache:
+        enabled: true
+        headers: [ "Accept", "Accept-Language", "X-Language-Locale" ]
+        cookies: ["*"]
+        default_ttl: 60
+```
+
+## Almacenamiento en caché basado en rutas
+
+Habilite el almacenamiento en caché detallado configurando reglas de almacenamiento en caché para varias rutas por separado, como se muestra en el siguiente ejemplo:
+
+```yaml
+http://{default}/:
+    type: upstream
+    upstream: php:php
+    cache:
+        enabled: true
+
+http://{default}/path/:
+    type: upstream
+    upstream: php:php
+    cache:
+        enabled: false
+
+http://{default}/path/more/:
+    type: upstream
+    upstream: php:php
+    cache:
+        enabled: true
+```
+
+El ejemplo anterior almacena en caché las rutas siguientes:
+
+- `http://{default}/`
+- `http://{default}/path/more/`
+- `http://{default}/path/more/etc/`
+
+Y las siguientes rutas son **no** en caché:
+
+- `http://{default}/path/`
+- `http://{default}/path/etc/`
+
+>[!NOTE]
+>
+>Las expresiones regulares en las rutas son **no** compatible.
+
+## Duración de caché
+
+La duración de la caché viene determinada por la variable `Cache-Control` valor del encabezado de respuesta. Si no `Cache-Control` encabezado está en la respuesta, el `default_ttl` se utiliza la clave.
+
+## Clave de caché
+
+Para decidir cómo almacenar en caché una respuesta, Adobe Commerce crea una clave de caché que depende de varios factores y almacena la respuesta asociada a esta clave. Cuando una solicitud viene con la misma clave de caché, la respuesta se reutiliza. Su propósito es similar al de HTTP [`Vary` encabezado](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.44).
+
+Los parámetros `headers` y `cookies` Las claves permiten cambiar esta clave de caché.
+
+El valor predeterminado para estas claves es el siguiente:
+
+```yaml
+cache:
+    enabled: true
+    headers: ["Accept-Language", "Accept"]
+    cookies: ["*"]
+```
+
+## Atributos de caché
+
+### `enabled`
+
+Cuando se establece en `true`, habilite la caché para esta ruta. Cuando se establece en `false`, deshabilite la caché para esta ruta.
+
+### `headers`
+
+Define los valores de los que debe depender la clave de caché.
+
+Por ejemplo, si la variable `headers` La clave es la siguiente:
+
+```yaml
+cache:
+    enabled: true
+    headers: ["Accept"]
+```
+
+A continuación, Adobe Commerce almacena en caché una respuesta diferente para cada valor de `Accept` Encabezado HTTP.
+
+### `cookies`
+
+El `cookies` key define de qué valores debe depender la clave de caché.
+
+Por ejemplo:
+
+```yaml
+cache:
+    enabled: true
+    cookies: ["value"]
+```
+
+La clave de caché depende del valor de `value` en la solicitud.
+
+Existe un caso especial si la variable `cookies` La clave tiene el `["*"]` valor. Este valor significa que cualquier solicitud con una cookie evita la caché. Este es el valor predeterminado.
+
+>[!NOTE]
+>
+>No se pueden utilizar caracteres comodín en el nombre de la cookie. Utilice un nombre de cookie preciso o combine todas las cookies con un asterisco (`*`). Por ejemplo, `SESS*` o `~SESS` están actualmente **no** valores válidos.
+
+Las cookies tienen las siguientes restricciones:
+
+- Puede establecer un máximo de **50 cookies** en el sistema. De lo contrario, la aplicación emite un `Unable to send the cookie. Maximum number of cookies would be exceeded` excepción.
+- Un tamaño máximo de cookie es **4096 bytes**. De lo contrario, la aplicación emite un `Unable to send the cookie. Size of '%name' is %size bytes` excepción.
+
+### `default_ttl`
+
+Si la respuesta no tiene un `Cache-Control` encabezado, el `default_ttl` se utiliza para definir la duración de la caché, en segundos. El valor predeterminado es `0`, lo que significa que no se almacena nada en caché.

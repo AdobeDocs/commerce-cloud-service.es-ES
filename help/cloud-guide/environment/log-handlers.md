@@ -1,0 +1,68 @@
+---
+title: Controladores de registro
+description: Obtenga información sobre cómo configurar los controladores de registro para Adobe Commerce en la infraestructura en la nube.
+feature: Cloud, Logs, Configuration
+role: Developer
+exl-id: d3be7b6d-5778-4c32-865b-31bdb2852a23
+source-git-commit: f8e35ecff4bcafda874a87642348e2d2bff5247b
+workflow-type: tm+mt
+source-wordcount: '232'
+ht-degree: 0%
+
+---
+
+# Controladores de registro
+
+Puede configurar los controladores de registro para enviar mensajes a un servidor de registro remoto. Un controlador de registro inserta registros de compilación e implementación en otros sistemas, de forma similar a la forma de insertar registros en Slack y correo electrónico. Puede activar un _syslog_ , que es ideal para registrar mensajes relacionados con el hardware, o un controlador de Formato de registro extendido (GELF) de Graylog, que es ideal para registrar mensajes de aplicaciones de software.
+
+En el siguiente ejemplo se configuran ambos controladores agregando la configuración a `.magento.env.yaml` archivo. Para el nivel mínimo de registro (`min_level`) valores, consulte [Niveles de registro](#log-levels).
+
+```yaml
+log:
+  syslog:
+    ident: "<syslog-ident>"
+    facility: 8 # https://php.net/manual/en/network.constants.php
+    min_level: "info"
+    logopts: <syslog-logopts>
+
+  syslog_udp:
+    host: "<syslog-host>"
+    port: <syslog-port>
+    facility: 8  # https://php.net/manual/en/network.constants.php
+    ident: "<syslog-ident>"
+    min_level: "info"
+
+  gelf:
+    min_level: "info"
+    use_default_formatter: true
+    additional: # Some additional information for each log message
+      project: "<some-project-id>"
+      app_id: "<some-app-id>"
+    transport:
+      http:
+        host: "<http-host>"
+        port: <http-port>
+        path: "<http-path>"
+        connection_timeout: 60
+      tcp:
+        host: "<tcp-host>"
+        port: <tcp-port>
+        connection_timeout: 60
+      udp:
+        host: "<udp-host>"
+        port: <udp-port>
+        chunk_size: 1024
+```
+
+## Niveles de registro
+
+Los niveles de registro determinan el nivel de detalle de los mensajes de notificación. Las siguientes categorías de nivel de registro incluyen todos los niveles de registro por debajo de él. Por ejemplo, una `debug` nivel incluye el registro de todos los niveles, mientras que un `alert` nivel solo muestra alertas y emergencias.
+
+- **depurar**: información de depuración detallada
+- **información**: eventos interesantes, como un inicio de sesión de usuario o un registro SQL
+- **aviso**—eventos normales, pero significativos
+- **advertencia**: ocurrencias excepcionales que no son errores, como el uso de una API obsoleta o el uso deficiente de una API
+- **error**: errores en tiempo de ejecución que no requieren una acción inmediata
+- **crítico**: condiciones críticas, como un componente de aplicación no disponible o una excepción inesperada
+- **alerta**—acción inmediata necesaria (como un sitio web inactivo o una base de datos no disponible) que déclencheur una alerta SMS
+- **urgencia**—system no se puede utilizar
