@@ -2,11 +2,11 @@
 title: Parches de nube para Commerce
 description: Consulte la lista de las mejoras más recientes del paquete Parches en la nube.
 recommendations: noDisplay, catalog
-last-substantial-update: 2024-01-16T00:00:00Z
+last-substantial-update: 2024-04-08T00:00:00Z
 exl-id: ae6b511b-a37d-4776-9a5e-ad7d9f9f6611
-source-git-commit: 1e06545340cb63df483d1db5b2a890499e99e6d3
+source-git-commit: d5ab7c4f1d2edbd85eab5a4ca098b3d156e562e5
 workflow-type: tm+mt
-source-wordcount: '2175'
+source-wordcount: '2187'
 ht-degree: 0%
 
 ---
@@ -29,7 +29,13 @@ El `magento/magento-cloud-patches` El paquete utiliza la siguiente secuencia de 
 
 <!--Add release notes below-->
 
-## Versión 1.0.25 {#latest}
+## Versión 1.0.26 {#latest}
+
+Fecha de publicación: 8 de abril de 2024
+
+- ![nuevo icono](../../assets/new.svg) **PHP** — Añadido soporte para PHP 8.3.
+
+## Versión 1.0.25
 
 Fecha de la versión: 16 de enero de 2024
 
