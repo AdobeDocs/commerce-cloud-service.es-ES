@@ -3,9 +3,9 @@ title: Configuración de PHP
 description: Obtenga información acerca de la configuración óptima de PHP para la configuración de aplicaciones de Commerce en la infraestructura en la nube.
 feature: Cloud, Configuration, Extensions
 exl-id: b4180265-f7a1-48e4-8c23-27835253e171
-source-git-commit: 9b3772cf640ebc56063434e1aa8acb1ec51dc63c
+source-git-commit: 94c1e16a07567471d446478e3bd2a33977247ef3
 workflow-type: tm+mt
-source-wordcount: '553'
+source-wordcount: '536'
 ht-degree: 0%
 
 ---
@@ -110,9 +110,7 @@ Para obtener más información sobre una extensión PHP específica, consulte la
 
 La siguiente tabla muestra las extensiones PHP compatibles al implementar Adobe Commerce en la plataforma Cloud.
 
-| Extensiones predeterminadas | Extensiones instaladas<br>que no se puede desinstalar | Extensiones que se pueden instalar<br>y desinstale según sea necesario |
-| ------------------ | --------------------- | --------------------- |
-| `bcmath`<br>`bz2`<br>`calendar`<br>`exif`<br>`gd`<br>`gettext`<br> `intl`<br> `mysqli`<br> `openswoole`<br> `pcntl`<br> `pdo_mysql`<br> `soap`<br> `sockets`<br>  `sysvmsg`<br> `sysvsem`<br> `sysvshm`<br> `opcache`<br> `zip` | `ctype`<br> `curl`<br>`date`<br> `dom`<br> `fileinfo`<br> `filter`<br> `ftp`<br> `hash`<br> `iconv`<br> `json`<br> `mbstring`<br> `mysqlnd`<br> `openssl`<br> `pcre`<br> `pdo`<br> `pdo_sqlite`<br> `phar`<br>`posix`<br> `readline`<br> `session`<br> `sqlite3`<br> `tokenizer`<br> `xml`<br> `xmlreader`<br> `xmlwriter`<br> | `geoip`<br>`gmp`<br> `igbinary`<br> `imagick`<br> `imap`<br> `ioncube` <br>`ldap`<br> `mailparse`<br> `mcrypt`<br> `msgpack`<br> `mysqli`<br> `oauth`<br> `pdo_mysql`<br> `propro`<br> `pspell`<br> `raphf`<br> `recode`<br> `redis`<br> `shmop` `sockets`<br> `sodium`<br> `ssh2`<br>`tidy`<br> `xdebug`<br> `xmlrpc`<br> `xsl`<br> `yaml` |
+{{$include /help/_includes/templated/php-extensions-cloud.md}}
 
 Los requisitos del módulo PHP están vinculados a la versión de Adobe Commerce. Consulte [Requisitos de PHP](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/php-settings.html).
 

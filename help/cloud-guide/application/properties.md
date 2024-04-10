@@ -3,7 +3,7 @@ title: Propiedades
 description: Utilice la lista de propiedades como referencia al configurar la variable [!DNL Commerce] aplicación para crear e implementar en la infraestructura de la nube.
 feature: Cloud, Configuration, Build, Deploy, Roles/Permissions, Storage
 exl-id: 58a86136-a9f9-4519-af27-2f8fa4018038
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: 99272d08a11f850a79e8e24857b7072d1946f374
 workflow-type: tm+mt
 source-wordcount: '797'
 ht-degree: 0%
@@ -26,7 +26,7 @@ El `.magento.app.yaml` utiliza propiedades para administrar la compatibilidad de
 | [`name`](#name) | Definición del nombre de la aplicación | `mymagento` | Sí |
 | [`relationships`](#relationships) | Servicios de mapa | Servicios:<ul><li>`database: "mysql:mysql"`</li><li>`redis: "redis:redis"`</li><li>`opensearch: "opensearch:opensearch"`</li></ul> | No |
 | [`runtime`](#runtime) | La propiedad Runtime incluye extensiones que requiere el [!DNL Commerce] aplicación. | Extensiones:<ul><li>`xsl`</li><li>`newrelic`</li><li>`sodium`</li></ul> | Sí |
-| [`type`](#type-and-build) | Establecer la imagen del contenedor base | `php:8.1` | Sí |
+| [`type`](#type-and-build) | Establecer la imagen del contenedor base | `php:8.3` | Sí |
 | [`variables`](variables-property.md) | Aplicar una variable de entorno para una versión específica de Commerce | — | No |
 | [`web`](web-property.md) | Gestión de solicitudes externas | — | Sí |
 | [`workers`](workers-property.md) | Gestión de solicitudes externas | — | Sí, si no se utiliza la propiedad web |
@@ -55,13 +55,13 @@ El `build` determina qué sucede de forma predeterminada al crear el proyecto. E
 
 ```yaml
 # The toolstack used to build the application.
-type: php:8.1
+type: php:8.3
 build:
     flavor: none
 
 dependencies:
     php:
-        composer/composer: '2.2.4'
+        composer/composer: '2.7.2'
 ```
 
 ### Instalación y uso de Composer 2

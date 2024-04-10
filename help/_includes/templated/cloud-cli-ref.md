@@ -1,7 +1,7 @@
 ---
-source-git-commit: c160be020d855983eaf7a06d04cee6e27819b2a0
+source-git-commit: 99272d08a11f850a79e8e24857b7072d1946f374
 workflow-type: tm+mt
-source-wordcount: '21467'
+source-wordcount: '21442'
 ht-degree: 0%
 
 ---
@@ -6138,7 +6138,7 @@ No haga ninguna pregunta interactiva; acepte los valores predeterminados. Equiva
 
 ## `metrics:all`
 
-\&lt;fg white=&quot;&quot; bg=&quot;red&quot;> BETA \&lt;/> Mostrar las métricas de CPU, disco y memoria de un entorno
+Mostrar las métricas de CPU, disco y memoria de un entorno
 
 ```bash
 magento-cloud metrics [-B|--bytes] [-r|--range RANGE] [-i|--interval INTERVAL] [--to TO] [-1|--latest] [-s|--service SERVICE] [--type TYPE] [-p|--project PROJECT] [-e|--environment ENVIRONMENT] [--format FORMAT] [-c|--columns COLUMNS] [--no-header] [--date-fmt DATE-FMT]
@@ -6268,7 +6268,7 @@ No haga ninguna pregunta interactiva; acepte los valores predeterminados. Equiva
 
 ## `metrics:cpu`
 
-\&lt;fg white=&quot;&quot; bg=&quot;red&quot;> BETA \&lt;/> Mostrar el uso de CPU de un entorno
+Mostrar el uso de CPU de un entorno
 
 ```bash
 magento-cloud cpu [-r|--range RANGE] [-i|--interval INTERVAL] [--to TO] [-1|--latest] [-s|--service SERVICE] [--type TYPE] [-p|--project PROJECT] [-e|--environment ENVIRONMENT] [--format FORMAT] [-c|--columns COLUMNS] [--no-header] [--date-fmt DATE-FMT]
@@ -6528,7 +6528,7 @@ No haga ninguna pregunta interactiva; acepte los valores predeterminados. Equiva
 
 ## `metrics:memory`
 
-\&lt;fg white=&quot;&quot; bg=&quot;red&quot;> BETA \&lt;/> Mostrar el uso de memoria de un entorno
+Mostrar el uso de memoria de un entorno
 
 ```bash
 magento-cloud mem [-B|--bytes] [-r|--range RANGE] [-i|--interval INTERVAL] [--to TO] [-1|--latest] [-s|--service SERVICE] [--type TYPE] [-p|--project PROJECT] [-e|--environment ENVIRONMENT] [--format FORMAT] [-c|--columns COLUMNS] [--no-header] [--date-fmt DATE-FMT]
@@ -7136,7 +7136,7 @@ No haga ninguna pregunta interactiva; acepte los valores predeterminados. Equiva
 
 ## `operation:list`
 
-\&lt;fg white=&quot;&quot; bg=&quot;red&quot;> BETA \&lt;/> Enumerar las operaciones de tiempo de ejecución en un entorno
+Enumerar operaciones de tiempo de ejecución en un entorno
 
 ```bash
 magento-cloud ops [--full] [-p|--project PROJECT] [-e|--environment ENVIRONMENT] [-A|--app APP] [--worker WORKER] [--format FORMAT] [-c|--columns COLUMNS] [--no-header]
@@ -7232,7 +7232,7 @@ No haga ninguna pregunta interactiva; acepte los valores predeterminados. Equiva
 
 ## `operation:run`
 
-\&lt;fg white=&quot;&quot; bg=&quot;red&quot;> BETA \&lt;/> Ejecute una operación en el entorno
+Ejecute una operación en el entorno
 
 ```bash
 magento-cloud operation:run [-p|--project PROJECT] [-e|--environment ENVIRONMENT] [-A|--app APP] [--worker WORKER] [-W|--no-wait] [--wait] [--] [<operation>]

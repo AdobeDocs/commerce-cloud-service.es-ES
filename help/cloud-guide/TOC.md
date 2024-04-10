@@ -3,9 +3,9 @@ user-guide-title: Guía de Commerce en la infraestructura en la nube
 user-guide-description: Aprenda a administrar la aplicación de Adobe Commerce en la infraestructura en la nube.
 product: magento
 feature: Cloud
-source-git-commit: 615a6525597c62cb6f151cc26ea2bdded3229350
+source-git-commit: ebd434e488b666d34df9562825a612b33495e44d
 workflow-type: tm+mt
-source-wordcount: '356'
+source-wordcount: '353'
 ht-degree: 7%
 
 ---
@@ -31,7 +31,6 @@ ht-degree: 7%
    + [Paquete Cloud Docker](release-notes/cloud-docker.md)
    + [Componentes de nube](release-notes/cloud-components.md)
    + [Paquetes de nube](release-notes/cloud-packages.md)
-   + [Paquetes de nube (beta)](release-notes/cloud-packages-beta.md)
    + [Cambios incompatibles con versiones anteriores](release-notes/backward-incompatible-changes.md)
    + [Archivo de notas de versión](release-notes/cloud-release-archive.md)
 + Proyecto de nube {#project}
