@@ -3,9 +3,9 @@ title: Administración de backup
 description: Obtenga información sobre cómo crear y restaurar manualmente una copia de seguridad para su proyecto de Adobe Commerce en la nube.
 feature: Cloud, Paas, Snapshots, Storage
 exl-id: 1cb00db7-2375-4761-9c07-1e20a74859e0
-source-git-commit: 1d8ffabb9f903e89495d11c973a9f0a5a8dd1d43
+source-git-commit: 069cbc233492d22932e8dce5bf0426dce8459727
 workflow-type: tm+mt
-source-wordcount: '682'
+source-wordcount: '685'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ Puede realizar una copia de seguridad manual de los entornos de inicio activos e
 
 Una copia de seguridad o _instantánea_ es una copia de seguridad completa de los datos del entorno que incluye todos los datos persistentes de los servicios en ejecución (base de datos MySQL) y cualquier archivo almacenado en los volúmenes montados (var, pub/media, app/etc). La instantánea sí _no_ incluir código, ya que el código ya se almacena en el repositorio basado en Git. No se puede descargar una copia de una instantánea.
 
-La función de copia de seguridad sí **no** se aplican a los entornos de Pro. De forma predeterminada, los entornos de ensayo y producción de Pro reciben copias de seguridad regulares para la recuperación ante desastres. Consulte [Pro Backup y recuperación ante desastres](../architecture/pro-architecture.md#backup-and-disaster-recovery). A diferencia de los backups automáticos en los entornos de ensayo y producción de Pro, los backups son **no** automático. Lo es _su_ responsabilidad de crear manualmente una copia de seguridad o configurar un trabajo cron para crear periódicamente una copia de seguridad de los entornos de integración de Starter o Pro.
+La función de copia de seguridad/instantánea sí **no** se aplican a los entornos de ensayo y producción de Pro, que reciben copias de seguridad regulares para fines de recuperación ante desastres de forma predeterminada. Consulte [Pro Backup y recuperación ante desastres](../architecture/pro-architecture.md#backup-and-disaster-recovery) para obtener más información. A diferencia de los backups automáticos en los entornos de ensayo y producción de Pro, los backups son **no** automático. Lo es _su_ responsabilidad de crear manualmente una copia de seguridad o configurar un trabajo cron para crear periódicamente una copia de seguridad de los entornos de integración de Starter o Pro.
 
 ## Creación de una copia de seguridad manual
 
