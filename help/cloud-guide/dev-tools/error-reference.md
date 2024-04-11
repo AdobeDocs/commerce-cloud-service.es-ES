@@ -4,9 +4,9 @@ description: Consulte la lista de códigos de error y mensajes que pueden produc
 recommendations: noDisplay
 role: Developer
 exl-id: d8cc8d49-32da-43cf-a105-aa56b5334000
-source-git-commit: f8e35ecff4bcafda874a87642348e2d2bff5247b
+source-git-commit: 9dda6fe7f6a9d6064436820a3c8426ec982b5230
 workflow-type: tm+mt
-source-wordcount: '2719'
+source-wordcount: '2763'
 ht-degree: 4%
 
 ---
@@ -36,29 +36,29 @@ Los mensajes de error se clasifican por una de las etapas de implementación: ge
 
 ## Errores críticos
 
-Los errores críticos indican un problema con la configuración del proyecto de Adobe Commerce en la infraestructura en la nube que provoca un error de implementación, por ejemplo, una configuración incorrecta, no admitida o faltante para la configuración requerida. Antes de poder implementar, debe actualizar la configuración para resolver estos errores.
+Los errores críticos indican un problema con la configuración del proyecto de Commerce en la infraestructura en la nube que provoca un error de implementación, por ejemplo, una configuración incorrecta, no admitida o faltante para la configuración requerida. Antes de poder implementar, debe actualizar la configuración para resolver estos errores.
 
 ### Fase de compilación
 
 | Código de error | Paso Generar | Descripción del error (título) | Acción sugerida |
 | - | - | - | - |
 | 2 |  | No se puede escribir en `./app/etc/env.php` archivo | El script de implementación no puede realizar los cambios necesarios en `/app/etc/env.php` archivo. Compruebe los permisos del sistema de archivos. |
-| 3 |  | La configuración no está definida en `schema.yaml` archivo | La configuración no está definida en `./vendor/magento/ece-tools/config/schema.yaml` archivo. Compruebe que el nombre de la variable de configuración es correcto y que está definido. |
+| 3 |  | La configuración no está definida en `schema.yaml` archivo | La configuración no está definida en `./vendor/magento/ece-tools/config/schema.yaml` archivo. Compruebe que el nombre de la variable de configuración sea correcto y esté definido. |
 | 4 |  | Error al analizar el `.magento.env.yaml` archivo | El `./.magento.env.yaml` formato de archivo no válido. Utilice un analizador de YAML para comprobar la sintaxis y corregir los errores. |
 | 5 |  | No se puede leer el `.magento.env.yaml` archivo | No se puede leer el `./.magento.env.yaml` archivo. Compruebe los permisos del archivo. |
 | 6 |  | No se puede leer el `.schema.yaml` archivo | No se puede leer el `./vendor/magento/ece-tools/config/magento.env.yaml` archivo. Compruebe los permisos de archivos y vuelva a implementar (`magento-cloud environment:redeploy`). |
 | 7 | refresh-modules | No se puede escribir en `./app/etc/config.php` archivo | El script de implementación no puede realizar los cambios necesarios en `/app/etc/config.php` archivo. Compruebe los permisos del sistema de archivos. |
 | 8 | validate-config | No se puede leer el `composer.json` archivo | No se puede leer el `./composer.json` archivo. Compruebe los permisos del archivo. |
-| 9 | validate-config | Falta la sección de carga automática necesaria de Composer.json | Requerido `autoload` falta en la sección `composer.json` archivo. Comparar la sección de carga automática con la `composer.json` en la plantilla de Cloud y agregue la configuración que falta. |
-| 10 | validate-config | El archivo `.magento.env.yaml` contiene una opción que no está declarada en el esquema o una opción configurada con un valor o fase no válidos | El `./.magento.env.yaml` el archivo contiene una configuración no válida. Consulte el registro de errores para obtener información detallada. |
+| 9 | validate-config | El `composer.json` falta la sección de carga automática necesaria del archivo | Requerido `autoload` falta en la sección `composer.json` archivo. Comparar la sección de carga automática con la `composer.json` en la plantilla de Cloud y agregue la configuración que falta. |
+| 10 | validate-config | El `.magento.env.yaml` el archivo contiene una opción que no está declarada en el esquema o una opción configurada con un valor o fase no válidos | El `./.magento.env.yaml` el archivo contiene una configuración no válida. Consulte el registro de errores para obtener información detallada. |
 | 11 | refresh-modules | Error del comando: `/bin/magento module:enable --all` | Intente ejecutar `composer update` localmente. A continuación, confirme y publique el `composer.lock` archivo. Compruebe también la `cloud.log` para obtener más información. Para obtener resultados de comandos más detallados, agregue la variable `VERBOSE_COMMANDS: '-vvv'` a la opción `.magento.env.yaml` archivo. |
 | 12 | apply-patch | Error al aplicar el parche |  |
 | 13 | set-report-dir-nesting-level | No se puede escribir en el archivo `/pub/errors/local.xml` |  |
 | 14 | copy-sample-data | Error al copiar los archivos de datos de ejemplo |  |
 | 15 | compile-id | Error del comando: `/bin/magento setup:di:compile` | Compruebe la `cloud.log` para obtener más información. Añadir `VERBOSE_COMMANDS: '-vvv'` en `.magento.env.yaml` para obtener resultados de comandos más detallados. |
 | 16 | dump-autoload | Error del comando: `composer dump-autoload` | El `composer dump-autoload` error del comando. Compruebe la `cloud.log` para obtener más información. |
-| 17 | empacador de carreras | El comando que se va a ejecutar `Baler` Error en el agrupamiento para JavaScript | Compruebe la `SCD_USE_BALER` variable de entorno para comprobar que el módulo Baler está configurado y habilitado para el agrupamiento JS. Si no necesita el módulo Baler, establezca `SCD_USE_BALER: false`. |
-| 18 | compress-static-content | No se encontró la utilidad requerida (timeout, bash) |  |
+| 17 | empacador de carreras | El comando que se va a ejecutar `Baler` error al empaquetar para Javascript | Compruebe la `SCD_USE_BALER` variable de entorno para comprobar que el módulo Baler está configurado y habilitado para el agrupamiento JS. Si no necesita el módulo Baler, establezca `SCD_USE_BALER: false`. |
+| 18 | compress-static-content | No se ha encontrado la utilidad requerida (timeout, bash) |  |
 | 19 | deploy-static-content | Comando `/bin/magento setup:static-content:deploy` error | Compruebe la `cloud.log` para obtener más información. Para obtener resultados de comandos más detallados, agregue la variable `VERBOSE_COMMANDS: '-vvv'` a la opción `.magento.env.yaml` archivo. |
 | 20 | compress-static-content | Error de compresión de contenido estático | Compruebe la `cloud.log` para obtener más información. |
 | 21 | backup-data: static-content | Error al copiar contenido estático en `init` directorio | Compruebe la `cloud.log` para obtener más información. |
@@ -66,7 +66,7 @@ Los errores críticos indican un problema con la configuración del proyecto de 
 | 23 |  | No se puede crear un objeto de registro |  |
 | 24 | backup-data: static-content | Error al limpiar el `./init/pub/static/` directorio | Error al limpiar `./init/pub/static` carpeta. Compruebe los permisos del sistema de archivos. |
 | 25 |  | No se encuentra el paquete Composer | Si ha instalado la versión de la aplicación de Adobe Commerce directamente desde el repositorio de GitHub, compruebe que la variable `DEPLOYED_MAGENTO_VERSION_FROM_GIT` variable de entorno está configurada. |
-| 26 | validate-config | Elimine la configuración del módulo Braintree del Magento que ya no es compatible con Adobe Commerce y Magento Open Source 2.4 y versiones posteriores. | Commerce 2.4.0 y versiones posteriores ya no admiten el módulo Braintree. Elimine la variable CONFIG__STORES__DEFAULT__PAYMENT__BRAINTREE__CHANNEL de la sección de variables de `.magento.app.yaml` archivo. Para la compatibilidad con pagos de Braintree, utilice una extensión oficial del Commerce Marketplace en su lugar. |
+| 26 | validate-config | Elimine la configuración del módulo Braintree del Magento que ya no es compatible con Adobe Commerce y Magento Open Source 2.4 y versiones posteriores. | La compatibilidad con el módulo Braintree ya no se incluye en Magento 2.4.0 y versiones posteriores. Elimine la variable CONFIG__STORES__DEFAULT__PAYMENT__BRAINTREE__CHANNEL de la sección de variables de `.magento.app.yaml` archivo. Para la compatibilidad con pagos de Braintree, utilice una extensión oficial del Commerce Marketplace en su lugar. |
 
 ### Implementar fase
 
@@ -78,7 +78,7 @@ Los errores críticos indican un problema con la configuración del proyecto de 
 | 104 |  | Error al analizar el `.magento.env.yaml` archivo | La configuración no está definida en `./vendor/magento/ece-tools/config/schema.yaml` archivo. Compruebe que el nombre de la variable de configuración es correcto y que está definido. |
 | 105 |  | No se puede leer el `.magento.env.yaml` archivo | No se puede leer el `./.magento.env.yaml` archivo. Compruebe los permisos del archivo. |
 | 106 |  | No se puede leer el `.schema.yaml` archivo |  |
-| 107 | implementación previa: clean-redis-cache | Error al limpiar la caché de Redis | Error al limpiar la caché de Redis. Compruebe que la configuración de la caché de Redis sea correcta y que el servicio Redis esté disponible. Consulte [Configurar el servicio Redis](../services/redis.md). |
+| 107 | implementación previa: clean-redis-cache | Error al limpiar la caché de Redis | Error al limpiar la caché de Redis. Compruebe que la configuración de la caché de Redis sea correcta y que el servicio Redis esté disponible. Consulte [Configurar el servicio Redis](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/service/redis.html). |
 | 108 | implementación previa: establecer modo de producción | Comando `/bin/magento maintenance:enable` error | Compruebe la `cloud.log` para obtener más información. Para obtener resultados de comandos más detallados, agregue la variable `VERBOSE_COMMANDS: '-vvv'` a la opción `.magento.env.yaml` archivo. |
 | 109 | validate-config | Configuración de base de datos incorrecta | Compruebe que la variable `DATABASE_CONFIGURATION` La variable de entorno está configurada correctamente. |
 | 110 | validate-config | Configuración de sesión incorrecta | Compruebe que la variable `SESSION_CONFIGURATION` La variable de entorno está configurada correctamente. La configuración debe contener al menos el `save` parámetro. |
@@ -89,7 +89,7 @@ Los errores críticos indican un problema con la configuración del proyecto de 
 | 115 |  | Error de ejecución de consulta de base de datos |  |
 | 116 | install-update: setup | Comando `/bin/magento setup:install` error | Compruebe la `cloud.log` y `install_upgrade.log` para obtener más información. Para obtener resultados de comandos más detallados, agregue la variable `VERBOSE_COMMANDS: '-vvv'` a la opción `.magento.env.yaml` archivo. |
 | 117 | install-update: config-import | Comando `app:config:import` error | Compruebe la `cloud.log` para obtener más información. Para obtener resultados de comandos más detallados, agregue la variable `VERBOSE_COMMANDS: '-vvv'` a la opción `.magento.env.yaml` archivo. |
-| 118 |  | No se encontró la utilidad requerida (timeout, bash) |  |
+| 118 |  | No se ha encontrado la utilidad requerida (timeout, bash) |  |
 | 119 | install-update: deploy-static-content | Comando `/bin/magento setup:static-content:deploy` error | Compruebe la `cloud.log` para obtener más información. Para obtener resultados de comandos más detallados, agregue la variable `VERBOSE_COMMANDS: '-vvv'` a la opción `.magento.env.yaml` archivo. |
 | 120 | compress-static-content | Error de compresión de contenido estático | Compruebe la `cloud.log` para obtener más información. |
 | 121 | deploy-static-content:generate | No se puede actualizar la versión implementada | No se puede actualizar el `./pub/static/deployed_version.txt` archivo. Compruebe los permisos del sistema de archivos. |
@@ -102,15 +102,15 @@ Los errores críticos indican un problema con la configuración del proyecto de 
 | 128 | disable-maintenance-mode | Comando `/bin/magento maintenance:disable` error | Compruebe la `cloud.log` para obtener más información. Añadir `VERBOSE_COMMANDS: '-vvv'` en `.magento.env.yaml` para obtener resultados de comandos más detallados. |
 | 129 | install-update: reset-password | No se puede leer la plantilla para restablecer la contraseña |  |
 | 130 | install-update: cache_type | Error del comando: `php ./bin/magento cache:enable` | Comando `php ./bin/magento cache:enable` solo se ejecuta cuando Adobe Commerce está instalado, pero `./app/etc/env.php` el archivo estaba ausente o vacío al principio de la implementación. Compruebe la `cloud.log` para obtener más información. Añadir `VERBOSE_COMMANDS: '-vvv'` en `.magento.env.yaml` para obtener resultados de comandos más detallados. |
-| 131 | install-update | El `crypt/key` el valor clave no existe en `./app/etc/env.php` para el `CRYPT_KEY` variable de entorno de nube | Este error se produce si la variable `./app/etc/env.php` no está presente cuando comienza la implementación de Adobe Commerce o si la variable `crypt/key` el valor no está definido. Si migró la base de datos desde otro entorno, recupere el valor de la clave de cifrado de ese entorno. A continuación, añada el valor a [CRYPT_KEY](../environment/variables-deploy.md#crypt_key) variable de entorno de nube en el entorno actual. Consulte [Añadir la clave de cifrado del Magento](../development/authentication-keys.md). Si ha eliminado accidentalmente el `./app/etc/env.php` utilice el siguiente comando para restaurarlo a partir de los archivos de copia de seguridad creados a partir de una implementación anterior: `./vendor/bin/ece-tools backup:restore` Comando CLI&quot;. |
+| 131 | install-update | El `crypt/key`  el valor clave no existe en `./app/etc/env.php` para el `CRYPT_KEY` variable de entorno de nube | Este error se produce si la variable `./app/etc/env.php` no está presente cuando comienza la implementación de Adobe Commerce o si la variable `crypt/key` el valor no está definido. Si migró la base de datos desde otro entorno, recupere el valor de la clave de cifrado de ese entorno. A continuación, añada el valor a [CRYPT_KEY](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/env/stage/variables-deploy.html#crypt_key) variable de entorno de nube en el entorno actual. Consulte [Clave de cifrado de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/develop/overview.html#gather-credentials). Si ha eliminado accidentalmente el `./app/etc/env.php` utilice el siguiente comando para restaurarlo a partir de los archivos de copia de seguridad creados a partir de una implementación anterior: `./vendor/bin/ece-tools backup:restore` Comando CLI .&quot; |
 | 132 |  | No se puede conectar con el servicio de Elasticsearch | Compruebe si hay credenciales de Elasticsearch válidas y compruebe que el servicio se está ejecutando |
 | 137 |  | No se puede conectar al servicio OpenSearch | Compruebe si hay credenciales de OpenSearch válidas y que el servicio se esté ejecutando |
 | 133 | validate-config | Elimine la configuración del módulo Braintree del Magento que ya no sea compatible con Adobe Commerce o con Magento Open Source 2.4 y versiones posteriores. | La compatibilidad con el módulo Braintree ya no se incluye con Adobe Commerce o Magento Open Source 2.4.0 y posteriores. Elimine la variable CONFIG__STORES__DEFAULT__PAYMENT__BRAINTREE__CHANNEL de la sección de variables de `.magento.app.yaml` archivo. Para la asistencia del Braintree, utilice una extensión oficial de pagos de Braintree del Commerce Marketplace. |
 | 134 | validate-config | Adobe Commerce y Magento Open Source 2.4.0 requieren que esté instalado el servicio de Elasticsearch | Instalar servicio de Elasticsearch |
 | 138 | validate-config | Adobe Commerce y Magento Open Source 2.4.4 requieren que esté instalado el servicio OpenSearch o Elasticsearch | Instalar el servicio OpenSearch |
 | 135 | validate-config | El motor de búsqueda debe establecerse en Elasticsearch para Adobe Commerce y Magento Open Source >= 2.4.0 | Compruebe la variable SEARCH_CONFIGURATION para `engine` opción. Si está configurada, elimine la opción o establezca el valor en &quot;elasticsearch&quot;. |
-| 136 | validate-config | La base de datos dividida se eliminó a partir de Adobe Commerce y Magento Open Source 2.5.0. | Si utiliza una base de datos dividida, debe revertirla a una única base de datos o migrarla a ella, o utilizar un método alternativo. |
-| 139 | validate-config | Motor de búsqueda incorrecto | Esta versión de Adobe Commerce o Magento Open Source no admite OpenSearch. Debe utilizar las versiones 2.3.7-p3, 2.4.3-p2 o superior |
+| 136 | validate-config | La base de datos dividida se eliminó a partir de Adobe Commerce y Magento Open Source 2.5.0. | Si utiliza una base de datos dividida, debe revertirla a una sola base de datos o migrarla a ella, o utilizar un método alternativo. |
+| 139 | validate-config | Motor de búsqueda incorrecto | Esta versión de Adobe Commerce o Magento Open Source no admite OpenSearch. Debe utilizar las versiones 2.3.7-p3, 2.4.3-p2 o posterior |
 
 ### Fase posterior a la implementación
 
@@ -122,7 +122,7 @@ Los errores críticos indican un problema con la configuración del proyecto de 
 | 204 |  | Error al analizar el `.magento.env.yaml` archivo | El `./.magento.env.yaml` formato de archivo no válido. Utilice un analizador de YAML para comprobar la sintaxis y corregir los errores. |
 | 205 |  | No se puede leer el `.magento.env.yaml` archivo | Compruebe los permisos del archivo. |
 | 206 |  | No se puede leer el `.schema.yaml` archivo |  |
-| 207 | calentamiento | Error al calentar algunas páginas |  |
+| 207 | calentamiento | Error al cargar previamente algunas páginas de calentamiento |  |
 | 208 | tiempo hasta el primer byte | Error al probar el tiempo hasta el primer byte (TTFB) |  |
 | 227 | clean-cache | Comando `/bin/magento cache:flush` error | Compruebe la `cloud.log` para obtener más información. Añadir `VERBOSE_COMMANDS: '-vvv'` en `.magento.env.yaml` para obtener resultados de comandos más detallados. |
 
@@ -136,6 +136,8 @@ Los errores críticos indican un problema con la configuración del proyecto de 
 | 246 |  | No se puede leer el `.schema.yaml` archivo |  |
 | 247 |  | No se puede generar un módulo para eventos | Compruebe la `cloud.log` para obtener más información. |
 | 248 |  | No se puede habilitar un módulo para eventos | Compruebe la `cloud.log` para obtener más información. |
+| 249 |  | Error al generar el módulo AdobeCommerceWebhookPlugins | Compruebe la `cloud.log` para obtener más información. |
+| 250 |  | Error al habilitar el módulo AdobeCommerceWebhookPlugins | Compruebe la `cloud.log` para obtener más información. |
 
 ## Errores de advertencia
 
@@ -148,7 +150,7 @@ Los errores de advertencia indican un problema con la configuración del proyect
 | 1001 | validate-config | El archivo app/etc/config.php no existe |  |
 | 1002 | validate-config | El .El archivo /build_options.ini ya no es compatible |  |
 | 1003 | validate-config | Falta la sección de módulos en el archivo de configuración compartido |  |
-| 1004 | validate-config | La configuración no es compatible con esta versión de Commerce |  |
+| 1004 | validate-config | La configuración no es compatible con esta versión del Magento |  |
 | 1005 | validate-config | Opciones de SCD ignoradas |  |
 | 1006 | validate-config | El estado configurado no es ideal |  |
 | 1007 | empacador de carreras | No se puede utilizar el paquete JS de Baler |  |
@@ -157,7 +159,7 @@ Los errores de advertencia indican un problema con la configuración del proyect
 
 | Código de error | Paso Implementar | Descripción del error (título) | Acción sugerida |
 | - | - | - | - |
-| 2001 | implementación previa:caché | La caché está configurada para un servicio Redis que no está disponible. Se ignora la configuración. |  |
+| 2001 | implementación previa:caché | La caché está configurada para un servicio Redis que no está disponible. Se ignorará la configuración. |  |
 | 2002 | validate-config | El estado configurado no es ideal |  |
 | 2003 | validate-config | No se ha configurado el valor de nivel de anidamiento de directorio para los informes de errores |  |
 | 2004 | validate-config | Configuración no válida en .Archivo /pub/errors/local.xml. |  |
@@ -176,8 +178,8 @@ Los errores de advertencia indican un problema con la configuración del proyect
 | 2017 | validate-config | La configuración actual no es compatible con esta versión de Adobe Commerce |  |
 | 2018 | validate-config | Algunos servicios han superado el límite de vida |  |
 | 2019 | validate-config | La opción de configuración de búsqueda MySQL está obsoleta | Utilice el Elasticsearch en su lugar. |
-| 2029 | validate-config | La base de datos dividida estaba en desuso en Adobe Commerce y Magento Open Source 2.4.2 y se eliminará en 2.5. | Si utiliza una base de datos dividida, debe empezar a planificar la reversión o migración a una única base de datos, o bien utilizar un método alternativo. |
-| 2020 | install-update | La instalación de Adobe Commerce se ha completado, pero el `app/etc/env.php` falta el archivo de configuración o está vacío. | Los datos necesarios se restauran desde las configuraciones de entorno y desde el archivo .magento.env.yaml. |
+| 2029 | validate-config | La base de datos dividida estaba en desuso en Adobe Commerce y Magento Open Source 2.4.2 y se eliminará en 2.5. | Si utiliza una base de datos dividida, debe empezar a planificar la reversión a una base de datos única o la migración a ella, o bien utilizar un método alternativo. |
+| 2020 | install-update | La instalación de Adobe Commerce se ha completado, pero el `app/etc/env.php` falta el archivo de configuración o está vacío. | Los datos necesarios se restaurarán desde las configuraciones de entorno y desde el archivo .magento.env.yaml. |
 | 2021 | install-update:conexión-db | Para bases de datos divididas que utilizan conexiones personalizadas |  |
 | 2022 | install-update:conexión-db | Ha cambiado a una configuración de base de datos que no es compatible con la conexión esclava. |  |
 | 2023 | install-update:split-db | Se omitirá la activación de una base de datos dividida. |  |
@@ -186,7 +188,7 @@ Los errores de advertencia indican un problema con la configuración del proyect
 | 2026 | implementación previa:restore-writable-dirs | No se pudieron restaurar algunos datos generados durante la fase de compilación en los directorios montados | Compruebe la `cloud.log` para obtener más información. |
 | 2027 | validate-config:image-mode-variable | No se admite el valor de modo para la variable de entorno MAGE_MODE | Elimine la variable de entorno MAGE_MODE o cambie su valor a &quot;producción&quot;. Adobe Commerce en la infraestructura en la nube solo admite el modo &quot;producción&quot;. |
 | 2028 | almacenamiento remoto | No se pudo habilitar el almacenamiento remoto. | Compruebe las credenciales de almacenamiento remoto. |
-| 2030 | validate-config | Los servicios de Elasticsearch y OpenSearch se instalan en el nivel de infraestructura. Adobe Commerce y Magento Open Source 2.4.4 y superiores utilizan OpenSearch de forma predeterminada | Considere la posibilidad de eliminar el servicio Elasticsearch u OpenSearch de la capa de infraestructura para optimizar el uso de los recursos. |
+| 2030 | validate-config | Los servicios de Elasticsearch y OpenSearch se instalan en el nivel de infraestructura. Adobe Commerce y Magento Open Source 2.4.4 y posteriores utilizan OpenSearch de forma predeterminada | Considere la posibilidad de eliminar el servicio Elasticsearch u OpenSearch de la capa de infraestructura para optimizar el uso de los recursos. |
 
 ### Fase posterior a la implementación
 
