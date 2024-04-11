@@ -6,9 +6,9 @@ feature: Cloud, Roles/Permissions
 last-substantial-update: 2023-06-27T00:00:00Z
 topic: Security
 exl-id: 3357a3ea-bf86-4a65-95d1-6b24f1152248
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: b85a163ff62f8a63430dff7c96b5cf391cf38d79
 workflow-type: tm+mt
-source-wordcount: '1441'
+source-wordcount: '1454'
 ht-degree: 0%
 
 ---
@@ -161,7 +161,11 @@ Puede usar el complemento [[!DNL Cloud Console]](../../get-started/cloud-console
 
 1. Clic **[!UICONTROL Add User]**.
 
-1. Después de agregar usuarios, vuelva a implementar todos los entornos para aplicar los cambios. Añadir un usuario no almacena en déclencheur una implementación automáticamente. La reimplementación es un paso importante para garantizar que el usuario pueda acceder a un entorno mediante SSH.
+   >[!IMPORTANT]
+   >
+   >Añadir un usuario no almacena en déclencheur una implementación automáticamente.
+
+1. Después de agregar usuarios, vuelva a implementar todos los entornos para aplicar los cambios. Añadir un usuario no almacena en déclencheur una implementación automáticamente. La reimplementación es un paso importante para garantizar que el usuario puede acceder a un entorno mediante SSH o realizar tareas de administrador.
 
 Después de agregar el usuario, el Adobe de envía un correo electrónico a la dirección especificada con instrucciones para acceder al proyecto de infraestructura de Adobe Commerce en la nube.
 
