@@ -1,7 +1,7 @@
 ---
-source-git-commit: 78e19b0cb274caf3799882d1f5d8242225c936ad
+source-git-commit: 6d8c082d78259f8f7adb0fb7f11ff4fcdb234124
 workflow-type: tm+mt
-source-wordcount: '4098'
+source-wordcount: '4030'
 ht-degree: 0%
 
 ---
@@ -58,7 +58,7 @@ obsoleto
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -115,7 +115,7 @@ ece-tools build
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -185,7 +185,7 @@ Seguimiento del registro de depuración de finalización
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -264,7 +264,7 @@ Usar directorio alternativo para guardar el volcado
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -321,7 +321,7 @@ ece-tools deploy
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -400,7 +400,7 @@ Para generar la ayuda del comando raw
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -484,7 +484,7 @@ Para omitir la descripción de argumentos de comandos
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -541,7 +541,7 @@ ece-tools patch
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -598,7 +598,7 @@ ece-tools post-deploy
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -665,7 +665,7 @@ Escenario(s)
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -722,7 +722,7 @@ ece-tools backup:list
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -792,7 +792,7 @@ Una ruta de recuperación de archivos específica
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -849,7 +849,7 @@ ece-tools build:generate
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -906,7 +906,7 @@ ece-tools build:transfer
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -970,7 +970,7 @@ Configuración en formato JSON
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1034,7 +1034,7 @@ Configuración en formato JSON
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1091,7 +1091,7 @@ ece-tools cloud:config:validate
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1153,7 +1153,7 @@ ece-tools dump
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1210,7 +1210,7 @@ ece-tools cron:disable
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1267,7 +1267,7 @@ ece-tools cron:enable
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1324,7 +1324,7 @@ ece-tools cron:kill
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1388,7 +1388,7 @@ Código de trabajo Cron para desbloquear.
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1445,7 +1445,7 @@ ece-tools dev:generate:schema-error
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1502,7 +1502,7 @@ ece-tools dev:git:update-composer
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1568,7 +1568,7 @@ Variables de entorno para mostrar, posibles opciones: servicios, rutas, variable
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1638,7 +1638,7 @@ Se utiliza para obtener los resultados en formato JSON
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1695,7 +1695,7 @@ ece-tools module:refresh
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1752,7 +1752,7 @@ ece-tools schema:generate
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1809,7 +1809,7 @@ ece-tools wizard:ideal-state
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1866,7 +1866,7 @@ ece-tools wizard:master-slave
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1923,7 +1923,7 @@ ece-tools wizard:scd-on-build
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1980,7 +1980,7 @@ ece-tools wizard:scd-on-demand
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -2037,7 +2037,7 @@ ece-tools wizard:scd-on-deploy
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -2094,7 +2094,7 @@ ece-tools wizard:split-db-state
 
 ### `--help`, `-h`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para \&lt;info>lista\&lt;/info> mando
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
 
 - Predeterminado: `false`
 - No acepta un valor
