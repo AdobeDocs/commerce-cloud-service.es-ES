@@ -4,7 +4,7 @@ description: Obtenga información acerca de los entornos admitidos por la arquit
 feature: Cloud, Auto Scaling, Iaas, Paas, Storage
 topic: Architecture
 exl-id: d10d5760-44da-4ffe-b4b7-093406d8b702
-source-git-commit: 6807b572366d28fd54fbec89e7c119ec158b5e10
+source-git-commit: 95b033ba430cb5dc74fa654b9d519dfcd5b6d319
 workflow-type: tm+mt
 source-wordcount: '1472'
 ht-degree: 0%
@@ -195,8 +195,6 @@ RTO depende del tamaño del almacenamiento. Los volúmenes grandes de EBS tardan
 - Una base de datos de gran tamaño (más de 200 GB) puede tardar 5 horas
 - Una base de datos media (150 GB) puede tardar 2 horas y media
 - Una base de datos pequeña (60 GB) puede tardar 1 hora
-
-{{pro-backups}}
 
 ## Escalado de clúster Pro
 
