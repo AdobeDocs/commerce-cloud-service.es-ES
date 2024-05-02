@@ -2,9 +2,9 @@
 title: Servicio de correo electrónico SendGrid
 description: Obtenga información acerca del servicio de correo electrónico SendGrid para Adobe Commerce en la infraestructura en la nube y cómo puede probar la configuración de DNS.
 exl-id: 30d3c780-603d-4cde-ab65-44f73c04f34d
-source-git-commit: 7c22dc3b0e736043a3e176d2b7ae6c9dcbbf1eb5
+source-git-commit: 2b106edcaaacb63c0e785f094b7e1b755885abd0
 workflow-type: tm+mt
-source-wordcount: '1019'
+source-wordcount: '1090'
 ht-degree: 0%
 
 ---
@@ -27,13 +27,21 @@ El proxy SMTP SendGrid no está diseñado para utilizarse como servidor de corre
 
 ## Habilitar o deshabilitar correo electrónico
 
-De forma predeterminada, el correo electrónico saliente está habilitado en los entornos de Producción profesional y Ensayo. El [!UICONTROL Outgoing emails] puede aparecer desactivado en la configuración del entorno, independientemente del estado, hasta que configure el `enable_smtp` propiedad. Puede habilitar correos electrónicos salientes para otros entornos a fin de enviar correos electrónicos de autenticación de doble factor para los usuarios de proyectos en la nube. Consulte [Configuración de correos electrónicos para pruebas](outgoing-emails.md).
+Puede habilitar o deshabilitar los correos electrónicos salientes para cada entorno desde la consola de Cloud o desde la línea de comandos.
+
+De forma predeterminada, los correos electrónicos salientes están habilitados en los entornos de Pro Production y Staging. Sin embargo, [!UICONTROL Outgoing emails] puede aparecer desactivado en la configuración del entorno hasta que configure la variable `enable_smtp` a través de [línea de comandos](outgoing-emails.md#enable-emails-in-the-cli) o [Consola de nube](outgoing-emails.md#enable-emails-in-the-cloud-console). Puede habilitar correos electrónicos salientes para los entornos de integración y ensayo para enviar correos electrónicos de autenticación de doble factor o restablecer la contraseña para los usuarios del proyecto en la nube. Consulte [Configuración de correos electrónicos para pruebas](outgoing-emails.md).
+
+Si los correos electrónicos salientes deben desactivarse o volver a activarse en los entornos de Pro Production o Staging, puede enviar un [ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide).
+
+>[!TIP]
+>
+>Actualización del [!UICONTROL enable_smtp] valor de propiedad por [línea de comandos](outgoing-emails.md#enable-emails-in-the-cli) también cambia el [!UICONTROL Enable outgoing emails] estableciendo el valor de este entorno en [Consola de nube](outgoing-emails.md#enable-emails-in-the-cloud-console).
 
 ## Panel SendGrid
 
 Todos los proyectos de Cloud se administran en una cuenta central, por lo que solo el equipo de asistencia tiene acceso al panel SendGrid. SendGrid no proporciona características de restricción de subcuenta.
 
-Para revisar los registros de actividad para el estado de entrega o una lista de direcciones de correo electrónico rechazadas, rechazadas o bloqueadas, [enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket). El equipo de asistencia **no puede** recupere los registros de actividad con más de 30 días.
+Para revisar los registros de actividad para el estado de entrega o una lista de direcciones de correo electrónico rechazadas, rechazadas o bloqueadas, [enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket). El equipo de asistencia **no puede** recupere los registros de actividad con más de 30 días.
 
 Si es posible, incluya la siguiente información en su solicitud:
 
@@ -47,7 +55,7 @@ DKIM es una tecnología de autenticación de correo electrónico que permite a l
 
 >[!WARNING]
 >
->Las firmas DKIM de SendGrid y la compatibilidad con la autenticación de dominios solo están disponibles para proyectos Pro y no Starter. Como resultado, es probable que los correos electrónicos transaccionales salientes estén marcados por filtros de correo no deseado. El uso de DKIM mejora la tasa de entrega como remitente de correo electrónico autenticado. Para mejorar la tasa de entrega de mensajes, puede actualizar de Starter a Pro o utilizar su propio servidor SMTP o proveedor de servicios de entrega de correo electrónico. Consulte [Configuración de conexiones de correo electrónico](https://experienceleague.adobe.com/docs/commerce-admin/systems/communications/email-communications.html) en el _Guía de sistemas de administración_.
+>Las firmas DKIM de SendGrid y la compatibilidad con la autenticación de dominios solo están disponibles para proyectos Pro y no Proyectos Starter. Como resultado, es probable que los correos electrónicos transaccionales salientes estén marcados por filtros de correo no deseado. El uso de DKIM mejora la tasa de entrega como remitente de correo electrónico autenticado. Para mejorar la tasa de entrega de mensajes, puede actualizar de Starter a Pro o utilizar su propio servidor SMTP o proveedor de servicios de entrega de correo electrónico. Consulte [Configuración de conexiones de correo electrónico](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/communications/email-communications) en el _Guía de sistemas de administración_.
 
 ### Autenticación de remitente y dominio
 
@@ -55,7 +63,7 @@ Para que SendGrid envíe correos electrónicos transaccionales en su nombre desd
 
 **Para habilitar la autenticación de dominio**:
 
-1. Enviar una [ticket de asistencia](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) que solicita habilitar el DKIM para un dominio específico (**Solo entornos de ensayo y producción profesionales**).
+1. Enviar una [ticket de asistencia](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket) para solicitar la activación de DKIM para un dominio específico (**Solo entornos de ensayo y producción profesionales**).
 1. Actualice la configuración de DNS con `TXT` y `CNAME` registros proporcionados en el ticket de asistencia.
 
 **Ejemplo `TXT` registro con ID de cuenta**:
@@ -106,7 +114,7 @@ dig CNAME s2._domainkey.domain_name
 
 El umbral de correo electrónico transaccional se refiere al número de mensajes de correo electrónico transaccionales que puede enviar desde entornos Pro en un período de tiempo específico, como 12 000 correos electrónicos al mes desde entornos que no son de producción. El umbral está diseñado para proteger contra el envío de correo no deseado y potencialmente dañar su reputación de correo electrónico.
 
-No existen límites estrictos en la cantidad de correos electrónicos que se pueden enviar en el entorno de producción, siempre y cuando la puntuación de reputación del remitente sea superior al 95 %. La reputación se ve afectada por el número de correos electrónicos rechazados o rechazados y por si los registros de correo no deseado basados en DNS han marcado su dominio como una posible fuente de correo no deseado. Consulte [Correos electrónicos no enviados cuando se superan los créditos de SendGrid en Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/emails-not-being-sent-sendgrid-credits-exceeded.html) en el _Base de conocimiento de asistencia de Commerce_.
+No existen límites estrictos en la cantidad de correos electrónicos que se pueden enviar en el entorno de producción, siempre y cuando la puntuación de reputación del remitente sea superior al 95 %. La reputación se ve afectada por el número de correos electrónicos rechazados o rechazados y por si los registros de correo no deseado basados en DNS han marcado su dominio como una posible fuente de correo no deseado. Consulte [Correos electrónicos no enviados cuando se superan los créditos de SendGrid en Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/emails-not-being-sent-sendgrid-credits-exceeded) en el _Base de conocimiento de asistencia de Commerce_.
 
 **Para comprobar si se han superado los créditos máximos**:
 
@@ -120,8 +128,8 @@ No existen límites estrictos en la cantidad de correos electrónicos que se pue
 
 1. Compruebe la `/var/log/mail.log` para `authentication failed : Maxium credits exceeded` entradas.
 
-   Si ve alguno `authentication failed` entradas de registro y el **Reputación de envío de correo electrónico** tiene un mínimo de 95, puede [Enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para solicitar un aumento de la asignación de crédito.
+   Si ve alguno `authentication failed` entradas de registro y el **Reputación de envío de correo electrónico** tiene un mínimo de 95, puede [Enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket) para solicitar un aumento de la asignación de crédito.
 
 ### Reputación de envío de correo electrónico
 
-Una reputación de envío de correo electrónico es una puntuación asignada por un proveedor de servicios de Internet (ISP) a una compañía que envía mensajes de correo electrónico. Cuanto más alta sea la puntuación, más probable es que un ISP envíe mensajes a la bandeja de entrada de un destinatario. Si la puntuación cae por debajo de un determinado nivel, el ISP puede enrutar los mensajes a la carpeta de correo no deseado de los destinatarios o incluso rechazarlos por completo. La puntuación de reputación está determinada por varios factores, como un promedio de 30 días de clasificación de sus direcciones IP frente a otras direcciones IP y la tasa de quejas de spam. Consulte [5 formas de comprobar su reputación de envío](https://sendgrid.com/blog/5-ways-check-sending-reputation/).
+Una reputación de envío de correo electrónico es una puntuación asignada por un proveedor de servicios de Internet (ISP) a una compañía que envía mensajes de correo electrónico. Cuanto más alta sea la puntuación, más probable es que un ISP envíe mensajes a la bandeja de entrada de un destinatario. Si la puntuación cae por debajo de un determinado nivel, el ISP puede enrutar los mensajes a la carpeta de correo no deseado de los destinatarios o incluso rechazarlos por completo. La puntuación de reputación está determinada por varios factores, como un promedio de 30 días de clasificación de sus direcciones IP frente a otras direcciones IP y la tasa de quejas de spam. Consulte [8 formas de comprobar su reputación de envío de correo electrónico](https://sendgrid.com/en-us/blog/5-ways-check-sending-reputation).
