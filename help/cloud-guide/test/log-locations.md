@@ -3,9 +3,9 @@ title: Visualización y administración de registros
 description: Comprenda los tipos de archivos de registro disponibles en la infraestructura de la nube y dónde encontrarlos.
 last-substantial-update: 2023-05-23T00:00:00Z
 exl-id: d7f63dab-23bf-4b95-b58c-3ef9b46979d4
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: 86af69eed16e8fe464de93bd0f33cfbfd4ed8f49
 workflow-type: tm+mt
-source-wordcount: '1024'
+source-wordcount: '1056'
 ht-degree: 0%
 
 ---
@@ -76,7 +76,7 @@ ssh 1.ent-project-environment-id@ssh.region.magento.cloud "cat var/log/cron.log"
 
 >[!TIP]
 >
->En los entornos Pro, la rotación, la compresión y la eliminación automáticas del registro están habilitadas para los archivos de registro con un nombre de archivo fijo. Cada tipo de archivo de registro tiene un patrón giratorio y una duración. Los entornos de inicio no tienen rotación de registro. Puede encontrar todos los detalles sobre la rotación del registro del entorno y la duración de los registros comprimidos en: `/etc/logrotate.conf` y `/etc/logrotate.d/<various>`
+>En los entornos de ensayo y producción de Pro, la rotación, compresión y eliminación automáticas del registro están habilitadas para los archivos de registro con un nombre de archivo fijo. Cada tipo de archivo de registro tiene un patrón giratorio y una duración. Los entornos de inicio no tienen rotación de registro. Puede encontrar todos los detalles sobre la rotación del registro del entorno y la duración de los registros comprimidos en: `/etc/logrotate.conf` y `/etc/logrotate.d/<various>`. La rotación de registros no se puede configurar en entornos de Pro Integration. Para la integración de Pro, debe implementar una solución/script personalizado y [configurar su cron](../application/crons-property.md) para ejecutar el script según sea necesario.
 
 ## Creación e implementación de registros
 
