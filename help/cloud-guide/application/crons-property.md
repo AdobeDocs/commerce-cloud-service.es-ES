@@ -3,9 +3,9 @@ title: Propiedad Crons
 description: Consulte ejemplos sobre cómo configurar la propiedad crons en la variable [!DNL Commerce] archivo de configuración de la aplicación.
 feature: Cloud, Configuration
 exl-id: 67d592c1-2933-4cdf-b4f6-d73cd44b9f59
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: 1c0e05c3d8461bea473bcf6ec35162d65ef2774f
 workflow-type: tm+mt
-source-wordcount: '1063'
+source-wordcount: '1069'
 ht-degree: 0%
 
 ---
@@ -27,7 +27,7 @@ El `crons` La propiedad describe los procesos que se activan según una programa
 - `shutdown_timeout`—(_Opcional_) Si se cancela un trabajo cron, este es el número de segundos después de los cuales se envía una señal SIGKILL para detener el trabajo o proceso. El valor predeterminado es 10 segundos.
 - `timeout`—(_Opcional_) Cantidad máxima de tiempo que un trabajo cron puede ejecutarse antes del tiempo de espera. El valor predeterminado es el máximo permitido de 86400 segundos (24 horas).
 
-De forma predeterminada, cada proyecto de Commerce Cloud tiene el siguiente valor predeterminado `crons` configuración en la `.magento.app.yaml` archivo:
+De forma predeterminada, cada proyecto de la nube de Commerce tiene el siguiente valor predeterminado `crons` configuración en la `.magento.app.yaml` archivo:
 
 ```yaml
 crons:
@@ -56,7 +56,7 @@ Aunque puede utilizar `crontab` para revisar la configuración en proyectos Pro,
 
    >[!NOTE]
    >
-   >Si la variable `crontab -l` El comando devuelve un `Command not found` error, debe [Enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para habilitar la opción de configuración de autoservicio auto-crons en su proyecto Pro.
+   >Si la variable `crontab -l` El comando devuelve un `Command not found` error (solo en los entornos de ensayo y producción de Pro), debe [Enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para habilitar la opción de configuración de autoservicio crons automática en su proyecto.
 
 El siguiente ejemplo muestra el `crontab` para un entorno que solo tiene el valor predeterminado `crons` configuración:
 
