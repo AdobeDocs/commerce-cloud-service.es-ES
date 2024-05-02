@@ -3,9 +3,9 @@ title: Administración de backup
 description: Obtenga información sobre cómo crear y restaurar manualmente una copia de seguridad para su proyecto de Adobe Commerce en la nube.
 feature: Cloud, Paas, Snapshots, Storage
 exl-id: 1cb00db7-2375-4761-9c07-1e20a74859e0
-source-git-commit: 069cbc233492d22932e8dce5bf0426dce8459727
+source-git-commit: 4c3f3f2775e8327476233520e52b589f7264786f
 workflow-type: tm+mt
-source-wordcount: '685'
+source-wordcount: '711'
 ht-degree: 0%
 
 ---
@@ -130,6 +130,10 @@ Los tiempos de restauración varían según el tamaño de la base de datos:
    ```bash
    magento-cloud snapshot:restore <snapshot-id>
    ```
+
+## Restaurar una instantánea de recuperación ante desastres
+
+Para restaurar la instantánea de recuperación ante desastres en entornos de ensayo y producción Pro, [Importar el volcado de la base de datos directamente desde el servidor](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/how-to/restore-a-db-snapshot-from-staging-or-production#meth3).
 
 ## Revertir código
 
