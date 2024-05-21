@@ -2,18 +2,18 @@
 title: Notas de la versión de ECE-Tools
 description: Vea una lista de las mejoras más recientes del paquete ECE-Tools.
 recommendations: noDisplay, catalog
-last-substantial-update: 2024-04-08T00:00:00Z
+last-substantial-update: 2024-05-21T00:00:00Z
 exl-id: a464b940-c56e-4a7c-9948-559539e25361
-source-git-commit: e21f21e34f89b62842bd22c99ff5705f984898e0
+source-git-commit: 923e2114270df22e134e0676ac97f84d770bb226
 workflow-type: tm+mt
-source-wordcount: '2905'
+source-wordcount: '2929'
 ht-degree: 0%
 
 ---
 
 # Notas de la versión de ECE-Tools
 
-El [ece-tools](https://github.com/magento/ece-tools) es un conjunto de scripts y herramientas diseñadas para administrar e implementar proyectos en la nube. Estas notas de la versión describen las mejoras más recientes realizadas en este paquete, que forma parte de la [Cloud Tools Suite for Commerce](cloud-tools-suite.md).
+El [ece-tools](https://github.com/magento/ece-tools) es un conjunto de scripts y herramientas diseñadas para administrar e implementar proyectos en la nube. Estas notas de la versión describen las mejoras más recientes realizadas en este paquete, que forma parte de la [Cloud Tools Suite para Commerce](cloud-tools-suite.md).
 
 >[!NOTE]
 >
@@ -28,8 +28,14 @@ Las notas de la versión incluyen:
 
 <!--Add release notes below-->
 
+## v2002.1.19 {#latest}
 
-## v2002.1.18 {#latest}
+Fecha de la versión: 21 de mayo de 2024
+
+- ![nuevo icono](../../assets/new.svg) **Lua**: se ha añadido la opción useLua para CACHE_CONFIGURATION.
+- ![icono de corrección](../../assets/fix.svg) **Validador**: se han actualizado los validadores de las nuevas versiones de Redis y RabbitMQ.
+
+## v2002.1.18
 
 Fecha de publicación: 8 de abril de 2024
 
@@ -47,7 +53,7 @@ Fecha de la versión: 16 de enero de 2024
 
 Fecha de la versión: 16 de octubre de 2023
 
-- ![nuevo icono](../../assets/new.svg) **Variable de entorno global ENABLE_WEBHOOKS**—Añadido el [ENABLE_WEBHOOKS](../environment/variables-global.md#enable_webhooks) variable global que se utiliza con los webhooks de Commerce para conectarse a un extremo externo, como una acción de tiempo de ejecución de App Builder o un sistema de administración de inventario de terceros.
+- ![nuevo icono](../../assets/new.svg) **Variable de entorno global ENABLE_WEBHOOKS**—Añadido el [ENABLE_WEBHOOKS](../environment/variables-global.md#enable_webhooks) variable global que se utiliza con los webhooks de Commerce para conectarse a un extremo externo, como una acción de tiempo de ejecución del Generador de aplicaciones o un sistema de administración de inventario de terceros.
 
 ## v2002.1.15
 
@@ -63,7 +69,7 @@ Fecha de la versión: 31 de julio de 2023
 Fecha de la versión: 10 de marzo de 2023
 
 - ![nuevo icono](../../assets/new.svg) **PHP**—Añadido soporte para PHP 8.2.
-- ![nuevo icono](../../assets/new.svg) **Validadores para servicios**—Se han actualizado los validadores de los servicios requeridos de Commerce 2.4.6: MariaDB 10.6, Redis 7.0, PHP 8.2, OpenSearch 2.x y RabbitMQ 3.9.
+- ![nuevo icono](../../assets/new.svg) **Validadores para servicios**—Se han actualizado los validadores para los servicios necesarios de Commerce 2.4.6: MariaDB 10.6, Redis 7.0, PHP 8.2, OpenSearch 2.x y RabbitMQ 3.9.
 - ![icono de corrección](../../assets/fix.svg) **ece-tools db-dump**: se ha corregido un problema que provocaba que `db-dump` operación para detener prematuramente.
 
 ## v2002.1.13

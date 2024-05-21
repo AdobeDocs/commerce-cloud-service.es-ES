@@ -2,11 +2,11 @@
 title: Parches de nube para Commerce
 description: Consulte la lista de las mejoras más recientes del paquete Parches en la nube.
 recommendations: noDisplay, catalog
-last-substantial-update: 2024-04-08T00:00:00Z
+last-substantial-update: 2024-05-21T00:00:00Z
 exl-id: ae6b511b-a37d-4776-9a5e-ad7d9f9f6611
-source-git-commit: d5ab7c4f1d2edbd85eab5a4ca098b3d156e562e5
+source-git-commit: 61c42a1bd1d5a28f90b8756032ee6f45be4565b2
 workflow-type: tm+mt
-source-wordcount: '2187'
+source-wordcount: '2208'
 ht-degree: 0%
 
 ---
@@ -15,7 +15,7 @@ ht-degree: 0%
 
 El [Parches de nube](https://github.com/magento/magento-cloud-patches) proporciona un conjunto de parches necesarios que mejoran la integración de todas las versiones de Adobe Commerce con los entornos en la nube y admite la entrega rápida de correcciones críticas.
 
-El paquete Cloud Patches for Commerce es una dependencia para el paquete ECE-Tools y se instala y actualiza cuando se instala o actualiza el paquete ECE-Tools. También puede utilizar y administrar Parches de nube para Commerce como paquete independiente para aplicar parches a un proyecto de Adobe Commerce que no esté en la plataforma en la nube. Estas notas de la versión describen las mejoras más recientes realizadas en este paquete.
+El paquete Parches de nube para Commerce es una dependencia para el paquete ECE-Tools y se instala y actualiza al instalar o actualizar el paquete ECE-Tools. También puede utilizar y administrar Parches de nube para Commerce como paquete independiente para aplicar parches a un proyecto de Adobe Commerce que no esté en la plataforma en la nube. Estas notas de la versión describen las mejoras más recientes realizadas en este paquete.
 
 >[!TIP]
 >
@@ -29,7 +29,13 @@ El `magento/magento-cloud-patches` El paquete utiliza la siguiente secuencia de 
 
 <!--Add release notes below-->
 
-## Versión 1.0.26 {#latest}
+## Versión 1.0.27 {#latest}
+
+Fecha de la versión: 21 de mayo de 2024
+
+- **Compatibilidad con PHP 8.3**—Este parche resuelve errores de compatibilidad entre php 8.3 y la versión del paquete del compositor.
+
+## Versión 1.0.26
 
 Fecha de publicación: 8 de abril de 2024
 
@@ -59,7 +65,7 @@ Fecha de la versión: 31 de julio de 2023
 Fecha de publicación: 19 de junio de 2023
 
 - **Asistente/salida de CLI de QPT mejorado**—Se ha añadido una advertencia al asistente/salida de CLI de QPT que le recuerda que debe verificar los detalles y requisitos del parche si hay dependencias.<!-- ACP2E-1963 -->
-- **Se han añadido parches para Commerce 2.4.6:**
+- **Parches añadidos para Commerce 2.4.6:**
    - Se ha corregido el `regexp cache tag` validación.<!-- MCLOUD-10226 -->
    - Rendimiento mejorado al reducir el número de veces que se cargan las mismas configuraciones de implementación.<!-- MCLOUD-10604 -->
 - **Se han añadido parches para Commerce 2.3.7 a 2.4.6**: se ha corregido un problema que provocaba un incremento de un valor aleatorio en lugar de un incremento de 1 para el `catalog_product_entity_*` tablas.<!-- MCLOUD-10032 -->
@@ -75,7 +81,7 @@ Fecha de la versión: 10 de marzo de 2023
 
 Fecha de la versión: 27 de octubre de 2022
 
-- **Se agregó el parche de mejoras de caché L2**: este parche corrige un problema con el vaciado de la caché L2 local para las versiones 2.4.0 y 2.4.1 de Commerce.<!-- MCLOUD-7845 -->
+- **Se agregó el parche de mejoras de caché L2**: este parche corrige un problema que se producía al vaciar la caché L2 local para las versiones 2.4.0 y 2.4.1 de Commerce.<!-- MCLOUD-7845 -->
 
 ## Versión 1.0.19
 
@@ -272,7 +278,7 @@ Esta versión de incluye las siguientes revisiones y correcciones críticas:
 
 - **Corrección de paginación del catálogo de Elasticsearch** : se ha reemplazado el parche de paginación del catálogo de Elasticsearch entregado en magento/magento-cloud-patch v1.0 con una corrección más eficaz.<!--MAGECLOUD-4847-->
 
-- **Parches de Page Builder**: en Cloud Patches para Commerce 1.0.0, agrupamos parches de Page Builder para abordar una vulnerabilidad conocida de ejecución de código remoto (RCE) de Page Builder, con la corrección inicial basada en Adobe Commerce 2.3.3. Hemos actualizado estos parches con una implementación más estable basada en Adobe Commerce 2.3.4., que incluye varias optimizaciones para solucionar el problema.<!--MAGECLOUD-4884-->
+- **Parches de Page Builder**: en Cloud Patches para Commerce 1.0.0, hemos incorporado parches de Page Builder para resolver una vulnerabilidad conocida de ejecución de código remoto (RCE) de Page Builder, con la corrección inicial basada en Adobe Commerce 2.3.3. Hemos actualizado estos parches con una implementación más estable basada en Adobe Commerce 2.3.4., que incluye varias optimizaciones para solucionar el problema.<!--MAGECLOUD-4884-->
 
   Si tiene el paquete magento/magento-cloud-patch 1.0.0, aún estará protegido de los problemas de vulnerabilidad RCE de Page Builder. Si actualiza a 1.0.1 o posterior, tendrá una mejor implementación de la misma corrección.
 
