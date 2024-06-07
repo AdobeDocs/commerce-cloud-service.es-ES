@@ -3,9 +3,9 @@ title: Administración de extensiones
 description: Obtenga información sobre cómo instalar y administrar extensiones en Adobe Commerce en la infraestructura en la nube.
 feature: Cloud, Extensions, Upgrade
 exl-id: 9c6e98ca-85da-4342-8402-d576eb382ba2
-source-git-commit: bb7a866b1896a8a43d01ad3f83dc655bcf383374
+source-git-commit: f8fb9d4d43c85f91ff87686160bcddb7cd417635
 workflow-type: tm+mt
-source-wordcount: '626'
+source-wordcount: '646'
 ht-degree: 0%
 
 ---
@@ -13,6 +13,10 @@ ht-degree: 0%
 # Administración de extensiones
 
 Puede ampliar las funcionalidades de la aplicación de Adobe Commerce añadiendo una extensión desde el [Commerce Marketplace](https://marketplace.magento.com). Por ejemplo, puede agregar una temática para cambiar la apariencia de su tienda, o puede agregar un paquete de idioma para localizar su tienda y administrador.
+
+>[!NOTE]
+>
+>Para evitar problemas de instalación, todas las compras de Marketplace deben completarse con la misma cuenta (MAGEID) que posee el proyecto en la nube.
 
 ## Nombre del compositor de una extensión
 
