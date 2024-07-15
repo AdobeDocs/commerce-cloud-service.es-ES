@@ -12,14 +12,14 @@ ht-degree: 0%
 
 # Realizar copia de seguridad de la base de datos
 
-Puede crear una copia de la base de datos utilizando `ece-tools db-dump` sin capturar todos los datos de entorno de los servicios y montajes. De forma predeterminada, este comando crea copias de seguridad en el `/app/var/dump-main` para todas las conexiones de base de datos especificadas en la configuración del entorno. La operación de volcado de la base de datos cambia la aplicación al modo de mantenimiento, detiene los procesos de cola de los consumidores y deshabilita los trabajos cron antes de que comience el volcado.
+Puede crear una copia de la base de datos utilizando el comando `ece-tools db-dump` sin capturar todos los datos de entorno de los servicios y montajes. De forma predeterminada, este comando crea copias de seguridad en el directorio `/app/var/dump-main` para todas las conexiones de base de datos especificadas en la configuración del entorno. La operación de volcado de la base de datos cambia la aplicación al modo de mantenimiento, detiene los procesos de cola de los consumidores y deshabilita los trabajos cron antes de que comience el volcado.
 
 Tenga en cuenta las siguientes directrices para el volcado de la base de datos:
 
 - En los entornos de producción, Adobe recomienda completar las operaciones de volcado de la base de datos durante las horas de menor actividad para minimizar las interrupciones del servicio que se producen cuando el sitio está en modo de mantenimiento.
 - Si se produce un error durante la operación de volcado, el comando elimina el archivo de volcado para conservar espacio en disco. Revise los registros para obtener detalles (`var/log/cloud.log`).
-- Para entornos de Pro Production, este comando solo descarga de _uno_ de los tres nodos de alta disponibilidad, por lo que es posible que no se copien los datos de producción escritos en un nodo diferente durante el volcado. El comando genera un `var/dbdump.lock` para evitar que el comando se ejecute en más de un nodo.
-- Para realizar una copia de seguridad de todos los servicios de entorno, Adobe recomienda crear una [reserva](snapshots.md).
+- Para entornos de Pro Production, este comando solo volca de _uno_ de los tres nodos de alta disponibilidad, por lo que es posible que no se copien los datos de producción escritos en un nodo diferente durante el volcado. El comando genera un archivo `var/dbdump.lock` para evitar que se ejecute en más de un nodo.
+- Para una copia de seguridad de todos los servicios de entorno, Adobe recomienda crear una [copia de seguridad](snapshots.md).
 
 Puede elegir realizar copias de seguridad de varias bases de datos adjuntando los nombres de las bases de datos al comando. El siguiente ejemplo realiza una copia de seguridad de dos bases de datos: `main` y `sales`:
 
@@ -27,14 +27,14 @@ Puede elegir realizar copias de seguridad de varias bases de datos adjuntando lo
 php vendor/bin/ece-tools db-dump main sales
 ```
 
-Utilice el `php vendor/bin/ece-tools db-dump --help` para obtener más opciones:
+Utilice el comando `php vendor/bin/ece-tools db-dump --help` para obtener más opciones:
 
-- `--dump-directory=<dir>`: permite elegir un directorio de destino para el volcado de la base de datos
-- `--remove-definers`: permite quitar sentencias DEFINER del volcado de la base de datos
+- `--dump-directory=<dir>`: elija un directorio de destino para el volcado de la base de datos
+- `--remove-definers`: quita las instrucciones DEFINER del volcado de la base de datos
 
-**Para crear un volcado de base de datos en el entorno de ensayo o producción**:
+**Para crear un volcado de la base de datos en el entorno de ensayo o producción**:
 
-1. [Utilice SSH para iniciar sesión o crear un túnel para conectarse al entorno remoto](../development/secure-connections.md) que contiene la base de datos que desea copiar.
+1. [Use SSH para iniciar sesión o crear un túnel para conectarse al entorno remoto](../development/secure-connections.md) que contiene la base de datos que se va a copiar.
 
 1. Enumere las relaciones de entorno y anote la información de inicio de sesión de la base de datos.
 
@@ -48,7 +48,7 @@ Utilice el `php vendor/bin/ece-tools db-dump --help` para obtener más opciones:
    php -r 'print_r(json_decode(base64_decode($_ENV["MAGENTO_CLOUD_RELATIONSHIPS"]))->database);'
    ```
 
-1. Cree una copia de seguridad de la base de datos. Para elegir un directorio de destino para el volcado de la base de datos, utilice el `--dump-directory` opción.
+1. Cree una copia de seguridad de la base de datos. Para elegir un directorio de destino para el volcado de la base de datos, utilice la opción `--dump-directory`.
 
    ```bash
    php vendor/bin/ece-tools db-dump -- main
@@ -71,8 +71,8 @@ Utilice el `php vendor/bin/ece-tools db-dump --help` para obtener más opciones:
    [2020-01-28 16:38:11] NOTICE: Maintenance mode is disabled.
    ```
 
-1. El `db-dump` El comando crea un `dump-<timestamp>.sql.gz` archive el archivo en el directorio del proyecto remoto.
+1. El comando `db-dump` crea un archivo `dump-<timestamp>.sql.gz` en el directorio del proyecto remoto.
 
 >[!TIP]
 >
->Si desea insertar estos datos en un entorno específico, consulte [Migración de datos y archivos estáticos](../deploy/staging-production.md#migrate-static-files).
+>Si desea insertar estos datos en un entorno específico, consulte [Migrar datos y archivos estáticos](../deploy/staging-production.md#migrate-static-files).

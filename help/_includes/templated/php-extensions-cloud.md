@@ -33,15 +33,15 @@ ht-degree: 0%
                 intl<br>
                 libxml<br>
                 mysqli<br>
-                opaco<br>
-                lana abierta<br>
+                opcache<br>
+                openswoole<br>
                 pcntl<br>
                 pdo_mysql<br>
                 Reflexión<br>
                 jabón<br>
-                enchufes<br>
+                sockets<br>
                 SPL<br>
-                standard<br>
+                estándar<br>
                 sysvmsg<br>
                 sysvsem<br>
                 sysvshm<br>
@@ -50,7 +50,7 @@ ht-degree: 0%
             </td>
             <td>
                 ctype<br>
-                rizar<br>
+                curl<br>
                 fecha<br>
                 dba<br>
                 dom<br>
@@ -60,16 +60,16 @@ ht-degree: 0%
                 hash<br>
                 iconv<br>
                 json<br>
-                mstring<br>
+                mbstring<br>
                 mysqlnd<br>
                 openssl<br>
                 pcre<br>
-                dop<br>
+                pdo<br>
                 pdo_sqlite<br>
                 phar<br>
                 posix<br>
                 readline<br>
-                sesión<br>
+                session<br>
                 sqlite3<br>
                 tokenizador<br>
                 xml<br>
@@ -79,7 +79,7 @@ ht-degree: 0%
             <td>
                 geoip<br>
                 gmp<br>
-                igbinario<br>
+                igbinary<br>
                 imagick<br>
                 imap<br>
                 ldap<br>
@@ -90,11 +90,11 @@ ht-degree: 0%
                 oauth<br>
                 pdo_mysql<br>
                 propro<br>
-                hechizo<br>
+                pdeletrear<br>
                 gráfico<br>
                 volver a codificar<br>
                 redis<br>
-                enchufes de chispa<br>
+                sockets de shmop<br>
                 sodio<br>
                 ssh2<br>
                 ordenado<br>

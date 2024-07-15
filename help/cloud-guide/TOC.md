@@ -13,7 +13,7 @@ ht-degree: 7%
 
 # Commerce en infraestructura en la nube {#user-guide}
 
-+ [Comercio](overview.md)
++ [Commerce](overview.md)
 + Arquitectura {#architecture}
    + [Infraestructura en nube](architecture/cloud-architecture.md)
    + [Pila de tecnología](architecture/tech-stack.md)
@@ -23,8 +23,8 @@ ht-degree: 7%
    + [Flujo de trabajo profesional](architecture/pro-develop-deploy-workflow.md)
    + [Arquitectura a escala](architecture/scaled-architecture.md)
    + [Escalado automático](architecture/autoscaling.md)
-+ [Introducción a](https://experienceleague.adobe.com/docs/commerce-cloud-service/start/overview.html)
-+ Notas de versión {#release-notes}
++ [Introducción](https://experienceleague.adobe.com/docs/commerce-cloud-service/start/overview.html)
++ Notas de la versión {#release-notes}
    + [Conjunto de herramientas de nube](release-notes/cloud-tools-suite.md)
    + [Paquete ECE-Tools](release-notes/ece-tools-package.md)
    + [Parches de nube](release-notes/cloud-patches.md)
@@ -33,7 +33,7 @@ ht-degree: 7%
    + [Paquetes de nube](release-notes/cloud-packages.md)
    + [Cambios incompatibles con versiones anteriores](release-notes/backward-incompatible-changes.md)
    + [Archivo de notas de versión](release-notes/cloud-release-archive.md)
-+ Proyecto de nube {#project}
++ Proyecto en la nube {#project}
    + [Resumen del proyecto](project/overview.md)
    + [Estructura del proyecto](project/file-structure.md)
    + [Acceso de usuario](project/user-access.md)
@@ -118,8 +118,8 @@ ht-degree: 7%
          + [Global](environment/variables-global.md)
          + [Generar](environment/variables-build.md)
          + [Implementar](environment/variables-deploy.md)
-         + [Posterior a la implementación](environment/variables-post-deploy.md)
-      + Configuración de notificaciones {#log}
+         + [Post-deploy](environment/variables-post-deploy.md)
+      + Configurar notificaciones {#log}
          + [Notificaciones](environment/set-up-notifications.md)
          + [Controladores de registro](environment/log-handlers.md)
    + Rutas {#routes}
@@ -136,7 +136,7 @@ ht-degree: 7%
       + [Redis](services/redis.md)
 + Servicios rápidos {#cdn}
    + [Información general](cdn/fastly.md)
-   + Configuración rápida {#setup-fastly}
+   + Configurar rápidamente {#setup-fastly}
       + [Configurar servicios de Fastly](cdn/fastly-configuration.md)
       + [Personalizar configuración de caché](cdn/fastly-custom-cache-configuration.md)
       + [Personalización de páginas de error y mantenimiento](cdn/fastly-custom-response.md)
@@ -164,12 +164,12 @@ ht-degree: 7%
    + [Información general](launch/overview.md)
    + [Iniciar lista de comprobación](launch/checklist.md)
    + [Pasos del inicio](launch/steps.md)
-+ Supervisar sitio {#monitor}
++ Supervisar el sitio {#monitor}
    + [Rendimiento](monitor/performance.md)
-   + servicio de New Relic {#new-relic}
+   + Servicio de New Relic {#new-relic}
       + [Información general de New Relic](monitor/new-relic-service.md)
       + [Administración de cuentas y usuarios](monitor/account-management.md)
-      + Investigación del rendimiento {#investigate}
+      + Investigar rendimiento {#investigate}
          + [Políticas, alertas y flujos de trabajo](monitor/investigate-performance.md)
          + [Ingesta de datos](monitor/ingest-data.md)
          + [Seguimiento de implementaciones](monitor/track-deployments.md)

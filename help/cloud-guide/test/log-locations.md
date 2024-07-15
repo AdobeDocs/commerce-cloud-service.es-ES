@@ -12,15 +12,15 @@ ht-degree: 0%
 
 # Visualización y administración de registros
 
-Los registros de Adobe Commerce en proyectos de infraestructura en la nube son útiles para solucionar problemas relacionados con [creación e implementación de vínculos](../application/hooks-property.md), Cloud Services y la aplicación de Adobe Commerce.
+Los registros de Adobe Commerce en proyectos de infraestructura en la nube son útiles para solucionar problemas relacionados con [generar e implementar enlaces](../application/hooks-property.md), servicios en la nube y la aplicación de Adobe Commerce.
 
-Puede ver los registros desde el sistema de archivos, el [!DNL Cloud Console], y el `magento-cloud` CLI.
+Puede ver los registros del sistema de archivos, [!DNL Cloud Console] y `magento-cloud` CLI.
 
-- **Sistema de archivos**: la `/var/log` el directorio del sistema contiene registros para todos los entornos. El `var/log/` El directorio contiene registros específicos de la aplicación exclusivos de un entorno determinado. Estos directorios no se comparten entre los nodos de un clúster. En los entornos de ensayo y producción de Pro, debe comprobar los registros de cada nodo.
+- **Sistema de archivos**: el directorio del sistema `/var/log` contiene registros para todos los entornos. El directorio `var/log/` contiene registros específicos de la aplicación exclusivos de un entorno en particular. Estos directorios no se comparten entre los nodos de un clúster. En los entornos de ensayo y producción de Pro, debe comprobar los registros de cada nodo.
 
-- **[!DNL Cloud Console]**: puede ver la información de registro de la generación, la implementación y la implementación posterior en el entorno. _messages_ lista.
+- **[!DNL Cloud Console]**: puede ver información de registro de generación, implementación y posterior a la implementación en la lista de _mensajes_ del entorno.
 
-- **CLI de nube**: puede ver los registros de entorno local mediante el `magento-cloud log` registros de entorno remotos o de comandos utilizando `magento-cloud ssh` comando.
+- **CLI de nube**: puede ver los registros del entorno local mediante el comando `magento-cloud log` o los registros del entorno remoto mediante el comando `magento-cloud ssh`.
 
 ## Ubicaciones de registro
 
@@ -30,9 +30,9 @@ Los registros del sistema se almacenan en las siguientes ubicaciones:
 - Ensayo profesional: `/var/log/platform/<project-ID>_stg/<log-name>.log`
 - Producción profesional: `/var/log/platform/<project-ID>/<log-name>.log`
 
-El valor de `<project-ID>` depende del proyecto y de si el entorno es Ensayo o Producción. Por ejemplo, con un ID de proyecto de `yw1unoukjcawe`, el usuario del entorno de ensayo es `yw1unoukjcawe_stg` y el usuario del entorno de producción es `yw1unoukjcawe`.
+El valor de `<project-ID>` depende del proyecto y de si el entorno es de ensayo o de producción. Por ejemplo, con un ID de proyecto de `yw1unoukjcawe`, el usuario del entorno de ensayo es `yw1unoukjcawe_stg` y el usuario del entorno de producción es `yw1unoukjcawe`.
 
-Con ese ejemplo, el registro de implementación es: `/var/log/platform/yw1unoukjcawe_stg/deploy.log`
+En ese ejemplo, el registro de implementación es: `/var/log/platform/yw1unoukjcawe_stg/deploy.log`
 
 ### Ver registros de entorno remoto
 
@@ -50,7 +50,7 @@ Respuesta de ejemplo:
 3.ent-project-environment-id@ssh.region.magento.cloud
 ```
 
-**Para ver una lista de registros de entornos remotos**:
+**Para ver una lista de registros de entorno remoto**:
 
 ```bash
 magento-cloud ssh -e <environment-ID> "ls var/log"
@@ -76,11 +76,11 @@ ssh 1.ent-project-environment-id@ssh.region.magento.cloud "cat var/log/cron.log"
 
 >[!TIP]
 >
->En los entornos de ensayo y producción de Pro, la rotación, compresión y eliminación automáticas del registro están habilitadas para los archivos de registro con un nombre de archivo fijo. Cada tipo de archivo de registro tiene un patrón giratorio y una duración. Los entornos de inicio no tienen rotación de registro. Puede encontrar todos los detalles sobre la rotación del registro del entorno y la duración de los registros comprimidos en: `/etc/logrotate.conf` y `/etc/logrotate.d/<various>`. La rotación de registros no se puede configurar en entornos de Pro Integration. Para la integración de Pro, debe implementar una solución/script personalizado y [configurar su cron](../application/crons-property.md) para ejecutar el script según sea necesario.
+>En los entornos de ensayo y producción de Pro, la rotación, compresión y eliminación automáticas del registro están habilitadas para los archivos de registro con un nombre de archivo fijo. Cada tipo de archivo de registro tiene un patrón giratorio y una duración. Los entornos de inicio no tienen rotación de registro. Se pueden encontrar todos los detalles sobre la rotación del registro del entorno y la duración de los registros comprimidos en: `/etc/logrotate.conf` y `/etc/logrotate.d/<various>`. La rotación de registros no se puede configurar en entornos de Pro Integration. Para la integración Pro, debe implementar una solución/script personalizado y [configurar su cron](../application/crons-property.md) para ejecutar el script según sea necesario.
 
 ## Creación e implementación de registros
 
-Después de insertar los cambios en su entorno, puede revisar el registro desde cada vínculo en la `var/log/cloud.log` archivo. El registro contiene mensajes de inicio y parada para cada vínculo. En el ejemplo siguiente, los mensajes son &quot;`Starting post-deploy.`&quot; y &quot;`Post-deploy is complete.`&quot;
+Después de insertar los cambios en su entorno, puede revisar el registro desde cada vínculo en el archivo `var/log/cloud.log`. El registro contiene mensajes de inicio y parada para cada vínculo. En el ejemplo siguiente, los mensajes son &quot;`Starting post-deploy.`&quot; y &quot;`Post-deploy is complete.`&quot;
 
 Compruebe las marcas de tiempo en las entradas de registro, compruebe y busque los registros de una implementación específica. El siguiente es un ejemplo conciso de la salida de registro que puede utilizar para solucionar problemas:
 
@@ -101,19 +101,19 @@ Re-deploying environment project-integration-ID
 
 >[!TIP]
 >
->Al configurar el entorno de Cloud, puede configurar lo siguiente [Slack basado en registros y notificaciones por correo electrónico](../environment/set-up-notifications.md) para acciones de compilación e implementación.
+>Al configurar su entorno de nube, puede configurar [notificaciones por correo electrónico y Slack basadas en registros](../environment/set-up-notifications.md) para acciones de compilación e implementación.
 
 Los siguientes registros tienen una ubicación común para todos los proyectos en la nube:
 
 - **Registro de implementación**: `var/log/cloud.log`
-- **Registro de errores de la última implementación**: `var/log/cloud.error.log`
+- **Último registro de errores de implementación**: `var/log/cloud.error.log`
 - **Registro de depuración**: `var/log/debug.log`
 - **Registro de excepciones**: `var/log/exception.log`
 - **Registro del sistema**: `var/log/system.log`
 - **Registro de asistencia**: `var/log/support_report.log`
 - **Informes**: `var/report/`
 
-Aunque el `cloud.log` contiene comentarios de cada fase del proceso de implementación, los registros creados por el vínculo de implementación son únicos para cada entorno. El registro de implementación específico del entorno se encuentra en los siguientes directorios:
+Aunque el archivo `cloud.log` contiene comentarios de cada fase del proceso de implementación, los registros creados por el vínculo de implementación son exclusivos de cada entorno. El registro de implementación específico del entorno se encuentra en los siguientes directorios:
 
 - **Integración de Starter y Pro**: `/var/log/deploy.log`
 - **Ensayo profesional**: `/var/log/platform/<project-ID>_stg/deploy.log`
@@ -121,7 +121,7 @@ Aunque el `cloud.log` contiene comentarios de cada fase del proceso de implement
 
 ### Implementación del registro
 
-El registro de cada implementación se concatena al específico `deploy.log` archivo. El siguiente ejemplo imprime el registro de implementación del entorno actual en el terminal:
+El registro de cada implementación se concatena al archivo `deploy.log` específico. El siguiente ejemplo imprime el registro de implementación del entorno actual en el terminal:
 
 ```bash
 magento-cloud log -e <environment-ID> deploy
@@ -143,9 +143,9 @@ Reading log file projectID-branchname-ID--mymagento@ssh.zone.magento.cloud:/var/
 
 ### Registro de errores
 
-Los mensajes de error y advertencia generados durante el proceso de implementación se escriben tanto en la variable `var/log/cloud.log` y el `var/log/cloud.error.log` archivos. El archivo de registro de errores de Cloud solo contiene errores y advertencias de la implementación más reciente. Un archivo vacío indica una implementación correcta sin errores.
+Los mensajes de error y advertencia generados durante el proceso de implementación se escriben en los archivos `var/log/cloud.log` y `var/log/cloud.error.log`. El archivo de registro de errores de Cloud solo contiene errores y advertencias de la implementación más reciente. Un archivo vacío indica una implementación correcta sin errores.
 
-Puede ver el archivo de registro utilizando la variable [CLI de nube SSH](#view-remote-environment-logs), o puede utilizar ECE-Tools para mostrar los errores con sugerencias:
+Puede ver el archivo de registro mediante [Cloud CLI SSH](#view-remote-environment-logs), o puede usar ECE-Tools para mostrar los errores con sugerencias:
 
 ```bash
 magento-cloud ssh -e <environment-ID> "./vendor/bin/ece-tools error:show"
@@ -178,7 +178,7 @@ title: The configured state is not ideal
 type: warning
 ```
 
-La mayoría de los mensajes de error contienen una descripción y una acción sugerida. Utilice el [Referencia de mensaje de error para ECE-Tools](../dev-tools/error-reference.md) para buscar el código de error y obtener más instrucciones. Para obtener más información, utilice el [Solucionador de problemas de implementación de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/deployment/magento-deployment-troubleshooter.html).
+La mayoría de los mensajes de error contienen una descripción y una acción sugerida. Use la referencia de mensaje de error [para ECE-Tools](../dev-tools/error-reference.md) para buscar el código de error y obtener más instrucciones. Para obtener más información, use el [solucionador de problemas de implementación de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/deployment/magento-deployment-troubleshooter.html).
 
 ## Registros de aplicaciones
 
@@ -186,29 +186,29 @@ De forma similar a los registros de implementación, los registros de aplicacion
 
 | Archivo de registro | Integración de Starter y Pro | Descripción |
 | ------------------- | --------------------------- | ------------------------------------------------- |
-| **Implementación del registro** | `/var/log/deploy.log` | Actividad desde el [implementar gancho](../application/hooks-property.md). |
-| **Registro posterior a la implementación** | `/var/log/post_deploy.log` | Actividad desde el [enlace posterior al despliegue](../application/hooks-property.md). |
-| **Registro de Cron** | `/var/log/cron.log` | Salida de trabajos cron. |
+| **Implementar registro** | `/var/log/deploy.log` | Actividad desde el [vínculo de implementación](../application/hooks-property.md). |
+| **Registro de implementación de Post** | `/var/log/post_deploy.log` | Actividad desde el [vínculo posterior a la implementación](../application/hooks-property.md). |
+| **Registro Cron** | `/var/log/cron.log` | Salida de trabajos cron. |
 | **Registro de acceso de Nginx** | `/var/log/access.log` | Al inicio de Nginx, errores HTTP para los directorios que faltan y los tipos de archivo excluidos. |
-| **Registro de errores de Nginx** | `/var/log/error.log` | Mensajes de inicio útiles para depurar errores de configuración asociados a Nginx. |
+| **Registro de errores Nginx** | `/var/log/error.log` | Mensajes de inicio útiles para depurar errores de configuración asociados a Nginx. |
 | **Registro de acceso de PHP** | `/var/log/php.access.log` | Solicitudes al servicio PHP. |
-| **Registro de PHP FPM** | `/var/log/app.log` | |
+| **Registro FPM de PHP** | `/var/log/app.log` | |
 
-Para los entornos de ensayo y producción Pro, los registros de implementación, posterior a la implementación y Cron solo están disponibles en el primer nodo del clúster:
+Para los entornos de ensayo y producción Pro, los registros Deploy, Post-deploy y Cron solo están disponibles en el primer nodo del clúster:
 
 | Archivo de registro | Ensayo profesional | Producción profesional |
 | ------------------- | --------------------------------------------------- | ----------------------------------------------- |
-| **Implementación del registro** | Solo el primer nodo:<br>`/var/log/platform/<project-ID>_stg/deploy.log` | Solo el primer nodo:<br>`/var/log/platform/<project-ID>/deploy.log` |
-| **Registro posterior a la implementación** | Solo el primer nodo:<br>`/var/log/platform/<project-ID>_stg/post_deploy.log` | Solo el primer nodo:<br>`/var/log/platform/<project-ID>/post_deploy.log` |
-| **Registro de Cron** | Solo el primer nodo:<br>`/var/log/platform/<project-ID>_stg/cron.log` | Solo el primer nodo:<br>`/var/log/platform/<project-ID>/cron.log` |
+| **Implementar registro** | Solo el primer nodo: <br>`/var/log/platform/<project-ID>_stg/deploy.log` | Solo el primer nodo: <br>`/var/log/platform/<project-ID>/deploy.log` |
+| **Registro de implementación de Post** | Solo el primer nodo: <br>`/var/log/platform/<project-ID>_stg/post_deploy.log` | Solo el primer nodo: <br>`/var/log/platform/<project-ID>/post_deploy.log` |
+| **Registro Cron** | Solo el primer nodo: <br>`/var/log/platform/<project-ID>_stg/cron.log` | Solo el primer nodo: <br>`/var/log/platform/<project-ID>/cron.log` |
 | **Registro de acceso de Nginx** | `/var/log/platform/<project-ID>_stg/access.log` | `/var/log/platform/<project-ID>/access.log` |
-| **Registro de errores de Nginx** | `/var/log/platform/<project-ID>_stg/error.log` | `/var/log/platform/<project-ID>/error.log` |
+| **Registro de errores Nginx** | `/var/log/platform/<project-ID>_stg/error.log` | `/var/log/platform/<project-ID>/error.log` |
 | **Registro de acceso de PHP** | `/var/log/platform/<project-ID>_stg/php.access.log` | `/var/log/platform/<project-ID>/php.access.log` |
-| **Registro de PHP FPM** | `/var/log/platform/<project-ID>_stg/php5-fpm.log` | `/var/log/platform/<project-ID>/php5-fpm.log` |
+| **Registro FPM de PHP** | `/var/log/platform/<project-ID>_stg/php5-fpm.log` | `/var/log/platform/<project-ID>/php5-fpm.log` |
 
 ### Archivos de registro archivados
 
-Los registros de la aplicación se comprimen y archivan una vez al día y se conservan durante un año. Los registros comprimidos reciben un nombre mediante un ID único que corresponde a la variable `Number of Days Ago + 1`. Por ejemplo, en entornos de producción Pro, se almacena un registro de acceso PHP de 21 días en el pasado y se le asigna el siguiente nombre:
+Los registros de la aplicación se comprimen y archivan una vez al día y se conservan durante un año. Los registros comprimidos reciben un nombre mediante un identificador único que corresponde al `Number of Days Ago + 1`. Por ejemplo, en entornos de producción Pro, se almacena un registro de acceso PHP de 21 días en el pasado y se le asigna el siguiente nombre:
 
 ```terminal
 /var/log/platform/<project-ID>/php.access.log.22.gz
@@ -218,15 +218,15 @@ Los archivos de registro archivados siempre se almacenan en el directorio en el 
 
 >[!NOTE]
 >
->**Implementar** y **Posterior a la implementación** Los archivos de registro no se giran ni se archivan. Todo el historial de implementación se escribe dentro de esos archivos de registro.
+>Los archivos de registro **Deploy** y **Post-deploy** no se giran ni se archivan. Todo el historial de implementación se escribe dentro de esos archivos de registro.
 
 ## Registros de servicio
 
 Dado que cada servicio se ejecuta en un contenedor independiente, los registros del servicio no están disponibles en el entorno de integración. Adobe Commerce en la infraestructura en la nube proporciona acceso al contenedor del servidor web solo en el entorno de integración. Las siguientes ubicaciones de registro de servicio son para los entornos de ensayo y producción de Pro:
 
-- **Registro de Redis**: `/var/log/platform/<project-ID>_stg/redis-server-<project-ID>_stg.log`
+- **Registro de redis**: `/var/log/platform/<project-ID>_stg/redis-server-<project-ID>_stg.log`
 - **registro de Elasticsearch**: `/var/log/elasticsearch/elasticsearch.log`
-- **Registro de recolección de basura de Java**: `/var/log/elasticsearch/gc.log`
+- **Registro de recolección de elementos no utilizados de Java**: `/var/log/elasticsearch/gc.log`
 - **Registro de correo**: `/var/log/mail.log`
 - **Registro de errores de MySQL**: `/var/log/mysql/mysql-error.log`
 - **Registro lento de MySQL**: `/var/log/mysql/mysql-slow.log`
@@ -236,10 +236,10 @@ Los registros de servicio se archivan y guardan durante diferentes períodos de 
 
 >[!TIP]
 >
->Las ubicaciones de los archivos de registro en la arquitectura escalada dependen del tipo de nodo. Consulte [Ubicaciones de registro en la arquitectura a escala](../architecture/scaled-architecture.md#log-locations) tema.
+>Las ubicaciones de los archivos de registro en la arquitectura escalada dependen del tipo de nodo. Consulte [Ubicaciones de registro en el tema Arquitectura a escala](../architecture/scaled-architecture.md#log-locations).
 
 ## Datos de registro para Producción y ensayo profesionales
 
-En entornos de ensayo y producción profesional, utilice [Administración de registros de New Relic](../monitor/log-management.md) integrado con el proyecto para administrar los datos de registro agregados de todos los registros asociados con el proyecto de infraestructura de Adobe Commerce en la nube.
+En entornos Pro Production y Staging, use la [administración de registros de New Relic](../monitor/log-management.md) integrada con su proyecto para administrar los datos de registro agregados de todos los registros asociados con su proyecto Adobe Commerce en la nube.
 
 La aplicación New Relic Logs proporciona un panel de administración de registros centralizado para solucionar problemas y supervisar Adobe Commerce en entornos de ensayo y producción de infraestructuras en la nube. El tablero también proporciona acceso a los datos de registro para los servicios Fastly CDN, Optimización de imágenes y cortafuegos de aplicaciones web (WAF). Consulte [Servicios de New Relic](../monitor/new-relic-service.md).

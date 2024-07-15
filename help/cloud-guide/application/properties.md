@@ -1,6 +1,6 @@
 ---
 title: Propiedades
-description: Utilice la lista de propiedades como referencia al configurar la variable [!DNL Commerce] aplicación para crear e implementar en la infraestructura de la nube.
+description: Utilice la lista de propiedades como referencia al configurar la aplicación  [!DNL Commerce] para compilarla e implementarla en la infraestructura de la nube.
 feature: Cloud, Configuration, Build, Deploy, Roles/Permissions, Storage
 exl-id: 58a86136-a9f9-4519-af27-2f8fa4018038
 source-git-commit: 99272d08a11f850a79e8e24857b7072d1946f374
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Propiedades para la configuración de aplicaciones
 
-El `.magento.app.yaml` utiliza propiedades para administrar la compatibilidad del entorno con el [!DNL Commerce] aplicación.
+El archivo `.magento.app.yaml` utiliza propiedades para administrar la compatibilidad con el entorno para la aplicación [!DNL Commerce].
 
 | Nombre | Descripción | Predeterminado | Requerido |
 | ------ | --------------------------------- | ------- | -------- |
@@ -25,7 +25,7 @@ El `.magento.app.yaml` utiliza propiedades para administrar la compatibilidad de
 | [`mounts`](#mounts) | Definir rutas | Rutas:<ul><li>`"var": "shared:files/var"`</li><li>`"app/etc": "shared:files/etc"`</li><li>`"pub/media": "shared:files/media"`</li><li>`"pub/static": "shared:files/static"`</li></ul> | No |
 | [`name`](#name) | Definición del nombre de la aplicación | `mymagento` | Sí |
 | [`relationships`](#relationships) | Servicios de mapa | Servicios:<ul><li>`database: "mysql:mysql"`</li><li>`redis: "redis:redis"`</li><li>`opensearch: "opensearch:opensearch"`</li></ul> | No |
-| [`runtime`](#runtime) | La propiedad Runtime incluye extensiones que requiere el [!DNL Commerce] aplicación. | Extensiones:<ul><li>`xsl`</li><li>`newrelic`</li><li>`sodium`</li></ul> | Sí |
+| [`runtime`](#runtime) | La propiedad Runtime incluye extensiones requeridas por la aplicación [!DNL Commerce]. | Extensiones:<ul><li>`xsl`</li><li>`newrelic`</li><li>`sodium`</li></ul> | Sí |
 | [`type`](#type-and-build) | Establecer la imagen del contenedor base | `php:8.3` | Sí |
 | [`variables`](variables-property.md) | Aplicar una variable de entorno para una versión específica de Commerce | — | No |
 | [`web`](web-property.md) | Gestión de solicitudes externas | — | Sí |
@@ -35,7 +35,7 @@ El `.magento.app.yaml` utiliza propiedades para administrar la compatibilidad de
 
 ## `name`
 
-El `name` proporciona el nombre de la aplicación utilizado en la propiedad [`routes.yaml`](../routes/routes-yaml.md) para definir el flujo ascendente HTTP (de forma predeterminada), `mymagento:http`). Por ejemplo, si el valor de `name` es `app`, debe utilizar `app:http` en el campo upstream.
+La propiedad `name` proporciona el nombre de aplicación utilizado en el archivo [`routes.yaml`](../routes/routes-yaml.md) para definir el flujo ascendente HTTP (de forma predeterminada, `mymagento:http`). Por ejemplo, si el valor de `name` es `app`, debe utilizar `app:http` en el campo ascendente.
 
 >[!WARNING]
 >
@@ -43,15 +43,15 @@ El `name` proporciona el nombre de la aplicación utilizado en la propiedad [`ro
 
 ## `type` y `build`
 
-El `type`  y `build` las propiedades proporcionan información sobre la imagen del contenedor base para generar y ejecutar el proyecto.
+Las propiedades `type` y `build` proporcionan información sobre la imagen del contenedor base para generar y ejecutar el proyecto.
 
-El compatible `type` el lenguaje es PHP. Especifique la versión de PHP de la siguiente manera:
+El idioma `type` admitido es PHP. Especifique la versión de PHP de la siguiente manera:
 
 ```yaml
 type: php:<version>
 ```
 
-El `build` determina qué sucede de forma predeterminada al crear el proyecto. El `flavor` especifica un conjunto predeterminado de tareas de generación para ejecutar. El siguiente ejemplo muestra la configuración predeterminada para `type` y `build` de `magento-cloud/.magento.app.yaml`:
+La propiedad `build` determina qué sucede de forma predeterminada al crear el proyecto. `flavor` especifica un conjunto predeterminado de tareas de generación para ejecutar. El siguiente ejemplo muestra la configuración predeterminada para `type` y `build` de `magento-cloud/.magento.app.yaml`:
 
 ```yaml
 # The toolstack used to build the application.
@@ -66,13 +66,13 @@ dependencies:
 
 ### Instalación y uso de Composer 2
 
-El `build: flavor:` La propiedad no se utiliza para Composer 2.x; por lo tanto, debe instalar Composer manualmente durante la fase de compilación. Para instalar y utilizar Composer 2.x en sus proyectos de Starter y Pro, debe realizar tres cambios en su `.magento.app.yaml` configuración:
+La propiedad `build: flavor:` no se usa para Composer 2.x; por lo tanto, debe instalar Composer manualmente durante la fase de compilación. Para instalar y usar Composer 2.x en sus proyectos de Starter y Pro, debe realizar tres cambios en la configuración de `.magento.app.yaml`:
 
-1. Eliminar `composer` como el `build: flavor:` y agregue `none`. Este cambio evita que Cloud use la versión predeterminada 1.x de Composer para ejecutar tareas de compilación.
-1. Añadir `composer/composer: '^2.0'` as a `php` para instalar Composer 2.x.
-1. Añada el `composer` crear tareas en una `build` enlace para ejecutar las tareas de compilación utilizando Composer 2.x.
+1. Elimine `composer` como `build: flavor:` y agregue `none`. Este cambio evita que Cloud use la versión predeterminada 1.x de Composer para ejecutar tareas de compilación.
+1. Agregue `composer/composer: '^2.0'` como una dependencia `php` para instalar Composer 2.x.
+1. Agregue las tareas de compilación de `composer` a un vínculo `build` para ejecutar las tareas de compilación mediante Composer 2.x.
 
-Utilice los siguientes fragmentos de configuración por su cuenta `.magento.app.yaml` configuración:
+Use los siguientes fragmentos de configuración en su propia configuración de `.magento.app.yaml`:
 
 ```yaml
 # 1. Change flavor to none.
@@ -91,7 +91,7 @@ hooks:
         composer --no-ansi --no-interaction install --no-progress --prefer-dist --optimize-autoloader
 ```
 
-Consulte [Paquetes necesarios](../development/overview.md#required-packages) para obtener más información sobre Composer.
+Consulte [Paquetes requeridos](../development/overview.md#required-packages) para obtener más información sobre Composer.
 
 ## `dependencies`
 
@@ -103,7 +103,7 @@ Adobe Commerce admite dependencias en los siguientes idiomas:
 - Rubí
 - Node.js
 
-Estas dependencias son independientes de las dependencias finales de la aplicación y están disponibles en el `PATH`, durante el proceso de compilación y en el entorno de tiempo de ejecución de la aplicación.
+Estas dependencias son independientes de las dependencias finales de la aplicación y están disponibles en `PATH`, durante el proceso de compilación y en el entorno de tiempo de ejecución de la aplicación.
 
 Puede especificar esas dependencias de la siguiente manera:
 
@@ -126,7 +126,7 @@ runtime:
         - sodium
 ```
 
-Consulte [Configuración de PHP](php-settings.md) para obtener más información sobre la activación de extensiones.
+Consulte [Configuración de PHP](php-settings.md) para obtener detalles sobre cómo habilitar extensiones.
 
 ## `disk`
 
@@ -140,13 +140,13 @@ El tamaño mínimo de disco recomendado es de 256 MB. Si ve el error `UserError:
 
 >[!NOTE]
 >
->Para los entornos de ensayo y producción de Pro, debe [Enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para actualizar el `mounts` y `disk` para su aplicación. Cuando envíe el ticket, indique los cambios de configuración necesarios e incluya una versión actualizada de su `.magento.app.yaml` archivo.
+>Para los entornos de ensayo y producción de Pro, debe [enviar un vale de soporte de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para actualizar la configuración de `mounts` y `disk` de su aplicación. Cuando envíe el ticket, indique los cambios de configuración necesarios e incluya una versión actualizada del archivo `.magento.app.yaml`.
 
 ## `relationships`
 
 Define la asignación de servicios en la aplicación.
 
-La relación `name` está disponible para la aplicación en el `MAGENTO_CLOUD_RELATIONSHIPS` variable de entorno. El `<service-name>:<endpoint-name>` la relación se asigna a los valores de nombre y tipo definidos en la variable `.magento/services.yaml` archivo.
+La relación `name` está disponible para la aplicación en la variable de entorno `MAGENTO_CLOUD_RELATIONSHIPS`. La relación `<service-name>:<endpoint-name>` se asigna a los valores de nombre y tipo definidos en el archivo `.magento/services.yaml`.
 
 ```yaml
 relationships:
@@ -163,11 +163,11 @@ relationships:
     rabbitmq: "rabbitmq:rabbitmq"
 ```
 
-Consulte [Servicios](../services/services-yaml.md) para obtener una lista completa de los tipos de servicio y extremos admitidos actualmente.
+Consulte [Servicios](../services/services-yaml.md) para obtener una lista completa de los tipos de servicios y extremos admitidos actualmente.
 
 ## `mounts`
 
-Un objeto cuyas claves son rutas relativas a la raíz de la aplicación. El montaje es un área de escritura en el disco para archivos. A continuación se muestra una lista predeterminada de los montajes configurados en la `magento.app.yaml` usando el archivo `volume_id[/subpath]` sintaxis:
+Un objeto cuyas claves son rutas relativas a la raíz de la aplicación. El montaje es un área de escritura en el disco para archivos. A continuación se muestra una lista predeterminada de montajes configurados en el archivo `magento.app.yaml` con la sintaxis `volume_id[/subpath]`:
 
 ```yaml
  # The mounts that will be performed when the package is deployed.
@@ -184,28 +184,28 @@ El formato para agregar el montaje a esta lista es el siguiente:
 "/public/sites/default/files": "shared:files/files"
 ```
 
-- `shared`: permite compartir un volumen entre las aplicaciones dentro de un entorno.
-- `disk`: permite definir el tamaño disponible para el volumen compartido.
+- `shared`: comparte un volumen entre las aplicaciones dentro de un entorno.
+- `disk`: define el tamaño disponible para el volumen compartido.
 
 >[!NOTE]
 >
->Para los entornos de ensayo y producción de Pro, debe [Enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para actualizar el `mounts` y `disk` para su aplicación. Cuando envíe el ticket, indique los cambios de configuración necesarios e incluya una versión actualizada de su `.magento.app.yaml` archivo.
+>Para los entornos de ensayo y producción de Pro, debe [enviar un vale de soporte de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para actualizar la configuración de `mounts` y `disk` de su aplicación. Cuando envíe el ticket, indique los cambios de configuración necesarios e incluya una versión actualizada del archivo `.magento.app.yaml`.
 
-Puede hacer que la web de montaje sea accesible añadiéndola al [`web`](web-property.md) bloque de ubicaciones.
+Puede hacer accesible el Web de montaje agregándolo al bloque de ubicaciones [`web`](web-property.md).
 
 >[!WARNING]
 >
->Una vez que el sitio tenga datos, no cambie el `subpath` parte del nombre del montaje. Este valor es el identificador único del `files` área. Si cambia este nombre, perderá todos los datos del sitio almacenados en la ubicación antigua.
+>Una vez que el sitio tenga datos, no cambie la parte `subpath` del nombre del montaje. Este valor es el identificador único del área `files`. Si cambia este nombre, perderá todos los datos del sitio almacenados en la ubicación antigua.
 
 ## `access`
 
-El `access` indica un nivel mínimo de función de usuario que puede acceder SSH a los entornos. Las funciones de usuario disponibles son:
+La propiedad `access` indica un nivel mínimo de rol de usuario al que se permite el acceso SSH a los entornos. Las funciones de usuario disponibles son:
 
-- `admin`: puede cambiar la configuración y ejecutar acciones en el entorno; tiene _colaborador_ y _visualizador_ derechos.
-- `contributor`: puede insertar código en este entorno y ramificarlo desde el entorno; tiene _visualizador_ derechos.
-- `viewer`: sólo se puede ver el entorno.
+- `admin`: puede cambiar la configuración y ejecutar acciones en el entorno; tiene derechos de _colaborador_ y _visualizador_.
+- `contributor`: puede insertar código en este entorno y bifurcar desde el entorno; tiene derechos de _visor_.
+- `viewer`: solo puede ver el entorno.
 
-La función de usuario predeterminada es `contributor`, que restringe el acceso SSH de los usuarios con solo _visualizador_ derechos. Puede cambiar la función de usuario a `viewer` para permitir el acceso SSH solo a los usuarios con _visualizador_ derechos:
+La función de usuario predeterminada es `contributor`, que restringe el acceso SSH de los usuarios con solo _derechos de visor_. Puede cambiar la función del usuario a `viewer` para permitir el acceso SSH a los usuarios con solo _derechos de visor_:
 
 ```yaml
 access:

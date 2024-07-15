@@ -22,7 +22,7 @@ Las integraciones son útiles para utilizar servicios externos, como alojamiento
 
 >[!TAB CLI]
 
-**Para agregar una integración utilizando la CLI de nube**:
+**Para agregar una integración usando la CLI de nube**:
 
 El siguiente comando inicia las indicaciones interactivas para seleccionar el tipo y las opciones de la nueva integración.
 
@@ -30,7 +30,7 @@ El siguiente comando inicia las indicaciones interactivas para seleccionar el ti
 magento-cloud integration:add
 ```
 
-**Para enumerar las integraciones configuradas para el proyecto**:
+**Para enumerar las integraciones configuradas para su proyecto**:
 
 ```bash
 magento-cloud integration:list
@@ -52,9 +52,9 @@ Respuesta de ejemplo:
 
 >[!TAB Consola]
 
-**Para añadir una integración con[!DNL Cloud Console]**:
+**Para agregar una integración usando[!DNL Cloud Console]**:
 
-1. Entrada _Configuración de proyecto_, haga clic en **[!UICONTROL Integrations]**.
+1. En _Configuración del proyecto_, haga clic en **[!UICONTROL Integrations]**.
 
 1. Haga clic en un tipo de integración o en **[!UICONTROL Add integration]**.
 
@@ -66,24 +66,24 @@ Respuesta de ejemplo:
 
 ## Webhooks de Commerce
 
-Puede configurar los webhooks de Commerce en su proyecto de Cloud con la variable [Variable global ENABLE_WEBHOOKS](../environment/variables-global.md#enable_webhooks). Los webhooks de Commerce envían solicitudes a un servidor externo en respuesta a los eventos generados por Commerce. El [_Guía de webhooks_](https://developer.adobe.com/commerce/extensibility/webhooks) describe esta función en detalle.
+Puede configurar los webhooks de Commerce en su proyecto de Cloud con la [variable global ENABLE_WEBHOOKS](../environment/variables-global.md#enable_webhooks). Los enlaces web de Commerce envían solicitudes a un servidor externo en respuesta a eventos generados por Commerce. La [_Guía de Webhooks_](https://developer.adobe.com/commerce/extensibility/webhooks) describe esta característica en detalle.
 
 ## Webhooks genéricos
 
-Puede capturar y crear informes de los eventos de repositorio e infraestructura de Cloud mediante una integración de ganchos web personalizada para `POST` Mensajes JSON a _webhook_ URL.
+Puede capturar y crear informes sobre los eventos del repositorio e infraestructura de la nube mediante una integración de gancho web personalizada en `POST` mensajes JSON a una URL de _gancho web_.
 
-**Para añadir una URL de gancho web, utilice la siguiente sintaxis**:
+**Para agregar una URL de gancho web, use la siguiente sintaxis**:
 
 ```bash
 magento-cloud integration:add --type=webhook --url=https://hook-url.example.com
 ```
 
-- `type`: permite especificar el `webhook` tipo de integración.
-- `url`: proporcione la URL del gancho web que puede recibir mensajes JSON.
+- `type`: especifique el tipo de integración `webhook`.
+- `url`: proporcione la dirección URL del gancho web que puede recibir mensajes JSON.
 
 La respuesta de ejemplo muestra una serie de mensajes que proporcionan una oportunidad para personalizar la integración. Si se utiliza la respuesta predeterminada (en blanco), se envían mensajes sobre todos los eventos de todos los entornos de un proyecto.
 
-Puede personalizar la integración para crear informes específicos [eventos](#events-to-report), como insertar código en una rama. Por ejemplo, puede especificar la variable `environment.push` evento para enviar un mensaje cuando un usuario inserta código en una rama:
+Puede personalizar la integración para que informe de [eventos](#events-to-report) específicos, como la inserción de código en una rama. Por ejemplo, puede especificar el evento `environment.push` para enviar un mensaje cuando un usuario inserte código en una rama:
 
 ```terminal
 Events to report (--events)
@@ -93,7 +93,7 @@ Enter comma-separated values (or leave this blank)
 >
 ```
 
-Puede elegir informar de eventos en una `pending`, `in_progress`, o `complete` estado:
+Puede elegir informar sobre eventos en un estado `pending`, `in_progress` o `complete`:
 
 ```terminal
 States to report (--states)
@@ -103,7 +103,7 @@ Enter comma-separated values (or leave this blank)
 >
 ```
 
-Y tú puedes _include_ o _excluir_ mensajes para entornos específicos:
+Y puede _incluir_ o _excluir_ mensajes para entornos específicos:
 
 ```terminal
 Included environments (--environments)
@@ -137,7 +137,7 @@ Created integration integration-ID (type: webhook)
 
 ### Actualizar integración existente
 
-Puede actualizar una integración existente. Por ejemplo, cambie los estados de `complete` hasta `pending` mediante lo siguiente:
+Puede actualizar una integración existente. Por ejemplo, cambie los estados de `complete` a `pending` mediante lo siguiente:
 
 ```bash
 magento-cloud integration:update --states=pending <int-id>
@@ -171,14 +171,14 @@ Integration integration-ID (webhook) updated
 | `environment.branch` | Se ha creado una rama con la consola de administración |
 | `environment.deactivate` | Se ha &quot;desactivado&quot; una rama. El código sigue ahí, pero el medio ambiente fue destruido |
 | `environment.delete` | Se ha eliminado una rama |
-| `environment.initialize` | El `master` rama del proyecto inicializada con una primera confirmación |
+| `environment.initialize` | La rama `master` del proyecto se inicializó con una primera confirmación |
 | `environment.merge` | Se ha fusionado una rama activa mediante la consola de administración o la API |
 | `environment.push` | Un usuario insertó código en una rama |
 | `environment.restore` | Un usuario restauró una instantánea |
 | `environment.route.create` | Se ha creado una ruta mediante la consola de administración |
 | `environment.route.delete` | Se ha eliminado una ruta mediante la consola de administración |
 | `environment.route.update` | Se ha modificado una ruta mediante la consola de administración |
-| `environment.subscription.update` | El `master` Se ha cambiado el tamaño del entorno porque la suscripción ha cambiado, pero no hay cambios en el contenido |
+| `environment.subscription.update` | Se ha cambiado el tamaño del entorno `master` porque la suscripción ha cambiado, pero no hay cambios en el contenido |
 | `environment.synchronize` | Se han copiado datos o código de un entorno desde su entorno principal |
 | `environment.update.http_access` | Se han modificado las reglas de acceso HTTP de un entorno |
 | `environment.update.restrict_robots` | Se ha habilitado o deshabilitado la función de bloquear todos los robots |

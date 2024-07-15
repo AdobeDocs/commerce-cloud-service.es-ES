@@ -1,6 +1,6 @@
 ---
 title: Bloquear spam de referencia
-description: Bloquee el correo no deseado de referencia de su sitio mediante el diccionario Fastly Edge y un fragmento de VCL personalizado.
+description: Bloquee el correo no deseado de referencia de su sitio mediante el diccionario Fastly de Edge y un fragmento de VCL personalizado.
 feature: Cloud, Configuration, Security
 exl-id: 665bac93-75db-424f-be2c-531830d0e59a
 source-git-commit: 7a181af2149eef7bfaed4dd4d256b8fa19ae1dda
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Bloquear spam de referencia
 
-El siguiente ejemplo muestra cómo configurar [Diccionario de Fastly Edge](https://docs.fastly.com/guides/edge-dictionaries/working-with-dictionaries-using-the-api) con un fragmento de VCL personalizado para bloquear el correo no deseado de referencia de su sitio de Adobe Commerce en la infraestructura de la nube.
+El siguiente ejemplo muestra cómo configurar [Fastly Edge Dictionary](https://docs.fastly.com/guides/edge-dictionaries/working-with-dictionaries-using-the-api) con un fragmento de VCL personalizado para bloquear el correo no deseado de referencia de su Adobe Commerce en el sitio de infraestructura de la nube.
 
 >[!NOTE]
 >
@@ -26,43 +26,43 @@ El siguiente ejemplo muestra cómo configurar [Diccionario de Fastly Edge](https
 
 ## Creación de una lista de bloqueados de referente
 
-Los diccionarios de Edge crean pares de clave-valor accesibles para las funciones de VCL durante el procesamiento de fragmentos de VCL. En este ejemplo, se crea un diccionario de Edge que proporciona la lista de sitios web de referencia que se van a bloquear.
+Los diccionarios de Edge crean pares de clave-valor accesibles para las funciones VCL durante el procesamiento de fragmentos VCL. En este ejemplo, se crea un diccionario de Edge que proporciona la lista de sitios web de referencia que se van a bloquear.
 
 {{admin-login-step}}
 
-1. Clic **Tiendas** > **Configuración** > **Configuración** > **Avanzadas** > **Sistema**.
+1. Haga clic en **Tiendas** > **Configuración** > **Configuración** > **Avanzado** > **Sistema**.
 
-1. Expandir **Caché de página completa** > **Configuración rápida** > **Diccionarios de Edge**.
+1. Expandir **Caché de página completa** > **Configuración rápida** > **diccionarios de Edge**.
 
 1. Cree el contenedor Diccionario:
 
-   - Clic **Agregar contenedor**.
+   - Haga clic en **Agregar contenedor**.
 
-   - En el *Contenedor* página, introduzca un **Nombre del diccionario**—`referrer_blocklist`.
+   - En la página *Contenedor*, escriba un **nombre de diccionario**—`referrer_blocklist`.
 
-   - Seleccionar **Activar después del cambio** para implementar los cambios en la versión de la configuración del servicio de Fastly que está editando.
+   - Seleccione **Activar después del cambio** para implementar los cambios en la versión de la configuración del servicio de Fastly que está editando.
 
-   - Clic **Cargar** para adjuntar el diccionario a la configuración del servicio de Fastly.
+   - Haga clic en **Cargar** para adjuntar el diccionario a la configuración del servicio de Fastly.
 
-1. Añada la lista de nombres de dominio para bloquear a `referrer_blocklist` diccionario:
+1. Agregue la lista de nombres de dominio para bloquear al diccionario `referrer_blocklist`:
 
-   - Haga clic en el icono Configuración para la `referrer_blocklist` diccionario.
+   - Haga clic en el icono Configuración para el diccionario `referrer_blocklist`.
 
-   - Agregue y guarde pares de clave-valor en el nuevo diccionario. Para este ejemplo, cada **Clave** es el nombre de dominio de una URL de referente que se va a bloquear y **Valor** es `true`.
+   - Agregue y guarde pares de clave-valor en el nuevo diccionario. Para este ejemplo, cada **clave** es el nombre de dominio de una URL de referente que se va a bloquear y **valor** es `true`.
 
-     ![Agregar elementos de diccionario de referente incorrectos](../../assets/cdn/fastly-referrer-blocklist-dictionary.png)
+     ![Agregar elementos incorrectos del diccionario de referente](../../assets/cdn/fastly-referrer-blocklist-dictionary.png)
 
-   - Clic **Cancelar** para volver a la página de configuración del sistema.
+   - Haga clic en **Cancelar** para volver a la página de configuración del sistema.
 
-1. Clic **Guardar configuración**.
+1. Haga clic en **Guardar configuración**.
 
 1. Actualice la caché según la notificación que aparece en la parte superior de la página.
 
-Para obtener más información acerca de los diccionarios de Edge, consulte [Crear y usar diccionarios de Edge](https://docs.fastly.com/guides/edge-dictionaries/working-with-dictionaries-using-the-api) y [fragmentos de VCL personalizados](https://docs.fastly.com/guides/edge-dictionaries/working-with-dictionaries-using-the-api#custom-vcl-examples) en la documentación de Fastly.
+Para obtener más información acerca de los diccionarios de Edge, consulte [Creación y uso de diccionarios de Edge](https://docs.fastly.com/guides/edge-dictionaries/working-with-dictionaries-using-the-api) y [fragmentos personalizados de VCL](https://docs.fastly.com/guides/edge-dictionaries/working-with-dictionaries-using-the-api#custom-vcl-examples) en la documentación de Fastly.
 
 ## Cree un fragmento de VCL personalizado para bloquear el correo no deseado del referente
 
-El siguiente código de fragmento de VCL personalizado (formato JSON) muestra la lógica para comprobar y bloquear solicitudes. El fragmento de VCL captura el host de un sitio web de referente en un encabezado y, a continuación, compara el nombre de host con la lista de direcciones URL de `referrer_blocklist` diccionario. Si el nombre de host coincide, la solicitud se bloquea con un `403 Forbidden` error.
+El siguiente código de fragmento de VCL personalizado (formato JSON) muestra la lógica para comprobar y bloquear solicitudes. El fragmento de VCL captura el host de un sitio web de referente en un encabezado y, a continuación, compara el nombre de host con la lista de direcciones URL del diccionario `referrer_blocklist`. Si el nombre de host coincide, la solicitud se bloquea con un error `403 Forbidden`.
 
 ```json
 {
@@ -76,19 +76,19 @@ El siguiente código de fragmento de VCL personalizado (formato JSON) muestra la
 
 Antes de crear un fragmento basado en este ejemplo, revise los valores para determinar si necesita realizar algún cambio:
 
-- `name` — Nombre del fragmento de VCL. Para este ejemplo, se ha utilizado `block_bad_referrer`.
+- `name`: nombre del fragmento de VCL. Para este ejemplo, usamos `block_bad_referrer`.
 
-- `dynamic` — El valor 0 indica un [fragmento normal](https://docs.fastly.com/en/guides/using-regular-vcl-snippets) para cargar en el VCL con versiones para la configuración de Fastly.
+- `dynamic` — El valor 0 indica que hay [un fragmento normal](https://docs.fastly.com/en/guides/using-regular-vcl-snippets) que cargar en el VCL con versiones para la configuración de Fastly.
 
-- `priority` — determina cuándo se ejecuta el fragmento de VCL. La prioridad es `5` para ejecutar este código de fragmento antes de cualquiera de los fragmentos de VCL de Magento predeterminados (`magentomodule_*`) tiene asignada una prioridad de 50. Establezca la prioridad de cada fragmento personalizado por encima o por debajo de 50, según el momento en el que desee que se ejecute el fragmento. Los fragmentos con números de prioridad más bajos se ejecutan primero.
+- `priority` — Determina cuándo se ejecuta el fragmento de VCL. La prioridad es `5` para ejecutar este código de fragmento antes de que cualquiera de los fragmentos de VCL de Magento predeterminados (`magentomodule_*`) tenga asignada una prioridad de 50. Establezca la prioridad de cada fragmento personalizado por encima o por debajo de 50, según el momento en el que desee que se ejecute el fragmento. Los fragmentos con números de prioridad más bajos se ejecutan primero.
 
-- `type` — especifica una ubicación para insertar el fragmento en la versión de VCL. En este ejemplo, el fragmento de VCL es un `recv` fragmento. Cuando el fragmento se inserta en la versión de VCL, se añade a la variable `vcl_recv` subrutina, debajo del código predeterminado Fastly VCL y encima de cualquier objeto.
+- `type` — especifica una ubicación para insertar el fragmento de código en la versión de VCL. En este ejemplo, el fragmento VCL es un fragmento `recv`. Cuando el fragmento se inserta en la versión de VCL, se agrega a la subrutina `vcl_recv`, debajo del código VCL predeterminado de Fastly y encima de cualquier objeto.
 
-- `content` — El fragmento de código VCL que se ejecutará en una línea, sin saltos de línea.
+- `content`: fragmento de código VCL que se ejecutará en una línea, sin saltos de línea.
 
 Después de revisar y actualizar el código para su entorno, utilice cualquiera de los siguientes métodos para agregar el fragmento de VCL personalizado a la configuración del servicio de Fastly:
 
-- [Añadir el fragmento de VCL personalizado desde el administrador](#add-the-custom-vcl-snippet). Se recomienda utilizar este método si puede acceder al administrador. (Requiere [Fastly versión 1.2.58](fastly-configuration.md#upgrade) o más tarde.)
+- [Agregar el fragmento de VCL personalizado del administrador](#add-the-custom-vcl-snippet). Se recomienda utilizar este método si puede acceder al administrador. (Requiere [Fastly versión 1.2.58](fastly-configuration.md#upgrade) o posterior).
 
 - Guarde el ejemplo de código JSON en un archivo (por ejemplo, `allowlist.json`) y [cárguelo mediante la API de Fastly](fastly-vcl-custom-snippets.md#manage-custom-vcl-snippets-using-the-api). Utilice este método si no puede acceder al administrador.
 
@@ -96,11 +96,11 @@ Después de revisar y actualizar el código para su entorno, utilice cualquiera 
 
 {{admin-login-step}}
 
-1. Clic **Tiendas** > Configuración > **Configuración** > **Avanzadas** > **Sistema**.
+1. Haga clic en **Tiendas** > Configuración > **Configuración** > **Avanzado** > **Sistema**.
 
-1. Expandir **Caché de página completa** > **Configuración rápida** > **Fragmentos de VCL personalizados**.
+1. Expandir **Caché De Página Completa** > **Configuración Rápida** > **Fragmentos De VCL Personalizados**.
 
-1. Clic **Crear fragmento personalizado**.
+1. Haga clic en **Crear fragmento personalizado**.
 
 1. Añada los valores de fragmento de VCL:
 
@@ -110,7 +110,7 @@ Después de revisar y actualizar el código para su entorno, utilice cualquiera 
 
    - **Prioridad** — `5`
 
-   - **VCL** fragmento de contenido —
+   - **VCL** contenido de fragmento —
 
      ```conf
      set req.http.Referer-Host = regsub(req.http.Referer,
@@ -120,11 +120,11 @@ Después de revisar y actualizar el código para su entorno, utilice cualquiera 
      }
      ```
 
-1. Clic **Crear**.
+1. Haga clic en **Crear**.
 
-   ![Crear un fragmento VCL de bloque de referente personalizado](/help/assets/cdn/fastly-create-referrer-block-snippet.png)
+   ![Crear fragmento VCL de bloque de referente personalizado](/help/assets/cdn/fastly-create-referrer-block-snippet.png)
 
-1. Cuando la página se vuelva a cargar, haga clic en **Cargar VCL a Fastly** en el *Configuración rápida* sección.
+1. Después de que la página se vuelva a cargar, haz clic en **Cargar VCL a Fastly** en la sección *Configuración de Fastly*.
 
 1. Una vez finalizada la carga, actualice la caché según la notificación que aparece en la parte superior de la página.
 

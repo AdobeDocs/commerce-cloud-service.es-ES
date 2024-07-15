@@ -12,19 +12,19 @@ ht-degree: 0%
 
 # Actualizar el paquete ECE-Tools
 
-Una actualización de la `ece-tools` El paquete también actualiza el otro [Cloud Tools Suite para paquetes de Commerce](../release-notes/cloud-tools-suite.md), que son dependencias para `ece-tools`. Por lo tanto, debe utilizar una versión de Adobe Commerce en la infraestructura en la nube que admita `ece-tools` paquete.
+Una actualización del paquete `ece-tools` también actualiza los otros paquetes de [Cloud Tools Suite para Commerce](../release-notes/cloud-tools-suite.md), que son dependencias de `ece-tools`. Por lo tanto, debe usar una versión de Adobe Commerce en la infraestructura en la nube que admita el paquete `ece-tools`.
 
 {{ece-tools-package}}
 
 **Requisitos previos**:
 
-- Antes de actualizar `ece-tools`, revise la [Notas de la versión de Cloud Tools Suite for Commerce](../release-notes/cloud-tools-suite.md).
-- Si está actualizando desde `ece-tools` 2002.0.22 o anterior a 2002.1.0, revisar [Cambios incompatibles con versiones anteriores](../release-notes/backward-incompatible-changes.md) y realice los cambios necesarios en su proyecto de Adobe Commerce en la nube.
-- Revisar [Actualizaciones y parches](../development/commerce-version.md#upgrade-from-older-versions) para determinar las versiones de ECE-Tools compatibles con su proyecto de infraestructura de Adobe Commerce en la nube.
+- Antes de actualizar `ece-tools`, revise las [notas de la versión de Cloud Tools Suite para Commerce](../release-notes/cloud-tools-suite.md).
+- Si actualiza desde `ece-tools` 2002.0.22 o anterior a 2002.1.0, revise [cambios incompatibles con versiones anteriores](../release-notes/backward-incompatible-changes.md) y realice los cambios necesarios en su proyecto de Adobe Commerce en la nube.
+- Revise [Actualizaciones y parches](../development/commerce-version.md#upgrade-from-older-versions) para determinar las versiones de ECE-Tools compatibles con su proyecto de Adobe Commerce en la nube.
 
 {{upgrade-tip}}
 
-**Para actualizar el `ece-tools` paquete**:
+**Para actualizar el paquete `ece-tools`**:
 
 1. En la estación de trabajo local, realice una actualización con Composer.
 
@@ -34,7 +34,7 @@ Una actualización de la `ece-tools` El paquete también actualiza el otro [Clou
 
    >[!NOTE]
    >
-   >Si no puede actualizar más allá `ece-tools` versión 2002.0.8, consulte [Actualizar proyecto para utilizar el paquete ECE-Tools](install-package.md).
+   >Si no puede actualizar más allá de `ece-tools` versión 2002.0.8, vea [Actualizar el proyecto para usar el paquete ECE-Tools](install-package.md).
 
 1. Agregar, confirmar y enviar cambios de código.
 

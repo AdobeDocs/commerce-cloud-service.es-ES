@@ -12,19 +12,19 @@ ht-degree: 0%
 
 # Actualizar proyecto para utilizar el paquete ECE-Tools
 
-Adobe obsoleto para `magento/magento-cloud-configuration` y `magento/ece-patches` paquetes a favor de la `ece-tools` , que simplifica muchos procesos de la nube. Si utiliza un proyecto de infraestructura de Adobe Commerce en la nube anterior que sí lo haga, _no_ contener el `ece-tools` paquete, entonces debe realizar un único, manual _actualización_ procesar en el proyecto.
+El Adobe ha desaprobado los paquetes `magento/magento-cloud-configuration` y `magento/ece-patches` en favor del paquete `ece-tools`, lo que simplifica muchos procesos de la nube. Si usa un proyecto de infraestructura de Adobe Commerce en la nube más antiguo que _no_ contiene el paquete `ece-tools`, debe realizar un único proceso de _actualización_ manual del proyecto.
 
 >[!WARNING]
 >
->Si el proyecto contiene `ece-tools` puede omitir la siguiente actualización. Para verificarlo, recupere el [!DNL Commerce] versión con el `php vendor/bin/ece-tools -V` comando en el directorio raíz del proyecto local.
+>Si el proyecto contiene el paquete `ece-tools`, puede omitir la siguiente actualización. Para comprobarlo, recupere la versión [!DNL Commerce] mediante el comando `php vendor/bin/ece-tools -V` en el directorio raíz del proyecto local.
 
-Este proceso de actualización del proyecto requiere que actualice el `magento/magento-cloud-metapackage` restricción de versión en `composer.json` en el directorio raíz. Esta restricción permite actualizar Adobe Commerce en los metapaquetes de infraestructura en la nube (incluida la eliminación de paquetes obsoletos) sin actualizar la versión actual de Adobe Commerce.
+Este proceso de actualización de proyecto requiere que actualice la restricción de versión `magento/magento-cloud-metapackage` en el archivo `composer.json` en el directorio raíz. Esta restricción permite actualizar Adobe Commerce en los metapaquetes de infraestructura en la nube (incluida la eliminación de paquetes obsoletos) sin actualizar la versión actual de Adobe Commerce.
 
 {{upgrade-tip}}
 
 ## Eliminación de paquetes obsoletos
 
-Antes de realizar una actualización para utilizar el `ece-tools` paquete, compruebe el `composer.lock` para los siguientes paquetes obsoletos:
+Antes de realizar una actualización para usar el paquete `ece-tools`, busque los siguientes paquetes obsoletos en el archivo `composer.lock`:
 
 - `magento/magento-cloud-configuration`
 - `magento/ece-patches`
@@ -40,9 +40,9 @@ Cada versión de Adobe Commerce requiere una restricción diferente en función 
 - Para `current_version`, especifique la versión de Adobe Commerce que desea instalar.
 - Para `next_version`, especifique la siguiente versión del parche después del valor especificado en `current_version`.
 
-Si desea instalar Adobe Commerce `2.3.5-p2`, configurado `current_version` hasta `2.3.5` y el `next_version` hasta `2.3.6`. La restricción `">=2.3.5 <2.3.6"` instala el último paquete disponible para 2.3.5.
+Si desea instalar Adobe Commerce `2.3.5-p2`, establezca `current_version` en `2.3.5` y `next_version` en `2.3.6`. La restricción `">=2.3.5 <2.3.6"` instala el último paquete disponible para 2.3.5.
 
-Siempre puede encontrar la restricción del metapaquete más reciente en la variable [`magento-cloud` plantilla](https://github.com/magento/magento-cloud/blob/master/composer.json).
+Siempre puede encontrar la restricción de metapackage más reciente en la plantilla [`magento-cloud` ](https://github.com/magento/magento-cloud/blob/master/composer.json).
 
 El siguiente ejemplo coloca una restricción para el metapaquete de infraestructura en la nube de Adobe Commerce en cualquier versión superior o igual a la versión actual 2.4.7 e inferior a la siguiente versión 2.4.8:
 
@@ -54,11 +54,11 @@ El siguiente ejemplo coloca una restricción para el metapaquete de infraestruct
 
 ## Actualizar el proyecto
 
-Para actualizar el proyecto y utilizar `ece-tools` paquete, debe actualizar el metapaquete y el `.magento.app.yaml` enlaza propiedades de y realiza una actualización de Composer.
+Para actualizar el proyecto de modo que utilice el paquete `ece-tools`, debe actualizar las propiedades del metapaquete y los vínculos `.magento.app.yaml`, y realizar una actualización del Compositor.
 
-**Para actualizar un proyecto para que utilice ece-tools**:
+**Para actualizar el proyecto y usar ece-tools**:
 
-1. Actualice el `magento/magento-cloud-metapackage` restricción de versión en `composer.json` archivo.
+1. Actualizar la restricción de versión `magento/magento-cloud-metapackage` en el archivo `composer.json`.
 
    ```bash
    composer require "magento/magento-cloud-metapackage":">=2.4.7 <2.4.8" --no-update
@@ -70,7 +70,7 @@ Para actualizar el proyecto y utilizar `ece-tools` paquete, debe actualizar el m
    composer update magento/magento-cloud-metapackage
    ```
 
-1. Modifique los comandos de enlace en la `magento.app.yaml` archivo.
+1. Modifique los comandos de enlace en el archivo `magento.app.yaml`.
 
    ```yaml
    hooks:
@@ -87,7 +87,7 @@ Para actualizar el proyecto y utilizar `ece-tools` paquete, debe actualizar el m
            php ./vendor/bin/ece-tools run scenario/post-deploy.xml
    ```
 
-1. Compruebe y extraiga el [paquetes obsoletos](#remove-deprecated-packages). Los paquetes obsoletos pueden impedir que la actualización se realice correctamente.
+1. Busque y elimine [paquetes obsoletos](#remove-deprecated-packages). Los paquetes obsoletos pueden impedir que la actualización se realice correctamente.
 
    ```bash
    composer remove magento/magento-cloud-configuration
@@ -97,7 +97,7 @@ Para actualizar el proyecto y utilizar `ece-tools` paquete, debe actualizar el m
    composer remove magento/ece-patches
    ```
 
-1. Puede ser necesario actualizar el `ece-tools` paquete.
+1. Puede que sea necesario actualizar el paquete `ece-tools`.
 
    ```bash
    composer update magento/ece-tools
@@ -111,7 +111,7 @@ Para actualizar el proyecto y utilizar `ece-tools` paquete, debe actualizar el m
    composer.lock
    ```
 
-1. Inserte los cambios de código en el servidor remoto y combine esta rama con la `integration` Rama.
+1. Inserte los cambios de código en el servidor remoto y combine esta rama con la rama `integration`.
 
    ```bash
    git push origin <branch-name>

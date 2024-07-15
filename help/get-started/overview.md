@@ -14,13 +14,13 @@ ht-degree: 0%
 
 ¡Bienvenido a Adobe Commerce!
 
-La sección Introducción le guía durante el procedimiento para inicializar su cuenta de Adobe Commerce y acceder a la [!DNL Cloud Console]. El _Siguiente paso_ El vínculo situado en la parte inferior de cada tema abre el siguiente concepto y procedimiento. Cada tema se basa en los temas anteriores con nuevas tareas y vínculos de aprendizaje.
+La sección Introducción lo guía durante los procedimientos para inicializar su cuenta de Adobe Commerce y acceder a [!DNL Cloud Console]. El vínculo _Siguiente paso_ al final de cada tema abre el siguiente concepto y procedimiento. Cada tema se basa en los temas anteriores con nuevas tareas y vínculos de aprendizaje.
 
-En esta guía se da por hecho que tiene conocimientos prácticos y una comprensión del [!DNL Commerce] aplicación. Puede consultar las guías más recientes para desarrolladores y usuarios de Commerce:
+En esta guía se da por hecho que tiene conocimientos prácticos y conocimientos de la aplicación [!DNL Commerce]. Puede consultar las guías más recientes para desarrolladores de Commerce y usuarios de Commerce:
 
-- [Documentación para desarrolladores de Adobe Commerce](https://developer.adobe.com/commerce/docs/) (Sitio de Adobe Developer): Desarrolle, personalice, integre, amplíe y utilice funciones avanzadas
+- [Documentación para desarrolladores de Adobe Commerce](https://developer.adobe.com/commerce/docs/) (sitio de Adobe Developer): desarrolle, personalice, integre, amplíe y utilice funciones avanzadas
 
-- [Documentación de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce.html) (Adobe Experience League): Planifique, implemente, opere, actualice y mantenga sus proyectos de Commerce
+- [Documentación de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce.html) (Adobe Experience League): Planifique, implemente, utilice, actualice y mantenga sus proyectos de Commerce
 
 >[!TIP]
 >

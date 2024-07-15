@@ -10,12 +10,12 @@ ht-degree: 0%
 <!-- The template to render with above values -->
 **Versión**: 2002.1.18
 
-Esta referencia contiene 34 comandos disponibles a través del `ece-tools` herramienta de línea de comandos.
-La lista inicial se genera automáticamente utilizando `ece-tools list` en Adobe Commerce en la infraestructura en la nube.
+Esta referencia contiene 34 comandos disponibles mediante la herramienta de línea de comandos `ece-tools`.
+La lista inicial se genera automáticamente mediante el comando `ece-tools list` en Adobe Commerce en la infraestructura en la nube.
 
 >[!NOTE]
 >
->Esta referencia se genera a partir del código base de la aplicación. Para cambiar el contenido, puede actualizar el código fuente para la implementación del comando correspondiente en la [código base](https://github.com/magento/magento-cloud-cli) y envíe los cambios para que se revisen. Otra forma es _Danos tu opinión_ (busque el vínculo en la parte superior derecha). Para ver las directrices de contribución, consulte [Contribuciones de código](https://developer.adobe.com/commerce/contributor/guides/code-contributions/).
+>Esta referencia se genera a partir del código base de la aplicación. Para cambiar el contenido, puede actualizar el código fuente de la implementación de comandos correspondiente en el repositorio [codebase](https://github.com/magento/magento-cloud-cli) y enviar los cambios para su revisión. Otra forma es _Proporcionarnos comentarios_ (busque el vínculo en la esquina superior derecha). Para ver las directrices de contribución, consulte [Contribuciones de código](https://developer.adobe.com/commerce/contributor/guides/code-contributions/).
 
 ## `_complete`
 
@@ -33,7 +33,7 @@ El tipo de contenedor (&quot;bash&quot;, &quot;fish&quot;, &quot;zsh&quot;)
 
 ### `--input`, `-i`
 
-Una matriz de tokens de entrada (por ejemplo, COMP_WORDS o argv)
+Matriz de tokens de entrada (por ejemplo, COMP_WORDS o argv)
 
 - Predeterminado: `[]`
 - Requiere un valor
@@ -243,7 +243,7 @@ ece-tools db-dump [-d|--remove-definers] [-a|--dump-directory DUMP-DIRECTORY] [-
 
 ### `databases`
 
-Bases de datos para backup. Valores disponibles: [principales ventas de presupuesto]. Si no se especifica el valor del argumento, se crearán copias de seguridad de la base de datos con las credenciales almacenadas en el `MAGENTO_CLOUD_RELATIONSHIP` variable de entorno y/o la variable `stage.deploy.DATABASE_CONFIGURATION` propiedad del archivo de configuración .magento.env.yaml.
+Bases de datos para backup. Valores disponibles: [ventas de presupuesto principal]. Si no se especifica el valor del argumento, se crearán copias de seguridad de la base de datos con las credenciales almacenadas en la variable de entorno `MAGENTO_CLOUD_RELATIONSHIP` o con la propiedad `stage.deploy.DATABASE_CONFIGURATION` del archivo de configuración .magento.env.yaml.
 
 - Predeterminado: `[]`
 
@@ -955,7 +955,7 @@ No haga ninguna pregunta interactiva
 
 ## `cloud:config:create`
 
-Crea un `.magento.env.yaml` con la configuración de variables de compilación, implementación y posterior a la implementación especificada. Sobrescribe los existentes `.magento,.env.yaml` archivo.
+Crea un archivo de `.magento.env.yaml` con la configuración de variables especificada de compilación, implementación y posterior a la implementación. Sobrescribe cualquier archivo `.magento,.env.yaml` existente.
 
 ```bash
 ece-tools cloud:config:create <configuration>
@@ -1019,7 +1019,7 @@ No haga ninguna pregunta interactiva
 
 ## `cloud:config:update`
 
-Actualiza el existente `.magento.env.yaml` con la configuración especificada. Crea `.magento.env.yaml` archivo si no existe.
+Actualiza el archivo `.magento.env.yaml` existente con la configuración especificada. Crea `.magento.env.yaml` archivo si no existe.
 
 ```bash
 ece-tools cloud:config:update <configuration>
@@ -1083,7 +1083,7 @@ No haga ninguna pregunta interactiva
 
 ## `cloud:config:validate`
 
-Valida `.magento.env.yaml` archivo de configuración
+Valida el archivo de configuración `.magento.env.yaml`
 
 ```bash
 ece-tools cloud:config:validate

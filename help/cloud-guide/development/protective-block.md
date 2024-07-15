@@ -28,9 +28,9 @@ Si se detecta una vulnerabilidad crítica en la aplicación, se rechaza la notif
 
 Existen dos tipos de bloques que se ejecutan:
 
-1. **Bloque completo**: para sitios web de desarrollo. El mensaje de error que acompaña a `git push` proporciona información detallada sobre la vulnerabilidad.
+1. **Bloque completo** para sitios web de desarrollo. El mensaje de error que acompaña a `git push` proporciona información detallada sobre la vulnerabilidad.
 
-1. **Bloqueo parcial**—para sitios web de producción, lo que permite que el sitio permanezca mayormente en línea. Según la naturaleza de la vulnerabilidad, partes de una solicitud, como una cadena de consulta, cookies o cualquier encabezado adicional, podrían eliminarse de las solicitudes de GET. Todas las demás solicitudes pueden bloquearse por completo, como el inicio de sesión, el envío de formularios o el cierre de compra de productos.
+1. **Bloqueo parcial** para sitios web de producción, lo que permite que el sitio permanezca en línea principalmente. Según la naturaleza de la vulnerabilidad, partes de una solicitud, como una cadena de consulta, cookies o cualquier encabezado adicional, podrían eliminarse de las solicitudes de GET. Todas las demás solicitudes pueden bloquearse por completo, como el inicio de sesión, el envío de formularios o el cierre de compra de productos.
 
 El desbloqueo se automatiza al resolver el riesgo de seguridad. El bloque se elimina poco después de aplicar una actualización de seguridad que elimina la vulnerabilidad.
 
@@ -38,7 +38,7 @@ El desbloqueo se automatiza al resolver el riesgo de seguridad. El bloque se eli
 
 El bloque protector está ahí para protegerle contra vulnerabilidades conocidas en el software que implementa Adobe Commerce en la infraestructura en la nube.
 
-Sin embargo, puede excluirse del bloque de protección añadiendo lo siguiente a [`.magento.app.yaml`](../application/configure-app-yaml.md):
+Sin embargo, puede excluirse del bloque protector agregando lo siguiente a [`.magento.app.yaml`](../application/configure-app-yaml.md):
 
 ```yaml
    preflight:

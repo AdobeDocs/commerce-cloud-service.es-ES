@@ -1,6 +1,6 @@
 ---
 title: Configurar el entorno
-description: Aprenda a configurar acciones de compilación e implementación en todos los entornos de infraestructura de Commerce en la nube, incluidos Pro Staging y Production, mediante variables de entorno.
+description: Aprenda a configurar acciones de compilación e implementación en todos los entornos de infraestructura en la nube de Commerce, incluidos el ensayo y la producción profesionales, mediante variables de entorno.
 feature: Cloud, Build, Configuration, Deploy, SCD
 role: Developer
 exl-id: 66e257e2-1eca-4af5-9b56-01348341400b
@@ -13,40 +13,40 @@ ht-degree: 0%
 
 # Configuración de variables de entorno para la implementación
 
-El `.magento.env.yaml` Este archivo utiliza variables de entorno para centralizar la administración de las acciones de compilación e implementación en todos los entornos, incluidos Pro Staging y Production. Para configurar acciones únicas en cada entorno, debe modificar este archivo en cada entorno.
+El archivo `.magento.env.yaml` utiliza variables de entorno para centralizar la administración de acciones de generación e implementación en todos los entornos, incluidos el ensayo y la producción de Pro. Para configurar acciones únicas en cada entorno, debe modificar este archivo en cada entorno.
 
 >[!TIP]
 >
->Los archivos YAML distinguen entre mayúsculas y minúsculas y no permiten tabulaciones. Tenga cuidado de utilizar una sangría uniforme en todo el `.magento.env.yaml` o puede que la configuración no funcione según lo esperado. Los ejemplos de la documentación y del archivo de muestra utilizan _de dos espacios_ sangría. Utilice el [comando ece-tools validate](#validate-configuration-file) para comprobar su configuración.
+>Los archivos YAML distinguen entre mayúsculas y minúsculas y no permiten tabulaciones. Tenga cuidado de utilizar una sangría uniforme en todo el archivo `.magento.env.yaml`; de lo contrario, es posible que la configuración no funcione según lo esperado. Los ejemplos de la documentación y del archivo de muestra utilizan la sangría _two-space_. Use [ece-tools validate command](#validate-configuration-file) para comprobar la configuración.
 
 ## Estructura de archivos
 
-El `.magento.env.yaml` El archivo contiene dos secciones: `stage` y `log`. El `stage` controla las acciones que se producen durante las fases del [Proceso de implementación en la nube](../deploy/process.md).
+El archivo `.magento.env.yaml` contiene dos secciones: `stage` y `log`. La sección `stage` controla las acciones que se producen durante las fases del [proceso de implementación en la nube](../deploy/process.md).
 
-- `stage`: utilice la sección de fase para definir determinadas acciones para las siguientes fases de despliegue:
-   - `global`: permite controlar las acciones en las fases de compilación, implementación y posterior a la implementación. Puede anular esta configuración en las secciones compilación, implementación y posterior a la implementación.
-   - `build`: permite controlar las acciones sólo en la fase de compilación. Si no especifica la configuración en esta sección, la fase de compilación utiliza la configuración de la sección global.
-   - `deploy`: permite controlar las acciones sólo en la fase de despliegue. Si no especifica la configuración en esta sección, la fase de implementación utiliza la configuración de la sección global.
-   - `post-deploy`: permite controlar las acciones _después_ implementar la aplicación y _después_ el contenedor empieza a aceptar conexiones.
+- `stage`: utilice la sección de fase para definir determinadas acciones para las siguientes fases de la implementación:
+   - `global`: controla las acciones en las fases de compilación, implementación y posterior a la implementación. Puede anular esta configuración en las secciones compilación, implementación y posterior a la implementación.
+   - `build`: controla solo las acciones en la fase de compilación. Si no especifica la configuración en esta sección, la fase de compilación utiliza la configuración de la sección global.
+   - `deploy`: controla solo las acciones en la fase de implementación. Si no especifica la configuración en esta sección, la fase de implementación utiliza la configuración de la sección global.
+   - `post-deploy`: controla las acciones _después de_ implementar la aplicación y _después de_ el contenedor comienza a aceptar conexiones.
 - `log`: utilice la sección de registro para configurar [notificaciones](set-up-notifications.md), incluidos los tipos de notificación y el nivel de detalle.
-   - `slack`: permite configurar un mensaje para enviarlo a un bot de Slack.
-   - `email`: permite configurar un correo electrónico para enviarlo a uno o varios destinatarios de correo electrónico.
-   - [controladores de registro](log-handlers.md): permite configurar los mensajes de aplicación de hardware y software enviados a un servidor de registro remoto.
+   - `slack`: configure un mensaje para enviarlo a un bot de Slack.
+   - `email`: configure un correo electrónico para enviarlo a uno o varios destinatarios de correo electrónico.
+   - [controladores de registro](log-handlers.md): configure los mensajes de aplicaciones de hardware y software enviados a un servidor de registro remoto.
 
 ### Variables de entorno
 
-El `ece-tools` el paquete establece valores en la variable `env.php` archivo basado en valores de [Variables de nube](variables-cloud.md), las variables configuradas en la variable [!DNL Cloud Console], y el `.magento.env.yaml` archivo de configuración. Las variables de entorno en la variable `.magento.env.yaml` personalice el entorno de la nube anulando la configuración de Commerce existente. Si un valor predeterminado es `Not Set`y, a continuación, el `ece-tools` el paquete toma **NO** y utiliza el [!DNL Commerce] por defecto o el valor de la configuración MAGENTO_CLOUD_RELATIONSHIPS. Si se establece el valor predeterminado, la variable `ece-tools` El paquete de actúa para establecer ese valor predeterminado.
+El paquete `ece-tools` establece valores en el archivo `env.php` en función de los valores de [variables de nube](variables-cloud.md), las variables establecidas en [!DNL Cloud Console] y el archivo de configuración `.magento.env.yaml`. Las variables de entorno del archivo `.magento.env.yaml` personalizan el entorno de la nube al anular la configuración de Commerce existente. Si un valor predeterminado es `Not Set`, el paquete `ece-tools` toma la acción **NO** y usa el valor predeterminado [!DNL Commerce] o el valor de la configuración MAGENTO_CLOUD_RELATIONSHIPS. Si se establece el valor predeterminado, el paquete `ece-tools` actuará para establecerlo.
 
-Los temas siguientes contienen definiciones detalladas, como si se ha establecido o no un valor predeterminado, de todas las variables que puede utilizar en el `.magento.env.yaml` archivo:
+Los temas siguientes contienen definiciones detalladas, como si se establece o no un valor predeterminado, de todas las variables que puede utilizar en el archivo `.magento.env.yaml`:
 
-- [Global](variables-global.md): las variables controlan las acciones en cada fase: generar, implementar y posimplementar
-- [Generar](variables-build.md): las variables controlan las acciones de compilación
-- [Implementar](variables-deploy.md)—variables control implementar acciones
-- [Posterior a la implementación](variables-post-deploy.md): las variables controlan las acciones después de la implementación
+- [Global](variables-global.md): las variables controlan las acciones en cada fase: generar, implementar y después de la implementación
+- [Build](variables-build.md): las variables controlan las acciones de compilación
+- [Implementar](variables-deploy.md): las variables controlan las acciones de implementación
+- [Post-deploy](variables-post-deploy.md): las variables controlan las acciones después de la implementación
 
 ### Crear archivo de configuración desde CLI
 
-Puede generar un `.magento.env.yaml` archivo de configuración para un entorno de nube que utiliza lo siguiente `ece-tools` comandos.
+Puede generar un archivo de configuración de `.magento.env.yaml` para un entorno de nube mediante los siguientes `ece-tools` comandos.
 
 >Crea un archivo de configuración
 
@@ -60,13 +60,13 @@ php ./vendor/bin/ece-tools cloud:config:create `<configuration-json>`
 php ./vendor/bin/ece-tools cloud:config:update `<configuration-json>`
 ```
 
-Ambos comandos requieren un solo argumento: una matriz con formato JSON que especifique un valor para al menos una variable de compilación, implementación o posterior a la implementación. Por ejemplo, el comando siguiente establece los valores para la variable `SCD_THREADS` y `CLEAN_STATIC_FILES` variables:
+Ambos comandos requieren un solo argumento: una matriz con formato JSON que especifique un valor para al menos una variable de compilación, implementación o posterior a la implementación. Por ejemplo, el comando siguiente establece valores para las variables `SCD_THREADS` y `CLEAN_STATIC_FILES`:
 
 ```bash
 php vendor/bin/ece-tools cloud:config:create '{"stage":{"build":{"SCD_THREADS":5}, "deploy":{"CLEAN_STATIC_FILES":false}}}'
 ```
 
-Y crea un `.magento.env.yaml` archivo con la siguiente configuración:
+Y crea un archivo `.magento.env.yaml` con la siguiente configuración:
 
 ```yaml
 stage:
@@ -76,7 +76,7 @@ stage:
     CLEAN_STATIC_FILES: false
 ```
 
-Puede usar el complemento `cloud:config:update` para actualizar el nuevo archivo. Por ejemplo, el comando siguiente cambia el `SCD_THREADS` y añade el `SCD_COMPRESSION_TIMEOUT` configuración:
+Puede usar el comando `cloud:config:update` para actualizar el nuevo archivo. Por ejemplo, el comando siguiente cambia el valor `SCD_THREADS` y agrega la configuración `SCD_COMPRESSION_TIMEOUT`:
 
 ```bash
 php vendor/bin/ece-tools cloud:config:update '{"stage":{"build":{"SCD_THREADS":3, "SCD_COMPRESSION_TIMEOUT":1000}}}'
@@ -95,7 +95,7 @@ stage:
 
 ### Validar archivo de configuración
 
-Utilice lo siguiente `ece-tools` para validar el `.magento.env.yaml` archivo de configuración antes de insertar cambios en el entorno de nube remoto.
+Utilice el siguiente comando `ece-tools` para validar el archivo de configuración `.magento.env.yaml` antes de insertar cambios en el entorno de nube remoto.
 
 ```bash
 php ./vendor/bin/ece-tools cloud:config:validate
@@ -112,7 +112,7 @@ The NOT_EXIST_OPTION variable is not allowed in configuration.
 
 ## Constantes de PHP
 
-Puede utilizar constantes de PHP en `.magento.env.yaml` definiciones de archivos en lugar de valores de codificación. El siguiente ejemplo define la variable `driver_options` uso de una constante PHP:
+Puede utilizar constantes de PHP en definiciones de archivo de `.magento.env.yaml` en lugar de valores de codificación. El ejemplo siguiente define `driver_options` mediante una constante PHP:
 
 ```yaml
 stage:
@@ -130,11 +130,11 @@ stage:
 
 >[!WARNING]
 >
->El análisis constante no funciona cuando se utiliza un `symfony/yaml` versión del paquete anterior a 3.2.
+>El análisis constante no funciona cuando se usa una versión del paquete `symfony/yaml` anterior a la 3.2.
 
 ## Control de errores
 
-Cuando se produce un error debido a un valor inesperado en `.magento.env.yaml` archivo de configuración, recibe un mensaje de error. Por ejemplo, el siguiente mensaje de error presenta una lista de cambios sugeridos para cada elemento con un valor inesperado, a veces proporcionando opciones válidas:
+Cuando se produce un error debido a un valor inesperado en el archivo de configuración de `.magento.env.yaml`, recibe un mensaje de error. Por ejemplo, el siguiente mensaje de error presenta una lista de cambios sugeridos para cada elemento con un valor inesperado, a veces proporcionando opciones válidas:
 
 ```terminal
 - Environment configuration is not valid. Please correct .magento.env.yaml file with next suggestions:

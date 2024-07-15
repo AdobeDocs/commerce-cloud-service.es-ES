@@ -14,24 +14,24 @@ ht-degree: 0%
 
 # Seguimiento de implementaciones
 
-Puede activar el New Relic _Seguimiento de cambios_ función para monitorizar los eventos de implementación en su proyecto de infraestructura de Commerce en la nube.
+Puede habilitar la función New Relic _Seguimiento de cambios_ para supervisar los eventos de implementación en su proyecto de Commerce en la nube.
 
-La recopilación de datos de implementaciones ayuda a analizar el impacto de los cambios de implementación en el rendimiento general, como la CPU, la memoria, el tiempo de respuesta, etc. Consulte [Seguimiento de cambios mediante NerdGraph](https://docs.newrelic.com/docs/change-tracking/change-tracking-graphql/) en el _Documentación de New Relic_.
+La recopilación de datos de implementaciones ayuda a analizar el impacto de los cambios de implementación en el rendimiento general, como la CPU, la memoria, el tiempo de respuesta, etc. Ver [Rastrear cambios mediante NerdGraph](https://docs.newrelic.com/docs/change-tracking/change-tracking-graphql/) en la _documentación de New Relic_.
 
 >[!PREREQUISITES]
 >
->- `NR_API_URL`: extremo de la API de New Relic, en este caso la URL de la API de NerdGraph `https://api.newrelic.com/graphql`
->- `NR_API_KEY`: Cree una clave de usuario, consulte [Claves de API de New Relic](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys) en el _New Relic_ documentación.
->- `NR_APP_GUID`: una entidad que envía datos a New Relic tiene un ID único (GUID). Por ejemplo, para habilitar en un entorno de ensayo, ajuste el entorno de ensayo `NR_APP_GUID` variable de nube con _GUID de entidad de ensayo_ de New Relic. Consulte la [Más información sobre las entidades de New Relic](https://docs.newrelic.com/docs/new-relic-solutions/new-relic-one/core-concepts/what-entity-new-relic/) y [Tutorial de NerdGraph: ver datos de entidad](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-entities-api-tutorial/) en el _New Relic_ documentación.
+>- `NR_API_URL`: extremo de API de New Relic, en este caso la URL de API de NerdGraph `https://api.newrelic.com/graphql`
+>- `NR_API_KEY`: crea una clave de usuario, consulta [Claves de API de New Relic](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys) en la documentación de _New Relic_.
+>- `NR_APP_GUID`: una entidad que envía datos a New Relic tiene un identificador único (GUID). Por ejemplo, para habilitar en un entorno de ensayo, ajuste la variable de nube del entorno de ensayo `NR_APP_GUID` con el _GUID de entidad de ensayo_ de New Relic. Consulte el tutorial de [Más información acerca de las entidades de New Relic](https://docs.newrelic.com/docs/new-relic-solutions/new-relic-one/core-concepts/what-entity-new-relic/) y [NerdGraph: Ver datos de entidades](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-entities-api-tutorial/) en la documentación de _New Relic_.
 
 ## Habilitar implementaciones de seguimiento
 
-Realice un seguimiento de los eventos de implementación del proyecto de Commerce en New Relic creando un _script_ integración.
+Realice un seguimiento de los eventos de implementación del proyecto Commerce en New Relic creando una integración de _script_.
 
-**Para habilitar las implementaciones de seguimiento**:
+**Para habilitar el seguimiento de implementaciones**:
 
 1. En la estación de trabajo local, cambie al directorio del proyecto.
-1. Crear un `action-integration.js` archivo. Copie el siguiente código y péguelo en `action-integration.js` Archivo y guardar:
+1. Crear un archivo de `action-integration.js`. Copie el siguiente código, péguelo en el archivo `action-integration.js` y guárdelo:
 
    ```javascript
    function trackDeployments() {
@@ -91,7 +91,7 @@ Realice un seguimiento de los eventos de implementación del proyecto de Commerc
    trackDeployments();
    ```
 
-1. Crear un _script_ integración con el `magento-cloud` Comando de CLI y haga referencia a `action-integration.js` archivo.
+1. Cree una integración de _script_ usando el comando CLI `magento-cloud` y haga referencia al archivo `action-integration.js`.
 
    ```bash
    magento-cloud integration:add --type script --events='environment.restore, environment.push, environment.branch, environment.activate, environment.synchronize, environment.initialize, environment.merge, environment.redeploy, environment.variable.create, environment.variable.delete, environment.variable.update' --file ./action-integration.js --project=<YOUR_PROJECT_ID> --environments=<YOUR_ENVIRONMENT_ID>
@@ -191,7 +191,7 @@ Realice un seguimiento de los eventos de implementación del proyecto de Commerc
    Created integration 767u4hathojjw (type: script)
    ```
 
-   De forma opcional, puede verificar la integración y anotar el ID de integración con: `magento-cloud integration:list`
+   Opcionalmente, puede comprobar la integración y anotar el ID de integración con: `magento-cloud integration:list`
 
 1. Cree la variable de entorno utilizando los requisitos previos.
 

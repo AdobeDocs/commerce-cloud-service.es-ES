@@ -15,29 +15,29 @@ ht-degree: 0%
 
 Debe tener una clave de autenticación para acceder al repositorio de Adobe Commerce y habilitar los comandos de instalación y actualización para su proyecto de Adobe Commerce en la nube. Existen dos métodos para especificar las credenciales de autorización del Compositor.
 
-- **archivo de autenticación**: un fichero que contiene el Adobe Commerce [credenciales de autorización](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/authentication-keys.html) en el directorio raíz de la infraestructura de Adobe Commerce en la nube.
-- **variable de entorno**: una variable de entorno para configurar claves de autenticación en el proyecto de Adobe Commerce en la nube para evitar una exposición accidental.
+- **archivo de autenticación**: un archivo que contiene las [credenciales de autorización](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/authentication-keys.html) de Adobe Commerce en el directorio raíz de la infraestructura de Adobe Commerce en la nube.
+- **variable de entorno**: una variable de entorno para configurar claves de autenticación en su proyecto de Adobe Commerce en la nube para evitar la exposición accidental.
 
 >[!BEGINSHADEBOX]
 
 **Nota de seguridad**
 
-El Adobe recomienda utilizar la variable [variable de entorno](#composer-auth-environment-variable) con su proyecto en la nube para evitar la exposición accidental de sus credenciales de autorización.
+Adobe recomienda usar el método [variable de entorno](#composer-auth-environment-variable) con su proyecto de nube para evitar la exposición accidental de sus credenciales de autorización.
 
-El método del archivo de autenticación es ideal cuando se utiliza Cloud Docker para Commerce como herramienta de desarrollo local, pero tenga cuidado de no cargar `auth.json` a un repositorio público basado en Git. Puede añadir la variable `auth.json` archivo a la [`.gitignore` archivo](../project/file-structure.md#ignoring-files).
+El método del archivo de autenticación es ideal cuando se usa Cloud Docker para Commerce como herramienta de desarrollo local, pero tenga cuidado de no cargar el archivo `auth.json` en un repositorio público basado en Git. Puede agregar el archivo `auth.json` al archivo [`.gitignore`](../project/file-structure.md#ignoring-files).
 
 >[!ENDSHADEBOX]
 
 ## Archivo de autenticación
 
-**Para crear un `auth.json` archivo**:
+**Para crear un archivo de `auth.json`**:
 
-1. Si no tiene un `auth.json` en el directorio raíz del proyecto, cree uno.
+1. Si no tiene un archivo `auth.json` en el directorio raíz del proyecto, cree uno.
 
-   - Con un editor de texto, cree un `auth.json` en el directorio raíz del proyecto.
-   - Copie el contenido del [muestra `auth.json`](https://github.com/magento/magento2/blob/2.3/auth.json.sample) en el nuevo `auth.json` archivo.
+   - Con un editor de texto, cree un archivo `auth.json` en el directorio raíz del proyecto.
+   - Copie el contenido de [ejemplo `auth.json`](https://github.com/magento/magento2/blob/2.3/auth.json.sample) en el nuevo archivo `auth.json`.
 
-1. Reemplazar `<public-key>` y `<private-key>` con sus credenciales de autenticación de Adobe Commerce.
+1. Reemplace `<public-key>` y `<private-key>` por sus credenciales de autenticación de Adobe Commerce.
 
    ```json
    {
@@ -58,17 +58,17 @@ El siguiente método es la mejor manera de evitar la exposición accidental de c
 
 **Para agregar claves de autenticación mediante una variable de entorno**:
 
-1. En el _[!DNL Cloud Console]_, haga clic en el icono de configuración en la parte derecha de la navegación del proyecto.
+1. En _[!DNL Cloud Console]_, haga clic en el icono de configuración en el lado derecho de la navegación del proyecto.
 
    ![Configurar proyecto](../../assets/icon-configure.png){width="36"}
 
-1. En el _Configuración de proyecto_ , haga clic en **[!UICONTROL Variables]**.
+1. En la lista _Configuración del proyecto_, haga clic en **[!UICONTROL Variables]**.
 
-1. Clic **[!UICONTROL Create variable]**.
+1. Haga clic en **[!UICONTROL Create variable]**.
 
-1. En el **[!UICONTROL Variable name]** , introduzca `env:COMPOSER_AUTH`.
+1. En el campo **[!UICONTROL Variable name]**, escriba `env:COMPOSER_AUTH`.
 
-1. En el _Valor_ , agregue lo siguiente y reemplace `<public-key>` y `<private-key>` con sus credenciales de autenticación de Adobe Commerce:
+1. En el campo _Value_, agregue lo siguiente y reemplace `<public-key>` y `<private-key>` con sus credenciales de autenticación de Adobe Commerce:
 
    ```json
    {
@@ -81,8 +81,8 @@ El siguiente método es la mejor manera de evitar la exposición accidental de c
    }
    ```
 
-1. Seleccionar **[!UICONTROL Available during buildtime]** y deseleccione **[!UICONTROL Available during runtime]**.
+1. Seleccione **[!UICONTROL Available during buildtime]** y deseleccione **[!UICONTROL Available during runtime]**.
 
-1. Clic **[!UICONTROL Create variable]**.
+1. Haga clic en **[!UICONTROL Create variable]**.
 
-1. Retire el `auth.json` de cada entorno.
+1. Quitar el archivo `auth.json` de cada entorno.

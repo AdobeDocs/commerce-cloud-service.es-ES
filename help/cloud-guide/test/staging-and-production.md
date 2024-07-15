@@ -15,11 +15,11 @@ Después de una migración correcta del código, los archivos y los datos a Ensa
 
 ## Archivos de registro
 
-Si se producen errores en la implementación u otros problemas durante la prueba, compruebe los archivos de registro. Los archivos de registro se encuentran en `var/log` directorio.
+Si se producen errores en la implementación u otros problemas durante la prueba, compruebe los archivos de registro. Los archivos de registro se encuentran en el directorio `var/log`.
 
-El registro de implementación está en `/var/log/platform/<prodject-ID>/deploy.log`. El valor de `<project-ID>` depende del ID del proyecto y de si el entorno es de ensayo o de producción. Por ejemplo, con un ID de proyecto de `yw1unoukjcawe`, el usuario de ensayo es `yw1unoukjcawe_stg` y el usuario de producción es `yw1unoukjcawe`.
+El registro de implementación está en `/var/log/platform/<prodject-ID>/deploy.log`. El valor de `<project-ID>` depende del identificador de proyecto y de si el entorno es de ensayo o de producción. Por ejemplo, con un id. de proyecto de `yw1unoukjcawe`, el usuario de ensayo es `yw1unoukjcawe_stg` y el usuario de producción es `yw1unoukjcawe`.
 
-Al acceder a los registros en entornos de producción o ensayo, utilice SSH para iniciar sesión en cada uno de los tres nodos y localizar los registros. O bien, puede utilizar [Administración de registros de New Relic](../monitor/log-management.md) para ver y consultar los datos de registro agregados de todos los nodos. Consulte [Ver registros](log-locations.md#application-logs).
+Al acceder a los registros en entornos de producción o ensayo, utilice SSH para iniciar sesión en cada uno de los tres nodos y localizar los registros. O bien, puede usar [administración de registros de New Relic](../monitor/log-management.md) para ver y consultar los datos de registro agregados de todos los nodos. Ver [Ver registros](log-locations.md#application-logs).
 
 ## Compruebe el código base
 
@@ -27,52 +27,52 @@ Compruebe que la base de código se ha implementado correctamente en los entorno
 
 ## Comprobar configuración
 
-Compruebe los ajustes de configuración a través del panel de administración, incluida la URL básica, la URL básica de administración, la configuración de varios sitios y mucho más. Si debe realizar algún cambio adicional, complete las ediciones en la rama Git local y vaya al `master` en integración, ensayo y producción.
+Compruebe los ajustes de configuración a través del panel de administración, incluida la URL básica, la URL básica de administración, la configuración de varios sitios y mucho más. Si debe realizar algún cambio adicional, complete las ediciones en la rama Git local e inserte en la rama `master` en Integración, ensayo y producción.
 
 ## Comprobar almacenamiento en caché rápido
 
-[Configuración rápida](../cdn/fastly-configuration.md) requiere una atención cuidadosa a los detalles: uso del ID de servicio rápido y las credenciales de token de API de Fastly correctos, carga del código VCL de Fastly, actualización de la configuración de DNS y aplicación de los certificados SSL/TLS a sus entornos. Después de completar estas tareas de configuración, puede verificar el almacenamiento en caché de Fastly en los entornos de ensayo y producción.
+[Configurar Fastly](../cdn/fastly-configuration.md) requiere una atención cuidadosa a los detalles: usar el ID de servicio Fastly y las credenciales de token de API Fastly correctos, cargar el código VCL de Fastly, actualizar la configuración de DNS y aplicar los certificados SSL/TLS a sus entornos. Después de completar estas tareas de configuración, puede verificar el almacenamiento en caché de Fastly en los entornos de ensayo y producción.
 
-**Para verificar la configuración del servicio de Fastly**:
+**Para comprobar la configuración del servicio de Fastly**:
 
-1. Inicie sesión en el administrador de ensayo y producción mediante la URL con `/admin`, o el [URL de administrador actualizada](../environment/variables-admin.md#admin-url).
+1. Inicie sesión en el administrador de ensayo y producción mediante la dirección URL con `/admin` o la [dirección URL del administrador actualizada](../environment/variables-admin.md#admin-url).
 
-1. Vaya a **Tiendas** > **Configuración** > **Configuración** > **Avanzadas** > **Sistema**. Desplazarse y hacer clic **Caché de página completa**.
+1. Vaya a **Tiendas** > **Configuración** > **Configuración** > **Avanzada** > **Sistema**. Desplácese y haga clic en **Caché de página completa**.
 
-1. Asegúrese de que la variable **Aplicación de almacenamiento en caché** el valor se establece en _Fastly CDN_ .
+1. Asegúrese de que el valor **Aplicación de almacenamiento en caché** esté establecido en _Fastly CDN_
 
 1. Pruebe las credenciales de Fastly.
 
-   - Clic **Configuración rápida**.
+   - Haga clic en **Configuración rápida**.
 
-   - Compruebe que los valores del ID del servicio de Fastly y las credenciales del token de la API de Fastly. Consulte [Obtener credenciales rápidamente](/help/cloud-guide/cdn/fastly-configuration.md#get-fastly-credentials).
+   - Compruebe que los valores del ID del servicio de Fastly y las credenciales del token de la API de Fastly. Ver [Obtener credenciales de Fastly](/help/cloud-guide/cdn/fastly-configuration.md#get-fastly-credentials).
 
-   - Clic **Credenciales de prueba**.
+   - Haga clic en **Probar credenciales**.
 
    >[!WARNING]
    >
    >Asegúrese de haber introducido el ID de servicio rápido y el token de API correctos en los entornos de ensayo y producción. Las credenciales de Fastly se crean y asignan por entorno de servicio. Si introduce credenciales de ensayo en el entorno de producción, no podrá cargar los fragmentos de VCL, el almacenamiento en caché no funciona correctamente y la configuración del almacenamiento en caché apunta al servidor y a los almacenes incorrectos.
 
-**Para comprobar el comportamiento de almacenamiento en caché Fastly**:
+**Para comprobar el comportamiento del almacenamiento en caché de Fastly**:
 
-1. Compruebe si hay encabezados usando `dig` utilidad de línea de comandos para obtener información acerca de la configuración del sitio.
+1. Busque encabezados mediante la utilidad de línea de comandos `dig` para obtener información acerca de la configuración del sitio.
 
-   Puede utilizar cualquier dirección URL con `dig` comando. Los siguientes ejemplos utilizan direcciones URL de Pro:
+   Puede utilizar cualquier dirección URL con el comando `dig`. Los siguientes ejemplos utilizan direcciones URL de Pro:
 
    - Ensayo: `dig https://mcstaging.<your-domain>.com`
    - Producción: `dig https://mcprod.<your-domain>.com`
 
-   Para obtener información adicional `dig` pruebas, consulte Fastly&#39;s [Pruebas antes de cambiar el DNS](https://docs.fastly.com/en/guides/working-with-domains).
+   Para obtener más pruebas de `dig`, vea Prueba [de Fastly antes de cambiar el DNS](https://docs.fastly.com/en/guides/working-with-domains).
 
-1. Uso `cURL` para comprobar la información del encabezado de respuesta.
+1. Use `cURL` para comprobar la información del encabezado de respuesta.
 
    ```bash
    curl https://mcstaging.<your-domain>.com -H "host: mcstaging.<your-domain.com>" -k -vo /dev/null -H Fastly-Debug:1
    ```
 
-   Consulte [Comprobar encabezados de respuesta](../cdn/fastly-troubleshooting.md#check-cache-hit-and-miss-response-headers) para obtener más información sobre la verificación de los encabezados.
+   Consulte [Comprobar encabezados de respuesta](../cdn/fastly-troubleshooting.md#check-cache-hit-and-miss-response-headers) para obtener más información sobre cómo comprobar los encabezados.
 
-1. Una vez que esté activo, utilice `cURL` para comprobar el sitio activo.
+1. Una vez que esté activo, use `cURL` para revisar su sitio activo.
 
    ```bash
    curl https://<your-domain> -k -vo /dev/null -H Fastly-Debug:1
@@ -198,20 +198,20 @@ Antes de iniciar, es mejor realizar pruebas exhaustivas de tráfico y rendimient
 
 Antes de comenzar la prueba, escriba un ticket con asistencia técnica que indique los entornos que está probando, las herramientas que está utilizando y el lapso de tiempo. Actualice el ticket con resultados e información para rastrear el rendimiento. Cuando termine la prueba, añada los resultados actualizados y anote que la prueba de ticket se ha completado con una marca de fecha y hora.
 
-Revise la [Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) como parte del proceso de preparación previo al lanzamiento.
+Revise las opciones de [Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) como parte de su proceso de preparación previo al lanzamiento.
 
 Para obtener los mejores resultados, utilice las siguientes herramientas:
 
-- [Prueba de rendimiento de aplicación](../environment/variables-post-deploy.md#ttfb_tested_pages): para probar el rendimiento de la aplicación, configure el `TTFB_TESTED_PAGES` variable de entorno para probar el tiempo de respuesta del sitio.
-- [Asedio](https://www.joedog.org/siege-home/)—Software de modelado y prueba de tráfico para llevar tu tienda al límite. Visite el sitio con un número configurable de clientes simulados. Siege admite autenticación básica, cookies, protocolos HTTP, HTTPS y FTP.
-- [Jmeter](https://jmeter.apache.org): excelentes pruebas de carga para ayudar a medir el rendimiento para el tráfico pico, como para las ventas flash. Cree pruebas personalizadas para ejecutar en el sitio.
-- [New Relic](../monitor/new-relic-service.md) (proporcionado): ayuda a localizar procesos y áreas del sitio que causan un rendimiento lento con un tiempo rastreado empleado por acción como la transmisión de datos, consultas, Redis y más.
+- [Prueba de rendimiento de la aplicación](../environment/variables-post-deploy.md#ttfb_tested_pages): pruebe el rendimiento de la aplicación configurando la variable de entorno `TTFB_TESTED_PAGES` para probar el tiempo de respuesta del sitio.
+- [Asedio](https://www.joedog.org/siege-home/): software de pruebas y configuración de tráfico para llevar tu tienda al límite. Visite el sitio con un número configurable de clientes simulados. Siege admite autenticación básica, cookies, protocolos HTTP, HTTPS y FTP.
+- [Jmeter](https://jmeter.apache.org): Excelentes pruebas de carga para medir el rendimiento del tráfico con picos, como las ventas flash. Cree pruebas personalizadas para ejecutar en el sitio.
+- [New Relic](../monitor/new-relic-service.md) (proporcionado): ayuda a localizar procesos y áreas del sitio que causan un rendimiento lento con un tiempo de seguimiento empleado por acción, como la transmisión de datos, consultas, Redis y más.
 - [WebPageTest](https://www.webpagetest.org) y [PKingdom](https://www.pingdom.com): análisis en tiempo real del tiempo de carga de las páginas del sitio con diferentes ubicaciones de origen. El reino puede requerir una tarifa. WebPageTest es una herramienta gratuita.
 
 ## Pruebas funcionales
 
-Puede utilizar el Marco de prueba funcional de Magento (MFTF) para completar las pruebas funcionales de Adobe Commerce desde el entorno de Cloud Docker. Consulte [Pruebas de aplicaciones](https://developer.adobe.com/commerce/cloud-tools/docker/test/application-testing/) en el _Guía de Cloud Docker para Commerce_.
+Puede utilizar el Marco de prueba funcional de Magento (MFTF) para completar las pruebas funcionales de Adobe Commerce desde el entorno de Cloud Docker. Consulte [Pruebas de aplicaciones](https://developer.adobe.com/commerce/cloud-tools/docker/test/application-testing/) en la guía de _Cloud Docker para Commerce_.
 
 ## Configurar el escáner de seguridad
 
-Hay una herramienta gratuita de exploración de seguridad para sus sitios. Para agregar los sitios y ejecutar la herramienta, consulte [Herramienta de exploración de seguridad](../launch/overview.md#set-up-the-security-scan-tool).
+Hay una herramienta gratuita de exploración de seguridad para sus sitios. Para agregar sus sitios y ejecutar la herramienta, consulte [Herramienta de exploración de seguridad](../launch/overview.md#set-up-the-security-scan-tool).

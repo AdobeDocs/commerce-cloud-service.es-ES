@@ -1,6 +1,6 @@
 ---
 user-guide-title: Introducción a Commerce
-user-guide-description: Inicie la configuración inicial de [!DNL Commerce] en la infraestructura de Cloud.
+user-guide-description: Inicie la configuración inicial de la aplicación  [!DNL Commerce] en la infraestructura de nube.
 feature: Cloud
 product: magento
 recommendations: noDisplay, noCatalog
@@ -17,7 +17,7 @@ ht-degree: 0%
 + [Introducción a Commerce](overview.md)
 + [Aprovisionar Commerce en la nube](new-project.md)
 + [Incorporación](onboarding.md)
-+ [Iniciar sesión en [!DNL Cloud Console]](cloud-console.md)
++ [Iniciar sesión en  [!DNL Cloud Console]](cloud-console.md)
 + [Acceder a tienda](access-storefront.md)
 + [Preparación para el desarrollo](prepare-workspace.md)
 + [Volver a la guía de infraestructura en la nube](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/overview.html)

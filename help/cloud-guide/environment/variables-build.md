@@ -14,7 +14,7 @@ ht-degree: 0%
 
 # Variables de compilación
 
-Lo siguiente _generar_ Las variables controlan las acciones en la fase de compilación y pueden heredar y anular los valores de [Variables globales](variables-global.md). Inserte estas variables en la variable `build` fase de la `.magento.env.yaml` archivo:
+Las siguientes variables _build_ controlan acciones en la fase de compilación y pueden heredar y anular valores de las [variables globales](variables-global.md). Inserte estas variables en la fase `build` del archivo `.magento.env.yaml`:
 
 ```yaml
 stage:
@@ -37,7 +37,7 @@ Las siguientes variables se eliminaron en la versión 2.2:
 - **Predeterminado**—`1`
 - **Versión**: Adobe Commerce 2.1.4 y posterior
 
-Defina el nivel de anidamiento de directorios para guardar archivos de informes de errores a fin de evitar rellenar el directorio de informes con decenas de miles de archivos, lo que puede dificultar la administración y revisión de los datos. Esta configuración predeterminada es `1`. Normalmente, no es necesario cambiar el valor predeterminado a menos que tenga problemas para administrar los archivos de informe de errores en `<magento_root>/var/report/` directorio.
+Defina el nivel de anidamiento de directorios para guardar archivos de informes de errores a fin de evitar rellenar el directorio de informes con decenas de miles de archivos, lo que puede dificultar la administración y revisión de los datos. El valor predeterminado de esta configuración es `1`. Normalmente, no es necesario cambiar el valor predeterminado a menos que tenga problemas para administrar los archivos de informe de errores en el directorio `<magento_root>/var/report/`.
 
 ```yaml
 stage:
@@ -47,7 +47,7 @@ stage:
 
 ## `QUALITY_PATCHES`
 
-- **Predeterminado**—_Sin configurar_
+- **Predeterminado**—_No establecido_
 - **Versión**: Adobe Commerce 2.1.4 y posterior
 
 Especifique una lista de parches de calidad de Adobe Commerce para aplicar durante la implementación.
@@ -69,14 +69,14 @@ stage:
       - MC-456345
 ```
 
-Consulte [Aplicar parches](../development/apply-patches.md).
+Ver [Aplicar parches](../development/apply-patches.md).
 
 ## `SCD_COMPRESSION_LEVEL`
 
 - **Predeterminado**—`6`
 - **Versión**: Adobe Commerce 2.1.4 y posterior
 
-Especifica qué [gzip](https://www.gnu.org/software/gzip) nivel de compresión (`0` hasta `9`) para usar al comprimir contenido estático; `0` deshabilita la compresión.
+Especifica el nivel de compresión [gzip](https://www.gnu.org/software/gzip) (`0` a `9`) que se usará para comprimir contenido estático; `0` deshabilita la compresión.
 
 ```yaml
 stage:
@@ -102,9 +102,9 @@ stage:
 - **Predeterminado**—`false`
 - **Versión**: Adobe Commerce 2.4.2 y posterior
 
-Configure como. `true` para evitar la generación de contenido estático para temáticas principales durante la fase de compilación.
+Se establece en `true` para evitar la generación de contenido estático para las temáticas principales durante la fase de compilación.
 
-Establecer `SCD_NO_PARENT: false` durante la fase de compilación, de modo que la generación de contenido estático para las temáticas principales no afecte a la implementación del sitio ni cause un tiempo de inactividad innecesario del sitio. Consulte [Implementación de contenido estático](../deploy/static-content.md).
+Establezca `SCD_NO_PARENT: false` durante la fase de compilación para que la generación de contenido estático para los temas principales no afecte a la implementación del sitio ni cause un tiempo de inactividad innecesario del sitio. Consulte [Implementación de contenido estático](../deploy/static-content.md).
 
 ```yaml
 stage:
@@ -114,12 +114,12 @@ stage:
 
 ## `SCD_MATRIX`
 
-- **Predeterminado**—_Sin configurar_
+- **Predeterminado**—_No establecido_
 - **Versión**: Adobe Commerce 2.1.4 y posterior
 
-Puede configurar varias configuraciones regionales por tema. Esta personalización ayuda a acelerar el proceso de compilación al reducir el número de archivos de temas innecesarios. Por ejemplo, puede generar la variable _magento/backend_ temática en inglés y temática personalizada en otros idiomas.
+Puede configurar varias configuraciones regionales por tema. Esta personalización ayuda a acelerar el proceso de compilación al reducir el número de archivos de temas innecesarios. Por ejemplo, puede generar el tema _magento/backend_ en inglés y un tema personalizado en otros idiomas.
 
-En el siguiente ejemplo se genera la variable `Magento/backend` tema con tres configuraciones regionales:
+En el siguiente ejemplo se crea el tema `Magento/backend` con tres configuraciones regionales:
 
 ```yaml
 stage:
@@ -166,8 +166,8 @@ stage:
 
 ## `SCD_MAX_EXECUTION_TIME`
 
-- **Predeterminado**—_Sin configurar_
-- **Versión**: Adobe Commerce 2.2.0 y posterior
+- **Predeterminado**—_No establecido_
+- **Versión**—Adobe Commerce 2.2.0 y posterior
 
 Permite aumentar el tiempo de ejecución máximo esperado para la implementación de contenido estático.
 
@@ -184,15 +184,15 @@ stage:
 ## `SCD_STRATEGY`
 
 - **Predeterminado**—`quick`
-- **Versión**: Adobe Commerce 2.2.0 y posterior
+- **Versión**—Adobe Commerce 2.2.0 y posterior
 
-Personalización de [estrategia de implementación](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cli/static-view/static-view-file-strategy.html) para contenido estático. Consulte [Implementación de archivos de vista estática](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cli/static-view/static-view-file-deployment.html).
+Personalice la [estrategia de implementación](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cli/static-view/static-view-file-strategy.html) para el contenido estático. Consulte [Implementar archivos de vista estática](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cli/static-view/static-view-file-deployment.html).
 
 Utilice estas opciones _solamente_ si tiene más de una configuración regional:
 
-- `standard`: permite desplegar todos los ficheros de vista estática para todos los paquetes.
-- `quick`—(_predeterminado_) minimiza el tiempo de implementación.
-- `compact`: permite ahorrar espacio en disco en el servidor. En la versión 2.2.4 y anteriores de Adobe Commerce, esta configuración anula el valor de `scd_threads` con un valor de `1`.
+- `standard`: implementa todos los archivos de vista estática para todos los paquetes.
+- `quick`—(_default_) minimiza el tiempo de implementación.
+- `compact`: conserva espacio en disco en el servidor. En la versión 2.2.4 y anteriores de Adobe Commerce, esta configuración anula el valor de `scd_threads` con un valor de `1`.
 
 ```yaml
 stage:
@@ -213,16 +213,16 @@ stage:
     SCD_THREADS: 2
 ```
 
-Para reducir aún más el tiempo de implementación, utilice [Administración de configuración](../store/store-settings.md) con el `scd-dump` para mover la implementación estática a la fase de compilación.
+Para reducir aún más el tiempo de implementación, use [Administración de configuración](../store/store-settings.md) con el comando `scd-dump` para mover la implementación estática a la fase de compilación.
 
 ## `SCD_USE_BALER`
 
-- **Predeterminado**—_Sin configurar_
+- **Predeterminado**—_No establecido_
 - **Versión**: Adobe Commerce 2.3.0 y posterior
 
-[Empacadora](https://github.com/magento/baler) analiza el código JavaScript generado y crea un paquete de JavaScript optimizado. La implementación del paquete optimizado en el sitio puede reducir el número de solicitudes de red al cargar el sitio y mejorar los tiempos de carga de las páginas.
+[Baler](https://github.com/magento/baler) analiza el código de JavaScript generado y crea un paquete de JavaScript optimizado. La implementación del paquete optimizado en el sitio puede reducir el número de solicitudes de red al cargar el sitio y mejorar los tiempos de carga de las páginas.
 
-Configure como. `true` para ejecutar Baler después de realizar la implementación de contenido estático.
+Se establece en `true` para ejecutar Baler después de realizar la implementación de contenido estático.
 
 ```yaml
 stage:
@@ -236,12 +236,12 @@ stage:
 
 ## `SKIP_COMPOSER_DUMP_AUTOLOAD`
 
-- **Predeterminado**— _Sin configurar_
+- **Predeterminado**— _No establecido_
 - **Versión**: Adobe Commerce 2.1.4 y posterior
 
-Configure como. `true` para omitir el `composer dump-autoload` durante una instalación de Cloud Docker. Esta variable solo es relevante para los contenedores de Cloud Docker con sistemas de archivos editables. En estos casos, omitir el comando evita errores de otros comandos que intentan acceder al código desde el archivo eliminado `generated` directorio.
+Establezca el valor en `true` para omitir el comando `composer dump-autoload` durante una instalación de Cloud Docker. Esta variable solo es relevante para los contenedores de Cloud Docker con sistemas de archivos editables. En estos casos, omitir el comando evita errores de otros comandos que intentan obtener acceso al código desde el directorio `generated` eliminado.
 
-Cuando se ejecuta Adobe Commerce `composer dump-autoload`, crea archivos de carga automática con vínculos a clases generadas en el `generated` , que no es un problema en entornos de producción con sistemas de archivos de solo lectura. Sin embargo, para instalaciones de Cloud Docker con sistemas de archivos editables (creados únicamente para pruebas y desarrollo con `./vendor/bin/ece-docker build:compose --with-test`), puede ejecutar el `bin/magento -n setup:upgrade` sin el comando `--keep-generated` , que elimina la opción `generated` directorio. Si se elimina el directorio, la variable `composer dump-autoload` El comando falla porque la carga automática contiene vínculos a archivos del directorio eliminado.
+Cuando Adobe Commerce ejecuta `composer dump-autoload`, crea archivos de carga automática con vínculos a clases generadas en la carpeta `generated`, lo que no supone un problema en los entornos de producción con sistemas de archivos de solo lectura. Sin embargo, para las instalaciones de Cloud Docker con sistemas de archivos editables (creados únicamente para pruebas y desarrollo con `./vendor/bin/ece-docker build:compose --with-test`), puede ejecutar el comando `bin/magento -n setup:upgrade` sin la opción `--keep-generated`, que elimina el directorio `generated`. Si se elimina el directorio, el comando `composer dump-autoload` produce un error porque la carga automática contiene vínculos a los archivos del directorio eliminado.
 
 ```yaml
 stage:
@@ -251,14 +251,14 @@ stage:
 
 ## `SKIP_SCD`
 
-- **Predeterminado**— _Sin configurar_
+- **Predeterminado**— _No establecido_
 - **Versión**: Adobe Commerce 2.1.4 y posterior
 
-Configure como. `true` para omitir la implementación de contenido estático durante la fase de compilación.
+Se establece en `true` para omitir la implementación de contenido estático durante la fase de compilación.
 
-Si ya implementa contenido estático durante la fase de compilación con [Administración de configuración](../store/store-settings.md)Además, puede omitir la implementación de contenido estático para una prueba de generación rápida.
+Si ya implementa contenido estático durante la fase de compilación con [Administración de configuración](../store/store-settings.md), puede omitir la implementación de contenido estático para una prueba de compilación rápida.
 
-En la fase de compilación, establezca `SKIP_SCD: false` de modo que la generación de contenido estático se produzca durante la fase de generación en la que el proceso no afecte a la implementación del sitio ni cause un tiempo de inactividad innecesario en el sitio. Consulte [Implementación de contenido estático](../deploy/static-content.md).
+En la fase de compilación, establezca `SKIP_SCD: false` de modo que la compilación de contenido estático se produzca durante la fase de compilación en la que el proceso no afecte a la implementación del sitio ni cause un tiempo de inactividad innecesario en el sitio. Consulte [Implementación de contenido estático](../deploy/static-content.md).
 
 ```yaml
 stage:
@@ -268,20 +268,20 @@ stage:
 
 ## `VERBOSE_COMMANDS`
 
-- **Predeterminado**—_Sin configurar_
+- **Predeterminado**—_No establecido_
 - **Versión**: Adobe Commerce 2.1.4 y posterior
 
-Habilitar o deshabilitar el [Symfony](https://symfony.com/doc/current/console/verbosity.html) depurar nivel de detalle para `bin/magento` Comandos CLI ejecutados durante la fase de implementación.
+Habilite o deshabilite el nivel de detalle de depuración de [Symfony](https://symfony.com/doc/current/console/verbosity.html) para los comandos CLI de `bin/magento` ejecutados durante la fase de implementación.
 
 >[!NOTE]
 >
->Para utilizar VERBOSE_COMMANDS para controlar los detalles de la salida del comando tanto para los resultados correctos como para los erróneos `bin/magento` Comandos CLI, debe establecer [MIN_LOGGING_LEVEL](variables-global.md#minlogginglevel) `debug`.
+>Para usar VERBOSE_COMMANDS para controlar los detalles de la salida del comando para los comandos CLI `bin/magento` correctos y fallidos, debe establecer [MIN_LOGGING_LEVEL](variables-global.md#minlogginglevel) `debug`.
 
 Elija el nivel de detalle proporcionado en los registros:
 
 - `-v`= salida normal
 - `-vv`= salida más detallada
-- `-vvv` = salida detallada ideal para depurar
+- `-vvv` = resultado detallado ideal para la depuración
 
 ```yaml
 stage:

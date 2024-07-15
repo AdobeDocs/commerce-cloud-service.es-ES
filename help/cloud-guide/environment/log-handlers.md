@@ -13,9 +13,9 @@ ht-degree: 0%
 
 # Controladores de registro
 
-Puede configurar los controladores de registro para enviar mensajes a un servidor de registro remoto. Un controlador de registro inserta registros de compilación e implementación en otros sistemas, de forma similar a la forma de insertar registros en Slack y correo electrónico. Puede activar un _syslog_ , que es ideal para registrar mensajes relacionados con el hardware, o un controlador de Formato de registro extendido (GELF) de Graylog, que es ideal para registrar mensajes de aplicaciones de software.
+Puede configurar los controladores de registro para enviar mensajes a un servidor de registro remoto. Un controlador de registro inserta registros de compilación e implementación en otros sistemas, de forma similar a la forma de insertar registros en Slack y correo electrónico. Puede habilitar un controlador _syslog_, que es ideal para registrar mensajes relacionados con el hardware, o un controlador de Formato de registro extendido (GELF) de Graylog, que es ideal para registrar mensajes de aplicaciones de software.
 
-En el siguiente ejemplo se configuran ambos controladores agregando la configuración a `.magento.env.yaml` archivo. Para el nivel mínimo de registro (`min_level`) valores, consulte [Niveles de registro](#log-levels).
+El ejemplo siguiente configura ambos controladores agregando la configuración al archivo `.magento.env.yaml`. Para ver los valores mínimos del nivel de registro (`min_level`), vea [Niveles de registro](#log-levels).
 
 ```yaml
 log:
@@ -56,13 +56,13 @@ log:
 
 ## Niveles de registro
 
-Los niveles de registro determinan el nivel de detalle de los mensajes de notificación. Las siguientes categorías de nivel de registro incluyen todos los niveles de registro por debajo de él. Por ejemplo, una `debug` nivel incluye el registro de todos los niveles, mientras que un `alert` nivel solo muestra alertas y emergencias.
+Los niveles de registro determinan el nivel de detalle de los mensajes de notificación. Las siguientes categorías de nivel de registro incluyen todos los niveles de registro por debajo de él. Por ejemplo, un nivel de `debug` incluye el registro de todos los niveles, mientras que un nivel de `alert` solo muestra alertas y emergencias.
 
-- **depurar**: información de depuración detallada
-- **información**: eventos interesantes, como un inicio de sesión de usuario o un registro SQL
-- **aviso**—eventos normales, pero significativos
-- **advertencia**: ocurrencias excepcionales que no son errores, como el uso de una API obsoleta o el uso deficiente de una API
+- **debug**: información de depuración detallada
+- **info**: eventos interesantes, como un inicio de sesión de usuario o un registro SQL
+- **aviso**: eventos normales pero significativos
+- **advertencia**: ocurrencias excepcionales que no son errores, como el uso de una API obsoleta o el uso incorrecto de una API
 - **error**: errores en tiempo de ejecución que no requieren una acción inmediata
 - **crítico**: condiciones críticas, como un componente de aplicación no disponible o una excepción inesperada
-- **alerta**—acción inmediata necesaria (como un sitio web inactivo o una base de datos no disponible) que déclencheur una alerta SMS
-- **urgencia**—system no se puede utilizar
+- **alerta** (se requiere una acción inmediata, como un sitio web inactivo o una base de datos no disponible) que déclencheur una alerta SMS
+- **emergencia**—el sistema no se puede utilizar

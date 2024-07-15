@@ -25,7 +25,7 @@ Recomendamos encarecidamente realizar pruebas en los entornos de integración, e
 
 - Los entornos de integración no son compatibles con algunos servicios disponibles en Ensayo y Producción, como Fastly y New Relic.
 
-- [Prueba completa](../test/guidance.md) Cree su sitio con varias herramientas en Ensayo para la carga, el estrés, el rendimiento y los recursos del sitio.
+- [Pruebe por completo](../test/guidance.md) su sitio con varias herramientas en Ensayo para comprobar la carga, el estrés, el rendimiento y los recursos del sitio.
 
 - Dado que es posible que los entornos de integración solo tengan bases de datos rellenadas con datos de prueba que no coincidan con un entorno de tipo producción, es posible que encuentre errores adicionales o un comportamiento inesperado al realizar pruebas en entornos de ensayo o producción.
 
@@ -39,11 +39,11 @@ Necesita la siguiente información y recursos para prepararse para el lanzamient
 
 - Certificado SSL/TLS
 
-Como parte de la suscripción a la infraestructura en la nube de Adobe Commerce, Adobe proporciona un certificado SSL/TLS validado por el dominio y emitido por Let&#39;s Encrypt. Producción profesional, ensayo y producción inicial (`master`) tiene un certificado único que cubre todos los dominios y subdominios de ese entorno. Estos certificados se aprovisionan y cargan en el sitio automáticamente después de actualizar la configuración DNS para desarrollo y producción. Consulte [Aprovisionar certificados SSL/TLS](../cdn/fastly-configuration.md#provision-ssltls-certificates).
+Como parte de la suscripción a la infraestructura en la nube de Adobe Commerce, Adobe proporciona un certificado SSL/TLS validado por el dominio y emitido por Let&#39;s Encrypt. Cada entorno de Pro Production, Staging y Starter Production (`master`) tiene un certificado único que cubre todos los dominios y subdominios de ese entorno. Estos certificados se aprovisionan y cargan en el sitio automáticamente después de actualizar la configuración DNS para desarrollo y producción. Consulte [Aprovisionar certificados SSL/TLS](../cdn/fastly-configuration.md#provision-ssltls-certificates).
 
 >[!NOTE]
 >
->Si desea implementar su propio certificado SSL de validación extendida para su compañía en lugar de utilizar el certificado Let&#39;s Encrypt, póngase en contacto con su CTA o [Enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket).
+>Si desea implementar su propio certificado SSL de validación extendida para su compañía en lugar de usar el certificado Let&#39;s Encrypt, póngase en contacto con su CTA o [envíe un ticket de soporte de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket).
 
 ## Configurar el escáner de seguridad
 
@@ -65,7 +65,7 @@ La herramienta de análisis de seguridad le permite supervisar periódicamente l
 
 - Recibir actualizaciones de seguridad y notificaciones específicas del sitio
 
-Consulte la [Guía del usuario](https://docs.magento.com/user-guide/magento/security-scan.html) para obtener información acerca de cómo configurar y utilizar la herramienta de exploración de seguridad. Normalmente, empezará a utilizar esta herramienta cuando comience la prueba de aceptación de usuarios (UAT).
+Consulte la [Guía del usuario](https://docs.magento.com/user-guide/magento/security-scan.html) para obtener información sobre cómo configurar y utilizar la herramienta de análisis de seguridad. Normalmente, empezará a utilizar esta herramienta cuando comience la prueba de aceptación de usuarios (UAT).
 
 Cada sitio que se analiza debe registrarse a través de la ficha Security Scan. Durante el proceso de registro, debe aceptar el descargo de responsabilidad antes de empezar a escanear. Controla la programación y autoriza al usuario a recibir notificaciones cuando se completa cada análisis. Puede programar análisis para una fecha y hora específica y recurrente, o ejecutar un análisis bajo demanda según sea necesario.
 
@@ -82,15 +82,15 @@ Visbot/2.0 (+http://www.visvo.com/en/webmasters.jsp;bot@visvo.com)
 
 1. Acceda a su [cuenta de Commerce Marketplace](https://account.magento.com/customer/account/login).
 
-1. Haga clic en la ficha Security Scan y seleccione **Ir al análisis de seguridad**.
+1. Haga clic en la ficha Examen de seguridad y seleccione **Ir al examen de seguridad**.
 
-1. En el _Acciones_ para el sitio, seleccione **Ejecutar análisis**. El estado de notificación muestra el análisis programado.
+1. En la columna _Acciones_ del sitio, seleccione **Ejecutar análisis**. El estado de notificación muestra el análisis programado.
 
 ### Para revisar el informe:
 
 1. Cuando el informe se completa, aparece una notificación.
 
-1. En la fila del sitio, seleccione el informe que desee ver en el **Informes** columna. El pedido es del más reciente al más antiguo.
+1. En la fila del sitio, seleccione el informe que desee ver en la columna **Informes**. El pedido es del más reciente al más antiguo.
 
 El informe enumera los problemas, incluidos los análisis erróneos, los resultados no identificados y los análisis correctos. Cada entrada proporciona información detallada para el análisis, una lista de problemas que se deben investigar y las acciones que se deben realizar. Algunas de estas acciones pueden requerir la descarga e instalación de parches de seguridad. Añada los parches necesarios a una rama de desarrollo de la estación de trabajo local antes de añadirlos a la rama de producción.
 

@@ -18,7 +18,7 @@ Puede habilitar el almacenamiento en caché en el entorno de su proyecto de infr
 
 ## Configuración del almacenamiento en caché
 
-Habilite el almacenamiento en caché para su aplicación configurando las reglas de caché en la `.magento/routes.yaml` como se indica a continuación:
+Habilite el almacenamiento en caché para su aplicación configurando las reglas de caché en el archivo `.magento/routes.yaml` de la siguiente manera:
 
 ```yaml
 http://{default}/:
@@ -61,24 +61,24 @@ El ejemplo anterior almacena en caché las rutas siguientes:
 - `http://{default}/path/more/`
 - `http://{default}/path/more/etc/`
 
-Y las siguientes rutas son **no** en caché:
+Y las siguientes rutas están **no** en la caché:
 
 - `http://{default}/path/`
 - `http://{default}/path/etc/`
 
 >[!NOTE]
 >
->Las expresiones regulares en las rutas son **no** compatible.
+>Se admiten expresiones regulares en las rutas **no**.
 
 ## Duración de caché
 
-La duración de la caché viene determinada por la variable `Cache-Control` valor del encabezado de respuesta. Si no `Cache-Control` encabezado está en la respuesta, el `default_ttl` se utiliza la clave.
+La duración de la caché está determinada por el valor del encabezado de respuesta `Cache-Control`. Si no hay ningún encabezado `Cache-Control` en la respuesta, se utiliza la clave `default_ttl`.
 
 ## Clave de caché
 
-Para decidir cómo almacenar en caché una respuesta, Adobe Commerce crea una clave de caché que depende de varios factores y almacena la respuesta asociada a esta clave. Cuando una solicitud viene con la misma clave de caché, la respuesta se reutiliza. Su propósito es similar al de HTTP [`Vary` encabezado](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.44).
+Para decidir cómo almacenar en caché una respuesta, Adobe Commerce crea una clave de caché que depende de varios factores y almacena la respuesta asociada a esta clave. Cuando una solicitud viene con la misma clave de caché, la respuesta se reutiliza. Su propósito es similar al del encabezado ](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.44) HTTP [`Vary`.
 
-Los parámetros `headers` y `cookies` Las claves permiten cambiar esta clave de caché.
+Los parámetros `headers` y `cookies` claves permiten cambiar esta clave de caché.
 
 El valor predeterminado para estas claves es el siguiente:
 
@@ -93,13 +93,13 @@ cache:
 
 ### `enabled`
 
-Cuando se establece en `true`, habilite la caché para esta ruta. Cuando se establece en `false`, deshabilite la caché para esta ruta.
+Cuando se establece en `true`, habilite la caché para esta ruta. Cuando se establece en `false`, deshabilitar la caché para esta ruta.
 
 ### `headers`
 
 Define los valores de los que debe depender la clave de caché.
 
-Por ejemplo, si la variable `headers` La clave es la siguiente:
+Por ejemplo, si la clave `headers` es la siguiente:
 
 ```yaml
 cache:
@@ -107,11 +107,11 @@ cache:
     headers: ["Accept"]
 ```
 
-A continuación, Adobe Commerce almacena en caché una respuesta diferente para cada valor de `Accept` Encabezado HTTP.
+A continuación, Adobe Commerce almacena en caché una respuesta diferente para cada valor del encabezado HTTP `Accept`.
 
 ### `cookies`
 
-El `cookies` key define de qué valores debe depender la clave de caché.
+La clave `cookies` define de qué valores debe depender la clave de caché.
 
 Por ejemplo:
 
@@ -121,19 +121,19 @@ cache:
     cookies: ["value"]
 ```
 
-La clave de caché depende del valor de `value` en la solicitud.
+La clave de caché depende del valor de la cookie `value` en la solicitud.
 
-Existe un caso especial si la variable `cookies` La clave tiene el `["*"]` valor. Este valor significa que cualquier solicitud con una cookie evita la caché. Este es el valor predeterminado.
+Existe un caso especial si la clave `cookies` tiene el valor `["*"]`. Este valor significa que cualquier solicitud con una cookie evita la caché. Este es el valor predeterminado.
 
 >[!NOTE]
 >
->No se pueden utilizar caracteres comodín en el nombre de la cookie. Utilice un nombre de cookie preciso o combine todas las cookies con un asterisco (`*`). Por ejemplo, `SESS*` o `~SESS` están actualmente **no** valores válidos.
+>No se pueden utilizar caracteres comodín en el nombre de la cookie. Use un nombre de cookie preciso o combine todas las cookies con un asterisco (`*`). Por ejemplo, `SESS*` o `~SESS` son actualmente **valores no** válidos.
 
 Las cookies tienen las siguientes restricciones:
 
-- Puede establecer un máximo de **50 cookies** en el sistema. De lo contrario, la aplicación emite un `Unable to send the cookie. Maximum number of cookies would be exceeded` excepción.
-- Un tamaño máximo de cookie es **4096 bytes**. De lo contrario, la aplicación emite un `Unable to send the cookie. Size of '%name' is %size bytes` excepción.
+- Puede establecer un máximo de **50 cookies** en el sistema. De lo contrario, la aplicación genera una excepción `Unable to send the cookie. Maximum number of cookies would be exceeded`.
+- Un tamaño máximo de cookie es de **4096 bytes**. De lo contrario, la aplicación genera una excepción `Unable to send the cookie. Size of '%name' is %size bytes`.
 
 ### `default_ttl`
 
-Si la respuesta no tiene un `Cache-Control` encabezado, el `default_ttl` se utiliza para definir la duración de la caché, en segundos. El valor predeterminado es `0`, lo que significa que no se almacena nada en caché.
+Si la respuesta no tiene un encabezado `Cache-Control`, se usa la clave `default_ttl` para definir la duración de la caché, en segundos. El valor predeterminado es `0`, lo que significa que no se almacena nada en caché.

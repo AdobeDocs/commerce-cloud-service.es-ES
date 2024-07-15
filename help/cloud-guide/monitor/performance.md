@@ -15,11 +15,11 @@ ht-degree: 0%
 
 Puede utilizar los siguientes servicios para monitorizar el rendimiento de los entornos de la nube:
 
-- [Notificaciones de estado](../integrations/health-notifications.md): integración que proporciona una alerta de espacio en disco en entornos de integración Starter y Pro.
-- [Guía de observación para Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-operations/tools/observation-for-adobe-commerce/intro.html): monitorización completa para todos los sitios de Commerce que combina datos de registro de varias fuentes para ayudarle a administrar mejor el rendimiento del sitio de Adobe Commerce y diagnosticar problemas.
+- [Notificaciones de estado](../integrations/health-notifications.md): una integración que proporciona una alerta de espacio en disco en entornos de integración de Starter y Pro.
+- [Guía de observación para Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-operations/tools/observation-for-adobe-commerce/intro.html): supervisión completa de todos los sitios de Commerce que combina datos de registro de varias fuentes para ayudarle a administrar mejor el rendimiento del sitio de Adobe Commerce y diagnosticar problemas.
 
 ## servicio de New Relic
 
-Monitorice el rendimiento de Adobe Commerce en entornos de ensayo y producción utilizando [Servicio de New Relic para la monitorización del rendimiento](new-relic-service.md).
+Supervise el rendimiento de Adobe Commerce en los entornos de ensayo y producción mediante el servicio [New Relic para supervisar el rendimiento](new-relic-service.md).
 
-- [directiva Alertas administradas de Adobe](investigate-performance.md#monitor-performance-with-managed-alerts): directiva que realiza un seguimiento de distintas métricas de rendimiento e incluye una colección de alertas que definen umbrales para las advertencias de déclencheur y las notificaciones críticas cuando los problemas de la aplicación o la infraestructura del sitio afectan al rendimiento.
+- [Directiva de alertas administradas de Adobe](investigate-performance.md#monitor-performance-with-managed-alerts): directiva que realiza un seguimiento de distintas métricas de rendimiento e incluye una colección de alertas que establecen umbrales para las advertencias de déclencheur y las notificaciones críticas cuando los problemas de la aplicación o la infraestructura del sitio afectan al rendimiento.

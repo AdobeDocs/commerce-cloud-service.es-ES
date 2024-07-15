@@ -34,9 +34,9 @@ Para instalar una temática manualmente, debe tener el código de la temática e
           └── js
 ```
 
-**Para instalar una temática manualmente**:
+**Para instalar un tema manualmente**:
 
-1. Copie el código de la temática en `<Project root dir>/app/design/frontend` para una temática de tienda o `<Project root dir>/app/design/adminhtml` para una temática de administración. Compruebe que el directorio de nivel superior es `<VendorName>`; de lo contrario, la temática no se instala correctamente.
+1. Copie el código de la temática en `<Project root dir>/app/design/frontend` para una temática de tienda o en `<Project root dir>/app/design/adminhtml` para una temática de administrador. Compruebe que el directorio de nivel superior sea `<VendorName>`; de lo contrario, el tema no se instalará correctamente.
 
    ```bash
    cp -r ExampleTheme <project-root>/app/design/frontend
@@ -65,13 +65,13 @@ Para instalar una temática manualmente, debe tener el código de la temática e
 
 1. Espere a que se complete la implementación.
 1. Inicie sesión en Admin.
-1. Clic **Contenido** > Diseño > **Temas**.
+1. Haga clic en **Contenido** > Diseño > **Temas**.
 
    La temática se muestra en el panel derecho.
 
 ## Instalar una temática mediante Composer
 
-La instalación de una temática mediante Composer es igual que instalar cualquier otra extensión mediante Composer. Consulte [Instalación, administración y actualización de módulos](extensions.md) para obtener más información.
+La instalación de una temática mediante Composer es igual que instalar cualquier otra extensión mediante Composer. Consulte [Instalar, administrar y actualizar módulos](extensions.md) para obtener más información.
 
 Para instalar una temática con Composer:
 
@@ -101,10 +101,10 @@ Para instalar una temática con Composer:
    ```
 
 1. Inicie sesión en Admin.
-1. Clic **Contenido** > Diseño > **Temas**.
+1. Haga clic en **Contenido** > Diseño > **Temas**.
 
    La temática se muestra en el panel derecho.
 
 ## Múltiples temas
 
-Cuando utilice varias temáticas, como diferentes temáticas por configuración regional, revise la `SCD_MATRIX` variable de entorno para personalizar la implementación de temas. Consulte la [generar](../environment/variables-build.md#scd_matrix) o [implementar](../environment/variables-deploy.md#scd_matrix) fases en la [configuración del entorno](../environment/configure-env-yaml.md).
+Cuando utilice varias temáticas, como diferentes temáticas por configuración regional, revise la variable de entorno `SCD_MATRIX` para personalizar la implementación de temáticas. Consulte las fases [build](../environment/variables-build.md#scd_matrix) o [deploy](../environment/variables-deploy.md#scd_matrix) en la [configuración del entorno](../environment/configure-env-yaml.md).

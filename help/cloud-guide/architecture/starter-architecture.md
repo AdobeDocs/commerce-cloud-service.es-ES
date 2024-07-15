@@ -12,11 +12,11 @@ ht-degree: 0%
 
 # Arquitectura de inicio
 
-Su Adobe Commerce en la infraestructura de la nube La arquitectura inicial admite hasta **cuatro** entornos, incluido un `master` que contiene el código inicial del proyecto, el entorno de ensayo y hasta dos entornos de integración.
+La arquitectura inicial de su infraestructura en la nube de Adobe Commerce admite hasta **cuatro** entornos, incluido un entorno `master` que contiene el código inicial del proyecto, el entorno de ensayo y hasta dos entornos de integración.
 
 Todos los entornos están en contenedores PaaS (Platform as a service). Estos contenedores se implementan dentro de contenedores altamente restringidos en una cuadrícula de servidores. Estos entornos son de solo lectura, y aceptan cambios de código implementado desde ramas insertadas desde el espacio de trabajo local. Cada entorno proporciona una base de datos y un servidor web.
 
-Puede utilizar cualquier metodología de desarrollo y ramificación que desee. Cuando obtenga acceso inicial a su proyecto, cree un `staging` entorno desde el `master` entorno. A continuación, cree el `integration` entorno mediante ramificación desde `staging`.
+Puede utilizar cualquier metodología de desarrollo y ramificación que desee. Cuando obtenga acceso inicial a su proyecto, cree un entorno `staging` a partir del entorno `master`. A continuación, cree el entorno `integration` ramificando desde `staging`.
 
 ## Arquitectura del entorno de inicio
 
@@ -26,25 +26,25 @@ El diagrama siguiente muestra las relaciones jerárquicas de los entornos de Sta
 
 ## Entorno de producción
 
-El entorno de producción proporciona el código fuente para implementar Adobe Commerce en la infraestructura de nube que ejecuta sus tiendas públicas de uno o varios sitios. El entorno de producción utiliza código de la variable `master` para configurar y habilitar el servidor web, la base de datos, los servicios configurados y el código de la aplicación.
+El entorno de producción proporciona el código fuente para implementar Adobe Commerce en la infraestructura de nube que ejecuta sus tiendas públicas de uno o varios sitios. El entorno de producción utiliza código de la rama `master` para configurar y habilitar el servidor web, la base de datos, los servicios configurados y el código de la aplicación.
 
-Debido a que el `production` entorno es de solo lectura, utilice el `integration` para realizar cambios en el código, implemente en toda la arquitectura desde el `integration` hasta `staging`y, por último, al `production` entorno. Consulte [Implementar la tienda](../deploy/staging-production.md) y [Lanzamiento del sitio](../launch/overview.md).
+Dado que el entorno `production` es de solo lectura, use el entorno `integration` para realizar cambios en el código, implementar en toda la arquitectura desde `integration` hasta `staging` y, finalmente, en el entorno `production`. Ver [Implementar tu tienda](../deploy/staging-production.md) y [lanzamiento del sitio](../launch/overview.md).
 
-El Adobe recomienda realizar pruebas completas en su `staging` antes de empujar a la `master` , que se implementa en `production` entorno.
+El Adobe recomienda realizar todas las pruebas en la rama `staging` antes de transferirla a la rama `master`, que se implementa en el entorno `production`.
 
 ## Entorno de ensayo
 
-El Adobe recomienda crear una rama llamada `staging` de `master`. El `staging` branch implementa el código en el entorno de ensayo para proporcionar un entorno de preproducción que pruebe el código, los módulos y las extensiones, las puertas de enlace de pago, el envío, los datos de productos y mucho más. Este entorno proporciona la configuración para que todos los servicios coincidan con el entorno de producción, incluidos Fastly, New Relic APM y search.
+El Adobe recomienda crear una rama llamada `staging` desde `master`. La rama `staging` implementa código en el entorno de ensayo para proporcionar un entorno de preproducción que pruebe código, módulos y extensiones, puertas de enlace de pago, envío, datos de productos y mucho más. Este entorno proporciona la configuración para que todos los servicios coincidan con el entorno de producción, incluidos Fastly, New Relic APM y search.
 
 En las secciones adicionales de esta guía se proporcionan instrucciones para las implementaciones de código finales y la prueba de interacciones a nivel de producción en un entorno de ensayo seguro. Para obtener el mejor rendimiento y las mejores pruebas de características, duplique la base de datos en el entorno de ensayo.
 
 >[!WARNING]
 >
->El Adobe recomienda probar la interacción de cada comerciante y cliente en el entorno de ensayo antes de implementarla en el entorno de producción. Consulte [Implementar la tienda](../deploy/staging-production.md) y [Probar implementación](../test/staging-and-production.md).
+>El Adobe recomienda probar la interacción de cada comerciante y cliente en el entorno de ensayo antes de implementarla en el entorno de producción. Ver [Implementar tu tienda](../deploy/staging-production.md) y [Probar la implementación](../test/staging-and-production.md).
 
 ## Entorno de integración
 
-Los desarrolladores utilizan el `integration` entorno para desarrollar, implementar y probar:
+Los desarrolladores utilizan el entorno `integration` para desarrollar, implementar y probar:
 
 - código de aplicación Adobe Commerce
 
@@ -70,7 +70,7 @@ Para obtener el mejor rendimiento en el entorno de integración, siga estas prá
 
 - Deshabilite los trabajos cron y ejecute manualmente según sea necesario
 
-Puede tener hasta **dos** entornos de integración activos. Puede crear un entorno de integración creando una rama desde el `staging` Rama. Cuando crea un entorno de integración, el nombre del entorno coincide con el nombre de la rama. Un entorno de integración incluye un servidor web y una base de datos. No incluye todos los servicios; por ejemplo, Fastly, CDN y New Relic no están disponibles.
+Puede tener hasta **dos** entornos de integración activos. Cree un entorno de integración creando una rama a partir de la rama `staging`. Cuando crea un entorno de integración, el nombre del entorno coincide con el nombre de la rama. Un entorno de integración incluye un servidor web y una base de datos. No incluye todos los servicios; por ejemplo, Fastly, CDN y New Relic no están disponibles.
 
 Puede tener un número ilimitado de ramas inactivas para el almacenamiento de código. Para acceder, ver y probar una rama inactiva, debe activarla
 
@@ -78,7 +78,7 @@ Puede tener un número ilimitado de ramas inactivas para el almacenamiento de c�
 
 ## Pila de tecnología de producción y ensayo
 
-Los entornos de producción y ensayo incluyen las siguientes tecnologías. Puede modificar y configurar estas tecnologías mediante el [`.magento.app.yaml`](../application/configure-app-yaml.md) archivo.
+Los entornos de producción y ensayo incluyen las siguientes tecnologías. Puede modificar y configurar estas tecnologías a través del archivo [`.magento.app.yaml`](../application/configure-app-yaml.md).
 
 - Rápidamente para almacenamiento en caché HTTP y CDN
 - Nginx servidor web hablando con PHP-FPM, una instancia con varios trabajadores
@@ -117,7 +117,7 @@ Adobe Commerce en la infraestructura en la nube utiliza el sistema operativo Deb
 
 - [OpenSearch](../services/opensearch.md)
 
-En los entornos de ensayo y producción, se utiliza Fastly para la CDN y el almacenamiento en caché. La última versión de la extensión CDN de Fastly se instala durante el aprovisionamiento inicial del proyecto. Puede actualizar la extensión para obtener las últimas correcciones y mejoras de errores. Consulte [Módulo de CDN de Fastly para Magento 2](https://github.com/fastly/fastly-magento2). Además, tiene acceso a [New Relic](../monitor/account-management.md) para la monitorización del rendimiento.
+En los entornos de ensayo y producción, se utiliza Fastly para la CDN y el almacenamiento en caché. La última versión de la extensión CDN de Fastly se instala durante el aprovisionamiento inicial del proyecto. Puede actualizar la extensión para obtener las últimas correcciones y mejoras de errores. Consulte [Módulo de CDN de Fastly para el Magento 2](https://github.com/fastly/fastly-magento2). Además, tiene acceso a [New Relic](../monitor/account-management.md) para supervisar el rendimiento.
 
 Utilice los siguientes archivos para configurar las versiones de software que desea utilizar en la implementación.
 
@@ -129,7 +129,7 @@ Utilice los siguientes archivos para configurar las versiones de software que de
 
 ### Backup y recuperación ante desastres
 
-Puede crear una copia de seguridad de la base de datos y del sistema de archivos mediante el [!DNL Cloud Console] o la CLI. Consulte [Administración de backup](../storage/snapshots.md).
+Puede crear una copia de seguridad de la base de datos y del sistema de archivos mediante [!DNL Cloud Console] o CLI. Consulte [Administración de copias de seguridad](../storage/snapshots.md).
 
 ## Preparación para el desarrollo
 
@@ -137,11 +137,11 @@ El siguiente flujo de trabajo resume el proceso para bifurcar el código, desarr
 
 1. Configurar el entorno local
 
-1. Clonar el `master` ramificar en el entorno local.
+1. Clonar la rama `master` a su entorno local
 
-1. Crear un `staging` bifurcar desde `master`
+1. Crear una rama `staging` desde `master`
 
-1. Crear ramas para desarrollo desde `staging`
+1. Crear ramas para desarrollo a partir de `staging`
 
 1. Código push para Git que crea e implementa en un entorno para realizar pruebas
 

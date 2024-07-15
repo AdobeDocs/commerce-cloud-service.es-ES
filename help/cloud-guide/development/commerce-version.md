@@ -12,15 +12,15 @@ ht-degree: 0%
 
 # Actualizar la versión de Commerce
 
-Puede actualizar el código base de Adobe Commerce a una versión más reciente. Antes de actualizar el proyecto, revise las [Requisitos del sistema](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html) en el _Instalación_ para conocer los requisitos de la versión de software más reciente.
+Puede actualizar el código base de Adobe Commerce a una versión más reciente. Antes de actualizar el proyecto, revise los [requisitos del sistema](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html) en la guía de _Instalación_ para conocer los requisitos de la versión de software más reciente.
 
 Según la configuración del proyecto, las tareas de actualización pueden incluir las siguientes:
 
 - Actualice los servicios, como MariaDB (MySQL), OpenSearch, RabbitMQ y Redis, para comprobar la compatibilidad con las nuevas versiones de Adobe Commerce.
 - Convertir un archivo de administración de configuración anterior.
-- Actualice el `.magento.app.yaml` archivo con nueva configuración para vínculos y variables de entorno.
+- Actualice el archivo `.magento.app.yaml` con la nueva configuración para los vínculos y las variables de entorno.
 - Actualice las extensiones de terceros a la última versión compatible.
-- Actualice el `.gitignore` archivo.
+- Actualizar el archivo `.gitignore`.
 
 {{upgrade-tip}}
 
@@ -28,14 +28,14 @@ Según la configuración del proyecto, las tareas de actualización pueden inclu
 
 ## Actualizar desde versiones anteriores
 
-Si inicia una actualización desde una versión de Commerce anterior a la 2.1, algunas restricciones en la base de código de Adobe Commerce pueden afectar a su capacidad de _actualizar_ a una versión específica de ECE-Tools o a _actualización_ a la siguiente versión de Commerce admitida. Utilice la siguiente tabla para determinar la mejor ruta:
+Si está iniciando una actualización desde una versión de Commerce anterior a la 2.1, algunas restricciones en la base de código de Adobe Commerce pueden afectar su capacidad de _actualizar_ a una versión específica de ECE-Tools o de _actualizar_ a la siguiente versión de Commerce compatible. Utilice la siguiente tabla para determinar la mejor ruta:
 
 | Versión actual | Ruta de actualización |
 | ----------------- | ------------ |
 | 2.1.3 y anteriores | Actualice Adobe Commerce a la versión 2.1.4 o posterior antes de continuar. A continuación, realice una [actualización única para instalar ECE-Tools](../dev-tools/install-package.md). |
-| 2.1.4 - 2.1.14 | [Actualizar ECE-Tools](../dev-tools/update-package.md) paquete.<br>Consulte las notas de la versión para [2.0.9.](../release-notes/cloud-release-archive.md#v200209) y versiones posteriores de 2002.0.x. |
-| 2.1.15 - 2.1.16 | [Actualizar ECE-Tools](../dev-tools/update-package.md) paquete.<br>Consulte las notas de la versión para[2.0.9.](../release-notes/cloud-release-archive.md#v200209) y más tarde. |
-| 2.2.x y posterior | [Actualizar ECE-Tools](../dev-tools/update-package.md) paquete.<br>Consulte las notas de la versión para[2002.0.8](../release-notes/cloud-release-archive.md#v200208) y más tarde. |
+| 2.1.4 - 2.1.14 | [Actualizar paquete ECE-Tools](../dev-tools/update-package.md).<br>Consulte las notas de la versión para [2002.0.9](../release-notes/cloud-release-archive.md#v200209) y versiones posteriores de 2002.0.x. |
+| 2.1.15 - 2.1.16 | [Actualizar paquete ECE-Tools](../dev-tools/update-package.md).<br>Vea las notas de la versión para[2002.0.9](../release-notes/cloud-release-archive.md#v200209) y posteriores. |
+| 2.2.x y posterior | [Actualizar paquete ECE-Tools](../dev-tools/update-package.md).<br>Vea las notas de la versión para[2002.0.8](../release-notes/cloud-release-archive.md#v200208) y posteriores. |
 
 {style="table-layout:auto"}
 
@@ -43,15 +43,15 @@ Si inicia una actualización desde una versión de Commerce anterior a la 2.1, a
 
 ## Administración de configuración
 
-Las versiones anteriores de Adobe Commerce, como 2.1.4 o posterior a 2.2.x o posterior, utilizaban un `config.local.php` para la administración de la configuración. Adobe Commerce versión 2.2.0 y posteriores utilizan el `config.php` , que funciona exactamente igual que el archivo `config.local.php` , pero tiene diferentes ajustes de configuración que incluyen una lista de los módulos activados y opciones de configuración adicionales.
+Las versiones anteriores de Adobe Commerce, como 2.1.4 o posterior a 2.2.x o posterior, utilizaban un archivo `config.local.php` para la administración de la configuración. La versión 2.2.0 y posteriores de Adobe Commerce usan el archivo `config.php`, que funciona exactamente igual que el archivo `config.local.php`, pero tiene diferentes opciones de configuración que incluyen una lista de los módulos habilitados y opciones de configuración adicionales.
 
-Al actualizar desde una versión anterior, debe migrar el `config.local.php` archivo para utilizar el más reciente `config.php` archivo. Siga estos pasos para realizar una copia de seguridad del archivo de configuración y crear uno.
+Al actualizar desde una versión anterior, debe migrar el archivo `config.local.php` para utilizar el archivo `config.php` más reciente. Siga estos pasos para realizar una copia de seguridad del archivo de configuración y crear uno.
 
-**Para crear un `config.php` archivo**:
+**Para crear un archivo `config.php` temporal**:
 
-1. Crear una copia de `config.local.php` y asígnele un nombre `config.php`.
+1. Cree una copia de `config.local.php` archivo y asígnele el nombre `config.php`.
 
-1. Añada este archivo al `app/etc` de su proyecto.
+1. Agregue este archivo a la carpeta `app/etc` de su proyecto.
 
 1. Añada y confirme el archivo en su rama.
 
@@ -61,21 +61,21 @@ Al actualizar desde una versión anterior, debe migrar el `config.local.php` arc
 
 >[!WARNING]
 >
->Después de la actualización, puede quitar el `config.php` y generar un nuevo archivo completo. Solo puede eliminar este archivo para reemplazarlo esta vez. Después de generar un nuevo, complete `config.php` , no puede eliminar el archivo para generar uno nuevo. Consulte [Administración de configuración e implementación de canalización](../store/store-settings.md).
+>Después de la actualización, puede quitar el archivo `config.php` y generar un nuevo archivo completo. Solo puede eliminar este archivo para reemplazarlo esta vez. Después de generar un nuevo archivo completo de `config.php`, no puede eliminar el archivo para generar uno nuevo. Consulte [Administración de configuración e implementación de canalización](../store/store-settings.md).
 
 ### Verificar las dependencias del compositor de Zend Framework
 
-Al actualizar a **2.3.x o posterior desde 2.2.x**, compruebe que las dependencias de Zend Framework se han agregado a `autoload` propiedad del `composer.json` para apoyar a Laminas. Este complemento admite nuevos requisitos para el marco Zend, que ha migrado al proyecto Laminas. Consulte [Migración de Zend Framework al Proyecto Laminas](https://community.magento.com/t5/Magento-DevBlog/Migration-of-Zend-Framework-to-the-Laminas-Project/ba-p/443251) en el _Magento DevBlog_.
+Al actualizar a **2.3.x o posterior desde 2.2.x**, compruebe que las dependencias de Zend Framework se hayan agregado a la propiedad `autoload` del archivo `composer.json` para admitir Laminas. Este complemento admite nuevos requisitos para el marco Zend, que ha migrado al proyecto Laminas. Ver [Migración de Zend Framework al proyecto Laminas](https://community.magento.com/t5/Magento-DevBlog/Migration-of-Zend-Framework-to-the-Laminas-Project/ba-p/443251) en _Magento DevBlog_.
 
-**Para comprobar la `auto-load:psr-4` configuración**:
+**Para comprobar la configuración de `auto-load:psr-4`**:
 
 1. En la estación de trabajo local, cambie al directorio del proyecto.
 
 1. Consulte la rama de integración.
 
-1. Abra el `composer.json` en un editor de texto.
+1. Abra el archivo `composer.json` en un editor de texto.
 
-1. Compruebe la `autoload:psr-4` para la implementación de Zend plugin manager para la dependencia de controladores.
+1. Consulte la sección `autoload:psr-4` para ver la implementación de Zend plugin manager para la dependencia de los controladores.
 
    ```json
     "autoload": {
@@ -88,9 +88,9 @@ Al actualizar a **2.3.x o posterior desde 2.2.x**, compruebe que las dependencia
    }
    ```
 
-1. Si falta la dependencia Zend, actualice el `composer.json` archivo:
+1. Si falta la dependencia Zend, actualice el archivo `composer.json`:
 
-   - Añada la línea siguiente a `autoload:psr-4` sección.
+   - Agregue la línea siguiente a la sección `autoload:psr-4`.
 
      ```json
      "Zend\\Mvc\\Controller\\": "setup/src/Zend/Mvc/Controller/"
@@ -120,17 +120,17 @@ Al actualizar a **2.3.x o posterior desde 2.2.x**, compruebe que las dependencia
 
 ## Archivos de configuración
 
-Antes de actualizar la aplicación, debe actualizar los archivos de configuración del proyecto para tener en cuenta los cambios en los valores de configuración predeterminados de Adobe Commerce en la infraestructura en la nube o en la aplicación. Los valores predeterminados más recientes se encuentran en [repositorio de GitHub de magento en la nube](https://github.com/magento/magento-cloud).
+Antes de actualizar la aplicación, debe actualizar los archivos de configuración del proyecto para tener en cuenta los cambios en los valores de configuración predeterminados de Adobe Commerce en la infraestructura en la nube o en la aplicación. Los valores predeterminados más recientes se encuentran en el [repositorio de GitHub de Magento en la nube](https://github.com/magento/magento-cloud).
 
 ### .magento.app.yaml
 
-Revise siempre los valores contenidos en [.magento.app.yaml](../application/configure-app-yaml.md) para la versión instalada, ya que controla la forma en que la aplicación se genera e implementa en la infraestructura de la nube. El siguiente ejemplo es para la versión 2.4.7 y utiliza Composer 2.7.2. El `build: flavor:` no se usa para Composer 2.x; consulte [Instalación y uso de Composer 2](../application/properties.md#installing-and-using-composer-2).
+Revise siempre los valores contenidos en el archivo [.magento.app.yaml](../application/configure-app-yaml.md) para la versión instalada, ya que controla la forma en que la aplicación se genera e implementa en la infraestructura de la nube. El siguiente ejemplo es para la versión 2.4.7 y utiliza Composer 2.7.2. La propiedad `build: flavor:` no se usa para Composer 2.x; consulte [Instalación y uso de Composer 2](../application/properties.md#installing-and-using-composer-2).
 
-**Para actualizar el `.magento.app.yaml` archivo**:
+**Para actualizar el archivo `.magento.app.yaml`**:
 
 1. En la estación de trabajo local, cambie al directorio del proyecto.
 
-1. Abra y edite el `magento.app.yaml` archivo.
+1. Abra y edite el archivo `magento.app.yaml`.
 
 1. Actualice las opciones de PHP.
 
@@ -144,7 +144,7 @@ Revise siempre los valores contenidos en [.magento.app.yaml](../application/conf
            composer/composer: '2.7.2'
    ```
 
-1. Modifique la `hooks` propiedad `build` y `deploy` comandos.
+1. Modifique los comandos `build` y `deploy` de la propiedad `hooks`.
 
    ```yaml
    hooks:
@@ -189,11 +189,11 @@ Revise siempre los valores contenidos en [.magento.app.yaml](../application/conf
 
 ### composer.json
 
-Antes de actualizar, compruebe siempre que las dependencias del `composer.json` son compatibles con la versión de Adobe Commerce.
+Antes de actualizar, compruebe siempre que las dependencias del archivo `composer.json` sean compatibles con la versión de Adobe Commerce.
 
-**Para actualizar el `composer.json` para Adobe Commerce versión 2.4.4 y posterior**:
+**Para actualizar el archivo `composer.json` para la versión 2.4.4 y posterior de Adobe Commerce**:
 
-1. Añada lo siguiente `allow-plugins` a la `config` sección:
+1. Agregar los(as) siguientes `allow-plugins` a la sección `config`:
 
    ```json
    "config": {
@@ -205,7 +205,7 @@ Antes de actualizar, compruebe siempre que las dependencias del `composer.json` 
    },
    ```
 
-1. Añada el siguiente complemento a `require` sección:
+1. Agregue el siguiente complemento a la sección `require`:
 
    ```json
    "require": {
@@ -213,7 +213,7 @@ Antes de actualizar, compruebe siempre que las dependencias del `composer.json` 
    },
    ```
 
-1. Añada el siguiente componente a `extra:component_paths` sección:
+1. Agregue el siguiente componente a la sección `extra:component_paths`:
 
    ```json
    "extra": {
@@ -231,7 +231,7 @@ Antes de actualizar, compruebe siempre que las dependencias del `composer.json` 
 
 Se recomienda crear una copia de seguridad del proyecto antes de una actualización. Siga estos pasos para realizar una copia de seguridad de los entornos de integración, ensayo y producción.
 
-**Para realizar una copia de seguridad de la base de datos y el código del entorno de integración**:
+**Para hacer una copia de seguridad de la base de datos y el código del entorno de integración**:
 
 1. Cree una copia de seguridad local de la base de datos remota.
 
@@ -241,7 +241,7 @@ Se recomienda crear una copia de seguridad del proyecto antes de una actualizaci
 
    >[!NOTE]
    >
-   >El `magento-cloud db:dump` ejecuta el comando [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) con el comando `--single-transaction` , que le permite realizar una copia de seguridad de la base de datos sin bloquear las tablas.
+   >El comando `magento-cloud db:dump` ejecuta el comando [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) con el indicador `--single-transaction`, lo que le permite hacer una copia de seguridad de la base de datos sin bloquear las tablas.
 
 1. Haga una copia de seguridad del código y los medios.
 
@@ -251,27 +251,27 @@ Se recomienda crear una copia de seguridad del proyecto antes de una actualizaci
 
    Opcionalmente, puede omitir `[--media]` si tiene un gran número de archivos estáticos que ya están en el control de código fuente.
 
-**Para realizar una copia de seguridad de la base de datos del entorno de ensayo o producción antes de implementar**:
+**Para hacer una copia de seguridad de la base de datos del entorno de ensayo o producción antes de implementar**:
 
 1. Utilice SSH para iniciar sesión en el entorno remoto.
 
-1. Crear un [volcado base datos](../storage/database-dump.md). Para elegir un directorio de destino para el volcado de la base de datos, utilice el `--dump-directory` opción.
+1. Crear un [volcado de base de datos](../storage/database-dump.md). Para elegir un directorio de destino para el volcado de la base de datos, utilice la opción `--dump-directory`.
 
    ```bash
    vendor/bin/ece-tools db-dump
    ```
 
-   La operación de volcado crea un `dump-<timestamp>.sql.gz` archive el archivo en el directorio de proyecto remoto. Consulte [Copia de seguridad de base de datos](../storage/database-dump.md).
+   La operación de volcado crea un archivo de `dump-<timestamp>.sql.gz` en el directorio del proyecto remoto. Consulte [Copia de seguridad de la base de datos](../storage/database-dump.md).
 
 ## Actualización de aplicación
 
-Revise la [versiones de servicio](../services/services-yaml.md#service-versions) información sobre los requisitos de la última versión del software antes de actualizar la aplicación.
+Revise la información de [versiones de servicio](../services/services-yaml.md#service-versions) para conocer los requisitos de la versión de software más reciente antes de actualizar la aplicación.
 
 **Para actualizar la versión de la aplicación**:
 
 1. En la estación de trabajo local, cambie al directorio del proyecto.
 
-1. Establezca la versión de actualización con el [sintaxis de restricción de versión](overview.md#cloud-metapackage).
+1. Establezca la versión de actualización con la [sintaxis de restricción de versión](overview.md#cloud-metapackage).
 
    ```bash
    composer require "magento/magento-cloud-metapackage":">=CURRENT_VERSION <NEXT_VERSION" --no-update
@@ -279,7 +279,7 @@ Revise la [versiones de servicio](../services/services-yaml.md#service-versions)
 
    >[!NOTE]
    >
-   >Debe utilizar la sintaxis de restricción de versión para actualizar correctamente la variable `ece-tools` paquete. Puede encontrar la restricción de versión en la `composer.json` para la versión de. [plantilla de aplicación](https://github.com/magento/magento-cloud/blob/master/composer.json) que está utilizando para la actualización.
+   >Debe usar la sintaxis de restricción de versión para actualizar correctamente el paquete `ece-tools`. Puede encontrar la restricción de versión en el archivo `composer.json` para la versión de la [plantilla de aplicación](https://github.com/magento/magento-cloud/blob/master/composer.json) que está utilizando para la actualización.
 
 1. Actualice el proyecto.
 
@@ -301,7 +301,7 @@ Revise la [versiones de servicio](../services/services-yaml.md#service-versions)
    git push origin <branch-name>
    ```
 
-   `git add -A` es necesario para agregar todos los archivos modificados al control de código fuente debido a la forma en que Composer calcula los paquetes base. Ambos `composer install` y `composer update` ordenar archivos del paquete base (`magento/magento2-base` y `magento/magento2-ee-base`) en la raíz del paquete.
+   `git add -A` es necesario para agregar todos los archivos modificados al control de código fuente debido a la forma en que Composer calcula los paquetes base. Tanto `composer install` como `composer update` calculan las referencias de los archivos del paquete base (`magento/magento2-base` y `magento/magento2-ee-base`) en la raíz del paquete.
 
    Los archivos a los que Composer calcula las referencias pertenecen a la nueva versión de Adobe Commerce, para sobrescribir la versión obsoleta de esos mismos archivos. En la actualidad, el cálculo de referencias está deshabilitado en Adobe Commerce, por lo que debe agregar los archivos para calcular referencias al control de código fuente.
 
@@ -315,23 +315,23 @@ Revise la [versiones de servicio](../services/services-yaml.md#service-versions)
 
 ### Crear un archivo config.php
 
-Como se menciona en [Administración de configuración](#configuration-management), después de la actualización, debe crear un `config.php` archivo. Complete los cambios de configuración adicionales mediante el Administrador en su entorno de integración.
+Como se menciona en [Administración de configuración](#configuration-management), después de actualizar, debe crear un archivo `config.php` actualizado. Complete los cambios de configuración adicionales mediante el Administrador en su entorno de integración.
 
 **Para crear un archivo de configuración específico del sistema**:
 
-1. Desde el terminal, utilice un comando SSH para generar el `/app/etc/config.php` para el entorno.
+1. Desde el terminal, utilice un comando SSH para generar el archivo `/app/etc/config.php` para el entorno.
 
    ```bash
    ssh <SSH-URL> "<Command>"
    ```
 
-   Por ejemplo, para Pro, para ejecutar el `scd-dump` en el `integration` rama:
+   Por ejemplo, para Pro, para ejecutar `scd-dump` en la rama `integration`:
 
    ```bash
    ssh <project-id-integration>@ssh.us.magentosite.cloud "php vendor/bin/ece-tools config:dump"
    ```
 
-1. Transfiera el `config.php` a las estaciones de trabajo locales mediante `rsync` o `scp`. Solo puede agregar este archivo a la rama localmente.
+1. Transfiera el archivo `config.php` a las estaciones de trabajo locales mediante `rsync` o `scp`. Solo puede agregar este archivo a la rama localmente.
 
    ```bash
    rsync <SSH-URL>:app/etc/config.php ./app/etc/config.php
@@ -343,17 +343,17 @@ Como se menciona en [Administración de configuración](#configuration-managemen
    git add app/etc/config.php && git commit -m "Add system-specific configuration" && git push origin master
    ```
 
-   Esto genera un `/app/etc/config.php` archivo con una lista de módulos y opciones de configuración.
+   Esto genera un archivo `/app/etc/config.php` actualizado con una lista de módulos y opciones de configuración.
 
 >[!WARNING]
 >
->Para una actualización, se elimina el `config.php` archivo. Una vez agregado este archivo al código, debería **no** elimínelo. Si debe quitar o editar la configuración, edite el archivo manualmente.
+>Para una actualización, se elimina el archivo `config.php`. Una vez agregado este archivo a su código, **no** debe eliminarlo. Si debe quitar o editar la configuración, edite el archivo manualmente.
 
 ### Actualización de extensiones
 
 Revise las páginas de módulos y extensiones de terceros en Marketplace u otros sitios de la empresa y compruebe la compatibilidad con Adobe Commerce y Adobe Commerce en la infraestructura en la nube. Si debe actualizar cualquier extensión y módulo de terceros, Adobe recomienda trabajar en una nueva rama de integración con las extensiones deshabilitadas.
 
-**Para verificar y actualizar las extensiones**:
+**Para verificar y actualizar sus extensiones**:
 
 1. Cree una rama en la estación de trabajo local.
 
@@ -371,11 +371,11 @@ Revise las páginas de módulos y extensiones de terceros en Marketplace u otros
 
 1. Insertar en el entorno de ensayo para realizar pruebas en un entorno de preproducción.
 
-Adobe recomienda encarecidamente actualizar el entorno de producción _antes_ incluir las extensiones actualizadas en el proceso de lanzamiento del sitio.
+El Adobe recomienda encarecidamente actualizar el entorno de producción _antes de_, incluidas las extensiones actualizadas en el proceso de lanzamiento del sitio.
 
 >[!NOTE]
 >
->Al actualizar la versión de la aplicación, el proceso de actualización se actualiza a la última versión del [Módulo de CDN de Fastly](../cdn/fastly.md#fastly-cdn-module-for-magento-2) automáticamente.
+>Al actualizar la versión de la aplicación, el proceso de actualización se actualiza automáticamente a la última versión del [módulo CDN de Fastly](../cdn/fastly.md#fastly-cdn-module-for-magento-2).
 
 ## Solución de problemas de actualización
 
@@ -397,9 +397,9 @@ Exception printing is disabled by default for security reasons.
    magento-cloud ssh
    ```
 
-1. Abra el `./app/var/report/<error number>` archivo.
+1. Abra el archivo `./app/var/report/<error number>`.
 
-1. [Examinar los registros](../test/log-locations.md) y determinar el origen del problema.
+1. [Examine los registros](../test/log-locations.md) y determine el origen del problema.
 
 1. Agregar, confirmar y enviar cambios de código.
 

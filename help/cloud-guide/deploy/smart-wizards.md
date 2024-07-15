@@ -22,11 +22,11 @@ Cada uno de los comandos del asistente inteligente proporciona una respuesta de 
 
 | Comando | Descripción |
 | ------- | ------------|
-| `wizard:ideal-state` | Compruebe que el SCD está en _generar_ escenario, el `SKIP_HTML_MINIFICATION` la variable es `true`y el vínculo post_deploy configurado en el entorno de Cloud. No se debe utilizar en el entorno de desarrollo local. |
-| `wizard:master-slave` | Compruebe que la variable `REDIS_USE_SLAVE_CONNECTION` y la variable `MYSQL_USE_SLAVE_CONNECTION` la variable es `true`. |
-| `wizard:scd-on-demand` | Compruebe que la variable `SCD_ON_DEMAND` la variable de entorno global es `true`. |
-| `wizard:scd-on-build` | Compruebe que la variable `SCD_ON_DEMAND` la variable de entorno global es `false` y el `SKIP_SCD` la variable de entorno es `false` para el _generar_ escenario. Comprueba que la variable `config.php` contiene información sobre tiendas, grupos de tiendas y sitios web. |
-| `wizard:scd-on-deploy` | Compruebe que la variable `SCD_ON_DEMAND` la variable de entorno global es `false` y el `SKIP_SCD` la variable de entorno es `false` para el _implementar_ escenario. Comprueba que la variable `config.php` el archivo sí _NO_ contiene la lista de tiendas, grupos de tiendas y sitios web con información relacionada. |
+| `wizard:ideal-state` | Compruebe que SCD se encuentra en el escenario _build_, que la variable `SKIP_HTML_MINIFICATION` es `true` y que el vínculo post_deploy está configurado en el entorno de la nube. No se debe utilizar en el entorno de desarrollo local. |
+| `wizard:master-slave` | Compruebe que la variable `REDIS_USE_SLAVE_CONNECTION` y la variable `MYSQL_USE_SLAVE_CONNECTION` sean `true`. |
+| `wizard:scd-on-demand` | Compruebe que la variable de entorno global `SCD_ON_DEMAND` sea `true`. |
+| `wizard:scd-on-build` | Compruebe que la variable de entorno global `SCD_ON_DEMAND` sea `false` y la variable de entorno `SKIP_SCD` sea `false` para la fase _build_. Comprueba que el archivo `config.php` contiene información para tiendas, grupos de tiendas y sitios web. |
+| `wizard:scd-on-deploy` | Compruebe que la variable de entorno global `SCD_ON_DEMAND` sea `false` y la variable de entorno `SKIP_SCD` sea `false` para la fase _deploy_. Comprueba que el archivo `config.php` no contiene _NOT_ la lista de tiendas, grupos de tiendas y sitios web con información relacionada. |
 
 Por ejemplo, puede comprobar que la configuración habilita correctamente la función SCD bajo demanda:
 
@@ -48,7 +48,7 @@ SCD on-demand is disabled
 
 ## Verificación de una configuración ideal
 
-El _ideal_ La configuración de para su proyecto de Cloud ayuda a minimizar el tiempo de inactividad de la implementación al calentar la caché y generar contenido estático cuando el usuario lo solicita. Este asistente se ejecuta automáticamente durante el proceso de implementación. Si la nube no está configurada para esto _estado ideal_, recibirá un mensaje similar al siguiente:
+La configuración _ideal_ para su proyecto en la nube ayuda a minimizar el tiempo de inactividad de la implementación al calentar la caché y generar contenido estático cuando el usuario lo solicita. Este asistente se ejecuta automáticamente durante el proceso de implementación. Si su nube no está configurada para este _estado ideal_, recibirá un mensaje similar al siguiente:
 
 ```terminal
 - SCD on build is not configured
@@ -79,7 +79,7 @@ En función del resultado, debe realizar las siguientes correcciones en la confi
            php ./vendor/bin/ece-tools post-deploy
    ```
 
-1. Inserte los cambios del código y ejecute la prueba de nuevo. Cuando la configuración es _ideal_, recibirá el siguiente mensaje.
+1. Inserte los cambios del código y ejecute la prueba de nuevo. Cuando la configuración sea _ideal_, recibirá el siguiente mensaje.
 
    ```terminal
    Ideal state is configured

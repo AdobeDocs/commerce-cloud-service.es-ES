@@ -12,19 +12,19 @@ ht-degree: 0%
 
 # CLI de nube
 
-El `magento-cloud` La herramienta CLI permite a los desarrolladores y administradores de sistemas gestionar proyectos y entornos en la nube, realizar rutinas y ejecutar tareas de automatización. El `magento-cloud` CLI amplía las características y funcionalidades de la [[!DNL Cloud Console]](../../get-started/cloud-console.md). Después de instalar el `magento-cloud` CLI en su estación de trabajo local, puede utilizarla para administrar su Adobe Commerce en entornos de integración de infraestructura en la nube Starter y Pro.
+La herramienta CLI `magento-cloud` permite a los desarrolladores y administradores de sistemas administrar proyectos y entornos en la nube, realizar rutinas y ejecutar tareas de automatización. La CLI `magento-cloud` amplía las características y la funcionalidad de [[!DNL Cloud Console]](../../get-started/cloud-console.md). Después de instalar la CLI de `magento-cloud` en la estación de trabajo local, puede utilizarla para administrar los entornos de integración de Adobe Commerce en la nube Starter y Pro.
 
-**Para instalar el `magento-cloud` CLI**:
+**Para instalar la CLI** de `magento-cloud`:
 
-1. En la estación de trabajo local, cambie al directorio donde desea clonar el proyecto de Cloud y donde la variable [propietario del sistema de archivos](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/file-system/configure-permissions.html) tiene _escribir_ acceso.
+1. En la estación de trabajo local, cambie al directorio donde quiere clonar el proyecto en la nube y donde el [propietario del sistema de archivos](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/file-system/configure-permissions.html) tiene acceso de _escritura_.
 
-1. Instale el `magento-cloud` CLI.
+1. Instale la CLI `magento-cloud`.
 
    ```bash
    curl -sS https://accounts.magento.cloud/cli/installer | php
    ```
 
-1. Añadir `magento-cloud` CLI al perfil bash.
+1. Agregar CLI `magento-cloud` al perfil bash.
 
    ```bash
    export PATH=$PATH:$HOME/.magento-cloud/bin
@@ -36,7 +36,7 @@ El `magento-cloud` La herramienta CLI permite a los desarrolladores y administra
    . ~/.bash_profile
    ```
 
-1. Para iniciar la CLI, llame a `magento-cloud` e introduzca las credenciales de su cuenta de Cloud cuando se le solicite.
+1. Para iniciar la CLI, llame a `magento-cloud` e indique las credenciales de su cuenta de Cloud cuando se le solicite.
 
    ```bash
    magento-cloud
@@ -48,7 +48,7 @@ El `magento-cloud` La herramienta CLI permite a los desarrolladores y administra
    Your email address or username:
    ```
 
-1. Compruebe el `magento-cloud` El comando está en su ruta. En el ejemplo siguiente se enumeran los comandos disponibles.
+1. Compruebe que el comando `magento-cloud` se encuentra en la ruta de acceso. En el ejemplo siguiente se enumeran los comandos disponibles.
 
    ```bash
    magento-cloud list
@@ -56,9 +56,9 @@ El `magento-cloud` La herramienta CLI permite a los desarrolladores y administra
 
 ## Comandos comunes
 
-El Adobe ha diseñado estos comandos para administrar los entornos de integración en la nube y recomienda que ejecute el `magento-cloud` CLI de un directorio de proyecto para que pueda omitir el `-p <project-ID>` parámetro.
+El Adobe diseñó estos comandos para administrar los entornos de integración en la nube y recomienda que ejecute la CLI `magento-cloud` desde un directorio de proyecto para poder omitir el parámetro `-p <project-ID>`.
 
-La siguiente lista de los más utilizados `magento-cloud` Los comandos CLI solo incluyen las opciones requeridas. Puede usar el complemento `--help` con cualquier comando para ver más información.
+La siguiente lista de `magento-cloud` comandos CLI usados con frecuencia incluye solamente las opciones requeridas. Puede utilizar la opción `--help` con cualquier comando para ver más información.
 
 | Comando | Descripción |
 | ------------------------------------ | -------------------------------------------------- |
@@ -70,15 +70,15 @@ La siguiente lista de los más utilizados `magento-cloud` Los comandos CLI solo 
 | `magento-cloud variables` | Variables de lista en este entorno. |
 | `magento-cloud ssh` | Utilice SSH para conectarse al entorno remoto. |
 | `magento-cloud url` | Abra la tienda de Adobe Commerce en un explorador. |
-| `magento-cloud web` | Abra el [!DNL Cloud Console]. |
+| `magento-cloud web` | Abra [!DNL Cloud Console]. |
 
 ## Comandos de entorno
 
-El entorno _name_ es diferente del entorno _ID_ solo si utiliza espacios o mayúsculas en el nombre del entorno. Un ID de entorno consta de todas las letras minúsculas, números y símbolos permitidos. Las letras mayúsculas en un nombre de entorno se convierten a minúsculas en el ID.; los espacios en un nombre de entorno se convierten en guiones.
+El entorno _name_ es diferente del entorno _ID_ solo si el nombre del entorno contiene espacios o mayúsculas. Un ID de entorno consta de todas las letras minúsculas, números y símbolos permitidos. Las letras mayúsculas en un nombre de entorno se convierten a minúsculas en el ID.; los espacios en un nombre de entorno se convierten en guiones.
 
-Un nombre de entorno _no puede_ incluye caracteres reservados para su shell de Linux o para expresiones regulares. Los caracteres prohibidos incluyen llaves (`{ }`), paréntesis, asterisco (`*`), corchetes angulares (`< >`), ampersand (`&`), porcentaje (`%`) y otros caracteres.
+Un nombre de entorno _no puede_ incluir caracteres reservados para su shell de Linux o para expresiones regulares. Los caracteres prohibidos incluyen llaves (`{ }`), paréntesis, asteriscos (`*`), corchetes angulares (`< >`), signo &amp; (`&`), porcentaje (`%`) y otros caracteres.
 
-El `magento-cloud environment:list` muestra las jerarquías del entorno, mientras que `git branch` no lo tiene. Si tiene entornos anidados, utilice lo siguiente:
+El comando `magento-cloud environment:list` muestra jerarquías de entorno, mientras que `git branch` no lo hace. Si tiene entornos anidados, utilice lo siguiente:
 
 ```bash
 magento-cloud environment:list
@@ -102,9 +102,9 @@ Are you sure you want to redeploy the environment <environment-name>? [Y/n]
 
 ## Comandos Git
 
-Puede observar que algunos de estos comandos son similares a los comandos Git. El `magento-cloud` Los comandos de se conectan directamente al proyecto de Cloud basado en Git con funciones adicionales. Si crea una rama sin utilizar la variable `magento-cloud` CLI, no está &quot;activada&quot; y no se genera automáticamente cuando se insertan cambios en el entorno remoto. El `magento-cloud` El comando CLI incluye la activación.
+Puede observar que algunos de estos comandos son similares a los comandos Git. Los comandos de `magento-cloud` se conectan directamente al proyecto de nube basado en Git con características adicionales. Si crea una rama sin usar la CLI `magento-cloud`, no se &quot;activa&quot; y no se genera automáticamente al insertar cambios en el entorno remoto. El comando CLI `magento-cloud` incluye la activación.
 
-Para crear una rama, utilice el `magento-cloud` para activar la rama.
+Para crear una rama, use el comando `magento-cloud` para que se active la rama.
 
 ```bash
 magento-cloud environment:branch <new-name> <parent-branch>
@@ -112,8 +112,8 @@ magento-cloud environment:branch <new-name> <parent-branch>
 
 Para el estado de sucursal:
 
-- Utilice el `magento-cloud env` para ver una lista de las ramas del entorno y su estado: activa o inactiva.
-- Utilice el `magento-cloud environment:activate` para activar una rama de entorno.
+- Utilice el comando `magento-cloud env` para ver una lista de las ramas del entorno y su estado: activo o inactivo.
+- Utilice el comando `magento-cloud environment:activate` para activar una rama de entorno.
 
 Inserte un compromiso Git vacío para almacenar en déclencheur una implementación. Por ejemplo:
 
@@ -129,7 +129,7 @@ Los siguientes pasos muestran el uso de los comandos CLI y Git de forma intercam
 
 1. En la estación de trabajo local, cambie al directorio del proyecto.
 
-1. Cambie a la [propietario del sistema de archivos](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/file-system/configure-permissions.html).
+1. Cambiar al [propietario del sistema de archivos](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/file-system/configure-permissions.html).
 
 1. Inicie sesión en el proyecto.
 
@@ -151,7 +151,7 @@ Los siguientes pasos muestran el uso de los comandos CLI y Git de forma intercam
 
    >[!NOTE]
    >
-   >Es importante usar el complemento `magento-cloud environment:list` porque muestra jerarquías de entorno, mientras que la variable `git branch` El comando no.
+   >Es importante usar el comando `magento-cloud environment:list` porque muestra jerarquías de entorno, mientras que el comando `git branch` no lo hace.
 
 1. Recupere las ramas de origen para obtener el código más reciente.
 
@@ -165,11 +165,11 @@ Los siguientes pasos muestran el uso de los comandos CLI y Git de forma intercam
    magento-cloud environment:checkout <environment-ID>
    ```
 
-   Los comandos Git solo comprueban la rama Git. El `magento-cloud checkout` El comando extrae la rama y cambia al entorno activo.
+   Los comandos Git solo comprueban la rama Git. El comando `magento-cloud checkout` extrae la rama y cambia al entorno activo.
 
    >[!TIP]
    >
-   >Puede crear una rama de entorno utilizando el `magento-cloud environment:branch <environment-name> <parent-environment-ID>` sintaxis del comando. Puede llevar algún tiempo adicional crear y activar una rama de entorno.
+   >Puede crear una rama de entorno utilizando la sintaxis de comando `magento-cloud environment:branch <environment-name> <parent-environment-ID>`. Puede llevar algún tiempo adicional crear y activar una rama de entorno.
 
 1. Utilice el ID de entorno para extraer cualquier código actualizado de su local de. Esto no es necesario si la rama de entorno es nueva.
 
@@ -177,7 +177,7 @@ Los siguientes pasos muestran el uso de los comandos CLI y Git de forma intercam
    git pull origin <environment-ID>
    ```
 
-1. (_Opcional_) Crear un [instantánea](../storage/snapshots.md) del entorno como copia de seguridad.
+1. (_Opcional_) Cree una [instantánea](../storage/snapshots.md) del entorno como copia de seguridad.
 
    ```bash
    magento-cloud snapshot:create -e <environment-ID>
@@ -185,9 +185,9 @@ Los siguientes pasos muestran el uso de los comandos CLI y Git de forma intercam
 
 ## Actualizar la CLI
 
-El `magento-cloud` CLI comprueba las actualizaciones disponibles cuando inicia sesión, pero puede buscar actualizaciones mediante el `self:update` comando. Si hay una actualización disponible, siga las instrucciones para actualizar la CLI.
+La CLI `magento-cloud` comprueba las actualizaciones disponibles cuando inicia sesión, pero puede buscar actualizaciones mediante el comando `self:update`. Si hay una actualización disponible, siga las instrucciones para actualizar la CLI.
 
-Si su `magento-cloud` CLI está actualizada; verá la siguiente respuesta:
+Si la CLI de `magento-cloud` está actualizada, verá la siguiente respuesta:
 
 ```bash
 magento-cloud update

@@ -21,7 +21,7 @@ Póngase en contacto con el servicio de asistencia de Adobe Commerce y actualice
 
 ## Cambiar DNS al nuevo sitio
 
-El valor del cambio de tiempo de vida es importante para comprobar el dominio que ha cambiado. Cuando modifica los registros A y CNAME, la actualización tarda el TTL configurado en actualizarse correctamente. Para obtener más información acerca de la configuración de DNS, consulte [Configuraciones de DNS](checklist.md#update-dns-configuration-with-production-settings).
+El valor del cambio de tiempo de vida es importante para comprobar el dominio que ha cambiado. Cuando modifica los registros A y CNAME, la actualización tarda el TTL configurado en actualizarse correctamente. Para obtener más información sobre la configuración de DNS, consulte [Configuraciones de DNS](checklist.md#update-dns-configuration-with-production-settings).
 
 ### Para cambiar al nuevo sitio:
 
@@ -35,9 +35,9 @@ El valor del cambio de tiempo de vida es importante para comprobar el dominio qu
 
 ## Prueba de la tienda en directo
 
-Complete algunas pruebas de UAT en su tienda en directo para confirmar que todo se está cargando y que las acciones se completan correctamente. Para ver una lista de pruebas, consulte [Probar implementación](../test/staging-and-production.md#complete-uat-testing).
+Complete algunas pruebas de UAT en su tienda en directo para confirmar que todo se está cargando y que las acciones se completan correctamente. Para obtener una lista de pruebas, consulte [Implementación de pruebas](../test/staging-and-production.md#complete-uat-testing).
 
-## Posterior al lanzamiento
+## Post-Launch
 
 El Adobe comprueba y supervisa el sitio para asegurarse de que todos los servicios y accesos están en verde. Permanecemos a mano según sea necesario para avanzar y comprobar que todos los registros del sistema, servicios, almacenamiento en caché y funciones funcionan según lo que usted y sus clientes necesiten.
 

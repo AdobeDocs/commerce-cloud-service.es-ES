@@ -15,7 +15,7 @@ Esta solicitud de extracción (PR) ...
 
 - ...
 
-## Vínculos al código de comercio
+## Vínculos al código Commerce
 
 <!--  OPTIONAL - REMOVE THIS SECTION IF NOT USED.
 If this pull request references a file in a Magento Open Source or Adobe Commerce codebase repository, add the link here. -->

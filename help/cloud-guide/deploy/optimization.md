@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Optimizar implementación
 
-El rendimiento del sitio puede verse afectado durante el proceso de implementación. El tiempo que un sitio está en modo de mantenimiento al implementarlo en un sitio de producción depende de muchos factores, como la configuración del entorno y la cantidad de contenido que contenga un sitio. La primera práctica recomendada para optimizar su implementación de Cloud es [actualizar para utilizar `ece-tools`](../dev-tools/install-package.md) para beneficiarse de las funciones del paquete, como los comandos para crear una copia de seguridad de la base de datos y verificar la configuración del entorno.
+El rendimiento del sitio puede verse afectado durante el proceso de implementación. El tiempo que un sitio está en modo de mantenimiento al implementarlo en un sitio de producción depende de muchos factores, como la configuración del entorno y la cantidad de contenido que contenga un sitio. La primera práctica recomendada para optimizar su implementación de Cloud es [actualizar para usar `ece-tools`](../dev-tools/install-package.md) y beneficiarse de las características del paquete, como comandos para crear una copia de seguridad de la base de datos y verificar la configuración del entorno.
 
 Los siguientes temas pueden ayudarle a comprender mejor cómo optimizar el proceso de implementación:
 
@@ -25,8 +25,8 @@ Comprenda qué sucede durante la implementación y cómo reducir el tiempo de in
 - [Implementación de contenido estático](static-content.md)
 La mejor manera de optimizar la implementación de Cloud es controlar cómo y cuándo generar contenido estático.
 
-- [Asistentes inteligentes](smart-wizards.md)
-El `ece-tools` proporciona los comandos del asistente inteligente para evaluar rápidamente la configuración del proyecto.
+- [asistentes inteligentes](smart-wizards.md)
+El paquete `ece-tools` proporciona los comandos del asistente inteligente para evaluar rápidamente la configuración del proyecto.
 
 - [Seguimiento de implementaciones con New Relic](../monitor/track-deployments.md)
 Utilice el servicio New Relic para monitorizar los eventos de implementación y analizar el impacto de la implementación en el rendimiento general.

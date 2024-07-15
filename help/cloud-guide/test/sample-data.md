@@ -13,7 +13,7 @@ ht-degree: 0%
 
 Si necesita datos de ejemplo al desarrollar su tienda, puede instalar datos de ejemplo. Estos datos simulan una tienda Adobe Commerce activa con clientes, productos y otros datos. Estos datos de ejemplo funcionan mejor con una nueva instalación de Adobe Commerce en plantillas de infraestructura en la nube.
 
-Como práctica recomendada, instale datos de ejemplo en entornos de desarrollo e integración. Si utiliza datos de ejemplo en Ensayo o Producción, debe [quitar](#reset-or-uninstall-sample-data) la información y los productos antes de su lanzamiento.
+Como práctica recomendada, instale datos de ejemplo en entornos de desarrollo e integración. Si usa datos de ejemplo en Ensayo o Producción, debe [eliminar](#reset-or-uninstall-sample-data) la información y los productos antes de lanzarlos.
 
 ## Instalación de datos de ejemplo
 
@@ -41,7 +41,7 @@ Para instalar datos de ejemplo:
 
 1. Espere a que se implemente el proyecto.
 
-1. Compruebe que la instalación se haya realizado correctamente desde la página de la tienda en el entorno de integración. Puede localizar el vínculo URL a la tienda a través del [!DNL Cloud Console].
+1. Compruebe que la instalación se haya realizado correctamente desde la página de la tienda en el entorno de integración. Puede encontrar el vínculo de URL a la tienda a través de [!DNL Cloud Console].
 
 1. Tome una instantánea de su entorno:
 

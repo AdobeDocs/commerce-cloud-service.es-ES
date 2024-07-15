@@ -12,45 +12,45 @@ ht-degree: 0%
 
 # Flujo de trabajo de proyecto profesional
 
-El proyecto Pro incluye un único repositorio Git con una `master` rama y tres entornos principales:
+El proyecto Pro incluye un único repositorio Git con una rama global `master` y tres entornos principales:
 
-1. **Producción** entorno para iniciar y mantener el sitio activo
-1. **Ensayo** entorno para pruebas con todos los servicios
-1. **Integración** entorno para desarrollo y pruebas
+1. **Entorno de producción** para iniciar y mantener el sitio activo
+1. **Entorno de ensayo** para pruebas con todos los servicios
+1. Entorno de **integración** para desarrollo y pruebas
 
 ![Lista de entornos profesionales](../../assets/pro-environments.png)
 
-Estos entornos son `read-only`, aceptando cambios de código implementado desde las ramas insertadas desde el espacio de trabajo local. Consulte [Arquitectura profesional](pro-architecture.md) para obtener una descripción general completa de los entornos Pro. Consulte [[!DNL Cloud Console]](../project/overview.md#cloud-console) para obtener una descripción general de la lista entornos profesionales en la vista de proyecto.
+Estos entornos son `read-only`, y aceptan cambios de código implementado desde ramas insertadas desde el espacio de trabajo local. Consulte [Arquitectura Pro](pro-architecture.md) para obtener una descripción general completa de los entornos Pro. Consulte [[!DNL Cloud Console]](../project/overview.md#cloud-console) para obtener una descripción general de la lista Entornos profesionales en la vista de proyecto.
 
-El siguiente gráfico muestra el flujo de trabajo de desarrollo e implementación de Pro, que utiliza un enfoque simple de ramificación de Git. Usted [revelar](#development-workflow) código que utiliza una rama activa basada en `integration` entorno, _empujón_ y _tirante_ cambios de código hacia y desde su rama remota activa. El código verificado se implementa mediante _fusión_ la rama remota a la rama base, que activa un [generar e implementar](#deployment-workflow) para ese entorno.
+El siguiente gráfico muestra el flujo de trabajo de desarrollo e implementación de Pro, que utiliza un enfoque simple de ramificación de Git. Usted [desarrolla](#development-workflow) código utilizando una rama activa basada en el entorno `integration`, _insertando_ y _extrayendo_ cambios de código hacia y desde su rama activa remota. Usted implementa código verificado al _combinar_ la rama remota con la rama base, lo cual activa un proceso automatizado de [compilación e implementación](#deployment-workflow) para ese entorno.
 
 ![Vista de alto nivel del flujo de trabajo de desarrollo de arquitectura Pro](../../assets/pro-dev-workflow.png)
 
 ## Flujo de trabajo de desarrollo
 
-El entorno de integración proporciona una única base `integration` rama que contiene su código de Adobe Commerce en la nube. Puede crear una rama de entorno activa adicional. Esto permite implementar hasta dos ramas activas en contenedores de Platform as a service (PaaS). No hay límite en el número de entornos inactivos.
+El entorno de integración proporciona una sola rama `integration` base que contiene su Adobe Commerce en el código de infraestructura de la nube. Puede crear una rama de entorno activa adicional. Esto permite implementar hasta dos ramas activas en contenedores de Platform as a service (PaaS). No hay límite en el número de entornos inactivos.
 
 {{enhanced-integration-envs}}
 
-Los entornos de proyecto admiten un proceso de integración flexible y continuo. Comience por clonar el `integration` bifurcar en la carpeta local del proyecto. Cree una o varias ramas, desarrolle nuevas funciones, configure cambios, añada extensiones e implemente actualizaciones:
+Los entornos de proyecto admiten un proceso de integración flexible y continuo. Comience por clonar la rama `integration` en la carpeta local del proyecto. Cree una o varias ramas, desarrolle nuevas funciones, configure cambios, añada extensiones e implemente actualizaciones:
 
-- **Buscar** cambios de `integration`
+- **Recuperar** cambios de `integration`
 
 - **Rama** de `integration`
 
-- **Desarrollar** en una estación de trabajo local, lo que incluye [!DNL Composer] actualizaciones
+- **Desarrollar** código en una estación de trabajo local, incluidas [!DNL Composer] actualizaciones
 
-- **Push** cambios de código en remoto y validar
+- **Insertar** cambios de código en remoto y validar
 
-- **Combinar** hasta `integration` y prueba
+- **Combinar** con `integration` y probar
 
-Con una rama de código desarrollada y los archivos de configuración correspondientes, los cambios de código están listos para combinarse con el `integration` para obtener pruebas más completas. El `integration` El entorno también es mejor para lo siguiente:
+Con una rama de código desarrollada y los archivos de configuración correspondientes, los cambios de código están listos para combinarse en la rama `integration` para realizar pruebas más completas. El entorno `integration` también es mejor para:
 
 - **Integración de servicios de terceros**: no todos los servicios están disponibles en el entorno PaaS.
 
-- **Generación de archivos de administración de configuración**: algunas opciones de configuración son _Solo lectura_ en un entorno implementado.
+- **Generando archivos de administración de configuración**: algunas opciones de configuración son de _solo lectura_ en un entorno implementado.
 
-- **Configuración de la tienda**: debe configurar completamente todos los ajustes de almacenamiento mediante el entorno de integración. Puede encontrar el **URL de administrador de tienda** en el _integración_ vista de entorno en _[!DNL Cloud Console]_.
+- **Configuración de la tienda**: debe configurar completamente todos los ajustes de la tienda mediante el entorno de integración. Puede encontrar la **URL de administrador de tienda** en la vista del entorno _integration_ en _[!DNL Cloud Console]_.
 
 ## Flujo de trabajo de implementación
 
@@ -72,7 +72,7 @@ Acciones de script de compilación:
 
 Implementar acciones de script:
 
-- Coloque el sitio en el entorno de destino en una _Mantenimiento_ modo
+- Coloque el sitio en el entorno de destino en modo _Mantenimiento_
 
 - Implementar contenido estático si no se completa durante la compilación
 
@@ -84,13 +84,13 @@ Después del proceso de compilación e implementación, la tienda vuelve a estar
 
 ### Combinar para integración
 
-Combine todos los cambios de código comprobados combinando la rama de desarrollo activa en la base `integration` Rama. Puede probar todos los cambios en la `integration` antes de promocionar cambios en el entorno de ensayo.
+Combine todos los cambios de código comprobados combinando la rama de desarrollo activa en la rama de base `integration`. Puede probar todos los cambios en la rama `integration` antes de promocionar los cambios en el entorno de ensayo.
 
 ### Combinar para ensayo
 
-El ensayo es un entorno de preproducción que proporciona todos los servicios y configuraciones lo más cerca posible del entorno de producción. Inserte siempre los cambios de código desde el `integration` al entorno de `staging` para que pueda realizar pruebas exhaustivas con todos los servicios de. La primera vez que utilice el entorno de ensayo, deberá configurar servicios como [Fastly CDN](../cdn/fastly.md) y [New Relic](../monitor/new-relic-service.md). Configure puertas de enlace de pago, envíos, notificaciones y otros servicios vitales con credenciales de zona protegida o de prueba.
+El ensayo es un entorno de preproducción que proporciona todos los servicios y configuraciones lo más cerca posible del entorno de producción. Inserte siempre los cambios de código del entorno `integration` al entorno `staging` para que pueda realizar pruebas exhaustivas con todos los servicios. La primera vez que utilice el entorno de ensayo, deberá configurar servicios como [Fastly CDN](../cdn/fastly.md) y [New Relic](../monitor/new-relic-service.md). Configure puertas de enlace de pago, envíos, notificaciones y otros servicios vitales con credenciales de zona protegida o de prueba.
 
-Es mejor probar a fondo cada servicio, verificar sus herramientas de prueba de rendimiento y realizar pruebas UAT como administrador y como cliente, hasta que sienta que su tienda está lista para el entorno de producción. Consulte [Implementar la tienda](../deploy/staging-production.md).
+Es mejor probar a fondo cada servicio, verificar sus herramientas de prueba de rendimiento y realizar pruebas UAT como administrador y como cliente, hasta que sienta que su tienda está lista para el entorno de producción. Ver [Implementar tu tienda](../deploy/staging-production.md).
 
 ### Combinar en producción
 
@@ -101,6 +101,6 @@ Después de realizar pruebas exhaustivas en el entorno de ensayo, combine con el
 
 ### Combinar en el patrón global
 
-Inserte siempre una copia del código de producción en el `master` en caso de que surja una necesidad de depurar el entorno de producción sin interrumpir los servicios.
+Inserte siempre una copia del código de producción en el `master` global en caso de que surja una necesidad de depurar el entorno de producción sin interrumpir los servicios.
 
-Hacer **no** crear una rama desde Global `master`. Utilice el `integration` rama para crear ramas nuevas y activas para el desarrollo y correcciones.
+**no** crea una rama a partir de la información global `master`. Utilice la rama `integration` para crear ramas nuevas y activas para el desarrollo y las correcciones.

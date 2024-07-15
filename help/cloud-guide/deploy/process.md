@@ -12,35 +12,35 @@ ht-degree: 0%
 
 # Proceso de implementación
 
-El proceso de implementación comienza cuando se realiza una combinación, inserción o sincronización del entorno o cuando se almacena en déclencheur un [redistribución manual](../dev-tools/cloud-cli-overview.md#redeploy-the-environment). El proceso de implementación lleva tiempo, pero hay formas de optimizar la implementación que dependen de si está desarrollando y probando o trabajando con un sitio activo. Lo más destacable es que puede controlar las [implementación de contenido estático](static-content.md).
+El proceso de implementación comienza cuando combina, inserta o sincroniza su entorno, o cuando almacena en déclencheur una [reimplementación manual](../dev-tools/cloud-cli-overview.md#redeploy-the-environment). El proceso de implementación lleva tiempo, pero hay formas de optimizar la implementación que dependen de si está desarrollando y probando o trabajando con un sitio activo. Lo más importante es que puede controlar la [implementación de contenido estático](static-content.md).
 
 Existen tres fases distintas del proceso de implementación: generación, implementación y posterior a la implementación. Cada fase realiza acciones específicas con recursos limitados:
 
-## ![Fase de compilación](../../assets/status-build.png) Fase de compilación
+## ![Fase de compilación](../../assets/status-build.png) fase de compilación
 
-El _generar_ fase monta contenedores para los servicios definidos en los archivos de configuración e instala dependencias basadas en la variable `composer.lock` y ejecuta los vínculos de generación definidos en el archivo `.magento.app.yaml` archivo. Sin la capacidad de conectarse a ningún servicio ni acceder a la base de datos, la fase de compilación depende de los recursos limitados al entorno.
+La fase _build_ organiza contenedores para los servicios definidos en los archivos de configuración, instala dependencias basadas en el archivo `composer.lock` y ejecuta los vínculos de compilación definidos en el archivo `.magento.app.yaml`. Sin la capacidad de conectarse a ningún servicio ni acceder a la base de datos, la fase de compilación depende de los recursos limitados al entorno.
 
 ## ![Fase de implementación](../../assets/status-deploy.png) Fase de implementación
 
-El _implementar_ esta fase suspende temporalmente las solicitudes entrantes y pasa el sitio a [modo de mantenimiento](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/setup/application-modes.html). La fase de implementación utiliza los nuevos contenedores y, después de montar el sistema de archivos, abre las conexiones de red, activa los servicios definidos en la variable `relationships` de la sección `.magento.app.yaml` y ejecuta los vínculos de implementación definidos en la variable `.magento.app.yaml` archivo. Todo es _solo lectura_, excepto para los directorios definidos en la variable `.magento.app.yaml` archivo. De forma predeterminada, la variable [`mounts` propiedad](../application/properties.md#mounts) incluye los siguientes directorios:
+La fase _deploy_ suspende temporalmente las solicitudes entrantes y pasa el sitio a [modo de mantenimiento](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/setup/application-modes.html). La fase de implementación utiliza los nuevos contenedores y, después de montar el sistema de archivos, abre las conexiones de red, activa los servicios definidos en la sección `relationships` del archivo `.magento.app.yaml` y ejecuta los vínculos de implementación definidos en el archivo `.magento.app.yaml`. Todo es _solo lectura_, excepto los directorios definidos en el archivo `.magento.app.yaml`. De manera predeterminada, la propiedad [`mounts` ](../application/properties.md#mounts) incluye los siguientes directorios:
 
-- `app/etc`: contiene el `env.php` y `config.php` archivos de configuración
-- `pub/media`: contiene todos los datos de medios, como productos o categorías.
-- `pub/static`: contiene ficheros estáticos generados
-- `var`: contiene ficheros temporales creados durante el tiempo de ejecución
+- `app/etc`: contiene los archivos de configuración `env.php` y `config.php`
+- `pub/media`: contiene todos los datos multimedia, como productos o categorías
+- `pub/static`: contiene archivos estáticos generados
+- `var`: contiene archivos temporales creados durante el tiempo de ejecución
 
 Todos los demás directorios tienen permisos de solo lectura. El nuevo sitio se activa al final de la fase de implementación, a medida que pasa del modo de mantenimiento al modo de mantenimiento y libera la suspensión temporal de las solicitudes entrantes.
 
-En la fase de implementación, copias del `app/etc/config.php` y `app/etc/env.php` Los archivos de configuración de implementación se guardan con la extensión BAK. Consulte [Configuración de tienda](../store/store-settings.md#restore-configuration-files) para obtener más información sobre la restauración de estos archivos.
+En la fase de implementación, las copias de los archivos de configuración de implementación `app/etc/config.php` y `app/etc/env.php` se guardan con la extensión BACK. Consulte [Configuración de almacenamiento](../store/store-settings.md#restore-configuration-files) para obtener más información sobre cómo restaurar estos archivos.
 
-## ![Fase posterior a la implementación](../../assets/status-post-deploy.png) Fase posterior a la implementación
+## ![Fase de implementación de Post](../../assets/status-post-deploy.png) Fase de implementación de Post
 
-El _posterior a la implementación_ ejecuta los vínculos posteriores a la implementación definidos en la `.magento.app.yaml` archivo. Realizar cualquier acción en esta fase puede afectar al rendimiento del sitio; sin embargo, puede utilizar la variable [WARM_UP_PAGES](../environment/variables-post-deploy.md#warmuppages) variable de entorno para rellenar la caché.
+La fase _post-deploy_ ejecuta los vínculos post-deploy definidos en el archivo `.magento.app.yaml`. Realizar cualquier acción en esta fase puede afectar el rendimiento del sitio; sin embargo, puede usar la variable de entorno [WARM_UP_PAGES](../environment/variables-post-deploy.md#warmuppages) para rellenar la caché.
 
-## ![Verificar estado](../../assets/status-verify.png) Comprobar configuraciones
+## ![Comprobar estado](../../assets/status-verify.png) Comprobar configuraciones
 
-Puede probar la configuración óptima para el estado del proyecto ejecutando el [Asistentes inteligentes](smart-wizards.md).
+Puede probar la configuración óptima para el estado del proyecto ejecutando los [asistentes inteligentes](smart-wizards.md).
 
 >[!NOTE]
 >
->Con `ece-tools` 2002.1.0 y versiones posteriores puede utilizar la función de implementación basada en escenarios para personalizar los procesos de compilación, implementación y posteriores a la implementación para su proyecto de infraestructura de Adobe Commerce en la nube. Consulte [Implementación basada en escenarios](scenario-based.md).
+>Con `ece-tools` 2002.1.0 y versiones posteriores, puede utilizar la característica de implementación basada en escenarios para personalizar los procesos de compilación, implementación y posteriores a la implementación para su proyecto de infraestructura de Adobe Commerce en la nube. Consulte [Implementación basada en escenarios](scenario-based.md).

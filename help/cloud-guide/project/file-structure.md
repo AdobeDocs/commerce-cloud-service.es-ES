@@ -11,29 +11,29 @@ ht-degree: 0%
 
 # Estructura del proyecto
 
-Un proyecto de Adobe Commerce en la nube incluye archivos esenciales para las credenciales y la configuración de la aplicación. Estos archivos están disponibles en como plantilla según la versión de Adobe Commerce. Consulte las plantillas en la nube basadas en la versión de Adobe Commerce en la [`magento/magento-cloud` Repositorio de GitHub](https://github.com/magento/magento-cloud).
+Un proyecto de Adobe Commerce en la nube incluye archivos esenciales para las credenciales y la configuración de la aplicación. Estos archivos están disponibles en como plantilla según la versión de Adobe Commerce. Consulte las plantillas de nube basadas en la versión de Adobe Commerce en el [`magento/magento-cloud` repositorio de GitHub](https://github.com/magento/magento-cloud).
 
 En la tabla siguiente se describen los archivos incluidos en un proyecto de la nube:
 
 | Archivo | Descripción |
 | ------------------------- | ------------ |
-| `/.magento/routes.yaml` | Archivo de configuración que redirige `www` al dominio apex y `php` aplicación para servir HTTP. Consulte [Configuración de rutas](../routes/routes-yaml.md). |
+| `/.magento/routes.yaml` | Archivo de configuración que redirige a `www` al dominio Apex y a la aplicación `php` para servir HTTP. Consulte [Configurar rutas](../routes/routes-yaml.md). |
 | `/.magento/services.yaml` | Archivo de configuración que define una instancia de MySQL (MariaDB), Redis y OpenSearch o un Elasticsearch. Consulte [Configurar servicios](../services/services-yaml.md). |
-| `/app` | El `code` se utiliza para módulos personalizados. El `design` La carpeta se utiliza para [temáticas personalizadas](../store/custom-theme.md). El `etc` contiene archivos de configuración para la aplicación. |
+| `/app` | La carpeta `code` se usa para módulos personalizados. La carpeta `design` se usa para [temáticas personalizadas](../store/custom-theme.md). La carpeta `etc` contiene archivos de configuración para la aplicación. |
 | `/m2-hotfixes` | Se utiliza para parches personalizados. |
 | `/update` | Carpeta de servicio utilizada por el módulo de soporte técnico. |
-| `.gitignore` | Especifique los archivos y directorios que desea omitir. Consulte [`.gitignore` reference](#ignoring-files). |
+| `.gitignore` | Especifique los archivos y directorios que desea omitir. Ver [`.gitignore` referencia](#ignoring-files). |
 | `.magento.app.yaml` | Archivo de configuración que define las propiedades para generar la aplicación. Consulte [Configurar aplicación](../application/configure-app-yaml.md). |
-| `.magento.env.yaml` | Archivo de configuración para las fases de compilación, implementación y posterior implementación. El `ece-tools` incluye una muestra de este archivo. Consulte [Configuración de entornos](../environment/configure-env-yaml.md). |
-| `composer.json` | Obtiene Adobe Commerce y los scripts de configuración para preparar la aplicación. Consulte [Paquetes necesarios](../development/overview.md#required-packages). |
-| `composer.lock` | Almacena las dependencias de versión de cada paquete. Consulte [Paquetes necesarios](../development/overview.md#required-packages). |
-| `magento-vars.php` | Se utiliza para definir [varias tiendas](../store/multiple-sites.md) y sitios que utilizan variables. |
+| `.magento.env.yaml` | Archivo de configuración para las fases de compilación, implementación y posterior implementación. El paquete `ece-tools` incluye una muestra de este archivo. Consulte [Configurar entornos](../environment/configure-env-yaml.md). |
+| `composer.json` | Obtiene Adobe Commerce y los scripts de configuración para preparar la aplicación. Consulte [Paquetes requeridos](../development/overview.md#required-packages). |
+| `composer.lock` | Almacena las dependencias de versión de cada paquete. Consulte [Paquetes requeridos](../development/overview.md#required-packages). |
+| `magento-vars.php` | Se usa para definir [varias tiendas](../store/multiple-sites.md) y sitios que usan variables. |
 
 {style="table-layout:auto"}
 
 >[!NOTE]
 >
->Al insertar los cambios locales en el servidor remoto, el script de implementación utiliza los valores definidos por los archivos de configuración en `.magento` y, a continuación, la secuencia de comandos elimina el directorio y su contenido. Su entorno de desarrollo local no se ve afectado.
+>Cuando inserta los cambios locales en el servidor remoto, el script de implementación utiliza los valores definidos por los archivos de configuración en el directorio `.magento` y, a continuación, el script elimina el directorio y su contenido. Su entorno de desarrollo local no se ve afectado.
 
 ## Directorio raíz de la aplicación
 
@@ -46,7 +46,7 @@ La ubicación del directorio raíz de la aplicación depende del entorno.
 
 ### Directorios grabables
 
-Los entornos remotos Integration, Staging y Production son de solo lectura. Los siguientes directorios son los *solamente* directorios editables por motivos de seguridad:
+Los entornos remotos Integration, Staging y Production son de solo lectura. Los siguientes directorios son los directorios grabables *only* por motivos de seguridad:
 
 - `var`
 - `pub/static`
@@ -56,11 +56,11 @@ Los entornos remotos Integration, Staging y Production son de solo lectura. Los 
 
 >[!NOTE]
 >
->En los entornos de Producción y Ensayo, cada nodo del clúster de tres nodos tiene un `/tmp` que no se comparte con los otros nodos.
+>En los entornos Producción y Ensayo, cada nodo del clúster de tres nodos tiene un directorio `/tmp` que no se comparte con los demás nodos.
 
 ## Omitir archivos
 
-Hay una base `.gitignore` archivo con el repositorio de proyectos de Adobe Commerce en la nube. Consulte las últimas [archivo .gitignore en el repositorio de magento en la nube](https://github.com/magento/magento-cloud/blob/master/.gitignore). Para agregar un archivo que se encuentra en `.gitignore` , puede usar el complemento `-f` Opción (forzar) al almacenar en zona intermedia una confirmación:
+Hay un archivo base `.gitignore` con el repositorio de proyectos de Adobe Commerce en la nube. Consulte el archivo [.gitignore más reciente en el repositorio de la nube de Magento](https://github.com/magento/magento-cloud/blob/master/.gitignore). Para agregar un archivo que se encuentra en la lista `.gitignore`, puede usar la opción `-f` (forzar) al almacenar en zona intermedia una confirmación:
 
 ```bash
 git add <path/filename> -f
@@ -72,7 +72,7 @@ Puede seguir los siguientes pasos para cambiar la estructura de un proyecto exis
 
 1. Clone el proyecto en una estación de trabajo local.
 
-1. Actualice el `composer.json` archivo con los siguientes valores para `extra` sección.
+1. Actualice el archivo `composer.json` con los siguientes valores para la sección `extra`.
 
    ```json
    "extra": {
@@ -81,7 +81,7 @@ Puede seguir los siguientes pasos para cambiar la estructura de un proyecto exis
    }
    ```
 
-1. Añada el `.gitignore` archivo diseñado para la plantilla base. Por ejemplo, si necesita la variable `.gitignore` para la plantilla versión 2.2.6, utilice el archivo [.gitignore para 2.2.6](https://github.com/magento/magento-cloud/blob/2.2.6/.gitignore) como referencia.
+1. Agregue el archivo `.gitignore` diseñado para la plantilla base. Por ejemplo, si necesita el archivo `.gitignore` para la plantilla de la versión 2.2.6, use el archivo [.gitignore para 2.2.6](https://github.com/magento/magento-cloud/blob/2.2.6/.gitignore) como referencia.
 
 1. Borre la caché de Git.
 

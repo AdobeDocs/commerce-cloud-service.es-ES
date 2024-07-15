@@ -10,12 +10,12 @@ ht-degree: 0%
 <!-- The template to render with above values -->
 **Versión**: 1.46.1
 
-Esta referencia contiene 119 comandos disponibles a través del `magento-cloud` herramienta de línea de comandos.
-La lista inicial se genera automáticamente utilizando `magento-cloud list` en Adobe Commerce en la infraestructura en la nube.
+Esta referencia contiene 119 comandos disponibles mediante la herramienta de línea de comandos `magento-cloud`.
+La lista inicial se genera automáticamente mediante el comando `magento-cloud list` en Adobe Commerce en la infraestructura en la nube.
 
 >[!NOTE]
 >
->Esta referencia se genera a partir del código base de la aplicación. Para cambiar el contenido, puede actualizar el código fuente para la implementación del comando correspondiente en la [código base](https://github.com/magento/magento-cloud-cli) y envíe los cambios para que se revisen. Otra forma es _Danos tu opinión_ (busque el vínculo en la parte superior derecha). Para ver las directrices de contribución, consulte [Contribuciones de código](https://developer.adobe.com/commerce/contributor/guides/code-contributions/).
+>Esta referencia se genera a partir del código base de la aplicación. Para cambiar el contenido, puede actualizar el código fuente de la implementación de comandos correspondiente en el repositorio [codebase](https://github.com/magento/magento-cloud-cli) y enviar los cambios para su revisión. Otra forma es _Proporcionarnos comentarios_ (busque el vínculo en la esquina superior derecha). Para ver las directrices de contribución, consulte [Contribuciones de código](https://developer.adobe.com/commerce/contributor/guides/code-contributions/).
 
 ## `clear-cache`
 
@@ -5138,7 +5138,7 @@ Los ID de entorno que se excluirán
 
 ### `--from-address`
 
-[Opcional] Dirección remitente personalizada para correos electrónicos de alerta
+[Opcional] Dirección REMITENTE personalizada para correos electrónicos de alerta
 
 - Requiere un valor
 
@@ -5717,7 +5717,7 @@ Los ID de entorno que se excluirán
 
 ### `--from-address`
 
-[Opcional] Dirección remitente personalizada para correos electrónicos de alerta
+[Opcional] Dirección REMITENTE personalizada para correos electrónicos de alerta
 
 - Requiere un valor
 
@@ -6138,7 +6138,7 @@ No haga ninguna pregunta interactiva; acepte los valores predeterminados. Equiva
 
 ## `metrics:all`
 
-BETA Mostrar las métricas de CPU, disco y memoria de un entorno
+BETA Mostrar métricas de CPU, disco y memoria para un entorno
 
 ```bash
 magento-cloud metrics [-B|--bytes] [-r|--range RANGE] [-i|--interval INTERVAL] [--to TO] [-1|--latest] [-s|--service SERVICE] [--type TYPE] [-p|--project PROJECT] [-e|--environment ENVIRONMENT] [--format FORMAT] [-c|--columns COLUMNS] [--no-header] [--date-fmt DATE-FMT]
@@ -7136,7 +7136,7 @@ No haga ninguna pregunta interactiva; acepte los valores predeterminados. Equiva
 
 ## `operation:list`
 
-BETA Operaciones de tiempo de ejecución de lista en un entorno
+Operaciones de tiempo de ejecución de lista de Beta en un entorno
 
 ```bash
 magento-cloud ops [--full] [-p|--project PROJECT] [-e|--environment ENVIRONMENT] [-A|--app APP] [--worker WORKER] [--format FORMAT] [-c|--columns COLUMNS] [--no-header]
@@ -8670,7 +8670,7 @@ magento-cloud mongo [--eval EVAL] [-r|--relationship RELATIONSHIP] [-i|--identit
 
 ### `--eval`
 
-Pase un fragmento de JavaScript al shell
+Pasar un fragmento de JavaScript al shell
 
 - Requiere un valor
 
@@ -9417,7 +9417,7 @@ Forzar la actualización del certificado
 
 ### `--new-key`
 
-[Obsoleto] Utilice —new en su lugar
+[Obsoleto] Use —nuevo en su lugar
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -10330,7 +10330,7 @@ Espere a que se complete la operación (valor predeterminado)
 
 ### `--role`, `-r`
 
-[Obsoleto: usar user:update para cambiar las funciones de un usuario]
+[Obsoleto: usar usuario:actualizar para cambiar los roles de un usuario]
 
 - Requiere un valor
 
@@ -10811,7 +10811,7 @@ El ID del entorno. Utilice &quot;.&quot; para seleccionar el entorno predetermin
 
 ### `--pipe`
 
-[Opción obsoleta] Mostrar solo el valor de la variable
+[Opción obsoleta]: envíe solo el valor de la variable
 
 - Predeterminado: `false`
 - No acepta un valor

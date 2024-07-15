@@ -1,5 +1,5 @@
 ---
-title: Variables posteriores a la implementación
+title: Variables de implementación de Post
 description: Consulte la lista de variables de entorno que controlan las acciones en la fase posterior a la implementación de Adobe Commerce en la infraestructura en la nube.
 feature: Cloud, Configuration, Cache
 recommendations: noDisplay, catalog
@@ -12,9 +12,9 @@ ht-degree: 0%
 
 ---
 
-# Variables posteriores a la implementación
+# Variables de implementación de Post
 
-Lo siguiente _posterior a la implementación_ las variables controlan las acciones en la fase posterior a la implementación y pueden heredar y anular los valores de [Variables globales](variables-global.md). Inserte estas variables en la variable `post-deploy` fase de la `.magento.env.yaml` archivo:
+Las siguientes variables _posteriores a la implementación_ controlan las acciones en la fase posterior a la implementación y pueden heredar y anular los valores de las [variables globales](variables-global.md). Inserte estas variables en la fase `post-deploy` del archivo `.magento.env.yaml`:
 
 ```yaml
 stage:
@@ -32,7 +32,7 @@ Para obtener más información sobre cómo personalizar el proceso de generació
 - **Predeterminado**— `[]` (una matriz vacía)
 - **Versión**: Adobe Commerce 2.1.4 y posterior
 
-Configurar _Tiempo hasta el primer byte_ (TTFB) Pruebas para páginas especificadas para probar el rendimiento del sitio. Especifique una referencia de ruta absoluta o una dirección URL con protocolo y host para cada página que requiera la prueba.
+Configure las pruebas de _Tiempo hasta el primer byte_ (TTFB) para las páginas especificadas a fin de probar el rendimiento del sitio. Especifique una referencia de ruta absoluta o una dirección URL con protocolo y host para cada página que requiera la prueba.
 
 ```yaml
 stage:
@@ -43,7 +43,7 @@ stage:
        - "https://example.com/catalog/some-category"
 ```
 
-Después de especificar las páginas para probar y confirmar los cambios, la variable _Tiempo hasta el primer byte_ la prueba se ejecuta durante la fase posterior a la implementación y publica los resultados de cada ruta en el registro de la nube:
+Después de especificar las páginas para probar y confirmar los cambios, la prueba de _Tiempo hasta el primer byte_ se ejecuta durante la fase posterior a la implementación y publica los resultados de cada ruta en el registro de nube:
 
 ```terminal
 [2019-06-20 20:42:22] INFO: TTFB test result: 0.313s {"url":"https://staging-tkyicst-xkmwgjkwmwfuk.us-4.magentosite.cloud/customer/account/create","status":200}
@@ -54,10 +54,10 @@ Para las rutas redirigidas, el registro indica la ruta del destino de redirecci�
 
 ## `WARM_UP_CONCURRENCY`
 
-- **Predeterminado**—_Sin configurar_
+- **Predeterminado**—_No establecido_
 - **Versión**: Adobe Commerce 2.1.4 y posterior
 
-Especifique el límite de solicitudes simultáneas que se enviarán durante las operaciones de calentamiento de caché para reducir la carga del servidor. Este valor limita el número de conexiones paralelas y es útil para configuraciones de entorno en las que la variable `WARM_UP_PAGES` la variable posterior a la implementación especifica varias páginas para la precarga de la caché.
+Especifique el límite de solicitudes simultáneas que se enviarán durante las operaciones de calentamiento de caché para reducir la carga del servidor. Este valor limita el número de conexiones paralelas y resulta útil para las configuraciones de entorno en las que la variable posterior a la implementación de `WARM_UP_PAGES` especifica varias páginas para la precarga de la caché.
 
 ```yaml
 stage:
@@ -70,9 +70,9 @@ stage:
 - **Predeterminado**— `index.php`
 - **Versión**: Adobe Commerce 2.1.4 y posterior
 
-Personalice la lista de páginas utilizadas para cargar previamente la caché en la `post_deploy` escenario. Debe configurar el vínculo posterior a la implementación. Consulte la [sección de enlaces](../application/hooks-property.md) de la `.magento.app.yaml` archivo.
+Personalice la lista de páginas utilizadas para precargar la caché en la fase `post_deploy`. Debe configurar el vínculo posterior a la implementación. Consulte la [sección de vínculos](../application/hooks-property.md) del archivo `.magento.app.yaml`.
 
-- **páginas únicas**: permite especificar una sola página para añadirla a la caché. No es necesario indicar la dirección URL base predeterminada. El siguiente ejemplo almacena en caché el `BASE_URL/index.php` página:
+- **páginas únicas**: especifique una sola página para agregarla a la caché. No es necesario indicar la dirección URL base predeterminada. El siguiente ejemplo almacena en caché la página `BASE_URL/index.php`:
 
   ```yaml
   stage:
@@ -81,7 +81,7 @@ Personalice la lista de páginas utilizadas para cargar previamente la caché en
         - "index.php"
   ```
 
-- **varios dominios**: permite enumerar varias direcciones URL. El siguiente ejemplo almacena en caché páginas de dos dominios:
+- **varios dominios**: enumera varias direcciones URL. El siguiente ejemplo almacena en caché páginas de dos dominios:
 
   ```yaml
   stage:
@@ -98,17 +98,17 @@ Personalice la lista de páginas utilizadas para cargar previamente la caché en
   ```
 
    - `entity_type`: posibles variantes `category`, `cms-page`, `product`, `store-page`
-   - `pattern|url|product_sku`: utilice un `regexp` patrón o coincidencia exacta `url` para filtrar las direcciones URL, o utilice un asterisco (\*) para todas las páginas. Utilice el SKU del producto para `product` tipo de entidad
-   - `store_id|store_code`: utilice el ID o el código de la tienda o un asterisco (\*) para todas las tiendas, puede pasar varios ID de tienda o códigos separados con `|`
+   - `pattern|url|product_sku`: use un patrón `regexp` o una coincidencia exacta `url` para filtrar las direcciones URL, o use un asterisco (\*) para todas las páginas. Usar SKU de producto para el tipo de entidad `product`
+   - `store_id|store_code`: use el identificador o el código de la tienda o un asterisco (\*) para todas las tiendas, puede pasar varios identificadores o códigos de tienda separados por `|`
 
-  El siguiente ejemplo almacena en caché para `category` y `cms-page` tipos de entidades en función de estos criterios:
-   - todas las páginas de categorías de la tienda con identificador `1`
-   - todas las páginas de categorías de las tiendas con código `store1` y `store2`
-   - página de categoría `cars` para tienda con código `store_en`
+  El siguiente ejemplo almacena en caché los tipos de entidad `category` y `cms-page` según estos criterios:
+   - todas las páginas de categoría de la tienda con id. `1`
+   - todas las páginas de categoría para tiendas con código `store1` y `store2`
+   - página de categoría `cars` para el almacén con código `store_en`
    - página de cms `contact` para todas las tiendas
-   - página de cms `contact` para tiendas con ID `1` y `2`
-   - cualquier página de categoría que contenga `car_` y termina por `html` para tienda con ID 2
-   - cualquier página de categoría que contenga `tires_` para tienda con código `store_gb`
+   - página cms `contact` para tiendas con ID `1` y `2`
+   - cualquier página de categoría que contenga `car_` y termine con `html` para la tienda con ID 2
+   - cualquier página de categoría que contenga `tires_` para la tienda con código `store_gb`
 
      ```yaml
      stage:
@@ -123,9 +123,9 @@ Personalice la lista de páginas utilizadas para cargar previamente la caché en
            - "category:|tires_.*|:store_gb"
      ```
 
-  El siguiente ejemplo almacena en caché para `product` tipo de entidad basado en estos criterios:
+  El siguiente ejemplo almacena en caché el tipo de entidad `product` según estos criterios:
    - todos los productos para todas las tiendas (con una programación limitada a 100 por tienda para evitar problemas de rendimiento)
-   - todos los productos para tienda `store1`
+   - todos los productos de la tienda `store1`
    - productos con `sku1` para todas las tiendas
    - productos con `sku1` para tiendas con código `store1` y `store2`
    - productos con `sku1`, `sku2` y `sku3` para tiendas con código `store1` y `store2`
@@ -141,7 +141,7 @@ Personalice la lista de páginas utilizadas para cargar previamente la caché en
            - "product:sku1|sku2|sku3:store1|store2"
      ```
 
-  El siguiente ejemplo almacena en caché para `store-page` tipo de entidad basado en estos criterios:
+  El siguiente ejemplo almacena en caché el tipo de entidad `store-page` según estos criterios:
    - página `/contact-us` para todas las tiendas
    - página `/contact-us` para tienda con ID `1`
    - página `/contact-us` para tiendas con código `code1` y `code2`

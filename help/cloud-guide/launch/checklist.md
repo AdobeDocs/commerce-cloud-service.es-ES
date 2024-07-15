@@ -11,17 +11,17 @@ ht-degree: 0%
 
 # Iniciar lista de comprobación
 
-Antes de implementar en el entorno de producción, descargue el [Iniciar lista de comprobación](../../assets/adobe-commerce-cloud-prelaunch-checklist.pdf)y utilícelo con estas instrucciones para confirmar que ha completado todas las configuraciones y pruebas necesarias. Consulte una descripción general del proceso de implementación completo para Starter y Pro en [Implementar la tienda](../deploy/staging-production.md).
+Antes de implementar en el entorno de producción, descargue la [lista de comprobación de Launch](../../assets/adobe-commerce-cloud-prelaunch-checklist.pdf) y utilícela con estas instrucciones para confirmar que ha completado todas las pruebas y la configuración necesarias. Vea una descripción general del proceso de implementación completo para Starter y Pro en [Implementar su tienda](../deploy/staging-production.md).
 
 ## Pruebas completas en producción
 
-Consulte [Probar implementación](../test/staging-and-production.md) para probar todos los aspectos de sus sitios, tiendas y entornos. Estas pruebas incluyen la verificación de Fastly, las pruebas de aceptación de usuarios (UAT) y las pruebas de rendimiento.
+Consulte [Implementación de prueba](../test/staging-and-production.md) para probar todos los aspectos de sus sitios, tiendas y entornos. Estas pruebas incluyen la verificación de Fastly, las pruebas de aceptación de usuarios (UAT) y las pruebas de rendimiento.
 
 ## TLS y Fastly
 
 El Adobe de proporciona un certificado Let&#39;s Encrypt SSL/TLS para cada entorno. Este certificado es necesario para que Fastly pueda servir tráfico seguro a través de HTTPS.
 
-Para utilizar este certificado, debe actualizar la configuración DNS para que el Adobe pueda completar la validación del dominio y aplicar el certificado a su entorno. Cada entorno tiene un certificado único que cubre los dominios de Adobe Commerce en los sitios de infraestructura de la nube implementados en ese entorno. Se recomienda completar y actualizar la configuración durante la [Proceso de configuración rápida](../cdn/fastly-configuration.md).
+Para utilizar este certificado, debe actualizar la configuración DNS para que el Adobe pueda completar la validación del dominio y aplicar el certificado a su entorno. Cada entorno tiene un certificado único que cubre los dominios de Adobe Commerce en los sitios de infraestructura de la nube implementados en ese entorno. Se recomienda completar y actualizar la configuración durante el [proceso de configuración rápida](../cdn/fastly-configuration.md).
 
 ## Actualizar la configuración de DNS con la configuración de producción
 
@@ -33,7 +33,7 @@ Cuando esté listo para iniciar el sitio, debe actualizar la configuración DNS 
 
 - La configuración del entorno de producción se ha actualizado con todos los dominios necesarios
 
-  Normalmente, trabajará con el asesor técnico del cliente para añadir todos los dominios de nivel superior y subdominios necesarios para sus tiendas. Para agregar o cambiar los dominios del entorno de producción, [Enviar un ticket de asistencia de Adobe Commerce](https://support.magento.com/hc/en-us/articles/360019088251). Espere a que se confirme que la configuración del proyecto se ha actualizado.
+  Normalmente, trabajará con el asesor técnico del cliente para añadir todos los dominios de nivel superior y subdominios necesarios para sus tiendas. Para agregar o cambiar los dominios del entorno de producción, [Envíe un ticket de soporte de Adobe Commerce](https://support.magento.com/hc/en-us/articles/360019088251). Espere a que se confirme que la configuración del proyecto se ha actualizado.
 
   En Proyectos iniciales, debe agregar los dominios al proyecto. Consulte [Administrar dominios](../cdn/fastly-custom-cache-configuration.md#manage-domains).
 
@@ -72,10 +72,10 @@ Cuando esté listo para iniciar el sitio, debe actualizar la configuración DNS 
 
 >[!IMPORTANT]
 >
->Las instrucciones DNS en [RFC1034](https://www.rfc-editor.org/rfc/rfc1912) (**sección 2.4**) indicar que:
->_No se permite que un registro CNAME coexista con otros datos. En otras palabras, si suzy.podunk.xx es un alias para sue.podunk.xx, tampoco puede tener un registro MX para suzy.podunk.edu, un registro A o incluso un registro TXT._
+>Las instrucciones DNS de [RFC1034](https://www.rfc-editor.org/rfc/rfc1912) (**sección 2.4**) indican que:
+>_No se permite que un registro CNAME coexista con otros datos. En otras palabras, si suzy.podunk.xx es un alias de sue.podunk.xx, no puede tener también un registro MX para suzy.podunk.edu, un registro A o incluso un registro TXT._
 >
->Por este motivo, los registros DNS deben ser de tipo `CNAME` para subdominios y tipo `A` para dominios apex (dominios raíz). Descartar esta regla puede provocar interrupciones en el servicio de correo o en la propagación de DNS, ya que se pierde la capacidad de agregar otros registros, como MX o NS. Algunos proveedores DNS pueden evitar esto utilizando personalizaciones internas, pero seguir el estándar garantiza estabilidad y flexibilidad (como el cambio del proveedor DNS).
+>Por este motivo, los registros DNS deben ser del tipo `CNAME` para subdominios y del tipo `A` para dominios Apex (dominios raíz). Descartar esta regla puede provocar interrupciones en el servicio de correo o en la propagación de DNS, ya que se pierde la capacidad de agregar otros registros, como MX o NS. Algunos proveedores DNS pueden evitar esto utilizando personalizaciones internas, pero seguir el estándar garantiza estabilidad y flexibilidad (como el cambio del proveedor DNS).
 
 1. Actualice la dirección URL base.
 
@@ -91,7 +91,7 @@ Cuando esté listo para iniciar el sitio, debe actualizar la configuración DNS 
      php bin/magento setup:store-config:set --base-url="https://www.<domain-name>.com/"
      ```
 
-   **NOTA**: también puede actualizar la URL base desde el administrador. Consulte [URL de tienda](https://experienceleague.adobe.com/docs/commerce-admin/stores-sales/site-store/store-urls.html) en el _Guía de experiencia de compra y tiendas Adobe Commerce_.
+   **NOTA**: también puede actualizar la dirección URL base desde el administrador. Ver [URL de la tienda](https://experienceleague.adobe.com/docs/commerce-admin/stores-sales/site-store/store-urls.html) en la _Guía de experiencia de compra y tiendas Adobe Commerce_.
 
 1. Espere unos minutos para que el sitio se actualice.
 
@@ -105,31 +105,31 @@ Se recomiendan los siguientes cambios y comprobaciones:
 
 - [Prueba de correo electrónico saliente completada](../project/outgoing-emails.md)
 
-- [Configuración segura para credenciales de administrador y URL de administración base](https://docs.magento.com/user-guide/stores/security-admin.html)
+- [Configuración segura para credenciales de administrador y URL de administrador base](https://docs.magento.com/user-guide/stores/security-admin.html)
 
 - [Optimización de todas las imágenes para la web](../cdn/fastly-image-optimization.md)
 
-- [Comprobación de la configuración de minificación para HTML, JavaScript y CSS](../deploy/static-content.md)
+- [Compruebe la configuración de minificación para HTML, JavaScript y CSS](../deploy/static-content.md)
 
 ## Verificar almacenamiento en caché rápido
 
-- Pruebe y compruebe que el almacenamiento en caché de Fastly funciona correctamente en el sitio de producción. Para ver las pruebas y comprobaciones detalladas, consulte [Pruebas rápidas](../test/staging-and-production.md#check-fastly-caching).
+- Pruebe y compruebe que el almacenamiento en caché de Fastly funciona correctamente en el sitio de producción. Para ver pruebas y comprobaciones detalladas, consulte [Pruebas rápidas](../test/staging-and-production.md#check-fastly-caching).
 
-- [Asegúrese de que la versión más reciente del módulo CDN de Fastly para Commerce esté instalada en el entorno de producción](../cdn/fastly-configuration.md#upgrade-the-fastly-module)
+- [Asegúrese de que la última versión del módulo CDN de Fastly para Commerce esté instalada en el entorno de producción](../cdn/fastly-configuration.md#upgrade-the-fastly-module)
 
 - [Asegúrese de que se ha cargado la versión más actual del código VCL de Fastly](../cdn/fastly-configuration.md#upload-vcl-to-fastly)
 
 ## Pruebas de rendimiento
 
-Le recomendamos que revise las [Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) como parte del proceso de preparación previo al lanzamiento.
+Le recomendamos que revise las opciones de [Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) como parte de su proceso de preparación previo al lanzamiento.
 
 También puede realizar pruebas con las siguientes opciones de terceros:
 
-- [Asedio](https://www.joedog.org/siege-home/): Software de formación y prueba de tráfico para llevar la tienda al límite. Visite el sitio con un número configurable de clientes simulados. Siege admite autenticación básica, cookies, protocolos HTTP, HTTPS y FTP.
+- [Asedio](https://www.joedog.org/siege-home/): Software de formación y prueba de tráfico para llevar tu tienda al límite. Visite el sitio con un número configurable de clientes simulados. Siege admite autenticación básica, cookies, protocolos HTTP, HTTPS y FTP.
 
-- [Jmeter](https://jmeter.apache.org/): excelentes pruebas de carga para ayudar a medir el rendimiento para el tráfico pico, como para las ventas flash. Cree pruebas personalizadas para ejecutar en el sitio.
+- [Jmeter](https://jmeter.apache.org/): Excelente prueba de carga para ayudar a medir el rendimiento para el tráfico con picos, como para las ventas flash. Cree pruebas personalizadas para ejecutar en el sitio.
 
-- [New Relic](https://support.newrelic.com/s/) (proporcionado): ayuda a localizar procesos y áreas del sitio que causan un rendimiento lento con un tiempo rastreado empleado por acción como la transmisión de datos, consultas, Redis y más.
+- [New Relic](https://support.newrelic.com/s/) (proporcionado): ayuda a localizar procesos y áreas del sitio, lo que provoca un rendimiento lento con un tiempo de seguimiento empleado por acción, como la transmisión de datos, consultas, Redis y mucho más.
 
 - [WebPageTest](https://www.webpagetest.org/) y [PKingdom](https://www.pingdom.com/): análisis en tiempo real del tiempo de carga de las páginas del sitio con diferentes ubicaciones de origen. El reino puede costar una tarifa. WebPageTest es una herramienta gratuita.
 
@@ -139,15 +139,15 @@ También puede realizar pruebas con las siguientes opciones de terceros:
 
 - [Configuración segura para el usuario administrador](https://docs.magento.com/user-guide/stores/security-admin.html)
 
-- [Configuración segura para URL de administración](https://docs.magento.com/user-guide/stores/store-urls-custom-admin.html)
+- [Configuración segura para la URL de administración](https://docs.magento.com/user-guide/stores/store-urls-custom-admin.html)
 
 - [Elimine los usuarios que ya no estén en el proyecto de infraestructura de Adobe Commerce en la nube](../project/user-access.md)
 
-- [Configuración de la autenticación de doble factor](https://devdocs.magento.com/guides/v2.4/security/two-factor-authentication.html)
+- [Configurar autenticación de doble factor](https://devdocs.magento.com/guides/v2.4/security/two-factor-authentication.html)
 
 ## Monitorización del rendimiento
 
-Puede utilizar los servicios de New Relic para la monitorización del rendimiento en entornos Pro y Starter. En las cuentas de plan Pro, proporcionamos las alertas administradas para la directiva de alertas de Adobe Commerce a fin de supervisar el rendimiento de las aplicaciones y la infraestructura mediante los agentes de infraestructura y APM de New Relic. Para obtener más información sobre estos servicios, consulte [Monitorización del rendimiento con alertas administradas](../monitor/investigate-performance.md#monitor-performance-with-managed-alerts).
+Puede utilizar los servicios de New Relic para la monitorización del rendimiento en entornos Pro y Starter. En las cuentas de plan Pro, proporcionamos las alertas administradas para la directiva de alertas de Adobe Commerce a fin de supervisar el rendimiento de las aplicaciones y la infraestructura mediante los agentes de infraestructura y APM de New Relic. Para obtener detalles sobre el uso de estos servicios, consulte [Supervisar el rendimiento con alertas administradas](../monitor/investigate-performance.md#monitor-performance-with-managed-alerts).
 
 ### Siguiente paso
 

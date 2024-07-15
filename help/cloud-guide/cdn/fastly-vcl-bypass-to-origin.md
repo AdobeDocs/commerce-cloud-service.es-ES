@@ -24,15 +24,15 @@ Puede configurar el fragmento para que omita el almacenamiento en caché de Fast
 
 {{$include /help/_includes/vcl-snippet-prerequisites.md}}
 
-**Para omitir la caché de Fastly en función de la dirección IP o URL**:
+**Para omitir la caché de Fastly en función de la dirección IP o la dirección URL**:
 
 {{admin-login-step}}
 
-1. Clic **Tiendas** > Configuración > **Configuración** > **Avanzadas** > **Sistema**.
+1. Haga clic en **Tiendas** > Configuración > **Configuración** > **Avanzado** > **Sistema**.
 
-1. Expandir **Caché de página completa** > **Configuración rápida** > **Fragmentos de VCL personalizados**.
+1. Expandir **Caché De Página Completa** > **Configuración Rápida** > **Fragmentos De VCL Personalizados**.
 
-1. Clic **Crear fragmento personalizado**.
+1. Haga clic en **Crear fragmento personalizado**.
 
 1. Añada los valores de fragmento de VCL:
 
@@ -42,7 +42,7 @@ Puede configurar el fragmento para que omita el almacenamiento en caché de Fast
 
    - **Prioridad** — `5`
 
-   - **VCL** fragmento de contenido —
+   - **VCL** contenido de fragmento —
 
      El siguiente ejemplo omite Fastly para una dirección IP específica:
 
@@ -58,13 +58,13 @@ Puede configurar el fragmento para que omita el almacenamiento en caché de Fast
      if (req.url ~ "/media/feeds/GoogleShoppingHiVisNew.xml") {  return (pass);}
      ```
 
-     Para una coincidencia URL exacta, utilice el `==` en lugar del operador `~` operador. Consulte la [Referencia de VCL de Fastly] para obtener más información.
+     Para una coincidencia de dirección URL exacta, utilice el operador `==` en lugar del operador `~`. Consulte la [Referencia de VCL de Fastly] para obtener más información.
 
-1. Clic **Crear**.
+1. Haga clic en **Crear**.
 
-   ![Crear fragmento de VCL de omisión rápida](/help/assets/cdn/fastly-create-bypass-snippet.png)
+   ![Crear fragmento VCL de omisión rápida](/help/assets/cdn/fastly-create-bypass-snippet.png)
 
-1. Cuando la página se vuelva a cargar, haga clic en **Cargar VCL a Fastly** en el *Configuración rápida* sección.
+1. Después de que la página se vuelva a cargar, haz clic en **Cargar VCL a Fastly** en la sección *Configuración de Fastly*.
 
 1. Una vez finalizada la carga, actualice la caché según la notificación que aparece en la parte superior de la página.
 

@@ -12,19 +12,19 @@ ht-degree: 1%
 
 # Configurar el servicio MySQL
 
-El `mysql` El servicio proporciona almacenamiento de datos persistente basado en [MariaDB](https://mariadb.com/) versiones 10.2 a 10.4, compatibles con [XtraDB](https://docs.percona.com/percona-xtradb-cluster/8.0/index.html) y funciones reimplementadas de MySQL 5.6 y 5.7.
+El servicio `mysql` proporciona almacenamiento de datos persistente basado en [MariaDB](https://mariadb.com/) versiones 10.2 a 10.4, compatible con el motor de almacenamiento [XtraDB](https://docs.percona.com/percona-xtradb-cluster/8.0/index.html) y funciones reimplementadas de MySQL 5.6 y 5.7.
 
-La reindexación en MariaDB 10.4 tarda más tiempo en comparación con otras versiones de MariaDB o MySQL. Consulte [Indexadores](https://experienceleague.adobe.com/docs/commerce-operations/performance-best-practices/configuration.html#indexers) en el _Prácticas recomendadas de rendimiento_ guía.
+La reindexación en MariaDB 10.4 tarda más tiempo en comparación con otras versiones de MariaDB o MySQL. Consulte [Indexadores](https://experienceleague.adobe.com/docs/commerce-operations/performance-best-practices/configuration.html#indexers) en la guía de _Prácticas recomendadas de rendimiento_.
 
 >[!WARNING]
 >
->Tenga cuidado al actualizar MariaDB de la versión 10.1 a la 10.2. MariaDB 10.1 es la última versión que admite _XtraDB_ como motor de almacenamiento. MariaDB 10.2 utiliza _InnoDB_ para el motor de almacenamiento. Después de actualizar de 10.1 a 10.2, no podrá revertir el cambio. Adobe Commerce admite ambos motores de almacenamiento; sin embargo, debe comprobar las extensiones y otros sistemas utilizados por el proyecto para asegurarse de que son compatibles con MariaDB 10.2. Consulte [Cambios incompatibles entre 10.1 y 10.2](https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#incompatible-changes-between-101-and-102).
+>Tenga cuidado al actualizar MariaDB de la versión 10.1 a la 10.2. MariaDB 10.1 es la última versión que admite _XtraDB_ como motor de almacenamiento. MariaDB 10.2 usa _InnoDB_ para el motor de almacenamiento. Después de actualizar de 10.1 a 10.2, no podrá revertir el cambio. Adobe Commerce admite ambos motores de almacenamiento; sin embargo, debe comprobar las extensiones y otros sistemas utilizados por el proyecto para asegurarse de que son compatibles con MariaDB 10.2. Ver [Cambios incompatibles entre 10.1 y 10.2](https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#incompatible-changes-between-101-and-102).
 
 {{service-instruction}}
 
 **Para habilitar MySQL**:
 
-1. Agregue el nombre, tipo y valor de disco necesarios (en MB) a `.magento/services.yaml` archivo.
+1. Agregue el nombre, tipo y valor de disco necesarios (en MB) al archivo `.magento/services.yaml`.
 
    ```yaml
    mysql:
@@ -34,9 +34,9 @@ La reindexación en MariaDB 10.4 tarda más tiempo en comparación con otras ver
 
    >[!TIP]
    >
-   >Errores de MySQL, como `PDO Exception: MySQL server has gone away`, puede producirse como resultado de un espacio en disco insuficiente. Compruebe que ha asignado suficiente espacio en disco al servicio en la [`.magento/services.yaml`](services-yaml.md#disk) archivo.
+   >Los errores de MySQL, como `PDO Exception: MySQL server has gone away`, pueden producirse como resultado de la falta de espacio en disco. Compruebe que ha asignado suficiente espacio en disco al servicio en el archivo [`.magento/services.yaml`](services-yaml.md#disk).
 
-1. Configure las relaciones en la variable `.magento.app.yaml` archivo.
+1. Configure las relaciones en el archivo `.magento.app.yaml`.
 
    ```yaml
    relationships:
@@ -49,7 +49,7 @@ La reindexación en MariaDB 10.4 tarda más tiempo en comparación con otras ver
    git add .magento/services.yaml .magento.app.yaml && git commit -m "Enable mysql service" && git push origin <branch-name>
    ```
 
-1. [Verificar las relaciones de servicio](services-yaml.md#service-relationships).
+1. [Compruebe las relaciones de servicio](services-yaml.md#service-relationships).
 
 {{service-change-tip}}
 
@@ -57,11 +57,11 @@ La reindexación en MariaDB 10.4 tarda más tiempo en comparación con otras ver
 
 Dispone de las siguientes opciones al configurar la base de datos MySQL:
 
-- **`schemas`**: un esquema define una base de datos. El esquema predeterminado es `main` base de datos.
-- **`endpoints`**: cada punto final representa una credencial con privilegios específicos. El extremo predeterminado es `mysql`, que tiene `admin` acceso a la `main` base de datos.
+- **`schemas`**: un esquema define una base de datos. El esquema predeterminado es la base de datos `main`.
+- **`endpoints`**: cada extremo representa una credencial con privilegios específicos. El extremo predeterminado es `mysql`, que tiene acceso de `admin` a la base de datos `main`.
 - **`properties`**: las propiedades se utilizan para definir configuraciones de base de datos adicionales.
 
-El siguiente es un ejemplo básico de configuración en `.magento/services.yaml` archivo:
+El siguiente es un ejemplo básico de configuración en el archivo `.magento/services.yaml`:
 
 ```yaml
 mysql:
@@ -73,7 +73,7 @@ mysql:
             optimizer_use_condition_selectivity: 1
 ```
 
-El `properties` en el ejemplo anterior, modifica el valor predeterminado `optimizer` configuración como [recomendado en la guía Prácticas recomendadas de rendimiento](https://experienceleague.adobe.com/docs/commerce-operations/performance-best-practices/configuration.html#indexers).
+El `properties` del ejemplo anterior modifica la configuración predeterminada de `optimizer` como se recomienda en la guía de prácticas recomendadas de rendimiento](https://experienceleague.adobe.com/docs/commerce-operations/performance-best-practices/configuration.html#indexers).[
 
 **Opciones de configuración de MariaDB**:
 
@@ -81,22 +81,22 @@ El `properties` en el ejemplo anterior, modifica el valor predeterminado `optimi
 | -------------------- | --------------------------------------------------- | ------------------ |
 | `default_charset` | Conjunto de caracteres predeterminado. | utf8mb4 |
 | `default_collation` | Intercalación predeterminada. | utf8mb4_unicode_ci |
-| `max_allowed_packet` | Tamaño máximo de los paquetes, en MB. Intervalo `1` hasta `100`. | 16 |
-| `optimizer_switch` | Establezca valores para el optimizador de consultas. Consulte [Documentación de MariaDB](https://mariadb.com/kb/en/server-system-variables/#optimizer_switch). | |
-| `optimizer_use_condition_selectivity` | Seleccione las estadísticas utilizadas por el optimizador. Intervalo `1` hasta `5`. Consulte [Documentación de MariaDB](https://mariadb.com/kb/en/server-system-variables/#optimizer_use_condition_selectivity). | 4 para 10.4 y versiones posteriores |
+| `max_allowed_packet` | Tamaño máximo de los paquetes, en MB. Intervalo `1` a `100`. | 16 |
+| `optimizer_switch` | Establezca valores para el optimizador de consultas. Ver [documentación de MariaDB](https://mariadb.com/kb/en/server-system-variables/#optimizer_switch). | |
+| `optimizer_use_condition_selectivity` | Seleccione las estadísticas utilizadas por el optimizador. Intervalo `1` a `5`. Ver [documentación de MariaDB](https://mariadb.com/kb/en/server-system-variables/#optimizer_use_condition_selectivity). | 4 para 10.4 y versiones posteriores |
 
 ### Configurar varios usuarios de base de datos
 
-De forma opcional, puede configurar varios usuarios con diferentes permisos para acceder a `main` base de datos.
+Opcionalmente, puede configurar varios usuarios con permisos diferentes para tener acceso a la base de datos `main`.
 
-De forma predeterminada, hay un extremo denominado `mysql` que tiene acceso de administrador a la base de datos. Para configurar varios usuarios de la base de datos, debe definir varios extremos en la variable `services.yaml` y declare las relaciones en el `.magento.app.yaml` archivo. Para entornos de ensayo y producción Pro, [Enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para solicitar al usuario adicional.
+De manera predeterminada, hay un extremo denominado `mysql` que tiene acceso de administrador a la base de datos. Para configurar varios usuarios de base de datos, debe definir varios extremos en el archivo `services.yaml` y declarar las relaciones en el archivo `.magento.app.yaml`. Para los entornos de ensayo y producción de Pro, [envíe un vale de soporte de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para solicitar al usuario adicional.
 
 Utilice una matriz anidada para definir los puntos finales para el acceso específico del usuario. Cada extremo puede designar el acceso a uno o más esquemas (bases de datos) y diferentes niveles de permisos en cada uno.
 
 Los niveles de permiso válidos son:
 
 - `ro`: solo se permiten consultas SELECT.
-- `rw`: se permiten consultas SELECT y consultas INSERT, UPDATE y consultas de DELETE.
+- `rw`: se permiten las consultas SELECT y las consultas INSERT, UPDATE y DELETE.
 - `admin`: se permiten todas las consultas, incluidas las consultas DDL (CREATE TABLE, DROP TABLE, etc.).
 
 Por ejemplo:
@@ -124,13 +124,13 @@ mysql:
             optimizer_use_condition_selectivity: 1
 ```
 
-En el ejemplo anterior, la variable `admin` El punto de conexión proporciona acceso de administrador a `main` base de datos, la `reporter` El extremo proporciona acceso de solo lectura y la variable `importer` el extremo proporciona acceso de lectura y escritura, lo que significa que:
+En el ejemplo anterior, el extremo `admin` proporciona acceso de nivel de administrador a la base de datos `main`, el extremo `reporter` proporciona acceso de solo lectura y el extremo `importer` proporciona acceso de lectura y escritura, lo que significa que:
 
-- El `admin` el usuario tiene control total de la base de datos.
-- El `reporter` el usuario solo tiene privilegios SELECT.
-- El `importer` el usuario tiene privilegios SELECT, INSERT, UPDATE y DELETE.
+- El usuario `admin` tiene control total de la base de datos.
+- El usuario `reporter` solo tiene privilegios SELECT.
+- El usuario `importer` tiene privilegios de DELETE, SELECT, INSERT, UPDATE y.
 
-Agregue los puntos finales definidos en el ejemplo anterior a `relationships` propiedad del `.magento.app.yaml` archivo. Por ejemplo:
+Agregue los extremos definidos en el ejemplo anterior a la propiedad `relationships` del archivo `.magento.app.yaml`. Por ejemplo:
 
 ```yaml
 relationships:
@@ -141,7 +141,7 @@ relationships:
 
 >[!NOTE]
 >
->Si configura un usuario MySQL, no puede utilizar el [`DEFINER`](https://dev.mysql.com/doc/refman/8.0/en/show-grants.html) mecanismo de control de acceso para procedimientos y vistas almacenados.
+>Si configura un usuario MySQL, no puede utilizar el mecanismo de control de acceso [`DEFINER`](https://dev.mysql.com/doc/refman/8.0/en/show-grants.html) para procedimientos y vistas almacenados.
 
 ## Conexión a la base de datos
 
@@ -153,7 +153,7 @@ El acceso a la base de datos MariaDB requiere directamente que utilice un SSH pa
    magento-cloud ssh
    ```
 
-1. Recupere las credenciales de inicio de sesión de MySQL de la `database` y `type` propiedades en la [$MAGENTO_CLOUD_RELATIONSHIPS](../application/properties.md#relationships) variable.
+1. Recupere las credenciales de inicio de sesión de MySQL de las propiedades `database` y `type` en la variable [$MAGENTO_CLOUD_RELATIONSHIPS](../application/properties.md#relationships).
 
    ```bash
    echo $MAGENTO_CLOUD_RELATIONSHIPS | base64 -d | json_pp
@@ -197,7 +197,7 @@ El acceso a la base de datos MariaDB requiere directamente que utilice un SSH pa
      mysql -h database.internal -u <username>
      ```
 
-   - Para Pro, utilice el siguiente comando con el nombre de host, el número de puerto, el nombre de usuario y la contraseña recuperados del `$MAGENTO_CLOUD_RELATIONSHIPS` variable.
+   - Para Pro, utilice el siguiente comando con el nombre de host, el número de puerto, el nombre de usuario y la contraseña recuperados de la variable `$MAGENTO_CLOUD_RELATIONSHIPS`.
 
      ```bash
      mysql -h <hostname> -P <number> -u <username> -p'<password>'
@@ -205,7 +205,7 @@ El acceso a la base de datos MariaDB requiere directamente que utilice un SSH pa
 
 >[!TIP]
 >
->Puede usar el complemento `magento-cloud db:sql` para conectarse a la base de datos remota y ejecutar comandos SQL.
+>Puede usar el comando `magento-cloud db:sql` para conectarse a la base de datos remota y ejecutar comandos SQL.
 
 ## Conectar con base de datos secundaria
 
@@ -213,13 +213,13 @@ El acceso a la base de datos MariaDB requiere directamente que utilice un SSH pa
 >
 >Esta función solo está disponible en los clústeres de ensayo y producción profesional.
 
-A veces, debe conectarse a la base de datos secundaria para mejorar el rendimiento de la base de datos o resolver los problemas de bloqueo de la base de datos. Si esta configuración es necesaria, utilice `"port" : 3304` para establecer la conexión. Consulte la [Práctica recomendada para configurar la conexión esclava MySQL](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/best-practices/planning/mysql-configuration.html) tema en la _Prácticas recomendadas de implementación_ guía.
+A veces, debe conectarse a la base de datos secundaria para mejorar el rendimiento de la base de datos o resolver los problemas de bloqueo de la base de datos. Si se requiere esta configuración, use `"port" : 3304` para establecer la conexión. Consulte el tema [Práctica recomendada para configurar la conexión esclava MySQL](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/best-practices/planning/mysql-configuration.html) en la guía _Prácticas recomendadas de implementación_.
 
 ## Resolución de problemas
 
 Consulte los siguientes artículos de soporte de Adobe Commerce para obtener ayuda con la resolución de problemas de MySQL:
 
-- [Comprobación de consultas y procesos lentos en MySQL](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/database/checking-slow-queries-and-processes-mysql.html)
+- [Comprobando consultas y procesos lentos en MySQL](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/database/checking-slow-queries-and-processes-mysql.html)
 - [Crear volcado de base de datos en la nube](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/how-to/create-database-dump-on-cloud.html)
-- [Herramienta de migración de datos](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/data-migration-tool-troubleshooting.html)
-- [Actualización de Adobe Commerce: tablas compactas a dinámicas 2.2.x, 2.3.x a 2.4.x](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/best-practices/maintenance/commerce-235-upgrade-prerequisites-mariadb.html)
+- [Solución de problemas de la herramienta de migración de datos](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/data-migration-tool-troubleshooting.html)
+- [actualización de Adobe Commerce: compacta a tablas dinámicas 2.2.x, 2.3.x a 2.4.x](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/best-practices/maintenance/commerce-235-upgrade-prerequisites-mariadb.html)

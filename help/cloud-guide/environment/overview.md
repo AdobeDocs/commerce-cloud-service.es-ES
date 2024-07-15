@@ -28,9 +28,9 @@ Puede configurar la configuración de la aplicación, las rutas, las acciones de
 
 ## Actualizaciones de configuración para entornos Pro
 
-Para los entornos de ensayo y producción de Adobe Commerce en la infraestructura en la nube Pro, puede actualizar muchas opciones de configuración en su entorno de desarrollo local y confirmar los cambios para aplicarlos a estos entornos. Sin embargo, debe [Enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para actualizar las siguientes opciones de configuración:
+Para los entornos de ensayo y producción de Adobe Commerce en la infraestructura en la nube Pro, puede actualizar muchas opciones de configuración en su entorno de desarrollo local y confirmar los cambios para aplicarlos a estos entornos. Sin embargo, debe [enviar un ticket de soporte de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para actualizar las siguientes opciones de configuración:
 
-- Instale o actualice los servicios en la `.magento/services.yaml` archivo.
-- Cambie la configuración de la `mounts` y `disk` propiedades en la `.magento.app.yaml` archivo.
+- Instale o actualice los servicios en el archivo `.magento/services.yaml`.
+- Cambie la configuración de las propiedades `mounts` y `disk` en el archivo `.magento.app.yaml`.
 
 {{pro-self-service-warning}}

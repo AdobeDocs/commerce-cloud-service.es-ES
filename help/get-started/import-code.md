@@ -1,5 +1,5 @@
 ---
-title: Importar código de Commerce existente
+title: Importar código Commerce existente
 description: Obtenga información sobre cómo importar el código de Commerce existente en un nuevo proyecto de infraestructura en la nube.
 hide: true
 hidefromtoc: true
@@ -12,7 +12,7 @@ ht-degree: 0%
 ---
 
 
-# Importar código de Commerce existente
+# Importar código Commerce existente
 
 El Adobe recomienda crear un proyecto de Commerce en la nube a partir de una plantilla en blanco o importando el código existente. Se recomienda comenzar con una plantilla en blanco y, a continuación, importar el código existente en el nuevo proyecto. Esto garantiza que dispone de todos los archivos necesarios para admitir el proyecto.
 

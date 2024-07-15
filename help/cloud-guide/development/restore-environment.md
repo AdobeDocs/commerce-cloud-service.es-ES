@@ -13,10 +13,10 @@ ht-degree: 0%
 
 # Restaurar un entorno
 
-Si tiene problemas en el entorno de integración y no tiene un [copia válida](../storage/snapshots.md)A continuación, intente restaurar el entorno mediante uno de los métodos siguientes:
+Si encuentra problemas en el entorno de integración y no tiene una [copia de seguridad válida](../storage/snapshots.md), intente restaurar el entorno mediante uno de los métodos siguientes:
 
 - Restablecer o revertir el código en la rama Git
-- Desinstale el [!DNL Commerce] aplicación
+- Desinstalar la aplicación [!DNL Commerce]
 - Forzar un redespliegue
 - Restablecer manualmente la base de datos
 
@@ -26,11 +26,11 @@ Si tiene problemas en el entorno de integración y no tiene un [copia válida](.
 
 Restablecer la rama Git convierte el código a un estado estable en el pasado.
 
-**Para restablecer la rama**:
+**Para restablecer su rama**:
 
 1. En la estación de trabajo local, cambie al directorio del proyecto.
 
-1. Revise el historial de confirmaciones de Git. Uso `--oneline` para mostrar confirmaciones abreviadas en una línea:
+1. Revise el historial de confirmaciones de Git. Usar `--oneline` para mostrar confirmaciones abreviadas en una línea:
 
    ```bash
    git log --oneline
@@ -49,7 +49,7 @@ Restablecer la rama Git convierte el código a un estado estable en el pasado.
 
 1. Elija un hash de confirmación que represente el último estado estable conocido del código.
 
-   Para restablecer la rama a su estado inicializado original, busque la primera confirmación que creó la rama. Puede utilizar `--reverse` para mostrar el historial en orden cronológico inverso.
+   Para restablecer la rama a su estado inicializado original, busque la primera confirmación que creó la rama. Puede usar `--reverse` para mostrar el historial en orden cronológico inverso.
 
 1. Utilice la opción de restablecimiento completo para restablecer la rama. Tenga cuidado al utilizar este comando, ya que descarta todos los cambios desde la confirmación elegida.
 
@@ -65,13 +65,13 @@ Restablecer la rama Git convierte el código a un estado estable en el pasado.
 
 ## Desinstalación de Commerce
 
-Desinstalación del [!DNL Commerce] aplicación devuelve el entorno a un estado original restaurando la base de datos, quitando la configuración de implementación y borrando el `var/` subdirectorios. Esta guía también restablece la rama de Git a un estado estable anterior. Si no tiene una copia de seguridad reciente, pero puede acceder al entorno remoto mediante SSH, siga estos pasos para restaurar el entorno:
+Al desinstalar la aplicación [!DNL Commerce], el entorno vuelve a un estado original; para ello, restaura la base de datos, quita la configuración de implementación y borra los subdirectorios `var/`. Esta guía también restablece la rama de Git a un estado estable anterior. Si no tiene una copia de seguridad reciente, pero puede acceder al entorno remoto mediante SSH, siga estos pasos para restaurar el entorno:
 
 - Deshabilitar la administración de configuración
 - Desinstalación de Adobe Commerce
 - Restablezca la rama de Git
 
-Al desinstalar el software de Adobe Commerce, se borra y restaura la base de datos, se elimina la configuración de implementación y se borra el `var/` subdirectorios. Es importante deshabilitar [Administración de configuración](../store/store-settings.md) para que no aplique automáticamente las opciones de configuración anteriores durante la siguiente implementación. Asegúrese de que su `app/etc/` El directorio no contiene el `config.php` archivo.
+Al desinstalar el software de Adobe Commerce, se borra y restaura la base de datos, se quita la configuración de implementación y se borran los subdirectorios `var/`. Es importante deshabilitar [Administración de configuración](../store/store-settings.md) para que no aplique automáticamente las opciones de configuración anteriores durante la siguiente implementación. Asegúrese de que el directorio `app/etc/` no contenga el archivo `config.php`.
 
 **Para desinstalar el software de Adobe Commerce**:
 
@@ -110,7 +110,7 @@ Al desinstalar el software de Adobe Commerce, se borra y restaura la base de dat
    [SUCCESS]: Magento uninstallation complete.
    ```
 
-1. Borre la `var/` subdirectorios.
+1. Borre los subdirectorios `var/`.
 
    ```bash
    rm -rf var/*
@@ -154,13 +154,13 @@ Si ha intentado desinstalar Adobe Commerce y el comando ha fallado o no se ha po
    mysql -h database.internal
    ```
 
-1. Suelte el `main` base de datos.
+1. Soltar la base de datos `main`.
 
    ```shell
    drop database main;
    ```
 
-1. Crear un vacío `main` base de datos.
+1. Crear una base de datos `main` vacía.
 
    ```shell
    create database main;

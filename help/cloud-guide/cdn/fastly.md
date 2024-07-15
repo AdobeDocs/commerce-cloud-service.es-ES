@@ -14,53 +14,53 @@ ht-degree: 0%
 
 >[!WARNING]
 >
->Para mantener la compatibilidad con PCI en los sitios de Adobe Commerce implementados en la plataforma en la nube, configure Fastly en los entornos de rama principal de inicio, producción de Pro y ensayo de Pro. Si utiliza Adobe Commerce en una implementación sin encabezado, le recomendamos encarecidamente que utilice Fastly para almacenar en caché las respuestas de GraphQL. Consulte [Almacenamiento en caché con Fastly](https://developer.adobe.com/commerce/webapi/graphql/usage/caching/#caching-with-fastly) en el *Guía para desarrolladores de GraphQL*.
+>Para mantener la compatibilidad con PCI en los sitios de Adobe Commerce implementados en la plataforma en la nube, configure Fastly en los entornos de rama principal de inicio, producción de Pro y ensayo de Pro. Si utiliza Adobe Commerce en una implementación sin encabezado, le recomendamos encarecidamente que utilice Fastly para almacenar en caché las respuestas de GraphQL. Consulte [Almacenamiento en caché con Fastly](https://developer.adobe.com/commerce/webapi/graphql/usage/caching/#caching-with-fastly) en la *Guía para desarrolladores de GraphQL*.
 
 Proporciona rápidamente los siguientes servicios para optimizar y asegurar las operaciones de entrega de contenido para Adobe Commerce en proyectos de infraestructura en la nube. Estos servicios se incluyen con Adobe Commerce en la infraestructura en la nube sin coste adicional.
 
-- **Red de entrega de contenido (CDN)**: servicio basado en barnices que almacena en caché las páginas del sitio, los recursos, CSS y mucho más en los centros de datos back-end que configure. A medida que los clientes acceden al sitio y a las tiendas, las solicitudes llegan rápidamente para cargar las páginas en caché más rápido. El servicio CDN proporciona las siguientes funciones:
+- **Red de distribución de contenido (CDN)**: servicio basado en Varnish que almacena en caché las páginas del sitio, los recursos, CSS y mucho más en los centros de datos back-end que configure. A medida que los clientes acceden al sitio y a las tiendas, las solicitudes llegan rápidamente para cargar las páginas en caché más rápido. El servicio CDN proporciona las siguientes funciones:
 
-- **Administración de caché**: almacene en caché las páginas del sitio, los activos, CSS y mucho más en los centros de datos back-end que configure para reducir la carga y los costes del ancho de banda
+- **Administración de caché**: almacene en caché las páginas, los recursos, el CSS y mucho más del sitio en los centros de datos back-end que configuró para reducir la carga y los costes del ancho de banda
 
-   - Uso [Fragmentos de VCL personalizados de Fastly](fastly-vcl-custom-snippets.md) (Compatible con Varnish 2.1) para modificar la forma en que el almacenamiento en caché responde a las solicitudes
+   - Use [fragmentos de VCL personalizados de Fastly](fastly-vcl-custom-snippets.md) (compatible con Varnish 2.1) para modificar la forma en que el almacenamiento en caché responde a las solicitudes
 
-   - Configuración de [Compatibilidad con el servicio GeoIP](fastly-custom-cache-configuration.md#configure-geoip-handling)
+   - Configurar [compatibilidad con el servicio GeoIP](fastly-custom-cache-configuration.md#configure-geoip-handling)
 
    - [Forzar solicitudes sin cifrar a TLS](fastly-custom-cache-configuration.md#force-tls)
 
-   - [Personalizar Fastly timeout](fastly-custom-cache-configuration.md#extend-fastly-timeout) configuración para evitar respuestas 503 en solicitudes de operación masiva
+   - [Personalizar la configuración de tiempo de espera rápido](fastly-custom-cache-configuration.md#extend-fastly-timeout) para evitar respuestas 503 en solicitudes de operación por lotes
 
    - Crear [páginas de respuesta de error personalizadas](fastly-custom-response.md)
 
 - **Seguridad**: después de habilitar los servicios de Fastly para los sitios de Adobe Commerce, hay funciones de seguridad adicionales disponibles para proteger los sitios y la red:
 
-   - [Cortafuegos de aplicación web](fastly-waf-service.md) (WAF): servicio de cortafuegos de aplicaciones web gestionadas que proporciona protección compatible con PCI para bloquear el tráfico malintencionado antes de que pueda dañar su Adobe Commerce de producción en sitios y redes de infraestructura en la nube. El servicio WAF solo está disponible en entornos de producción Pro y Starter.
+   - [Firewall de aplicaciones web](fastly-waf-service.md) (WAF): servicio de firewall de aplicaciones web administrado que proporciona protección compatible con PCI para bloquear el tráfico malintencionado antes de que pueda dañar el Adobe Commerce de producción en la red y los sitios de infraestructura en la nube. El servicio WAF solo está disponible en entornos de producción Pro y Starter.
 
-   - [Protección contra denegación de servicio distribuido (DDoS)](#ddos-protection): protección DDoS integrada contra ataques comunes como Ping of Death, Pitufo y otros ataques de inundación basados en ICMP.
+   - [Protección contra denegación de servicio distribuida (DDoS)](#ddos-protection): protección DDoS integrada contra ataques comunes como ping de muerte, ataques Pitufo y otros ataques de inundación basados en ICMP.
 
-   - [Certificados SSL/TLS](fastly-configuration.md#provision-ssltls-certificates): el servicio Fastly requiere un certificado SSL/TLS para servir tráfico seguro a través de HTTPS.
+   - [Certificados SSL/TLS](fastly-configuration.md#provision-ssltls-certificates): El servicio Fastly requiere un certificado SSL/TLS para servir tráfico seguro a través de HTTPS.
 
      Adobe Commerce proporciona un certificado Let&#39;s Encrypt SSL/TLS validado por el dominio para cada entorno de ensayo y producción. Adobe Commerce completa la validación del dominio y el aprovisionamiento de certificados durante el proceso de configuración rápida.
 
-- **Enmascaramiento de origen**: evita que el tráfico omita el Fastly WAF y oculta las direcciones IP de sus servidores de origen para protegerlos del acceso directo y los ataques DDoS.
+- **Ocultación de origen**: evita que el tráfico omita el Fastly WAF y oculta las direcciones IP de los servidores de origen para protegerlos del acceso directo y los ataques DDoS.
 
-  El encubrimiento de origen está habilitado de forma predeterminada en los proyectos de Adobe Commerce en la infraestructura en la nube Pro Production. Para habilitar el encubrimiento de origen en Adobe Commerce en proyectos de infraestructura en la nube Starter Production, envíe un [ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket). Si tiene tráfico que no requiere almacenamiento en caché, puede personalizar la configuración del servicio de Fastly para permitir solicitudes a [omitir la caché de Fastly](fastly-vcl-bypass-to-origin.md).
+  El encubrimiento de origen está habilitado de forma predeterminada en los proyectos de Adobe Commerce en la infraestructura en la nube Pro Production. Para habilitar el encubrimiento de orígenes en Adobe Commerce en proyectos de producción de inicio de infraestructura en la nube, envíe un [ticket de soporte de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket). Si tiene tráfico que no requiere almacenamiento en caché, puede personalizar la configuración del servicio Fastly para permitir que las solicitudes [omitan la caché de Fastly](fastly-vcl-bypass-to-origin.md).
 
-- **[Optimización de imagen](fastly-image-optimization.md)**: descarga el procesamiento de imágenes y el cambio de tamaño de la carga al servicio Fastly para que los servidores puedan procesar pedidos y conversiones de forma más eficaz.
+- **[Optimización de imágenes](fastly-image-optimization.md)**: descarga el procesamiento de imágenes y el cambio de tamaño de la carga en el servicio Fastly para que los servidores puedan procesar pedidos y conversiones de forma más eficaz.
 
-- **[Registros de CDN y WAF de Fastly](../monitor/new-relic-service.md#new-relic-log-management)**: para los proyectos de Adobe Commerce en la nube Pro, puede utilizar el servicio Registros de New Relic para revisar y analizar los datos de registro de CDN y WAF de Fastly.
+- **[Registros de CDN y WAF de Fastly](../monitor/new-relic-service.md#new-relic-log-management)**: para proyectos de Adobe Commerce en infraestructura en la nube Pro, puede utilizar el servicio Registros de New Relic para revisar y analizar los datos de registro de CDN y WAF de Fastly.
 
 ## Módulo de CDN de Fastly para Magento 2
 
-Los servicios de Fastly para Adobe Commerce en infraestructura en la nube utilizan el [Módulo de CDN de Fastly para Magento 2] instalado en los entornos siguientes: Pro Staging and Production, Starter Production (`master` rama).
+Los servicios de Fastly para Adobe Commerce en la infraestructura en la nube usan el módulo [Fastly CDN para el Magento 2] instalado en los siguientes entornos: Ensayo y producción profesional, Producción inicial (rama `master`).
 
-Al aprovisionar o actualizar inicialmente el proyecto de Adobe Commerce, Adobe instala la versión más reciente del módulo CDN de Fastly en los entornos de ensayo y producción. Cuando publica actualizaciones de módulos de Fastly, recibe notificaciones en el administrador para sus entornos. El Adobe recomienda actualizar los entornos para utilizar la última versión. Consulte [Actualizar rápidamente](fastly-configuration.md#upgrade-the-fastly-module).
+Al aprovisionar o actualizar inicialmente el proyecto de Adobe Commerce, Adobe instala la versión más reciente del módulo CDN de Fastly en los entornos de ensayo y producción. Cuando publica actualizaciones de módulos de Fastly, recibe notificaciones en el administrador para sus entornos. El Adobe recomienda actualizar los entornos para utilizar la última versión. Ver [Actualizar rápidamente](fastly-configuration.md#upgrade-the-fastly-module).
 
 ## Cuenta de servicio y credenciales de Fastly
 
 Adobe Los comercios en proyectos de infraestructura en la nube no requieren una cuenta exclusiva de Fastly o un propietario de cuenta. En su lugar, cada entorno de ensayo y producción tiene credenciales de Fastly únicas (token de API e ID de servicio) para configurar y administrar los servicios de Fastly desde el administrador. También necesita las credenciales para enviar solicitudes de API de Fastly.
 
-Durante el aprovisionamiento del proyecto, Adobe agrega el proyecto a la cuenta de servicio de Fastly para Adobe Commerce en la infraestructura de la nube y agrega las credenciales de Fastly a la configuración de los entornos de ensayo y producción. Consulte [Obtener credenciales rápidamente](fastly-configuration.md#get-fastly-credentials).
+Durante el aprovisionamiento del proyecto, Adobe agrega el proyecto a la cuenta de servicio de Fastly para Adobe Commerce en la infraestructura de la nube y agrega las credenciales de Fastly a la configuración de los entornos de ensayo y producción. Ver [Obtener credenciales de Fastly](fastly-configuration.md#get-fastly-credentials).
 
 ### Cambiar el token de API de Fastly
 
@@ -68,13 +68,13 @@ Envíe un ticket de asistencia de Adobe Commerce para cambiar la credencial del 
 
 **Para cambiar la credencial del token de la API de Fastly**:
 
-1. [Enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) solicitar nuevas credenciales de la API de Fastly.
+1. [Enviar un ticket de soporte de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) solicitando nuevas credenciales de la API de Fastly.
 
    Incluya el ID de proyecto de Adobe Commerce en la infraestructura de la nube y los entornos que requieren una nueva credencial.
 
-1. Cuando reciba el nuevo token de API, actualice su valor en la variable [Configuración de credenciales de Fastly](fastly-configuration.md#test-the-fastly-credentials) en el Administrador o desde el [[!DNL Cloud Console] variables de entorno](../project/overview.md#configure-environment).
+1. Después de recibir el nuevo token de API, actualice el valor del token de API en la [configuración de credenciales de Fastly](fastly-configuration.md#test-the-fastly-credentials) en el administrador o desde las [[!DNL Cloud Console] variables de entorno](../project/overview.md#configure-environment).
 
-1. [Prueba de la nueva credencial](fastly-configuration.md#test-the-fastly-credentials).
+1. [Probar la nueva credencial](fastly-configuration.md#test-the-fastly-credentials).
 
 1. Después de actualizar la credencial, envíe un ticket de asistencia de Adobe Commerce para eliminar el token de API antiguo.
 
@@ -94,15 +94,15 @@ Solo permite asignar un dominio Apex y subdominios asociados a un servicio y una
 
 *Escenario 1:*
 
-El dominio Apex (`testweb.com` y `www.testweb.com`) está vinculado a una cuenta existente de Facebook. Tiene un proyecto de Adobe Commerce en la nube configurado con los siguientes subdominios: `mcstaging.testweb.com` y `mcprod.testweb.com`. No desea mover el dominio Apex a la cuenta de servicio de Fastly para Adobe Commerce en la infraestructura de la nube.
+El dominio Apex (`testweb.com` y `www.testweb.com`) está vinculado a una cuenta existente de Fastly. Tiene un proyecto de Adobe Commerce en la nube con los siguientes subdominios: `mcstaging.testweb.com` y `mcprod.testweb.com`. No desea mover el dominio Apex a la cuenta de servicio de Fastly para Adobe Commerce en la infraestructura de la nube.
 
-Enviar una [ticket de asistencia rápida] solicitar que los subdominios se deleguen de la cuenta existente de Fastly a la cuenta de Fastly para Adobe Commerce en la infraestructura de nube. Incluya su ID de proyecto de Adobe Commerce en el ticket.
+Envíe un [ticket de asistencia de Fastly] en el que se solicita que los subdominios se deleguen de la cuenta existente de Fastly a la cuenta de Fastly para Adobe Commerce en la infraestructura en la nube. Incluya su ID de proyecto de Adobe Commerce en el ticket.
 
-Una vez completada la delegación, los subdominios del proyecto se pueden agregar a la cuenta de servicio rápido para Adobe Commerce en la infraestructura en la nube. Consulte [Obtener credenciales rápidamente](fastly-configuration.md#get-fastly-credentials).
+Una vez completada la delegación, los subdominios del proyecto se pueden agregar a la cuenta de servicio rápido para Adobe Commerce en la infraestructura en la nube. Ver [Obtener credenciales de Fastly](fastly-configuration.md#get-fastly-credentials).
 
 *Escenario 2:*
 
-El dominio Apex (`testweb.com` y `www.testweb.com`) está vinculado a la cuenta del servicio Fastly de Adobe Commerce en la infraestructura en la nube. Desea administrar los servicios de Fastly para `service.testweb.com` y `product-updates.testweb.com` subdominios de una cuenta diferente de Facebook.
+El dominio Apex (`testweb.com` y `www.testweb.com`) está vinculado a la cuenta del servicio Fastly de Adobe Commerce en la infraestructura de la nube. Desea administrar los servicios de Fastly para los subdominios `service.testweb.com` y `product-updates.testweb.com` desde una cuenta diferente de Fastly.
 
 Envíe un ticket de asistencia de Adobe Commerce solicitando que los subdominios se deleguen de la cuenta del servicio Fastly de Adobe Commerce en la infraestructura en la nube a la cuenta de Fastly. Incluya el ID de servicio de la cuenta de Facebook en el ticket.
 

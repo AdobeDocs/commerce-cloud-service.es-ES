@@ -1,6 +1,6 @@
 ---
 title: VCL personalizado para permitir solicitudes
-description: Filtre las solicitudes entrantes y permita el acceso por dirección IP a los sitios de Adobe Commerce mediante una lista de ACL de Fastly Edge y un fragmento de VCL personalizado.
+description: Filtre las solicitudes entrantes y permita el acceso por dirección IP a los sitios de Adobe Commerce mediante una lista ACL de Fastly Edge y un fragmento de VCL personalizado.
 feature: Cloud, Configuration, Security
 exl-id: a6ee958a-c3d3-47be-b2df-510707f551fc
 source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
@@ -16,11 +16,11 @@ Puede utilizar una lista ACL de Fastly Edge con un fragmento de código VCL pers
 
 Cree una lista de permitidos para limitar el acceso al entorno de ensayo, de modo que solo se permitan las solicitudes de direcciones IP especificadas para desarrolladores internos y servicios externos aprobados. También puede crear una lista de permitidos para proteger el acceso al administrador en los entornos de ensayo y producción.
 
-El siguiente ejemplo muestra cómo utilizar un fragmento de VCL personalizado con una [Lista de control de acceso rápido (ACL)](https://docs.fastly.com/guides/access-control-lists/about-acls) para proteger el acceso al administrador para un entorno de proyecto de Adobe Commerce en la nube. Al agregar el fragmento de VCL personalizado al entorno de Cloud, Fastly solo permite solicitudes de direcciones IP incluidas en la ACL.
+El siguiente ejemplo muestra cómo utilizar un fragmento de VCL personalizado con una [Lista de control de acceso rápido (ACL)](https://docs.fastly.com/guides/access-control-lists/about-acls) para asegurar el acceso al administrador para un entorno de proyecto de Adobe Commerce en la nube. Al agregar el fragmento de VCL personalizado al entorno de Cloud, Fastly solo permite solicitudes de direcciones IP incluidas en la ACL.
 
 >[!TIP]
 >
->Para entornos de ensayo e integración que no deben ser de acceso público, utilice la opción de control de acceso HTTP disponible en el [[!DNL Cloud Console]](../project/overview.md#access-the-project-web-interface) para administrar el acceso a todo el sitio por dirección IP.
+>Para entornos de ensayo e integración que no deben ser de acceso público, utilice la opción de control de acceso HTTP disponible en [[!DNL Cloud Console]](../project/overview.md#access-the-project-web-interface) para administrar el acceso a todo el sitio por dirección IP.
 
 **Requisitos previos:**
 
@@ -35,35 +35,35 @@ Las ACL de Edge crean listas de direcciones IP para administrar el acceso al sit
 
 {{admin-login-step}}
 
-1. Clic **Tiendas** > Configuración > **Configuración** > **Avanzadas** > **Sistema**.
+1. Haga clic en **Tiendas** > Configuración > **Configuración** > **Avanzado** > **Sistema**.
 
-1. Expandir **Caché de página completa** > **Configuración rápida** > **Edge ACL**.
+1. Expandir **Caché de página completa** > **Configuración rápida** > **ACL de Edge**.
 
 1. Cree el contenedor ACL:
 
-   - Clic **Agregar ACL**.
+   - Haga clic en **Agregar ACL**.
 
-   - En el *Contenedor ACL* página, introduzca un **Nombre de ACL**—`allowlist`.
+   - En la página *Contenedor ACL*, escriba un **nombre ACL**—`allowlist`.
 
-   - Seleccionar **Activar después del cambio** para implementar los cambios en la versión de la configuración del servicio de Fastly que está editando.
+   - Seleccione **Activar después del cambio** para implementar los cambios en la versión de la configuración del servicio de Fastly que está editando.
 
-   - Clic **Cargar** para adjuntar la ACL a la configuración del servicio de Fastly.
+   - Haga clic en **Cargar** para adjuntar la ACL a la configuración del servicio de Fastly.
 
 1. Añada la lista de direcciones IP permitidas para acceder al administrador:
 
-   - Haga clic en el icono Configuración para la `allowlist` ACL.
+   - Haga clic en el icono Configuración para la ACL `allowlist`.
 
-   - Añada y guarde el *Valor de IP* para cada dirección IP del cliente.
+   - Agregue y guarde el *valor de IP* para cada dirección IP de cliente.
 
-   - Clic **Cancelar** para volver a la página de configuración del sistema.
+   - Haga clic en **Cancelar** para volver a la página de configuración del sistema.
 
-1. Clic **Guardar configuración**.
+1. Haga clic en **Guardar configuración**.
 
 1. Actualice la caché según la notificación que aparece en la parte superior de la página.
 
 ## Cree el fragmento de VCL personalizado para proteger el acceso de administrador
 
-El siguiente código de fragmento de VCL personalizado (formato JSON) muestra la lógica para filtrar solicitudes al administrador y permitir el acceso si la dirección IP del cliente coincide con una dirección en la `allowlist` ACL.
+El siguiente código de fragmento de VCL personalizado (formato JSON) muestra la lógica para filtrar solicitudes al administrador y permitir el acceso si la dirección IP del cliente coincide con una dirección de la ACL `allowlist`.
 
 ```json
 {
@@ -75,23 +75,23 @@ El siguiente código de fragmento de VCL personalizado (formato JSON) muestra la
 }
 ```
 
-Antes [crear un fragmento personalizado](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/cdn/custom-vcl-snippets/fastly-vcl-allowlist.html#add-the-custom-vcl-snippet) en este ejemplo, revise los valores para determinar si necesita realizar algún cambio. A continuación, introduzca cada valor en los campos respectivos, como `type` en el campo Tipo, `content` en el campo Contenido.
+Antes de [crear un fragmento personalizado](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/cdn/custom-vcl-snippets/fastly-vcl-allowlist.html#add-the-custom-vcl-snippet) a partir de este ejemplo, revise los valores para determinar si necesita realizar algún cambio. A continuación, introduzca cada valor en los campos respectivos, como `type` en el campo Tipo, `content` en el campo Contenido.
 
-- `name` — Nombre del fragmento de VCL. Para este ejemplo, `allowlist`.
+- `name`: nombre del fragmento de VCL. Para este ejemplo, `allowlist`.
 
-- `priority` — determina cuándo se ejecuta el fragmento de VCL. La prioridad es `5` para ejecutar inmediatamente y comprobar si las solicitudes de un administrador provienen de una dirección IP permitida. El fragmento se ejecuta antes que cualquiera de los fragmentos de VCL de Magento predeterminados (`magentomodule_*`) tiene asignada una prioridad de 50. Establezca la prioridad de cada fragmento personalizado por encima o por debajo de 50, según el momento en el que desee que se ejecute el fragmento. Los fragmentos con números de prioridad más bajos se ejecutan primero.
+- `priority` — Determina cuándo se ejecuta el fragmento de VCL. La prioridad es `5` para ejecutar inmediatamente y comprobar si las solicitudes de un administrador provienen de una dirección IP permitida. El fragmento se ejecuta antes de que cualquiera de los fragmentos de VCL de Magento predeterminados (`magentomodule_*`) tenga asignada una prioridad de 50. Establezca la prioridad de cada fragmento personalizado por encima o por debajo de 50, según el momento en el que desee que se ejecute el fragmento. Los fragmentos con números de prioridad más bajos se ejecutan primero.
 
-- `type` — especifica una ubicación para insertar el fragmento en el código de VCL con versiones. Este VCL es un `recv` tipo de fragmento que agrega el código de fragmento a `vcl_recv` subrutina debajo del código predeterminado Fastly VCL y encima de cualquier objeto.
+- `type` — especifica una ubicación para insertar el fragmento en el código de VCL con versiones. Este VCL es un tipo de fragmento `recv` que agrega el código de fragmento a la subrutina `vcl_recv` debajo del código VCL predeterminado de Fastly y encima de cualquier objeto.
 
-- `content` — El fragmento de código VCL que se va a ejecutar. En este ejemplo, el código filtra las solicitudes al administrador y permite el acceso si la dirección IP del cliente coincide con una dirección de `allowlist` ACL. Si la dirección no coincide, la solicitud se bloquea con un `403 Forbidden` error.
+- `content`: fragmento de código VCL que se va a ejecutar. En este ejemplo, el código filtra las solicitudes al administrador y permite el acceso si la dirección IP del cliente coincide con una dirección de la ACL `allowlist`. Si la dirección no coincide, la solicitud se bloquea con un error `403 Forbidden`.
 
-  Si la dirección URL del administrador ha cambiado, reemplace el valor de ejemplo `/admin` con la dirección URL de su entorno. Por ejemplo, `/company-admin`.
+  Si se cambió la dirección URL del administrador, reemplace el valor de ejemplo `/admin` por la dirección URL de su entorno. Por ejemplo, `/company-admin`.
 
-En el ejemplo de código, la condición `!req.http.Fastly-FF` es importante cuando se utiliza [Blindaje de origen](fastly-custom-cache-configuration.md#configure-back-ends-and-origin-shielding). No elimine ni edite este código.
+En el ejemplo de código, la condición `!req.http.Fastly-FF` es importante cuando se usa [Blindaje de origen](fastly-custom-cache-configuration.md#configure-back-ends-and-origin-shielding). No elimine ni edite este código.
 
 Después de revisar y actualizar el código para su entorno, utilice cualquiera de los siguientes métodos para agregar el fragmento de VCL personalizado a la configuración del servicio de Fastly:
 
-- [Añadir el fragmento de VCL personalizado desde el administrador](#add-the-custom-vcl-snippet). Se recomienda utilizar este método si puede acceder al administrador. (Requiere [Módulo CDN de Fastly para Magento 2 versión 1.2.58](fastly-configuration.md#upgrade) o más tarde.)
+- [Agregar el fragmento de VCL personalizado del administrador](#add-the-custom-vcl-snippet). Se recomienda utilizar este método si puede acceder al administrador. (Requiere el módulo CDN de [Fastly para la versión 1.2.58](fastly-configuration.md#upgrade) de Magento 2 o posterior).
 
 - Guarde el ejemplo de código JSON en un archivo (por ejemplo, `allowlist.json`) y [cárguelo mediante la API de Fastly](fastly-vcl-custom-snippets.md#manage-custom-vcl-snippets-using-the-api). Utilice este método si no puede acceder al administrador.
 
@@ -99,11 +99,11 @@ Después de revisar y actualizar el código para su entorno, utilice cualquiera 
 
 {{admin-login-step}}
 
-1. Clic **Tiendas** > Configuración > **Configuración** > **Avanzadas** > **Sistema**.
+1. Haga clic en **Tiendas** > Configuración > **Configuración** > **Avanzado** > **Sistema**.
 
-1. Expandir **Caché de página completa** > **Configuración rápida** > **Fragmentos de VCL personalizados**.
+1. Expandir **Caché De Página Completa** > **Configuración Rápida** > **Fragmentos De VCL Personalizados**.
 
-1. Clic **Crear fragmento personalizado**.
+1. Haga clic en **Crear fragmento personalizado**.
 
 1. Añada los valores de fragmento de VCL:
 
@@ -113,15 +113,15 @@ Después de revisar y actualizar el código para su entorno, utilice cualquiera 
 
    - **Prioridad** — `5`
 
-   - Añada el **VCL** contenido de fragmento:
+   - Agregar el contenido del fragmento **VCL**:
 
      ```conf
      if ((req.url ~ "^/admin") && !(client.ip ~ allowlist) && !req.http.Fastly-FF) { error 403 "Forbidden";}
      ```
 
-1. Clic **Crear** para generar el archivo de fragmento de VCL con el patrón de nombre `type_priority_name.vcl`, por ejemplo `recv_5_allowlist.vcl`
+1. Haga clic en **Crear** para generar el archivo de fragmento de VCL con el patrón de nombre `type_priority_name.vcl`, por ejemplo `recv_5_allowlist.vcl`
 
-1. Cuando la página se vuelva a cargar, haga clic en **Cargar VCL a Fastly** en el *Configuración rápida* para agregar el archivo a la configuración del servicio de Fastly.
+1. Después de que la página se vuelva a cargar, haga clic en **Cargar VCL a Fastly** en la sección *Configuración de Fastly* para agregar el archivo a la configuración del servicio de Fastly.
 
 1. Una vez finalizada la carga, actualice la caché según la notificación que aparece en la parte superior de la página.
 

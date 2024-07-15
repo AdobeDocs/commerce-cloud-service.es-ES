@@ -24,23 +24,23 @@ Históricamente, la arquitectura Pro constaba de tres nodos, cada uno de los cua
 
 ### Nivel de servicio
 
-Existen tres nodos de servicio para el almacenamiento de datos, la caché y los servicios: **OpenSearch** o **Elasticsearch**, **MariaDB**, **Redis**, y más. Cuando el nivel de servicio se acerca a la capacidad, la única manera de escalar es aumentar el tamaño del servidor, como aumentar la potencia de la CPU y la memoria. La capacidad está limitada al tamaño del nodo disponible. Debido a que el clúster de base de datos está diseñado para alta disponibilidad, no puede escalar horizontalmente de forma fiable con las tecnologías utilizadas.
+Hay tres nodos de servicio para almacenamiento de datos, caché y servicios: **OpenSearch** o **Elasticsearch**, **MariaDB**, **Redis** y más. Cuando el nivel de servicio se acerca a la capacidad, la única manera de escalar es aumentar el tamaño del servidor, como aumentar la potencia de la CPU y la memoria. La capacidad está limitada al tamaño del nodo disponible. Debido a que el clúster de base de datos está diseñado para alta disponibilidad, no puede escalar horizontalmente de forma fiable con las tecnologías utilizadas.
 
-![Escalación del nivel de servicio](../../assets/scaling-service.png)
+![Escala de nivel de servicio](../../assets/scaling-service.png)
 
-Imagine un ejemplo de que el tipo de instancia del nodo de servicio es _m5.2xlarge_ con 32 Gb de RAM. Un servicio, como la base de datos, utiliza una cantidad considerable de memoria (30 Gb). Ampliación al siguiente tamaño de instancia disponible _m5.4xlarge_ proporciona 64 Gb de RAM, que duplica la memoria y se adapta a las crecientes necesidades de la base de datos.
+Considere un ejemplo de que el tipo de instancia del nodo de servicio es _m5.2xlarge_ con 32 Gb de RAM. Un servicio, como la base de datos, utiliza una cantidad considerable de memoria (30 Gb). Ampliar al siguiente tamaño de instancia disponible _m5.4xlarge_ proporciona 64 Gb de RAM, lo que duplica la memoria y se adapta a las crecientes necesidades de la base de datos.
 
 Puede optimizar aún más el rendimiento del nivel de servicio enrutando el tráfico en función del tipo de nodo. De forma predeterminada, el nodo de la base de datos está aislado del tráfico web. Por ejemplo, puede optar por servir tráfico web en el nodo de la base de datos.
 
 ### Nivel web
 
-Existen tres nodos web para procesar solicitudes y tráfico web: **php-fpm** y **NGINX**. Además del escalado vertical al aumentar la potencia y la memoria, el nivel web puede escalarse horizontalmente al añadir servidores web a un clúster existente cuando se restringe al nivel de PHP. Consulte [Escalado automático](autoscaling.md) para conocer la escala automática de los nodos web.
+Hay tres nodos web para procesar solicitudes y tráfico web: **php-fpm** y **NGINX**. Además del escalado vertical al aumentar la potencia y la memoria, el nivel web puede escalarse horizontalmente al añadir servidores web a un clúster existente cuando se restringe al nivel de PHP. Consulte [Escalado automático](autoscaling.md) para conocer la escala automática de los nodos web.
 
-![Escalación de nivel web](../../assets/scaling-web.png)
+![Escala de nivel web](../../assets/scaling-web.png)
 
 Esto complementa la escala vertical proporcionada por el nivel de servicio. A medida que el nivel de servicio se amplía en tamaño y potencia para adaptarse a una base de datos y un uso de servicio cada vez mayores, el nivel web se amplía en tamaño, potencia e instancias para adaptarse a un aumento en las solicitudes de procesos y a los requisitos de tráfico más altos.
 
-Imagine un ejemplo de que el tipo de instancia del nodo web es _C5.2xlarge con ocho CPU y 16 Gb de RAM_. El número de solicitudes al sitio aumentó considerablemente. Puede agregar un nodo grande C5.2xpara manejar el aumento en los procesos php-fpm o puede cambiar cada tipo de instancia a _C5.4xlarge con 16 CPU y 32 Gb de RAM_. Añadir un nodo reduce el riesgo de una capacidad de sobretensión insuficiente.
+Imagine un ejemplo de que el tipo de instancia del nodo web es _C5.2xlarge con ocho CPU y 16 Gb de RAM_. El número de solicitudes al sitio aumentó considerablemente. Puede agregar un nodo C5.2xlarge para controlar el aumento de procesos php-fpm o puede cambiar cada tipo de instancia a _C5.4xlarge con 16 CPU y 32 Gb RAM_. Añadir un nodo reduce el riesgo de una capacidad de sobretensión insuficiente.
 
 ## Estructura del proyecto
 
@@ -50,25 +50,25 @@ Como mínimo, los proyectos Pro con la arquitectura a escala tienen seis nodos d
 
 - 3 nodos de servicio m5.2xlarge (8 CPU, 32 Gb RAM)
 
-Sin embargo, cada proyecto es único y requiere supervisión del rendimiento para analizar correctamente la administración de recursos. Cada cuenta incluye la [servicio de New Relic](../monitor/new-relic-service.md), que se conecta automáticamente con los datos de la aplicación y el análisis de rendimiento para proporcionar una monitorización dinámica del servidor. En concreto, puede utilizar el servicio New Relic para supervisar el uso de la CPU y la RAM con el fin de determinar qué nodos requieren recursos adicionales. A medida que un recurso alcanza su capacidad o observa una degradación del rendimiento basada en el análisis, puede crear una solicitud para escalar la infraestructura y satisfacer la demanda.
+Sin embargo, cada proyecto es único y requiere supervisión del rendimiento para analizar correctamente la administración de recursos. Cada cuenta incluye el [servicio New Relic](../monitor/new-relic-service.md), que se conecta automáticamente con los datos de la aplicación y el análisis de rendimiento para proporcionar supervisión dinámica del servidor. En concreto, puede utilizar el servicio New Relic para supervisar el uso de la CPU y la RAM con el fin de determinar qué nodos requieren recursos adicionales. A medida que un recurso alcanza su capacidad o observa una degradación del rendimiento basada en el análisis, puede crear una solicitud para escalar la infraestructura y satisfacer la demanda.
 
 ### Acceso SSH
 
-Algunos archivos y registros, como `/app/<project-id>/var/log` , no se comparten entre nodos. Cada nodo tiene un acceso SSH único. No puede usar el `magento-cloud` CLI para iniciar sesión en el servicio o en los nodos web, pero puede encontrar las direcciones de los nodos en la lista Acceso SSH en su [!DNL Cloud Console].
+Algunos archivos y registros, como el directorio `/app/<project-id>/var/log`, no se comparten entre nodos. Cada nodo tiene un acceso SSH único. No puede usar la CLI `magento-cloud` para iniciar sesión en el servicio o en los nodos web, pero puede encontrar las direcciones de los nodos en la lista de acceso SSH en su [!DNL Cloud Console].
 
 ```bash
 ssh <node>.<project-ID>-<environment>-<user-ID>@ssh.<region>.magento.com
 ```
 
-- `node` 1 a 3: direcciones para acceder a los nodos de servicio
+- `node` de 1 a 3: direcciones para acceder a los nodos de servicio
 
-- `node` 4 a _n_: direcciones para acceder a los nodos web
+- `node` de 4 a _n_: direcciones para acceder a los nodos web
 
 >[!TIP]
 >
->Después de iniciar sesión, puede confirmar el ID de servidor y el rol: los nodos de servicio utilizan el _unido_ función y los nodos web utilizan el _web_ función.
+>Después de iniciar sesión, puede confirmar el identificador de servidor y el rol: los nodos de servicio utilizan el rol _Unified_ y los nodos web utilizan el rol _web_.
 
-Respuesta de ejemplo al iniciar sesión en un **nodo de servicio** incluye el _unido_ función:
+Respuesta de ejemplo al iniciar sesión en un **nodo de servicio** incluye el rol _unificado_:
 
 ```terminal
  __  __                   _          ___ _             _
@@ -84,7 +84,7 @@ Respuesta de ejemplo al iniciar sesión en un **nodo de servicio** incluye el _u
 project-id@server-id:~$
 ```
 
-Respuesta de ejemplo al iniciar sesión en un **nodo web** incluye el _web_ función:
+Respuesta de ejemplo al iniciar sesión en un **nodo web** incluye el rol _web_:
 
 ```terminal
  __  __                   _          ___ _             _
@@ -102,6 +102,6 @@ project-id@server-id:~$
 
 ### Ubicaciones de registro
 
-Las ubicaciones de registro varían ligeramente según el nodo. Por ejemplo, un registro de base de datos, como el **Registro de errores de MySQL**, está disponible en un nodo de servicio (`/var/log/mysql/mysql-error.log`), pero no está disponible en un nodo web.
+Las ubicaciones de registro varían ligeramente según el nodo. Por ejemplo, un registro de base de datos, como el **registro de errores MySQL**, está disponible en un nodo de servicio (`/var/log/mysql/mysql-error.log`), pero no está disponible en un nodo web.
 
-Cada cuenta Pro incluye la [Servicio de registros de New Relic](../monitor/new-relic-service.md), que se conecta automáticamente con los datos de registro de la aplicación para proporcionar administración dinámica de registros. Los datos de registro agregados de todos los nodos se muestran en la aplicación New Relic Logs para que pueda solucionar problemas de rendimiento en nodos específicos desde un solo panel.
+Cada cuenta Pro incluye el [servicio New Relic Logs](../monitor/new-relic-service.md), que se conecta automáticamente con los datos de registro de la aplicación para proporcionar administración dinámica de registros. Los datos de registro agregados de todos los nodos se muestran en la aplicación New Relic Logs para que pueda solucionar problemas de rendimiento en nodos específicos desde un solo panel.

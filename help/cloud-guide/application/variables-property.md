@@ -1,6 +1,6 @@
 ---
 title: Propiedad Variables
-description: Utilice la propiedad variables para personalizar las opciones de configuración del almacén para [!DNL Commerce] aplicación.
+description: Utilice la propiedad variables para personalizar las opciones de configuración del almacén para la aplicación  [!DNL Commerce] .
 feature: Cloud, Configuration
 exl-id: 5cd92fbb-8bff-48b1-9658-500140591344
 source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Propiedad Variables
 
-Puede utilizar variables de entorno basadas en aplicaciones para personalizar las configuraciones de tienda. Estas variables utilizan una sintaxis específica. Consulte [Anular los ajustes de configuración](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/paths/override-config-settings.html) en el _Guía de configuración_.
+Puede utilizar variables de entorno basadas en aplicaciones para personalizar las configuraciones de tienda. Estas variables utilizan una sintaxis específica. Consulte [Anular la configuración](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/paths/override-config-settings.html) en la _Guía de configuración_.
 
-Las siguientes variables de entorno están incluidas en la variable `.magento.app.yaml` son necesarios para versiones específicas del archivo [!DNL Commerce] aplicación.
+Las siguientes variables de entorno incluidas en el archivo `.magento.app.yaml` son necesarias para versiones específicas de la aplicación [!DNL Commerce].
 
 Necesario para Adobe Commerce 2.2.x a 2.3.x:
 

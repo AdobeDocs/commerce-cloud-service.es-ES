@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Existen muchas formas de personalizar la tienda, como añadir una temática personalizada, instalar una extensión o aplicar una configuración específica en entornos de infraestructura en la nube. Puede configurar las opciones de servicios específicos directamente en los entornos de ensayo y producción. Puede configurar varios sitios web y tiendas. La configuración de Almacenamiento le ayuda a configurar estas opciones en su estación de trabajo local e implementar configuraciones específicas en entornos.
 
-Para acceder a tu tienda, usa el `magento-cloud url` y responda a las indicaciones. O bien, puede encontrar la dirección URL en la [!DNL Cloud Console] bajo **Acceso al sitio**.
+Para acceder a tu tienda, usa el comando `magento-cloud url` y responde a las indicaciones. O puede encontrar la dirección URL en [!DNL Cloud Console] en **Acceso al sitio**.
 
 ## Configurar las opciones de tienda
 
@@ -28,7 +28,7 @@ Las opciones de tienda son las siguientes:
 
 ## Configuración de servicios e integraciones
 
-Hay ciertos [archivos de configuración](../environment/overview.md) que administran determinados comportamientos de implementación en entornos remotos. Puede revisar estos temas por separado:
+Hay [archivos de configuración](../environment/overview.md) específicos que administran ciertos comportamientos de implementación en entornos remotos. Puede revisar estos temas por separado:
 
 * [Implementación de aplicaciones](../application/configure-app-yaml.md)
 * [Generar e implementar acciones del entorno](../environment/configure-env-yaml.md)

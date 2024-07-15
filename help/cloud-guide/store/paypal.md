@@ -28,7 +28,7 @@ Aunque es mejor utilizar una cuenta comercial de PayPal preparada y configurada,
 * Cuenta PayPal Business
 * Cuenta personal de PayPal, convertir a una cuenta comercial. Si ya tienes una cuenta personal de PayPal, puedes iniciar sesión con esas credenciales y actualizar esta cuenta a una cuenta empresarial cuando completes la sincronización.
 
-Si no tienes una cuenta PayPal, crea una. Escriba una dirección de correo electrónico para una cuenta nueva. Si no encuentra una cuenta PayPal coincidente, siga las indicaciones para crear una cuenta PayPal Business. O puede crear una cuenta directamente mediante [PayPal](https://www.paypal.com/us/webapps/mpp/account-selection).
+Si no tienes una cuenta PayPal, crea una. Escriba una dirección de correo electrónico para una cuenta nueva. Si no encuentra una cuenta PayPal coincidente, siga las indicaciones para crear una cuenta PayPal Business. O puedes crear una cuenta directamente a través de [PayPal](https://www.paypal.com/us/webapps/mpp/account-selection).
 
 ### Limitaciones de PayPal
 
@@ -37,15 +37,15 @@ PayPal admite la conexión del Pago y envío de PayPal Express con países de to
 * India y Japón (las futuras actualizaciones de PayPal pueden admitir estas cuentas)
 * Israel
 
-Para Brasil, debes tener una cuenta comercial de PayPal para conectarte. No puedes convertir una cuenta personal de PayPal para Brasil durante este proceso. Si necesita una cuenta, [crear una cuenta PayPal empresarial](https://www.paypal.com/us/webapps/mpp/account-selection).
+Para Brasil, debes tener una cuenta comercial de PayPal para conectarte. No puedes convertir una cuenta personal de PayPal para Brasil durante este proceso. Si necesitas una cuenta, [crea una cuenta PayPal comercial](https://www.paypal.com/us/webapps/mpp/account-selection).
 
 ## Configurar Pago y envío de PayPal Express
 
 Para configurar PayPal Express Checkout:
 
 1. Acceda al administrador del entorno.
-1. En la navegación del lado izquierdo, seleccione **Tiendas** > **Configuración**, luego seleccione **Ventas** > **Métodos de pago**.
-1. En PayPal, seleccione **Configurar**. Los campos de configuración se muestran en secciones ampliables para las opciones Pago y envío exprés, Crédito de publicidad de PayPal y Básico y Avanzado.
+1. En el panel de navegación del lado izquierdo, seleccione **Tiendas** > **Configuración**, luego seleccione **Ventas** > **Métodos de pago**.
+1. Para PayPal, selecciona **Configurar**. Los campos de configuración se muestran en secciones ampliables para las opciones Pago y envío exprés, Crédito de publicidad de PayPal y Básico y Avanzado.
 1. Conecta tu cuenta PayPal. Hasta que la cuenta esté conectada, las opciones para habilitar están desactivadas. Para obtener más información sobre las cuentas disponibles y admitidas para conectarse y las limitaciones, consulte [Cuenta PayPal](#paypal-account).
 
    * Para conectar tu cuenta de PayPal Live, pulsa Conectar con PayPal y sigue las indicaciones. Cualquier cliente que compre con un PayPal activo completa y carga activamente a los clientes en una tienda en directo.
@@ -53,23 +53,23 @@ Para configurar PayPal Express Checkout:
 
 1. Configure los ajustes de Pago y envío exprés para autenticar y utilizar la API de PayPal:
 
-   * **Correo electrónico asociado a la cuenta de PayPal Merchant** (Opcional) Introduce la dirección de correo electrónico asociada a tu cuenta comercial de PayPal. Este correo electrónico distingue entre mayúsculas y minúsculas.
-   * **Métodos de autenticación de API** como una firma de API o un certificado de API.
+   * **Correo electrónico asociado a la cuenta comercial de PayPal** (opcional) escribe la dirección de correo electrónico asociada a tu cuenta comercial de PayPal. Este correo electrónico distingue entre mayúsculas y minúsculas.
+   * **Métodos de autenticación de API** como firma o certificado de API.
    * Nombre de usuario, contraseña y firma de API capturados de su cuenta PayPal.
-   * **Modo de zona protegida** seleccione Sí o No para indicar si las credenciales introducidas son para zona protegida. Si ha introducido credenciales de producción, seleccione No.
-   * **La API utiliza proxy** seleccione Sí o No para establecer si el sistema utiliza un servidor proxy para establecer una conexión entre Adobe Commerce y el sistema de pago de PayPal. En caso afirmativo, introduzca el host y el puerto del proxy.
+   * **Modo de espacio aislado** seleccione Sí o No para indicar si las credenciales que ha introducido son para espacio aislado. Si ha introducido credenciales de producción, seleccione No.
+   * **API utiliza Proxy** seleccione Sí o No para establecer si el sistema utiliza un servidor proxy para establecer una conexión entre Adobe Commerce y el sistema de pago de PayPal. En caso afirmativo, introduzca el host y el puerto del proxy.
 
-1. Para obtener información detallada y ver los pasos para configurar su cuenta, consulte [Pago y envío con PayPal Express](https://docs.magento.com/user-guide/payment/paypal-express-checkout.html) a partir del paso 2, complete la configuración necesaria.
+1. Para obtener información detallada y ver los pasos para configurar tu cuenta, consulta [Pago y envío exprés de PayPal](https://docs.magento.com/user-guide/payment/paypal-express-checkout.html), a partir del Paso 2, para completar la configuración requerida.
 
 Con la cuenta configurada y autenticada, puedes activar y desactivar las opciones de pago de PayPal en Configuración de PayPal requerida:
 
-* **Habilitar esta solución** muestra el método de pago de PayPal a los clientes a través del sitio web.
-* **Habilitar la experiencia de cierre de compra en contexto**
-* **Activar crédito de PayPal** permite a los clientes obtener financiación mediante crédito PayPal sin costes adicionales. PayPal paga el pedido por adelantado y gestiona todos los reembolsos del crédito directamente con el cliente.
+* **Activar esta solución** muestra el método de pago de PayPal a los clientes a través del sitio web.
+* **Habilitar experiencia de cierre de compra en contexto**
+* **Habilitar el crédito de PayPal** permite que los clientes obtengan financiamiento de crédito de PayPal sin costos adicionales. PayPal paga el pedido por adelantado y gestiona todos los reembolsos del crédito directamente con el cliente.
 
 ## Variables de PayPal
 
-Cuando utilice la herramienta de incorporación de PayPal con Adobe Commerce en una infraestructura en la nube, añada la siguiente variable a `variables:env` de la sección `magento.app.yaml` archivo.
+Cuando use la herramienta de incorporación de PayPal con Adobe Commerce en la infraestructura en la nube, agregue la siguiente variable a la sección `variables:env` del archivo `magento.app.yaml`.
 
 ```yaml
 # Environment variables

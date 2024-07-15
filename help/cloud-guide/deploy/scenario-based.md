@@ -13,19 +13,19 @@ ht-degree: 0%
 # Implementación basada en escenarios
 
 Con `ece-tools` 2002.1.0 y versiones posteriores, puede utilizar la característica de implementación basada en escenarios para personalizar el comportamiento de implementación predeterminado.
-Esta función utiliza **escenarios** y **pasos** en la configuración:
+Esta característica usa **escenarios** y **pasos** en la configuración:
 
-- **Configuración de escenario**-Cada vínculo de implementación es una *escenario*, que es un archivo de configuración XML que describe la secuencia y los parámetros de configuración para completar las tareas de implementación. Los escenarios se configuran en la variable `hooks` de la sección `.magento.app.yaml` archivo.
+- **Configuración de escenario**-Cada vínculo de implementación es un *escenario*, que es un archivo de configuración XML que describe la secuencia y los parámetros de configuración para completar las tareas de implementación. Usted configura los escenarios en la sección `hooks` del archivo `.magento.app.yaml`.
 
-- **Configuración de pasos**-Cada escenario utiliza una secuencia de *pasos* que describen mediante programación las operaciones necesarias para completar las tareas de implementación. Los pasos se configuran en un archivo de configuración de escenario basado en XML.
+- **Configuración del paso**: cada escenario usa una secuencia de *pasos* que describen mediante programación las operaciones necesarias para completar las tareas de implementación. Los pasos se configuran en un archivo de configuración de escenario basado en XML.
 
-Adobe Commerce en la infraestructura en la nube proporciona un conjunto de [escenarios predeterminados](https://github.com/magento/ece-tools/tree/2002.1/scenario) y [pasos predeterminados](https://github.com/magento/ece-tools/tree/2002.1/src/Step) en el `ece-tools` paquete. Puede personalizar el comportamiento de la implementación creando archivos de configuración XML personalizados para anular o personalizar la configuración predeterminada. También puede utilizar escenarios y pasos para ejecutar código desde módulos personalizados.
+Adobe Commerce en la infraestructura en la nube proporciona un conjunto de [escenarios predeterminados](https://github.com/magento/ece-tools/tree/2002.1/scenario) y [pasos predeterminados](https://github.com/magento/ece-tools/tree/2002.1/src/Step) en el paquete `ece-tools`. Puede personalizar el comportamiento de la implementación creando archivos de configuración XML personalizados para anular o personalizar la configuración predeterminada. También puede utilizar escenarios y pasos para ejecutar código desde módulos personalizados.
 
 ## Adición de escenarios mediante los vínculos de generación e implementación
 
-Agregue los escenarios para crear e implementar Adobe Commerce a la `hooks` de la sección `.magento.app.yaml` archivo. Cada vínculo especifica los escenarios que se ejecutarán durante cada fase. El siguiente ejemplo muestra la configuración de escenario predeterminada.
+Agregue los escenarios para crear e implementar Adobe Commerce en la sección `hooks` del archivo `.magento.app.yaml`. Cada vínculo especifica los escenarios que se ejecutarán durante cada fase. El siguiente ejemplo muestra la configuración de escenario predeterminada.
 
-> `magento.app.yaml` ganchos
+> `magento.app.yaml` enlaces
 
 ```yaml
 hooks:
@@ -41,11 +41,11 @@ hooks:
 
 >[!NOTE]
 >
->Con el lanzamiento de `ece-tools` 2002.1.x, hay un nuevo [configuración de enlaces](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/app/properties/hooks-property.html) formato. El formato heredado de `ece-tools` Las versiones 2002.0.x siguen siendo compatibles. Sin embargo, debe actualizar al nuevo formato para utilizar la función de implementación basada en escenarios.
+>Con la versión de `ece-tools` 2002.1.x, hay un nuevo formato de [configuración de enlaces](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/app/properties/hooks-property.html). El formato heredado de `ece-tools` versiones 2002.0.x sigue siendo compatible. Sin embargo, debe actualizar al nuevo formato para utilizar la función de implementación basada en escenarios.
 
 ## Revisar pasos del escenario
 
-En la configuración del vínculo, cada escenario es un archivo XML que contiene los pasos para ejecutar las tareas de generación, implementación o posteriores a la implementación. Por ejemplo, la variable `scenario/transfer` El archivo incluye tres pasos: `compress-static-content`, `clear-init-directory`, y `backup-data`
+En la configuración del vínculo, cada escenario es un archivo XML que contiene los pasos para ejecutar las tareas de generación, implementación o posteriores a la implementación. Por ejemplo, el archivo `scenario/transfer` incluye tres pasos: `compress-static-content`, `clear-init-directory` y `backup-data`
 
 > `scenario/transfer.xml`
 
@@ -84,15 +84,15 @@ Durante la implementación, los escenarios personalizados se combinan con el esc
 
    1. `vendor/vendor-name/module-name/deploy2.xml`
    1. `vendor/vendor-name/module-name/deploy.xml`
-   1. `scenario/deploy.xml` (escenario predeterminado o básico)
+   1. `scenario/deploy.xml` (escenario predeterminado o de línea de base)
 
 - Los pasos del escenario de mayor prioridad anulan los pasos que tienen el mismo nombre en los demás escenarios. Se añaden nuevos pasos a la configuración. Las mismas reglas se aplican a más de dos escenarios, y cada escenario se prioriza de derecha a izquierda, por ejemplo (C → B → A).
 
 ### Eliminar pasos predeterminados
 
-Los pasos de los escenarios predeterminados se eliminan mediante la variable `skip` parámetro.
+Se eliminan pasos de los escenarios predeterminados mediante el parámetro `skip`.
 
-Por ejemplo, para omitir la variable `enable-maintenance-mode` y `set-production-mode` pasos en el escenario de implementación predeterminado, cree un archivo de configuración que incluya la siguiente configuración.
+Por ejemplo, para omitir los pasos `enable-maintenance-mode` y `set-production-mode` en el escenario de implementación predeterminado, cree un archivo de configuración que incluya la siguiente configuración.
 
 > `vendor/vendor-name/module-name/deploy-custom-mode-config.xml`
 
@@ -104,9 +104,9 @@ Por ejemplo, para omitir la variable `enable-maintenance-mode` y `set-production
 </scenario>
 ```
 
-Para utilizar el archivo de configuración personalizada, actualice el valor predeterminado `.magento.app.yaml` archivo.
+Para usar el archivo de configuración personalizada, actualice el archivo predeterminado `.magento.app.yaml`.
 
-> `.magento.app.yaml` con escenario de implementación personalizada
+> `.magento.app.yaml` con escenario de implementación personalizado
 
 ```yaml
 hooks:
@@ -124,13 +124,13 @@ hooks:
 
 Los escenarios personalizados pueden reemplazar los pasos predeterminados para proporcionar una implementación personalizada. Para ello, utilice el nombre de paso predeterminado como nombre para el paso personalizado.
 
-Por ejemplo, en la variable [escenario de implementación predeterminado] el `enable-maintenance-mode` Este paso ejecuta el predeterminado [EnableMaintenanceMode: script PHP].
+Por ejemplo, en el [escenario de implementación predeterminado], el paso `enable-maintenance-mode` ejecuta el [script PHP EnableMaintenanceMode predeterminado].
 
 ```xml
 <step name="enable-maintenance-mode" type="Magento\MagentoCloud\Step\EnableMaintenanceMode" priority="300"/>
 ```
 
-Para anular este paso, cree un archivo de configuración de escenario personalizado para ejecutar un script diferente cuando la variable `enable-maintenance-mode` el paso se ejecuta.
+Para anular este paso, cree un archivo de configuración de escenario personalizado para ejecutar un script diferente cuando se ejecute el paso `enable-maintenance-mode`.
 
 ```xml
 <?xml version="1.0"?>
@@ -142,7 +142,7 @@ Para anular este paso, cree un archivo de configuración de escenario personaliz
 
 ### Cambio de la prioridad de paso
 
-Los escenarios personalizados pueden cambiar la prioridad de los pasos predeterminados. El siguiente paso cambia la prioridad del `enable-maintenance-mode` paso de `300` hasta `10` para que el paso se ejecute antes en el escenario de implementación.
+Los escenarios personalizados pueden cambiar la prioridad de los pasos predeterminados. El paso siguiente cambia la prioridad del paso `enable-maintenance-mode` de `300` a `10` para que el paso se ejecute antes en el escenario de implementación.
 
 ```xml
 <?xml version="1.0"?>
@@ -152,16 +152,16 @@ Los escenarios personalizados pueden cambiar la prioridad de los pasos predeterm
 </scenario>
 ```
 
-En este ejemplo, la variable `enable-maintenance-mode` Este paso se desplaza al principio del escenario porque tiene una prioridad menor que todos los demás pasos del escenario de implementación predeterminado.
+En este ejemplo, el paso `enable-maintenance-mode` se mueve al principio del escenario porque tiene una prioridad inferior a todos los demás pasos del escenario de implementación predeterminado.
 
 ### Ejemplo: Ampliación del escenario de implementación
 
-El siguiente ejemplo personaliza el [escenario de implementación predeterminado] con los siguientes cambios:
+El ejemplo siguiente personaliza el [escenario de implementación predeterminado] con los cambios siguientes:
 
-- Reemplaza el `remove-deploy-failed-flag` paso con un paso personalizado
-- Omite el `clean-redis-cache` subpaso en el paso previo a la implementación
-- Omite el `unlock-cron-jobs` escalón
-- Omite el `validate-config` paso para deshabilitar los validadores esenciales
+- Reemplaza el paso `remove-deploy-failed-flag` por un paso personalizado
+- Omite el subpaso `clean-redis-cache` del paso previo a la implementación
+- Omite el paso `unlock-cron-jobs`
+- Omite el paso `validate-config` para deshabilitar los validadores esenciales
 - Agrega un nuevo paso previo a la implementación
 
 > `vendor/vendor-name/module-name/deploy-extended.xml`
@@ -203,7 +203,7 @@ El siguiente ejemplo personaliza el [escenario de implementación predeterminado
 </scenario>
 ```
 
-Para utilizar esta secuencia de comandos en el proyecto, agregue la configuración siguiente al `.magento.app.yaml` para su proyecto de infraestructura de Adobe Commerce en la nube:
+Para usar este script en su proyecto, agregue la siguiente configuración al archivo `.magento.app.yaml` para su proyecto de Adobe Commerce en la nube:
 
 ```yaml
 hooks:
@@ -219,23 +219,23 @@ hooks:
 
 >[!TIP]
 >
->Puede revisar las [escenarios predeterminados](https://github.com/magento/ece-tools/tree/2002.1/scenario) y [configuración de paso predeterminada](https://github.com/magento/ece-tools/tree/2002.1/src/Step) en el `ece-tools` El repositorio de GitHub para determinar qué escenarios y pasos personalizar para las tareas de creación, implementación y posteriores a la implementación de su proyecto.
+>Puede revisar los [escenarios predeterminados](https://github.com/magento/ece-tools/tree/2002.1/scenario) y la [configuración predeterminada de los pasos](https://github.com/magento/ece-tools/tree/2002.1/src/Step) en el repositorio de GitHub `ece-tools` para determinar qué escenarios y pasos personalizar para las tareas de generación, implementación y posteriores a la implementación del proyecto.
 
-## Añadir un módulo personalizado para ampliar `ece-tools`
+## Agregar un módulo personalizado para ampliar `ece-tools`
 
-El `ece-tools` proporciona interfaces de API predeterminadas que siguen los estándares de la versión semántica. Todas las interfaces de API están marcadas con **@api** anotación. Puede reemplazar la implementación de API predeterminada con la suya propia creando un módulo personalizado y modificando el código predeterminado según sea necesario.
+El paquete `ece-tools` proporciona interfaces de API predeterminadas que siguen los estándares de la versión semántica. Todas las interfaces API están marcadas con la anotación **@api**. Puede reemplazar la implementación de API predeterminada con la suya propia creando un módulo personalizado y modificando el código predeterminado según sea necesario.
 
-Para utilizar el módulo personalizado con Adobe Commerce en la infraestructura en la nube, debe registrar el módulo en la lista de extensiones de para `ece-tools` paquete. El proceso de registro es similar al proceso que se utiliza para registrar módulos en Adobe Commerce.
+Para utilizar el módulo personalizado con Adobe Commerce en la infraestructura de la nube, debe registrar el módulo en la lista de extensiones del paquete `ece-tools`. El proceso de registro es similar al proceso que se utiliza para registrar módulos en Adobe Commerce.
 
-**Para registrar un módulo con `ece-tools` paquete**:
+**Para registrar un módulo con el paquete `ece-tools`**:
 
-1. Crear o ampliar el `registration.php` en la raíz del módulo.
+1. Cree o extienda el archivo `registration.php` en la raíz del módulo.
 
    ```php?start_inline=1
    \Magento\MagentoCloud\ExtensionRegistrar::register('module-name', __DIR__);
    ```
 
-1. Actualice el `autoload` para que el archivo de configuración del módulo incluya la sección `registration.php` archivo para cargar automáticamente archivos de módulo en `composer.json`.
+1. Actualice la sección `autoload` del archivo de configuración del módulo para incluir el archivo `registration.php` y cargar automáticamente los archivos del módulo en `composer.json`.
 
    ```json
    {
@@ -253,7 +253,7 @@ Para utilizar el módulo personalizado con Adobe Commerce en la infraestructura 
    }
    ```
 
-1. Añada el `config/services.xml` en el módulo. Esta configuración se combina con `config/services.xml` de `ece-tools` paquete.
+1. Agregue el archivo `config/services.xml` a su módulo. Esta configuración se combinó sobre `config/services.xml` desde el paquete `ece-tools`.
 
    ```xml
    <?xml version="1.0" encoding="UTF-8" ?>
@@ -271,7 +271,7 @@ Para utilizar el módulo personalizado con Adobe Commerce en la infraestructura 
    </container>
    ```
 
-Para obtener más información sobre la inyección de dependencia, consulte [Inyección de dependencia de Symfony](https://symfony.com/doc/current/components/dependency_injection.html).
+Para obtener más información acerca de la inyección de dependencia, consulte [Inyección de dependencia de Symfony](https://symfony.com/doc/current/components/dependency_injection.html).
 
 <!-- link definitions -->
 

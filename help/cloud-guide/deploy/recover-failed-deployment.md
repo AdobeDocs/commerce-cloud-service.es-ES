@@ -21,9 +21,9 @@ Puede recuperarse de una implementación fallida de cualquiera de las siguientes
 
 ## Limpiar, quitar y volver a implementar
 
-Para realizar una limpieza desde la implementación anterior, identifique el componente que se añadió o actualizó y, a continuación, elimínelo. En primer lugar, inicie sesión en el entorno remoto y borre manualmente el contenido del `var` directorio. A continuación, elimine el componente de `composer.json` y vuelva a implementar el entorno.
+Para realizar una limpieza desde la implementación anterior, identifique el componente que se añadió o actualizó y, a continuación, elimínelo. Primero, inicie sesión en el entorno remoto y borre manualmente el contenido del directorio `var`. A continuación, quite el componente del archivo `composer.json` y vuelva a implementar el entorno.
 
-**Para limpiar `var` directorios**:
+**Para limpiar los `var` directorios**:
 
 1. En la estación de trabajo local, cambie al directorio del proyecto.
 
@@ -33,7 +33,7 @@ Para realizar una limpieza desde la implementación anterior, identifique el com
    magento-cloud ssh
    ```
 
-1. Borre la `var` directorios.
+1. Borrar los directorios `var`.
 
    ```shell
    rm -rf var/*
@@ -51,7 +51,7 @@ Para realizar una limpieza desde la implementación anterior, identifique el com
    composer clear-cache
    ```
 
-1. Extraiga el componente del `composer.json` archivo.
+1. Quitar el componente del archivo `composer.json`.
 
    ```bash
    composer remove <component-name>:<version>
@@ -81,6 +81,6 @@ Para realizar una limpieza desde la implementación anterior, identifique el com
 
 {{redeploy-warning}}
 
-Obtenga más información sobre la restauración de un entorno sin copia de seguridad en [Restaurar un entorno](../development/restore-environment.md).
+Vea más información sobre cómo restaurar un entorno sin una copia de seguridad en [Restaurar un entorno](../development/restore-environment.md).
 
 {{stuck-deployment-tip}}

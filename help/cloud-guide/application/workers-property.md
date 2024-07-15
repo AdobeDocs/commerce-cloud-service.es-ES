@@ -1,6 +1,6 @@
 ---
 title: Trabajadores
-description: Obtenga información sobre cómo configurar la propiedad de trabajadores en [!DNL Commerce] archivo de configuración de la aplicación.
+description: Obtenga información acerca de cómo configurar la propiedad de trabajadores en el archivo de configuración de la aplicación  [!DNL Commerce] .
 feature: Cloud, Configuration
 exl-id: d6816925-5912-45ca-8255-6c307e58542d
 source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
@@ -12,20 +12,20 @@ ht-degree: 0%
 
 # Propiedad Workers
 
-Puede definir un trabajador para que se ejecute de forma independiente de la instancia web sin una instancia de Nginx en ejecución; sin embargo, el trabajador utiliza el mismo almacenamiento de red utilizado por la instancia [!DNL Commerce] aplicación. No es necesario configurar un servidor web en la instancia de trabajo (mediante Node.js o Go) porque el enrutador no puede dirigir solicitudes públicas al trabajador. Esto hace que la instancia de trabajo sea ideal para tareas en segundo plano o para ejecutar continuamente tareas que corren el riesgo de bloquear una implementación.
+Puede definir un trabajador para que se ejecute independientemente de la instancia web sin una instancia de Nginx en ejecución; sin embargo, el trabajador utiliza el mismo almacenamiento de red utilizado por la aplicación [!DNL Commerce]. No es necesario configurar un servidor web en la instancia de trabajo (mediante Node.js o Go) porque el enrutador no puede dirigir solicitudes públicas al trabajador. Esto hace que la instancia de trabajo sea ideal para tareas en segundo plano o para ejecutar continuamente tareas que corren el riesgo de bloquear una implementación.
 
 ## Configuración de un trabajador
 
-Los trabajadores solo están disponibles para su uso con los entornos de ensayo y producción de Pro. Los entornos de integración de Pro y Starter pueden optar por utilizar el [CRON_CONSUMERS_RUNNER](../environment/variables-deploy.md#cron_consumers_runner) variable.
+Los trabajadores solo están disponibles para su uso con los entornos de ensayo y producción de Pro. Los entornos de integración profesional y de inicio pueden optar por usar la variable [CRON_CONSUMERS_RUNNER](../environment/variables-deploy.md#cron_consumers_runner).
 
-Para configurar un trabajador en Ensayo o Producción Pro, [Enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) e incluir la siguiente información:
+Para configurar un trabajador en Ensayo o Producción profesional, [envíe un vale de soporte técnico de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) e incluya la siguiente información:
 
 - Identificador de proyecto
 - ID de entorno
 - Nombre del trabajador
 - Comandos de inicio
 
-Puede configurar un proceso por trabajador. Una configuración de trabajo básica y común en `.magento.app.yaml` podría tener el siguiente aspecto:
+Puede configurar un proceso por trabajador. Una configuración de trabajo básica y común en el archivo `.magento.app.yaml` podría tener el siguiente aspecto:
 
 ```yaml
 workers:
@@ -35,28 +35,28 @@ workers:
                 php ./bin/magento queue:consumers:start commerce.eventing.event.publish
 ```
 
-En este ejemplo se define un solo trabajador denominado `queue`, con un nivel de asignación de recursos pequeño (tamaño S), y ejecuta el `php ./bin/magento` al inicio. El trabajador `queue` a continuación, se ejecuta en cada nodo como un proceso de trabajo. Si el comando se cierra, se reinicia automáticamente.
+En este ejemplo se define un único trabajador denominado `queue`, con un nivel de asignación de recursos pequeño (tamaño S), y se ejecuta el comando `php ./bin/magento` al inicio. A continuación, el trabajador `queue` se ejecuta en cada nodo como un proceso de trabajo. Si el comando se cierra, se reinicia automáticamente.
 
 ## Comandos y anulaciones
 
-El `commands.start` es necesaria para iniciar comandos con la aplicación de trabajo. Puede utilizar cualquier comando shell válido, aunque es ideal utilizar el lenguaje de su aplicación. Si el comando especificado por `start` La clave termina y se reinicia automáticamente.
+La clave `commands.start` es necesaria para iniciar comandos con la aplicación de trabajo. Puede utilizar cualquier comando shell válido, aunque es ideal utilizar el lenguaje de su aplicación. Si el comando especificado por la clave `start` termina, se reinicia automáticamente.
 
 >[!IMPORTANT]
 >
->El `deploy` y `post_deploy` ganchos y `crons` los comandos solo se ejecutan en el contenedor web, no en las instancias de trabajo.
+>Los vínculos `deploy` y `post_deploy` y los comandos `crons` solo se ejecutan en el contenedor web, no en las instancias de trabajo.
 
 ### Herencia
 
-Definiciones de la variable `size`, `relationships`, `access`, `disk` y `mount`, y `variables` las propiedades las hereda un trabajador, a menos que se anulen explícitamente.
+Un trabajador hereda las definiciones de las propiedades `size`, `relationships`, `access`, `disk` y `mount`, y `variables`, a menos que se anulen explícitamente.
 
-Las siguientes propiedades son las más utilizadas para anular [configuración de nivel superior](properties.md):
+Las siguientes propiedades son las más utilizadas para anular [la configuración de nivel superior](properties.md):
 
-- `size`: asigne menos recursos a un único proceso en segundo plano.
-- `variables`: permite indicar a la aplicación que se ejecute de forma diferente
+- `size`: asigne menos recursos a un único proceso en segundo plano
+- `variables`: indicar a la aplicación que se ejecute de forma diferente
 
 ### Intervalos y colas
 
-Aunque cada trabajador se pone en cola detrás de otro, la siguiente configuración produce una separación coherente de dos segundos en las marcas de tiempo en el `var/time.txt` , independientemente del tiempo de espera de ocho segundos dentro del código PHP:
+Aunque cada trabajador se pone en cola detrás de otro, la siguiente configuración produce una separación consistente de dos segundos entre las marcas de tiempo del archivo `var/time.txt`, independientemente del tiempo de espera de ocho segundos del código PHP:
 
 ```yaml
 workers:

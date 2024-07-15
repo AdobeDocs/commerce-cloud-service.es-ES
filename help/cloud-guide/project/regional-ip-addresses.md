@@ -11,7 +11,7 @@ ht-degree: 0%
 
 # Direcciones IP regionales
 
-En las tablas siguientes se enumeran las direcciones IP entrantes y salientes que utiliza Adobe Commerce en la infraestructura en la nube [entornos de integración](../architecture/pro-architecture.md#integration-environment). Estas direcciones IP son estables, pero pueden cambiar. Adobe notifica a los clientes antes de realizar cualquier cambio en la dirección IP.
+En las tablas siguientes se enumeran las direcciones IP entrantes y salientes que usa Adobe Commerce en la infraestructura en la nube [entornos de integración](../architecture/pro-architecture.md#integration-environment). Estas direcciones IP son estables, pero pueden cambiar. Adobe notifica a los clientes antes de realizar cualquier cambio en la dirección IP.
 
 La sintaxis para abordar los entornos de integración es la siguiente:
 
@@ -20,10 +20,10 @@ La sintaxis para abordar los entornos de integración es la siguiente:
 ```
 
 - **ID único** = 7 caracteres alfanuméricos aleatorios
-- **Identificador de proyecto** = ID del proyecto de 13 caracteres
+- **Id. de proyecto** = Id. de proyecto de 13 caracteres
 - **Región** = Nombre de región de AWS o Azure
 
-Puede usar el complemento `ping` para recuperar la dirección IP entrante:
+Puede usar el comando `ping` para recuperar la dirección IP entrante:
 
 ```bash
 ping integration-abcd123-abcd78910.us-3.magentosite.cloud

@@ -9,18 +9,18 @@ ht-degree: 0%
 
 ## Eliminar el fragmento de VCL personalizado
 
-1. [Iniciar sesión](/help/get-started/onboarding.md#access-your-admin-panel) al administrador.
+1. [Inicie sesión](/help/get-started/onboarding.md#access-your-admin-panel) en el administrador.
 
-1. Clic **Tiendas** > **Configuración** > **Configuración** > **Avanzadas** > **Sistema**.
+1. Haga clic en **Tiendas** > **Configuración** > **Configuración** > **Avanzado** > **Sistema**.
 
-1. Expandir **Caché de página completa** > **Configuración rápida** > **Fragmentos de VCL personalizados**.
+1. Expandir **Caché De Página Completa** > **Configuración Rápida** > **Fragmentos De VCL Personalizados**.
 
-   ![Administrar fragmentos de VCL personalizados](/help/assets/cdn/fastly-manage-snippets.png)
+   ![Administrar fragmentos personalizados de VCL](/help/assets/cdn/fastly-manage-snippets.png)
 
-1. En el _Acción_ , haga clic en el icono de papelera situado junto al fragmento que desea eliminar.
+1. En la columna _Acción_, haga clic en el icono de papelera situado junto al fragmento que desea eliminar.
 
-1. En la siguiente ventana modal, haga clic en **DELETE** y activar una nueva versión.
+1. En la siguiente ventana modal, haz clic en **DELETE** y activa una nueva versión.
 
 >[!WARNING]
 >
->El _Fragmentos de VCL personalizados_ La opción IU solo muestra los fragmentos añadidos a través del administrador de Adobe Commerce. Si agrega fragmentos de código mediante la API de Fastly, utilice la API para [administrarlos](/help/cloud-guide/cdn/fastly-vcl-custom-snippets.md#manage-vcl-using-the-api).
+>La opción de interfaz de usuario _Fragmentos personalizados de VCL_ solo muestra los fragmentos agregados mediante el administrador de Adobe Commerce. Si agrega fragmentos mediante la API de Fastly, use la API para [administrarlos](/help/cloud-guide/cdn/fastly-vcl-custom-snippets.md#manage-vcl-using-the-api).

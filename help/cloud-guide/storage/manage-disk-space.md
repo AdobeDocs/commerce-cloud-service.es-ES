@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Administrar espacio en disco
 
-Puede encontrar la capacidad de almacenamiento total para su proyecto de Cloud en su contrato de infraestructura en la nube de Adobe Commerce y en su [página de cuenta](https://accounts.magento.cloud/user). Cada tarjeta de proyecto de su cuenta muestra la cantidad de _entornos_, el _almacenamiento_ capacidad en GB y el número de _usuarios_. Como alternativa, puede utilizar el siguiente comando de Cloud:
+Puede encontrar la capacidad de almacenamiento total para su proyecto de Cloud en su contrato de infraestructura en la nube de Adobe Commerce y en su [página de cuenta](https://accounts.magento.cloud/user). Cada tarjeta de proyecto de su cuenta muestra el número de _entornos_, la capacidad de _almacenamiento_ en GB y el número de _usuarios_. Como alternativa, puede utilizar el siguiente comando de Cloud:
 
 ```bash
 magento-cloud subscription:info | grep storage
@@ -30,7 +30,7 @@ Ejemplo de notificación:
 
 >[!BEGINSHADEBOX]
 
-_&quot;Nuestra monitorización ha detectado que el almacenamiento de archivos en su clúster (project-id-environment) está casi lleno. El uso del disco está actualmente en niveles de uso críticos con menos de 1 GiB restante. El volumen de almacenamiento compartido se está actualizando actualmente de 60 GiB a 70 GiB para mantener sus servicios en funcionamiento. Eche un vistazo al uso de los archivos de ensayo y producción para ver si puede liberar espacio.&quot;_
+_&quot;Nuestra supervisión ha detectado que el almacenamiento de archivos en su clúster (project-id-environment) está casi lleno. El uso del disco está actualmente en niveles de uso críticos con menos de 1 GiB restante. El volumen de almacenamiento compartido se está actualizando actualmente de 60 GiB a 70 GiB para mantener sus servicios en funcionamiento. Eche un vistazo al uso de los archivos de ensayo y producción para ver si puede liberar espacio.&quot;_
 
 >[!ENDSHADEBOX]
 
@@ -40,7 +40,7 @@ _&quot;Nuestra monitorización ha detectado que el almacenamiento de archivos en
 
 ## Compruebe el entorno de integración
 
-Puede comprobar el uso del espacio en disco para su entorno de integración utilizando `magento-cloud` CLI.
+Puede comprobar el uso del espacio en disco para su entorno de integración mediante la CLI `magento-cloud`.
 
 **Para comprobar el uso aproximado del espacio en disco**:
 
@@ -60,9 +60,9 @@ Checking database service mysql...
 +----------------+-----------------+--------+
 ```
 
-Todos los montajes comparten un disco. Puede comprobar el uso del espacio en disco para los montajes mediante el `magento-cloud` CLI.
+Todos los montajes comparten un disco. Puede comprobar el uso del espacio en disco para los montajes mediante la CLI `magento-cloud`.
 
-**Para comprobar el uso aproximado del espacio en disco para los montajes**:
+**Para comprobar el uso aproximado del espacio en disco para montajes**:
 
 ```bash
 magento-cloud mount:size
@@ -85,15 +85,15 @@ Checking disk usage for all mounts on <project>-<environment>-mymagento@ssh.us.m
 
 ## Comprobar clústeres dedicados
 
-Para los entornos de ensayo y producción de Pro, puede comprobar el uso del espacio en disco en cada entorno utilizando `disk free` , que informa de la cantidad de espacio en disco utilizado por el sistema de archivos. Debe utilizar SSH para iniciar sesión en un entorno remoto.
+Para los entornos de ensayo y producción de Pro, puede comprobar el uso del espacio en disco en cada entorno mediante el comando `disk free`, que indica la cantidad de espacio en disco que usa el sistema de archivos. Debe utilizar SSH para iniciar sesión en un entorno remoto.
 
 ```bash
 df -h
 ```
 
-El `-h` muestra el informe en un formato legible en lenguaje natural (KB, MB o GB).
+La opción `-h` muestra el informe con un formato legible en lenguaje natural (KB, MB o GB).
 
-En la siguiente respuesta de ejemplo, la variable `/mnt/shared` mount muestra el espacio en disco para los medios y `/data/mysql/` mount muestra espacio en disco para la base de datos:
+En la siguiente respuesta de ejemplo, el montaje `/mnt/shared` muestra el espacio en disco para el medio y el montaje `/data/mysql/` muestra el espacio en disco para la base de datos:
 
 ```terminal
 Filesystem                                    Size  Used Avail Use% Mounted on
@@ -128,21 +128,21 @@ Filesystem                                    Size  Used Avail Use% Mounted on
 
 ## Asignar espacio en disco
 
-Dos [archivos de configuración](../environment/overview.md) Controle la asignación de espacio en disco en los entornos de nube: la `.magento.app.yaml` y el `.magento/services.yaml` archivo. Cada archivo contiene el `disk` , que define el valor del tamaño del disco en MB para la configuración correspondiente. Solo puede cambiar la asignación del espacio en disco en los entornos de integración de Pro y Starter.
+Dos [archivos de configuración](../environment/overview.md) controlan la asignación de espacio en disco en los entornos de la nube: el archivo `.magento.app.yaml` y el archivo `.magento/services.yaml`. Cada archivo contiene la propiedad `disk`, que define el valor del tamaño del disco en MB para la configuración correspondiente. Solo puede cambiar la asignación del espacio en disco en los entornos de integración de Pro y Starter.
 
 >[!IMPORTANT]
 >
->Para los entornos de ensayo y producción de Pro, debe [Enviar un ticket de asistencia de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para cambiar la asignación del espacio en disco. Solo se puede producir un aumento de tamaño de los entornos de ensayo y producción de Pro a determinados intervalos, por lo que, según el uso actual del espacio en disco, la asistencia técnica puede recomendar aumentar la asignación del espacio en disco en un mínimo de 10 GB. Una vez asignado, el aumento del almacenamiento para el ensayo y la producción de Pro no se puede revertir. El almacenamiento no se puede reasignar ni redistribuir entre los recursos. Para agregar más espacio de almacenamiento de archivos, reduzca el espacio en disco asignado para MySQL.
+>Para los entornos de ensayo y producción profesional, debe [enviar un vale de soporte de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para cambiar la asignación del espacio en disco. Solo se puede producir un aumento de tamaño de los entornos de ensayo y producción de Pro a determinados intervalos, por lo que, según el uso actual del espacio en disco, la asistencia técnica puede recomendar aumentar la asignación del espacio en disco en un mínimo de 10 GB. Una vez asignado, el aumento del almacenamiento para el ensayo y la producción de Pro no se puede revertir. El almacenamiento no se puede reasignar ni redistribuir entre los recursos. Para agregar más espacio de almacenamiento de archivos, reduzca el espacio en disco asignado para MySQL.
 
 ### Espacio en disco de aplicación
 
-El `.magento.app.yaml` el archivo controla el [espacio en disco persistente](../application/properties.md#disk) disponible para la aplicación.
+El archivo `.magento.app.yaml` controla el [espacio en disco persistente](../application/properties.md#disk) disponible para la aplicación.
 
-**Para aumentar el espacio en disco de la aplicación**:
+**Para aumentar el espacio en disco de su aplicación**:
 
-1. En su entorno de desarrollo local, abra `.magento.app.yaml` archivo de configuración.
+1. En su entorno de desarrollo local, abra el archivo de configuración `.magento.app.yaml`.
 
-1. Defina un nuevo valor para `disk` propiedad (en MB).
+1. Establezca un nuevo valor para la propiedad `disk` (en MB).
 
    ```yaml
    disk: <value-mb>
@@ -160,13 +160,13 @@ El `.magento.app.yaml` el archivo controla el [espacio en disco persistente](../
 
 ### Espacio en disco de servicio
 
-El `.magento/services.yaml` controla el espacio en disco disponible para cada servicio, como MySQL y Redis.
+El archivo `.magento/services.yaml` controla el espacio en disco disponible para cada servicio, como MySQL y Redis.
 
 **Para aumentar el espacio en disco de un servicio**:
 
-1. En su entorno de desarrollo local, abra `.magento/services.yaml` archivo de configuración.
+1. En su entorno de desarrollo local, abra el archivo de configuración `.magento/services.yaml`.
 
-1. Añada o busque un servicio en el archivo. Consulte [más información sobre la configuración de servicios](../services/services-yaml.md).
+1. Añada o busque un servicio en el archivo. Ver [más información sobre la configuración de servicios](../services/services-yaml.md).
 
 1. Establezca un nuevo valor para la propiedad del disco (en MB).
 
@@ -188,11 +188,11 @@ El `.magento/services.yaml` controla el espacio en disco disponible para cada se
 
 ## Monitorización del espacio en disco
 
-En entornos de Pro Production, puede supervisar el espacio en disco y otros indicadores de rendimiento mediante la directiva Alertas administradas para alertas de Adobe Commerce para New Relic. Para obtener más información, consulte [Monitorización del rendimiento con alertas administradas](../monitor/investigate-performance.md#monitor-performance-with-managed-alerts). Para obtener más información, consulte [Prácticas recomendadas para resolver problemas de rendimiento de la base de datos](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/best-practices/maintenance/resolve-database-performance-issues.html).
+En entornos de Pro Production, puede supervisar el espacio en disco y otros indicadores de rendimiento mediante la directiva Alertas administradas para alertas de Adobe Commerce para New Relic. Para obtener más información, vea [Supervisar el rendimiento con alertas administradas](../monitor/investigate-performance.md#monitor-performance-with-managed-alerts). Para obtener más información, consulte [Prácticas recomendadas para resolver problemas de rendimiento de bases de datos](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/best-practices/maintenance/resolve-database-performance-issues.html).
 
 ## No queda espacio
 
-La caché de compilación puede crecer con el tiempo. Si recibe una advertencia que indique `No space left on device`, intente borrar la caché de la versión y volver a implementar:
+La caché de compilación puede crecer con el tiempo. Si recibe una advertencia que indica `No space left on device`, intente borrar la caché de la compilación y vuelva a implementar:
 
 ```bash
 magento-cloud project:clear-build-cache
