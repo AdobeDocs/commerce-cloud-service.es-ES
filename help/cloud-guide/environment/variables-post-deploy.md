@@ -1,18 +1,18 @@
 ---
-title: Variables de implementación de Post
+title: Variables posteriores a la implementación
 description: Consulte la lista de variables de entorno que controlan las acciones en la fase posterior a la implementación de Adobe Commerce en la infraestructura en la nube.
 feature: Cloud, Configuration, Cache
 recommendations: noDisplay, catalog
 role: Developer
 exl-id: e460335f-cd2b-4c98-b1ff-32504599b33d
-source-git-commit: 8b02757591c4e8f607e936de4eda74d76953d9b7
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '511'
 ht-degree: 0%
 
 ---
 
-# Variables de implementación de Post
+# Variables posteriores a la implementación
 
 Las siguientes variables _posteriores a la implementación_ controlan las acciones en la fase posterior a la implementación y pueden heredar y anular los valores de las [variables globales](variables-global.md). Inserte estas variables en la fase `post-deploy` del archivo `.magento.env.yaml`:
 
@@ -45,7 +45,7 @@ stage:
 
 Después de especificar las páginas para probar y confirmar los cambios, la prueba de _Tiempo hasta el primer byte_ se ejecuta durante la fase posterior a la implementación y publica los resultados de cada ruta en el registro de nube:
 
-```terminal
+```
 [2019-06-20 20:42:22] INFO: TTFB test result: 0.313s {"url":"https://staging-tkyicst-xkmwgjkwmwfuk.us-4.magentosite.cloud/customer/account/create","status":200}
 [2019-06-20 20:42:22] INFO: TTFB test result: 0.408s {"url":"https://staging-tkyicst-xkmwgjkwmwfuk.us-4.magentosite.cloud/checkout/cart","status":200}
 ```
@@ -93,7 +93,7 @@ Personalice la lista de páginas utilizadas para precargar la caché en la fase 
 
 - **varias páginas**: utilice el siguiente formato para almacenar en caché varias páginas según un patrón de expresión regular específico:
 
-  ```terminal
+  ```
   <entity_type>:<pattern|url|product_sku>:<store_id|store_code>
   ```
 

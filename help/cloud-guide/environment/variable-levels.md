@@ -3,7 +3,7 @@ title: Niveles variables y opciones
 description: Obtenga información acerca de los diferentes niveles de variables y opciones que se utilizan para personalizar el entorno de tiempo de ejecución del proyecto de infraestructura en la nube de Adobe Commerce.
 feature: Cloud, Configuration, Security
 exl-id: 11aa0862-94c0-47fb-946a-0148f75cc24c
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '446'
 ht-degree: 0%
@@ -93,7 +93,7 @@ Puede ver una lista de las variables existentes mediante la CLI de nube.
 magento-cloud variables
 ```
 
-```terminal
+```
 Variables on the project Project-Name (<project-id>), environment <environment-name>:
 +----------------------------+-------------+-------------------------------------------+
 | Name                       | Level       | Value                                     |

@@ -3,7 +3,7 @@ title: Configurar varios sitios web o tiendas
 description: Obtenga información sobre cómo configurar varios sitios web o tiendas para Adobe Commerce en la infraestructura en la nube.
 feature: Cloud, Configuration, Routes, Site Navigation
 exl-id: 16e932ef-f083-44d7-977f-0c78899e151a
-source-git-commit: 85aa54af10e7ea44adde5403b69ff03d4a0c622f
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1013'
 ht-degree: 0%
@@ -22,14 +22,14 @@ El proceso para configurar varios almacenes depende de si elige utilizar dominio
 
 Varios almacenes con dominios únicos:
 
-```terminal
+```
 https://first.store.com/
 https://second.store.com/
 ```
 
 Varios almacenes con el mismo dominio:
 
-```terminal
+```
 https://store.com/first/
 https://store.com/second/
 ```

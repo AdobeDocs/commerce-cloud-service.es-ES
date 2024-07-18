@@ -3,7 +3,7 @@ title: Administrar espacio en disco
 description: Obtenga información acerca de cómo administrar el espacio en disco mediante la interfaz de línea de comandos.
 feature: Cloud, Storage
 exl-id: 480cb33b-ac83-441d-946e-5b4de09ad84e
-source-git-commit: 8b40397796ee865aefbf8a7948cc9a3aceb1d35c
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '714'
 ht-degree: 0%
@@ -20,7 +20,7 @@ magento-cloud subscription:info | grep storage
 
 Respuesta de ejemplo:
 
-```terminal
+```
 | storage              | 51200
 ```
 
@@ -50,7 +50,7 @@ magento-cloud db:size
 
 Respuesta de ejemplo:
 
-```terminal
+```
 Checking database service mysql...
 
 +----------------+-----------------+--------+
@@ -70,7 +70,7 @@ magento-cloud mount:size
 
 Respuesta de ejemplo:
 
-```terminal
+```
 Checking disk usage for all mounts on <project>-<environment>-mymagento@ssh.us.magento.cloud...
 
 +------------+-----------+---------+-----------+-----------+--------+
@@ -95,7 +95,7 @@ La opción `-h` muestra el informe con un formato legible en lenguaje natural (K
 
 En la siguiente respuesta de ejemplo, el montaje `/mnt/shared` muestra el espacio en disco para el medio y el montaje `/data/mysql/` muestra el espacio en disco para la base de datos:
 
-```terminal
+```
 Filesystem                                    Size  Used Avail Use% Mounted on
 udev                                           16G     0   16G   0% /dev
 tmpfs                                         3.2G  9.1M  3.2G   1% /run
@@ -121,7 +121,7 @@ df -h var/
 
 Respuesta de ejemplo:
 
-```terminal
+```
 Filesystem                                    Size  Used Avail Use% Mounted on
 192.168.5.5:/shared/project/var         9.8G  591M  9.3G   6% /app/project/var
 ```

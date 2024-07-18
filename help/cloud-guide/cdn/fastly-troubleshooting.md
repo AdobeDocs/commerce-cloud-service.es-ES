@@ -3,7 +3,7 @@ title: Solución de problemas rápida
 description: Obtenga información sobre cómo solucionar problemas y administrar el módulo y los servicios de Fastly CDN para Adobe Commerce.
 feature: Cloud, Configuration, Cache, Services
 exl-id: e4c47035-cbad-4838-8d44-fa5eaaac42d1
-source-git-commit: 1253d8357fd2554050d1775fefbc420a2097db5f
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1834'
 ht-degree: 0%
@@ -184,7 +184,7 @@ Compruebe que la respuesta devuelta contiene la siguiente información:
 
 El siguiente extracto del resultado del comando cURL muestra los valores correctos para los encabezados `Pragma`, `X-Magento-Tags` y `Fastly-Module-Enabled`:
 
-```terminal
+```
 * STATE: INIT => CONNECT handle 0x600057800; line 1402 (connection #-5000)
 * Rebuilt URL to: https://www.mymagento.biz.c.sv7gVom4qrpek.ent.magento.cloud/
 * Added connection 0. The cache now contains 1 members

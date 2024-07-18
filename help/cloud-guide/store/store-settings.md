@@ -3,7 +3,7 @@ title: Administración de configuración de tienda
 description: Obtenga información sobre cómo administrar y sincronizar los ajustes de configuración de la tienda en todos los entornos de Adobe Commerce en la nube.
 feature: Cloud, Configuration, SCD
 exl-id: f2dd876d-24ee-4d47-b9ac-44fcf77b61b5
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1439'
 ht-degree: 0%
@@ -162,7 +162,7 @@ Cuando modifique el entorno mediante el Administrador y ejecute de nuevo el coma
 
 Se crearon copias de los archivos originales `app/etc/env.php` y `app/etc/config.php` durante el proceso de implementación y se almacenaron en la misma carpeta. A continuación se muestra el BAK (archivos de copia de seguridad) y PHP (archivos originales) en la misma carpeta `app/etc`:
 
-```terminal
+```
 ...
 config.php.bak
 di.xml
@@ -192,7 +192,7 @@ Configuraciones anteriores usaron el archivo `app/etc/config.local.php`. Ver [Mi
 
    Respuesta de ejemplo:
 
-   ```terminal
+   ```
    The list of backup files:
    app/etc/env.php
    app/etc/config.php

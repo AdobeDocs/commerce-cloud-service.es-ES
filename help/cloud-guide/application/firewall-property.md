@@ -3,7 +3,7 @@ title: Propiedad Firewall
 description: Consulte ejemplos sobre cómo configurar la propiedad del cortafuegos en el archivo de configuración de la aplicación Commerce.
 feature: Cloud, Configuration, Security
 exl-id: f169c008-c62a-41b7-a98d-cccd81c7291a
-source-git-commit: 74d88560db3b65294673a1e1827f9cea098d707a
+source-git-commit: a8ecebc87bfae5deaf0fc7ff3e7dd3b255fe3f24
 workflow-type: tm+mt
 source-wordcount: '844'
 ht-degree: 0%
@@ -32,7 +32,7 @@ magento-cloud p:curl --project PROJECT_ID /settings | grep -i outbound
 
 A menos que haya solicitado `deny` para su directiva, el comando debe mostrar la directiva establecida en `allow`:
 
-```terminal
+```json
 "outbound_restrictions_default_policy": "allow"
 ```
 
@@ -157,7 +157,7 @@ La opción `ips` permite una lista de direcciones IP en la notación CIDR. Puede
 
 Para especificar una sola dirección IP, agregue el prefijo CIDR `/32` al final de su dirección IP:
 
-```terminal
+```
 172.217.11.174/32  # google.com
 ```
 
@@ -189,7 +189,7 @@ awk '($5 ~/query/)' /var/log/dns.log | awk '{print $6}' | sort | uniq -c | sort 
 
 Este comando también muestra las solicitudes DNS realizadas pero bloqueadas por las reglas de filtrado de salida. La salida no muestra qué dominios se bloquearon, solo que se realizaron solicitudes. La salida no muestra las solicitudes realizadas mediante una dirección IP.
 
-```terminal
+```
 Example output:
 
 97 magento.com

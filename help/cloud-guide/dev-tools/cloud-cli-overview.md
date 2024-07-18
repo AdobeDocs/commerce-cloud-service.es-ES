@@ -2,7 +2,7 @@
 title: CLI de nube
 description: Obtenga información acerca de la CLI de magento en la nube y cómo le ayuda a administrar los entornos de desarrollo local para su proyecto de infraestructura de Adobe Commerce en la nube.
 exl-id: 70dddd62-0269-4af4-bd2a-1a4fbf11a131
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '741'
 ht-degree: 0%
@@ -42,7 +42,7 @@ La herramienta CLI `magento-cloud` permite a los desarrolladores y administrador
    magento-cloud
    ```
 
-   ```terminal
+   ```
    Welcome to Magento Cloud!
    Please log in using your Magento Cloud account.
    Your email address or username:
@@ -94,7 +94,7 @@ magento-cloud environment:redeploy
 
 Respuesta de ejemplo:
 
-```terminal
+```
 Are you sure you want to redeploy the environment <environment-name>? [Y/n]
 ```
 
@@ -193,7 +193,7 @@ Si la CLI de `magento-cloud` está actualizada, verá la siguiente respuesta:
 magento-cloud update
 ```
 
-```terminal
+```
 Checking for Magento Cloud CLI updates (current version: X.XX.X)
 No updates found
 ```

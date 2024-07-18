@@ -3,7 +3,7 @@ title: Visualización y administración de registros
 description: Comprenda los tipos de archivos de registro disponibles en la infraestructura de la nube y dónde encontrarlos.
 last-substantial-update: 2023-05-23T00:00:00Z
 exl-id: d7f63dab-23bf-4b95-b58c-3ef9b46979d4
-source-git-commit: 86af69eed16e8fe464de93bd0f33cfbfd4ed8f49
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1056'
 ht-degree: 0%
@@ -44,7 +44,7 @@ magento-cloud ssh -p <project-ID> -e <environment-ID> --all
 
 Respuesta de ejemplo:
 
-```terminal
+```
 1.ent-project-environment-id@ssh.region.magento.cloud
 2.ent-project-environment-id@ssh.region.magento.cloud
 3.ent-project-environment-id@ssh.region.magento.cloud
@@ -84,7 +84,7 @@ Después de insertar los cambios en su entorno, puede revisar el registro desde 
 
 Compruebe las marcas de tiempo en las entradas de registro, compruebe y busque los registros de una implementación específica. El siguiente es un ejemplo conciso de la salida de registro que puede utilizar para solucionar problemas:
 
-```terminal
+```
 Re-deploying environment project-integration-ID
   Executing post deploy hook for service `mymagento`
     [2019-01-03 19:44:11] NOTICE: Starting post-deploy.
@@ -129,7 +129,7 @@ magento-cloud log -e <environment-ID> deploy
 
 Respuesta de ejemplo:
 
-```terminal
+```
 Reading log file projectID-branchname-ID--mymagento@ssh.zone.magento.cloud:/var/log/'deploy.log'
 
 [2023-04-24 18:58:03.080678] Launching command 'b'php ./vendor/bin/ece-tools run scenario/deploy.xml\n''.
@@ -153,7 +153,7 @@ magento-cloud ssh -e <environment-ID> "./vendor/bin/ece-tools error:show"
 
 Respuesta de ejemplo:
 
-```terminal
+```
 errorCode: 1001
 stage: build
 step: validate-config
@@ -187,19 +187,19 @@ De forma similar a los registros de implementación, los registros de aplicacion
 | Archivo de registro | Integración de Starter y Pro | Descripción |
 | ------------------- | --------------------------- | ------------------------------------------------- |
 | **Implementar registro** | `/var/log/deploy.log` | Actividad desde el [vínculo de implementación](../application/hooks-property.md). |
-| **Registro de implementación de Post** | `/var/log/post_deploy.log` | Actividad desde el [vínculo posterior a la implementación](../application/hooks-property.md). |
+| **Registro posterior a la implementación** | `/var/log/post_deploy.log` | Actividad desde el [vínculo posterior a la implementación](../application/hooks-property.md). |
 | **Registro Cron** | `/var/log/cron.log` | Salida de trabajos cron. |
 | **Registro de acceso de Nginx** | `/var/log/access.log` | Al inicio de Nginx, errores HTTP para los directorios que faltan y los tipos de archivo excluidos. |
 | **Registro de errores Nginx** | `/var/log/error.log` | Mensajes de inicio útiles para depurar errores de configuración asociados a Nginx. |
 | **Registro de acceso de PHP** | `/var/log/php.access.log` | Solicitudes al servicio PHP. |
 | **Registro FPM de PHP** | `/var/log/app.log` | |
 
-Para los entornos de ensayo y producción Pro, los registros Deploy, Post-deploy y Cron solo están disponibles en el primer nodo del clúster:
+Para los entornos de ensayo y producción Pro, los registros de implementación, posterior a la implementación y Cron solo están disponibles en el primer nodo del clúster:
 
 | Archivo de registro | Ensayo profesional | Producción profesional |
 | ------------------- | --------------------------------------------------- | ----------------------------------------------- |
 | **Implementar registro** | Solo el primer nodo: <br>`/var/log/platform/<project-ID>_stg/deploy.log` | Solo el primer nodo: <br>`/var/log/platform/<project-ID>/deploy.log` |
-| **Registro de implementación de Post** | Solo el primer nodo: <br>`/var/log/platform/<project-ID>_stg/post_deploy.log` | Solo el primer nodo: <br>`/var/log/platform/<project-ID>/post_deploy.log` |
+| **Registro posterior a la implementación** | Solo el primer nodo: <br>`/var/log/platform/<project-ID>_stg/post_deploy.log` | Solo el primer nodo: <br>`/var/log/platform/<project-ID>/post_deploy.log` |
 | **Registro Cron** | Solo el primer nodo: <br>`/var/log/platform/<project-ID>_stg/cron.log` | Solo el primer nodo: <br>`/var/log/platform/<project-ID>/cron.log` |
 | **Registro de acceso de Nginx** | `/var/log/platform/<project-ID>_stg/access.log` | `/var/log/platform/<project-ID>/access.log` |
 | **Registro de errores Nginx** | `/var/log/platform/<project-ID>_stg/error.log` | `/var/log/platform/<project-ID>/error.log` |
@@ -210,7 +210,7 @@ Para los entornos de ensayo y producción Pro, los registros Deploy, Post-deploy
 
 Los registros de la aplicación se comprimen y archivan una vez al día y se conservan durante un año. Los registros comprimidos reciben un nombre mediante un identificador único que corresponde al `Number of Days Ago + 1`. Por ejemplo, en entornos de producción Pro, se almacena un registro de acceso PHP de 21 días en el pasado y se le asigna el siguiente nombre:
 
-```terminal
+```
 /var/log/platform/<project-ID>/php.access.log.22.gz
 ```
 
@@ -218,7 +218,7 @@ Los archivos de registro archivados siempre se almacenan en el directorio en el 
 
 >[!NOTE]
 >
->Los archivos de registro **Deploy** y **Post-deploy** no se giran ni se archivan. Todo el historial de implementación se escribe dentro de esos archivos de registro.
+>Los archivos de registro **Implementar** y **Posterior a la implementación** no se giran ni se archivan. Todo el historial de implementación se escribe dentro de esos archivos de registro.
 
 ## Registros de servicio
 
