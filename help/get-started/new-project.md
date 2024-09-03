@@ -4,9 +4,9 @@ description: Aprenda a preparar un asesor técnico del cliente de Adobe para apr
 recommendations: noDisplay, catalog
 role: Admin
 exl-id: cfb354b0-c255-4b6e-94aa-c5a6bf7230d6
-source-git-commit: 89c57a486545d6165e0407f913f4fa4cf6c95abe
+source-git-commit: 374cbe4a119b43ab446905fd6b9e51840094ce61
 workflow-type: tm+mt
-source-wordcount: '728'
+source-wordcount: '756'
 ht-degree: 0%
 
 ---
@@ -31,6 +31,8 @@ Ejemplos de los dominios de producción y ensayo:
 - `mcstaging.your-store.com`
 
 Consulte [Configurar varios sitios web o tiendas](../cloud-guide/store/multiple-sites.md) en la guía de _Commerce en infraestructura en la nube_ para obtener más información sobre dominios únicos o múltiples.
+
+Consulte [Varias cuentas de Fastly y dominios asignados](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/cdn/fastly#multiple-fastly-accounts-and-assigned-domains) si tiene una cuenta existente de Fastly que vincula los mismos Apex y subdominios utilizados en el sitio de Adobe Commerce.
 
 ## Dominio de correo electrónico transaccional
 
