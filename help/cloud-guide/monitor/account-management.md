@@ -4,9 +4,9 @@ description: Obtenga información sobre cómo acceder a su cuenta de New Relic y
 feature: Cloud, Observability
 role: Admin
 exl-id: ee639e2e-4074-4384-8f68-152bc3bac93b
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 1fc488d7e13952ad70d4c864327899f38ea48af1
 workflow-type: tm+mt
-source-wordcount: '833'
+source-wordcount: '660'
 ht-degree: 0%
 
 ---
@@ -17,20 +17,9 @@ Cuando Adobe aprovisiona el proyecto de infraestructura en la nube, el propietar
 
 ## Administrar el acceso de usuario
 
-Una cuenta de New Relic solo puede tener una persona asignada a la función Propietario. Si debe cambiar el propietario de la cuenta, asigne la función Administrador al Propietario actual y, a continuación, asigne la función Propietario a otro usuario. Consulte [Actualizar el propietario de la cuenta](https://docs.newrelic.com/docs/accounts/original-accounts-billing/original-users-roles/users-roles-original-user-model/) en la _documentación de New Relic_ para obtener instrucciones.
-
-Directrices para administrar el acceso a New Relic:
-
-- Los propietarios y administradores de proyectos pueden agregar y eliminar usuarios de la cuenta de New Relic.
-- No cree más de cinco **usuarios** con acceso completo.
-- Conceda únicamente acceso completo a los usuarios que requieran estrictamente acceso al conjunto completo de funciones.
-- No hay instrucciones específicas para los usuarios **Restringidos** libres.
-
->[!TIP]
+>[!NOTE]
 >
->Antes de asignar la función Propietario a un usuario, compruebe que este existe en la cuenta de New Relic para Adobe Commerce en la infraestructura en la nube. Si debe agregar el usuario a esa cuenta y un propietario o administrador de cuenta existente no puede ayudar, cualquier usuario con acceso a la [cuenta de propietario de la asociación de Adobe](https://account.newrelic.com/accounts/1311131/users) para New Relic podrá agregar usuarios en representación del cliente.
-
-Agrega al menos un usuario de **Admin** a tu cuenta de New Relic que pueda administrar todo el acceso, las integraciones y el uso de las herramientas.
+>Conceda únicamente acceso completo a los usuarios que requieran estrictamente acceso al conjunto completo de funciones.
 
 **Para tener acceso a la administración de usuarios en New Relic**:
 
