@@ -1,5 +1,5 @@
 ---
-source-git-commit: 6d8c082d78259f8f7adb0fb7f11ff4fcdb234124
+source-git-commit: a58ad3254cb00a8fcafd11f1541f55ea86ad18eb
 workflow-type: tm+mt
 source-wordcount: '4030'
 ht-degree: 0%
@@ -8,7 +8,7 @@ ht-degree: 0%
 # ece-tools
 
 <!-- The template to render with above values -->
-**Versión**: 2002.1.18
+**Versión**: 2002.1.19
 
 Esta referencia contiene 34 comandos disponibles mediante la herramienta de línea de comandos `ece-tools`.
 La lista inicial se genera automáticamente mediante el comando `ece-tools list` en Adobe Commerce en la infraestructura en la nube.
@@ -33,7 +33,7 @@ El tipo de contenedor (&quot;bash&quot;, &quot;fish&quot;, &quot;zsh&quot;)
 
 ### `--input`, `-i`
 
-Matriz de tokens de entrada (por ejemplo, COMP_WORDS o argv)
+Una matriz de tokens de entrada (por ejemplo, COMP_WORDS o argv)
 
 - Predeterminado: `[]`
 - Requiere un valor
