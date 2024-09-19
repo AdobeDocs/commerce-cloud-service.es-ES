@@ -6,9 +6,9 @@ feature: Cloud, Roles/Permissions
 last-substantial-update: 2023-06-27T00:00:00Z
 topic: Security
 exl-id: 3357a3ea-bf86-4a65-95d1-6b24f1152248
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 5e4be034a392716ea55e2878d336cb9ecac1e052
 workflow-type: tm+mt
-source-wordcount: '1454'
+source-wordcount: '1459'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 Los proyectos de Adobe Commerce en infraestructura en la nube utilizan el acceso basado en roles. Hay dos funciones disponibles en el nivel de proyecto:
 
-- **Administrador de proyectos**: tiene acceso de escritura a todos los entornos de proyectos y puede administrar usuarios, insertar código y actualizar la configuración del proyecto.
+- **Administrador de proyectos**: tiene acceso de escritura a todos los entornos de proyectos y puede administrar usuarios, insertar código y actualizar la configuración del proyecto. (Anteriormente conocido como **Super admin**)
 - **Visor de proyectos**: acceso de solo vista a todos los entornos de proyectos.
 
 Los visualizadores de proyectos no pueden realizar tareas en ningún entorno; sin embargo, puede conceder a los visualizadores de proyectos acceso de escritura a un tipo de entorno específico.
