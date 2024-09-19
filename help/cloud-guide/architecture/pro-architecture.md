@@ -4,9 +4,9 @@ description: Obtenga información acerca de los entornos admitidos por la arquit
 feature: Cloud, Auto Scaling, Iaas, Paas, Storage
 topic: Architecture
 exl-id: d10d5760-44da-4ffe-b4b7-093406d8b702
-source-git-commit: 95b033ba430cb5dc74fa654b9d519dfcd5b6d319
+source-git-commit: eccf69d792f5f8bbd32fb24ac731fffa1eeb91ba
 workflow-type: tm+mt
-source-wordcount: '1472'
+source-wordcount: '1511'
 ht-degree: 0%
 
 ---
@@ -66,7 +66,9 @@ Los entornos de integración están diseñados para pruebas y desarrollo limitad
 
 Para obtener el mejor rendimiento en el entorno de integración, siga estas prácticas recomendadas:
 
-- Restringir el tamaño del catálogo
+- Restringir el tamaño del catálogo: como referencia, los datos de muestra contienen unos 2048 productos. Pruebe a reducir el tamaño del catálogo a alrededor de 4000-5000 productos.
+
+- Reducir el número de grupos de clientes: tener demasiados grupos de clientes puede afectar al rendimiento de indexación y al rendimiento general.
 
 - Limitar el uso a uno o dos usuarios simultáneos
 
