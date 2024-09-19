@@ -2,9 +2,9 @@
 title: Servicio de correo electrónico SendGrid
 description: Obtenga información acerca del servicio de correo electrónico SendGrid para Adobe Commerce en la infraestructura en la nube y cómo puede probar la configuración de DNS.
 exl-id: 30d3c780-603d-4cde-ab65-44f73c04f34d
-source-git-commit: 34d1895592c83fa27b52d0f2e0f38445294b3782
+source-git-commit: b5c8dc062a940e9e202d9bd4cca6901b07109e07
 workflow-type: tm+mt
-source-wordcount: '1136'
+source-wordcount: '1273'
 ht-degree: 0%
 
 ---
@@ -137,3 +137,13 @@ No existen límites estrictos en la cantidad de correos electrónicos que se pue
 ### Reputación de envío de correo electrónico
 
 Una reputación de envío de correo electrónico es una puntuación asignada por un proveedor de servicios de Internet (ISP) a una compañía que envía mensajes de correo electrónico. Cuanto más alta sea la puntuación, más probable es que un ISP envíe mensajes a la bandeja de entrada de un destinatario. Si la puntuación cae por debajo de un determinado nivel, el ISP puede enrutar los mensajes a la carpeta de correo no deseado de los destinatarios o incluso rechazarlos por completo. La puntuación de reputación está determinada por varios factores, como un promedio de 30 días de clasificación de sus direcciones IP frente a otras direcciones IP y la tasa de quejas de spam. Ver [8 formas de comprobar tu reputación de envío de correo electrónico](https://sendgrid.com/en-us/blog/5-ways-check-sending-reputation).
+
+### Listas de supresión de correo electrónico
+
+Una lista de supresión de correo electrónico es una lista de destinatarios a los que no se deben enviar correos electrónicos si ello pudiera dañar su reputación de envío y las tasas de envío. La ley CAN-SPAM lo requiere para garantizar que los remitentes de correo electrónico tengan un método de exclusión de los destinatarios que cancelaron la suscripción o marcaron el correo electrónico como correo no deseado. La lista de supresión también recopila correos electrónicos que rebotan, están bloqueados o no son válidos.
+
+Para evitar que los mensajes de correo electrónico se envíen a la carpeta de correo no deseado, en primer lugar, siga el artículo de prácticas recomendadas de Sendgrid, [¿Por qué mis correos electrónicos van a ser correo no deseado?](https://sendgrid.com/en-us/blog/10-tips-to-keep-email-out-of-the-spam-folder).
+
+Si algunos destinatarios no reciben sus correos electrónicos, puede [Enviar un vale de soporte técnico de Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket) para solicitar una revisión de las listas de supresión y eliminar los destinatarios si es necesario.
+
+Para obtener más información, consulte [¿Qué es una lista de supresión?](https://sendgrid.com/en-us/blog/what-is-a-suppression-list)
