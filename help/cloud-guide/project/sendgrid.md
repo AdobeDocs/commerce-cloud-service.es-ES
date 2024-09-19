@@ -2,9 +2,9 @@
 title: Servicio de correo electrónico SendGrid
 description: Obtenga información acerca del servicio de correo electrónico SendGrid para Adobe Commerce en la infraestructura en la nube y cómo puede probar la configuración de DNS.
 exl-id: 30d3c780-603d-4cde-ab65-44f73c04f34d
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 1226be333deb1b1da402b4c0d2e141f9be1eb93b
 workflow-type: tm+mt
-source-wordcount: '1090'
+source-wordcount: '1128'
 ht-degree: 0%
 
 ---
@@ -60,6 +60,10 @@ DKIM es una tecnología de autenticación de correo electrónico que permite a l
 ### Autenticación de remitente y dominio
 
 Para que SendGrid envíe correos electrónicos transaccionales en su nombre desde entornos de Pro Production o Staging, debe configurar la configuración de DNS para incluir las tres entradas DNS del subdominio SendGrid. A cada cuenta de SendGrid se le asigna un registro `TXT` único que se usa para autenticar correos electrónicos salientes.
+
+>[!TIP]
+>
+>Asegúrese de configurar **[!UICONTROLSalmacenar direcciones de correo electrónico]** con el dominio correcto en **[!UICONTROL Stores > Configuration > General > Store Email Addresses]**. La autenticación de dominio se realiza en la dirección de correo electrónico del remitente. Si se configura la configuración predeterminada (`example.com`), Sendgrid bloquearía los mensajes de correo electrónico de `example.com`.
 
 **Para habilitar la autenticación de dominio**:
 
