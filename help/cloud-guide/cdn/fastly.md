@@ -3,9 +3,9 @@ title: Resumen de servicios rápidos
 description: Descubra cómo los servicios de Fastly incluidos con Adobe Commerce en la infraestructura en la nube le ayudan a optimizar y asegurar las operaciones de entrega de contenido para sus sitios de Adobe Commerce.
 feature: Cloud, Configuration, Iaas, Paas, Cache, Security, Services
 exl-id: dc4500bf-f037-47f0-b7ec-5cd1291f73a1
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: dc331df378074af8a8776a33784b73082a39cf10
 workflow-type: tm+mt
-source-wordcount: '1392'
+source-wordcount: '1426'
 ht-degree: 0%
 
 ---
@@ -42,13 +42,13 @@ Proporciona rápidamente los siguientes servicios para optimizar y asegurar las 
 
      Adobe Commerce proporciona un certificado Let&#39;s Encrypt SSL/TLS validado por el dominio para cada entorno de ensayo y producción. Adobe Commerce completa la validación del dominio y el aprovisionamiento de certificados durante el proceso de configuración rápida.
 
-- **Ocultación de origen**: evita que el tráfico omita el Fastly WAF y oculta las direcciones IP de los servidores de origen para protegerlos del acceso directo y los ataques DDoS.
+- **Ocultación de origen**: evita que el tráfico omita Fastly WAF y oculta las direcciones IP de sus servidores de origen para protegerlos del acceso directo y los ataques DDoS.
 
   El encubrimiento de origen está habilitado de forma predeterminada en los proyectos de Adobe Commerce en la infraestructura en la nube Pro Production. Para habilitar el encubrimiento de orígenes en Adobe Commerce en proyectos de producción de inicio de infraestructura en la nube, envíe un [ticket de soporte de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket). Si tiene tráfico que no requiere almacenamiento en caché, puede personalizar la configuración del servicio Fastly para permitir que las solicitudes [omitan la caché de Fastly](fastly-vcl-bypass-to-origin.md).
 
 - **[Optimización de imágenes](fastly-image-optimization.md)**: descarga el procesamiento de imágenes y el cambio de tamaño de la carga en el servicio Fastly para que los servidores puedan procesar pedidos y conversiones de forma más eficaz.
 
-- **[Registros de CDN y WAF de Fastly](../monitor/new-relic-service.md#new-relic-log-management)**: para proyectos de Adobe Commerce en infraestructura en la nube Pro, puede utilizar el servicio Registros de New Relic para revisar y analizar los datos de registro de CDN y WAF de Fastly.
+- **[Registros de Fastly en CDN y WAF](../monitor/new-relic-service.md#new-relic-log-management)**: para proyectos de Adobe Commerce en Cloud Infrastructure Pro, puede utilizar el servicio Registros de New Relic para revisar y analizar los datos de registro de Fastly en CDN y WAF.
 
 ## Módulo de CDN de Fastly para Magento 2
 
@@ -58,7 +58,9 @@ Al aprovisionar o actualizar inicialmente el proyecto de Adobe Commerce, Adobe i
 
 ## Cuenta de servicio y credenciales de Fastly
 
-Adobe Los comercios en proyectos de infraestructura en la nube no requieren una cuenta exclusiva de Fastly o un propietario de cuenta. En su lugar, cada entorno de ensayo y producción tiene credenciales de Fastly únicas (token de API e ID de servicio) para configurar y administrar los servicios de Fastly desde el administrador. También necesita las credenciales para enviar solicitudes de API de Fastly.
+Adobe Commerce en proyectos de infraestructura en la nube no recibe una cuenta específica de Fastly. El servicio Fastly se administra en una cuenta centralizada registrada en el Adobe y el panel de administración solo es accesible para el equipo de asistencia en la nube.
+
+En su lugar, cada entorno de ensayo y producción tiene credenciales de Fastly únicas (token de API e ID de servicio) para configurar y administrar los servicios de Fastly desde el administrador de Commerce. La API de Fastly está disponible para realizar la administración avanzada del servicio de Fastly, que requerirá las credenciales para enviar esas solicitudes.
 
 Durante el aprovisionamiento del proyecto, Adobe agrega el proyecto a la cuenta de servicio de Fastly para Adobe Commerce en la infraestructura de la nube y agrega las credenciales de Fastly a la configuración de los entornos de ensayo y producción. Ver [Obtener credenciales de Fastly](fastly-configuration.md#get-fastly-credentials).
 
