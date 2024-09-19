@@ -2,9 +2,9 @@
 title: Servicio de correo electrónico SendGrid
 description: Obtenga información acerca del servicio de correo electrónico SendGrid para Adobe Commerce en la infraestructura en la nube y cómo puede probar la configuración de DNS.
 exl-id: 30d3c780-603d-4cde-ab65-44f73c04f34d
-source-git-commit: 1226be333deb1b1da402b4c0d2e141f9be1eb93b
+source-git-commit: 34d1895592c83fa27b52d0f2e0f38445294b3782
 workflow-type: tm+mt
-source-wordcount: '1128'
+source-wordcount: '1136'
 ht-degree: 0%
 
 ---
@@ -55,7 +55,7 @@ DKIM es una tecnología de autenticación de correo electrónico que permite a l
 
 >[!WARNING]
 >
->Las firmas DKIM de SendGrid y la compatibilidad con la autenticación de dominios solo están disponibles para proyectos Pro y no Proyectos Starter. Como resultado, es probable que los correos electrónicos transaccionales salientes estén marcados por filtros de correo no deseado. El uso de DKIM mejora la tasa de entrega como remitente de correo electrónico autenticado. Para mejorar la tasa de entrega de mensajes, puede actualizar de Starter a Pro o utilizar su propio servidor SMTP o proveedor de servicios de entrega de correo electrónico. Consulte [Configurar conexiones de correo electrónico](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/communications/email-communications) en la _guía de sistemas de administración_.
+>Las firmas DKIM de SendGrid y la compatibilidad con la autenticación de dominios solo están disponibles en los entornos Producción y Ensayo para proyectos Pro, pero no para todos los entornos Starter. Como resultado, es probable que los correos electrónicos transaccionales salientes estén marcados por filtros de correo no deseado. El uso de DKIM mejora la tasa de entrega como remitente de correo electrónico autenticado. Para mejorar la tasa de entrega de mensajes, puede actualizar de Starter a Pro o utilizar su propio servidor SMTP o proveedor de servicios de entrega de correo electrónico. Consulte [Configurar conexiones de correo electrónico](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/communications/email-communications) en la _guía de sistemas de administración_.
 
 ### Autenticación de remitente y dominio
 
