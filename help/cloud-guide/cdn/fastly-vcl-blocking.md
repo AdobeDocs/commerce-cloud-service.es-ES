@@ -3,9 +3,9 @@ title: VCL personalizado para bloquear solicitudes
 description: Bloquear solicitudes entrantes por dirección IP mediante una lista de control de acceso (ACL) de Edge con un fragmento de VCL personalizado.
 feature: Cloud, Configuration, Security
 exl-id: 1f637612-3858-49d0-91f7-9b8823933cc9
-source-git-commit: 0e9ace747cc56808108781e42b97c86756089818
+source-git-commit: 16c34b6c693c4d4d5c67b21c79e0cd5d198e047b
 workflow-type: tm+mt
-source-wordcount: '961'
+source-wordcount: '996'
 ht-degree: 0%
 
 ---
@@ -109,7 +109,15 @@ Los siguientes ejemplos muestran cómo bloquear solicitudes utilizando instrucci
 
 >[!WARNING]
 >
->En estos ejemplos, el código VCL tiene el formato de carga útil JSON que se puede guardar en un archivo y enviar en una solicitud de API de Fastly. Puede enviar el fragmento [VCL del administrador](#add-the-custom-vcl-snippet), o como una cadena JSON usando la API de Fastly. Para evitar la validación cuando utiliza la API de Fastly con una cadena JSON, debe utilizar una barra invertida para escapar caracteres especiales.
+>En estos ejemplos, el código VCL tiene el formato de carga útil JSON que se puede guardar en un archivo y enviar en una solicitud de API de Fastly. Puede enviar el fragmento [VCL del administrador](#add-the-custom-vcl-snippet), o como una cadena JSON usando la API de Fastly. Para evitar errores de validación al utilizar la API de Fastly con una cadena JSON, debe utilizar una barra invertida para escapar caracteres especiales.
+
+>[!NOTE]
+>Si va a enviar el fragmento de VCL desde el administrador, extraiga los valores individuales del código de VCL de muestra e introdúzcalos en los campos correspondientes. Por ejemplo:
+>- Nombre: `<name of the VCL>`
+>- Dinámico: `<0/1>`
+>- Tipo: `<type>`
+>- Prioridad: `<priority>`
+>- Contenido: `<content>`
 
 Consulte [Uso de fragmentos de VCL dinámicos](https://docs.fastly.com/vcl/vcl-snippets/) en la documentación de VCL de Fastly.
 
