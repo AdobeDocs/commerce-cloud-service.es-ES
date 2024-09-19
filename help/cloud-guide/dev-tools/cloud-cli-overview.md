@@ -2,9 +2,9 @@
 title: CLI de nube
 description: Obtenga información acerca de la CLI de magento en la nube y cómo le ayuda a administrar los entornos de desarrollo local para su proyecto de infraestructura de Adobe Commerce en la nube.
 exl-id: 70dddd62-0269-4af4-bd2a-1a4fbf11a131
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: f09c461c3b9cafd773cbed6c9dee1e514415bcde
 workflow-type: tm+mt
-source-wordcount: '741'
+source-wordcount: '782'
 ht-degree: 0%
 
 ---
@@ -12,11 +12,17 @@ ht-degree: 0%
 
 # CLI de nube
 
-La herramienta CLI `magento-cloud` permite a los desarrolladores y administradores de sistemas administrar proyectos y entornos en la nube, realizar rutinas y ejecutar tareas de automatización. La CLI `magento-cloud` amplía las características y la funcionalidad de [[!DNL Cloud Console]](../../get-started/cloud-console.md). Después de instalar la CLI de `magento-cloud` en la estación de trabajo local, puede utilizarla para administrar los entornos de integración de Adobe Commerce en la nube Starter y Pro.
+La herramienta CLI `magento-cloud` permite a los desarrolladores y administradores de sistemas administrar proyectos y entornos en la nube, realizar rutinas y ejecutar tareas de automatización de manera local. La CLI `magento-cloud` amplía las características y la funcionalidad de [[!DNL Cloud Console]](../../get-started/cloud-console.md). Después de instalar la CLI de `magento-cloud` en la estación de trabajo local, puede utilizarla para administrar los entornos de integración de Adobe Commerce en la nube Starter y Pro.
+
+>[!NOTE]
+>
+>Se trata de una herramienta local y no se puede instalar en el entorno de la nube (que es de solo lectura) mediante este método. Solo puede instalar módulos en el entorno de la nube a través de **flujo de trabajo de implementación**
+>- [Flujo de trabajo de implementación Pro](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/architecture/pro-develop-deploy-workflow#deployment-workflow)
+>- [Flujo de trabajo de implementación inicial](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/architecture/starter-develop-deploy-workflow)
 
 **Para instalar la CLI** de `magento-cloud`:
 
-1. En la estación de trabajo local, cambie al directorio donde quiere clonar el proyecto en la nube y donde el [propietario del sistema de archivos](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/file-system/configure-permissions.html) tiene acceso de _escritura_.
+1. En su _estación de trabajo local_, cambie al directorio donde quiere clonar el proyecto de Cloud y donde el [propietario del sistema de archivos](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/file-system/configure-permissions.html) tiene acceso de _escritura_.
 
 1. Instale la CLI `magento-cloud`.
 
