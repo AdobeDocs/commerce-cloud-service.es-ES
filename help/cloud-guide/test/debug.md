@@ -2,9 +2,9 @@
 title: Configurar  [!DNL Xdebug]
 description: Obtenga información sobre cómo configurar la extensión Xdebug para depurar Adobe Commerce en el desarrollo de proyectos de infraestructura en la nube.
 exl-id: bf2d32d8-fab7-439e-8df3-b039e53009d4
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 7b42174663b79b673ee5af05b794090ddc5bdd75
 workflow-type: tm+mt
-source-wordcount: '1747'
+source-wordcount: '1765'
 ht-degree: 0%
 
 ---
@@ -272,6 +272,12 @@ Necesita lo siguiente:
    ```bash
    ssh -R /run/platform/USERNAME/xdebug.sock:localhost:9000 -N USERNAME@CLUSTER.ent.magento.cloud
    ```
+
+>[!NOTE]
+>
+>Para obtener el valor correcto de `USERNAME@CLUSTER.ent.magento.cloud`:
+>- Método 1: CLI de magento en la nube: `magento-cloud ssh --all`
+>- Método 2: consola Commerce: https://CONSOLE-URL/ENVIRONMENT, haga clic en el menú desplegable `SSH v`
 
 **Para iniciar la depuración con la URL del entorno**:
 
