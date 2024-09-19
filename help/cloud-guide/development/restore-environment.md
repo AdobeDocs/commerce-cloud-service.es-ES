@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo desinstalar la aplicación de Adob
 role: Developer
 topic: Development
 exl-id: b76bd6c3-986e-4adc-abd0-5b27db0d8a3b
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 9e4e58d2470b73b221168c182c7d563ce6f6502f
 workflow-type: tm+mt
-source-wordcount: '480'
+source-wordcount: '493'
 ht-degree: 0%
 
 ---
 
 # Restaurar un entorno
 
-Si encuentra problemas en el entorno de integración y no tiene una [copia de seguridad válida](../storage/snapshots.md), intente restaurar el entorno mediante uno de los métodos siguientes:
+Si encuentra problemas en el entorno de integración y no tiene una [copia de seguridad válida](../storage/snapshots.md), o si desea restablecer el entorno a una pizarra en blanco, puede restaurar o restablecer su entorno mediante uno de los siguientes métodos:
 
 - Restablecer o revertir el código en la rama Git
 - Desinstalar la aplicación [!DNL Commerce]
