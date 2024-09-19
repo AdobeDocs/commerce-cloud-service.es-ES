@@ -3,9 +3,9 @@ title: Configurar la implementación de aplicaciones
 description: Aprenda a configurar las propiedades del archivo de configuración de la aplicación que controlan la forma en que la aplicación  [!DNL Commerce] se genera e implementa en el entorno de nube.
 feature: Cloud, Configuration, Build, Deploy
 exl-id: 900da20d-98d2-4c9f-97ec-578aee775b55
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: c9339137d957840a9ae33ed45950c613eea93660
 workflow-type: tm+mt
-source-wordcount: '142'
+source-wordcount: '184'
 ht-degree: 0%
 
 ---
@@ -22,3 +22,7 @@ Utilice el archivo `.magento.app.yaml` para definir los siguientes valores de co
 - [Variables property](variables-property.md): revise las variables de entorno necesarias para la versión de la aplicación [!DNL Commerce].
 - [Configuración de PHP](php-settings.md): configure las opciones de PHP en tiempo de ejecución.
 - [Establecer caché para archivos estáticos](set-cache.md): establezca el TTL de caché para los archivos estáticos y multimedia.
+
+>[!NOTE]
+>
+>El archivo `.magento.app.yaml` se administra localmente o en el repositorio de Git. La configuración solo se lee con el propósito de implementar y generar el proceso, y se elimina después de completar la implementación, por lo que no la encontrará en el servidor.
