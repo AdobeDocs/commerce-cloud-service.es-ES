@@ -3,9 +3,9 @@ title: Componentes de nube para Commerce
 description: Consulte la lista de las mejoras más recientes en el paquete de componentes en la nube.
 recommendations: noDisplay, catalog
 exl-id: b4e2508a-3558-4fa8-bae0-3eb76c7b2775
-source-git-commit: c02dfd2709cdc63ac1630edaa8c89cad5f737ea1
+source-git-commit: 30eafa856aaa57bb2fd2ce26e3be2a69aee726e2
 workflow-type: tm+mt
-source-wordcount: '560'
+source-wordcount: '590'
 ht-degree: 0%
 
 ---
@@ -23,11 +23,18 @@ Las notas de la versión incluyen:
 
 <!--Add release notes below-->
 
-## Versión 1.0.14 {#latest}
+## Versión 1.1.0 {#latest}
+
+Fecha de la versión: 7 de octubre de 2024
+
+- ![Icono de corrección](../../assets/fix.svg) **Código refactorizado**—Se ha eliminado la compatibilidad con las versiones 7.4, 7.3, 7.2 y bibliotecas relacionadas de PHP anteriores.<!-- MCLOUD-9278 - -->
+- ![Icono de corrección](../../assets/fix.svg) **Versión de monólogo actualizada**: se ha agregado compatibilidad con monólogo 3.6.<!-- MCLOUD-12855 - -->
+
+## Versión 1.0.14
 
 Fecha de publicación: 8 de abril de 2024
 
-- ![nuevo icono](../../assets/new.svg) **PHP** — Se agregó compatibilidad con PHP 8.3.
+- ![nuevo icono](../../assets/new.svg) **PHP**—Se agregó compatibilidad con PHP 8.3.
 
 ## Versión 1.0.13
 
@@ -121,4 +128,4 @@ Fecha de publicación: 12 de junio de 2019
 
 Esta es la primera versión del paquete [`magento/magento-cloud-components`](https://github.com/magento/magento-cloud-components), que es una nueva dependencia para la versión 2002.0.20 y posterior del paquete `ece-tools`.
 
-- ![nuevo icono](../../assets/new.svg) agregó la capacidad de usar patrones regex para configurar la variable de entorno **WARM_UP_PAGES** con el fin de almacenar en caché páginas únicas, dominios múltiples y páginas múltiples. Ver [variables de implementación de Post](../environment/variables-post-deploy.md#warm_up_pages).<!--MAGECLOUD-3258-->
+- ![nuevo icono](../../assets/new.svg) agregó la capacidad de usar patrones regex para configurar la variable de entorno **WARM_UP_PAGES** con el fin de almacenar en caché páginas únicas, dominios múltiples y páginas múltiples. Ver [variables posteriores a la implementación](../environment/variables-post-deploy.md#warm_up_pages).<!--MAGECLOUD-3258-->

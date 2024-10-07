@@ -3,11 +3,11 @@ title: Paquete Cloud Docker
 description: Consulte la lista de las mejoras más recientes del paquete Cloud Docker.
 feature: Cloud, Docker, Release Notes
 recommendations: noDisplay, catalog
-last-substantial-update: 2024-04-08T00:00:00Z
+last-substantial-update: 2024-10-07T00:00:00Z
 exl-id: 907d977f-2e9c-4553-a46b-000bc6a57b28
-source-git-commit: c39332d352f6dcb6f92c312a6ef1b74319d37aa3
+source-git-commit: fdb596430fbc532bed4a6b251872f44c5321d375
 workflow-type: tm+mt
-source-wordcount: '3662'
+source-wordcount: '3684'
 ht-degree: 0%
 
 ---
@@ -25,7 +25,13 @@ Las notas de la versión incluyen:
 
 <!--Add release notes below-->
 
-## Versión 1.3.7 {#latest}
+## Versión 1.4.0 {#latest}
+
+Fecha de la versión: 7 de octubre de 2024
+
+- ![Icono de corrección](../../assets/fix.svg) **Código refactorizado**—Se ha eliminado la compatibilidad con versiones antiguas de PHP (7.4, 7.3, 7.2) y con bibliotecas e imágenes relacionadas.
+
+## Versión 1.3.7
 
 Fecha de publicación: 8 de abril de 2024
 
