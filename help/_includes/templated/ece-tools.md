@@ -1,232 +1,179 @@
 ---
-source-git-commit: f2bf3f597aafa19fc4af0974523a8307a1f37b8e
+source-git-commit: 63c86bab0f3feb5a3a641a7a785ea625338045f4
 workflow-type: tm+mt
-source-wordcount: '4030'
+source-wordcount: '921'
 ht-degree: 0%
 
 ---
 # ece-tools
 
-<!-- The template to render with above values -->
 **Versión**: 2002.2.0
 
 Esta referencia contiene 34 comandos disponibles mediante la herramienta de línea de comandos `ece-tools`.
 La lista inicial se genera automáticamente mediante el comando `ece-tools list` en Adobe Commerce en la infraestructura en la nube.
 
->[!NOTE]
->
->Esta referencia se genera a partir del código base de la aplicación. Para cambiar el contenido, puede actualizar el código fuente de la implementación de comandos correspondiente en el repositorio [codebase](https://github.com/magento/magento-cloud-cli) y enviar los cambios para su revisión. Otra forma es _Proporcionarnos comentarios_ (busque el vínculo en la esquina superior derecha). Para ver las directrices de contribución, consulte [Contribuciones de código](https://developer.adobe.com/commerce/contributor/guides/code-contributions/).
+## General
+
+Esta referencia se genera a partir del código base de la aplicación. Para cambiar el contenido, _envíenos su opinión_ (busque el vínculo en la esquina superior derecha). Para ver las directrices de contribución, consulte [Contribuciones de código](https://developer.adobe.com/commerce/contributor/guides/code-contributions/).
+
+### Opciones globales
+
+#### `--help`, `-h`
+
+Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+
+- Predeterminado: `false`
+- No acepta un valor
+
+#### `--quiet`, `-q`
+
+No generar ningún mensaje
+
+- Predeterminado: `false`
+- No acepta un valor
+
+#### `--verbose`, `-v|-vv|-vvv`
+
+Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
+
+- Predeterminado: `false`
+- No acepta un valor
+
+#### `--version`, `-V`
+
+Mostrar esta versión de la aplicación
+
+- Predeterminado: `false`
+- No acepta un valor
+
+#### `--ansi`
+
+Forzar (o deshabilitar —sin ansi) la salida ANSI
+
+- No acepta un valor
+
+#### `--no-ansi`
+
+Anule la opción &quot;—ansi&quot;
+
+- Predeterminado: `false`
+- No acepta un valor
+
+#### `--no-interaction`, `-n`
+
+No haga ninguna pregunta interactiva
+
+- Predeterminado: `false`
+- No acepta un valor
+
 
 ## `_complete`
-
-Comando interno para proporcionar sugerencias de finalización de shell
 
 ```bash
 ece-tools _complete [-s|--shell SHELL] [-i|--input INPUT] [-c|--current CURRENT] [-a|--api-version API-VERSION] [-S|--symfony SYMFONY]
 ```
 
-### `--shell`, `-s`
+Comando interno para proporcionar sugerencias de finalización de shell
+
+### Opciones
+
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
+
+#### `--shell`, `-s`
 
 El tipo de contenedor (&quot;bash&quot;, &quot;fish&quot;, &quot;zsh&quot;)
 
 - Requiere un valor
 
-### `--input`, `-i`
+#### `--input`, `-i`
 
 Una matriz de tokens de entrada (por ejemplo, COMP_WORDS o argv)
 
 - Predeterminado: `[]`
 - Requiere un valor
 
-### `--current`, `-c`
+#### `--current`, `-c`
 
 Índice de la matriz de &quot;entrada&quot; en la que se encuentra el cursor (p. ej. COMP_CWORD)
 
 - Requiere un valor
 
-### `--api-version`, `-a`
+#### `--api-version`, `-a`
 
 Versión de API del script de finalización
 
 - Requiere un valor
 
-### `--symfony`, `-S`
+#### `--symfony`, `-S`
 
 obsoleto
 
 - Requiere un valor
 
-### `--help`, `-h`
-
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
-
 
 ## `build`
-
-Crea una aplicación.
 
 ```bash
 ece-tools build
 ```
 
-### `--help`, `-h`
+Crea una aplicación.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `completion`
-
-Volcar el script de finalización de shell
 
 ```bash
 ece-tools completion [--debug] [--] [<shell>]
 ```
 
+Volcar el script de finalización de shell
 
-### `shell`
+```
+The completion command dumps the shell completion script required
+to use shell autocompletion (currently, bash, fish, zsh completion are supported).
+
+Static installation
+-------------------
+
+Dump the script to a global completion file and restart your shell:
+
+    bin/ece-tools completion  | sudo tee /etc/bash_completion.d/ece-tools
+
+Or dump the script to a local file and source it:
+
+    bin/ece-tools completion  > completion.sh
+
+    # source the file whenever you use the project
+    source completion.sh
+
+    # or add this line at the end of your "~/.bashrc" file:
+    source /path/to/completion.sh
+
+Dynamic installation
+--------------------
+
+Add this to the end of your shell configuration file (e.g. "~/.bashrc"):
+
+    eval "$(/var/jenkins/workspace/gendocs-ece-tools-cli/bin/ece-tools completion )"
+```
+
+### Argumentos
+
+#### `shell`
 
 El tipo de shell (p. ej. &quot;bash&quot;), el valor de la variable env &quot;$SHELL&quot; se usará si no se proporciona
 
+### Opciones
 
-### `--debug`
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
+
+#### `--debug`
 
 Seguimiento del registro de depuración de finalización
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--help`, `-h`
-
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -234,214 +181,94 @@ No haga ninguna pregunta interactiva
 
 ## `db-dump`
 
-Crea copias de seguridad de base de datos.
-
 ```bash
 ece-tools db-dump [-d|--remove-definers] [-a|--dump-directory DUMP-DIRECTORY] [--] [<databases>...]
 ```
 
+Crea copias de seguridad de base de datos.
 
-### `databases`
+### Argumentos
+
+#### `databases`
 
 Bases de datos para backup. Valores disponibles: [ventas de presupuesto principal]. Si no se especifica el valor del argumento, se crearán copias de seguridad de la base de datos con las credenciales almacenadas en la variable de entorno `MAGENTO_CLOUD_RELATIONSHIP` o con la propiedad `stage.deploy.DATABASE_CONFIGURATION` del archivo de configuración .magento.env.yaml.
 
 - Predeterminado: `[]`
-
 - Matriz
 
-### `--remove-definers`, `-d`
+### Opciones
+
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
+
+#### `--remove-definers`, `-d`
 
 Quitar definidores del volcado de la base de datos
 
 - Predeterminado: `false`
 - No acepta un valor
 
-### `--dump-directory`, `-a`
+#### `--dump-directory`, `-a`
 
 Usar directorio alternativo para guardar el volcado
 
 - Requiere un valor
 
-### `--help`, `-h`
-
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
-
 
 ## `deploy`
-
-Implementa la aplicación.
 
 ```bash
 ece-tools deploy
 ```
 
-### `--help`, `-h`
+Implementa la aplicación.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `help`
-
-Mostrar la ayuda de un comando
 
 ```bash
 ece-tools help [--format FORMAT] [--raw] [--] [<command_name>]
 ```
 
+Mostrar la ayuda de un comando
 
-### `command_name`
+```
+The help command displays help for a given command:
+
+  bin/ece-tools help list
+
+You can also output the help in other formats by using the --format option:
+
+  bin/ece-tools help --format=xml list
+
+To display the list of available commands, please use the list command.
+```
+
+### Argumentos
+
+#### `command_name`
 
 El nombre del comando
 
 - Predeterminado: `help`
 
+### Opciones
 
-### `--format`
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
+
+#### `--format`
 
 El formato de salida (txt, xml, json o md)
 
 - Predeterminado: `txt`
 - Requiere un valor
 
-### `--raw`
+#### `--raw`
 
 Para generar la ayuda del comando raw
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--help`, `-h`
-
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -449,83 +276,57 @@ No haga ninguna pregunta interactiva
 
 ## `list`
 
-Comandos de lista
-
 ```bash
 ece-tools list [--raw] [--format FORMAT] [--short] [--] [<namespace>]
 ```
 
+Comandos de lista
 
-### `namespace`
+```
+The list command lists all commands:
+
+  bin/ece-tools list
+
+You can also display the commands for a specific namespace:
+
+  bin/ece-tools list test
+
+You can also output the information in other formats by using the --format option:
+
+  bin/ece-tools list --format=xml
+
+It's also possible to get raw list of commands (useful for embedding command runner):
+
+  bin/ece-tools list --raw
+```
+
+### Argumentos
+
+#### `namespace`
 
 El nombre del área de nombres
 
+### Opciones
 
-### `--raw`
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
+
+#### `--raw`
 
 Para generar la lista de comandos raw
 
 - Predeterminado: `false`
 - No acepta un valor
 
-### `--format`
+#### `--format`
 
 El formato de salida (txt, xml, json o md)
 
 - Predeterminado: `txt`
 - Requiere un valor
 
-### `--short`
+#### `--short`
 
 Para omitir la descripción de argumentos de comandos
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--help`, `-h`
-
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -533,1153 +334,315 @@ No haga ninguna pregunta interactiva
 
 ## `patch`
 
-Aplica parches personalizados.
-
 ```bash
 ece-tools patch
 ```
 
-### `--help`, `-h`
+Aplica parches personalizados.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `post-deploy`
-
-Realiza operaciones después de la implementación.
 
 ```bash
 ece-tools post-deploy
 ```
 
-### `--help`, `-h`
+Realiza operaciones después de la implementación.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `run`
-
-Ejecución de escenarios.
 
 ```bash
 ece-tools run <scenario>...
 ```
 
+Ejecución de escenarios.
 
-### `scenario`
+### Argumentos
+
+#### `scenario`
 
 Escenario(s)
 
 - Predeterminado: `[]`
-
 - Requerido
+
 - Matriz
 
-### `--help`, `-h`
+### Opciones
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `backup:list`
-
-Muestra la lista de archivos de copia de seguridad.
 
 ```bash
 ece-tools backup:list
 ```
 
-### `--help`, `-h`
+Muestra la lista de archivos de copia de seguridad.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `backup:restore`
-
-Restaure los archivos de configuración importantes. Ejecutar copia de seguridad: lista para mostrar la lista de archivos de copia de seguridad.
 
 ```bash
 ece-tools backup:restore [-f|--force] [--file [FILE]]
 ```
 
-### `--force`, `-f`
+Restaure los archivos de configuración importantes. Ejecutar copia de seguridad: lista para mostrar la lista de archivos de copia de seguridad.
+
+### Opciones
+
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
+
+#### `--force`, `-f`
 
 Sobrescribir archivos existentes al restaurar una copia de seguridad
 
 - Predeterminado: `false`
 - No acepta un valor
 
-### `--file`
+#### `--file`
 
 Una ruta de recuperación de archivos específica
 
 - Acepta un valor
 
-### `--help`, `-h`
-
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
-
 
 ## `build:generate`
-
-Genera todos los archivos necesarios para la fase de compilación.
 
 ```bash
 ece-tools build:generate
 ```
 
-### `--help`, `-h`
+Genera todos los archivos necesarios para la fase de compilación.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `build:transfer`
-
-Transfiere los archivos generados al directorio init.
 
 ```bash
 ece-tools build:transfer
 ```
 
-### `--help`, `-h`
+Transfiere los archivos generados al directorio init.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `cloud:config:create`
-
-Crea un archivo de `.magento.env.yaml` con la configuración de variables especificada de compilación, implementación y posterior a la implementación. Sobrescribe cualquier archivo `.magento,.env.yaml` existente.
 
 ```bash
 ece-tools cloud:config:create <configuration>
 ```
 
+Crea un archivo de `.magento.env.yaml` con la configuración de variables especificada de compilación, implementación y posterior a la implementación. Sobrescribe cualquier archivo `.magento,.env.yaml` existente.
 
-### `configuration`
+### Argumentos
+
+#### `configuration`
 
 Configuración en formato JSON
 
 - Requerido
 
-### `--help`, `-h`
+### Opciones
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `cloud:config:update`
-
-Actualiza el archivo `.magento.env.yaml` existente con la configuración especificada. Crea `.magento.env.yaml` archivo si no existe.
 
 ```bash
 ece-tools cloud:config:update <configuration>
 ```
 
+Actualiza el archivo `.magento.env.yaml` existente con la configuración especificada. Crea `.magento.env.yaml` archivo si no existe.
 
-### `configuration`
+### Argumentos
+
+#### `configuration`
 
 Configuración en formato JSON
 
 - Requerido
 
-### `--help`, `-h`
+### Opciones
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `cloud:config:validate`
-
-Valida el archivo de configuración `.magento.env.yaml`
 
 ```bash
 ece-tools cloud:config:validate
 ```
 
-### `--help`, `-h`
+Valida el archivo de configuración `.magento.env.yaml`
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `config:dump`
 
+```bash
+ece-tools config:dumpdump
+```
+
 Configuración de volcado para la implementación de contenido estático.
 
-```bash
-ece-tools config:dump
-```
+### Opciones
 
-
-```bash
-ece-tools dump
-```
-
-### `--help`, `-h`
-
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `cron:disable`
-
-Deshabilite todos los procesos cron del Magento y finalice todos los procesos en ejecución.
 
 ```bash
 ece-tools cron:disable
 ```
 
-### `--help`, `-h`
+Deshabilite todos los procesos cron del Magento y finalice todos los procesos en ejecución.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `cron:enable`
-
-Activa los procesos cron del Magento.
 
 ```bash
 ece-tools cron:enable
 ```
 
-### `--help`, `-h`
+Activa los procesos cron del Magento.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `cron:kill`
-
-Termina todos los procesos cron del Magento.
 
 ```bash
 ece-tools cron:kill
 ```
 
-### `--help`, `-h`
+Termina todos los procesos cron del Magento.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `cron:unlock`
-
-Desbloquee los trabajos cron que se quedaron en estado &quot;en ejecución&quot;.
 
 ```bash
 ece-tools cron:unlock [--job-code [JOB-CODE]]
 ```
 
-### `--job-code`
+Desbloquee los trabajos cron que se quedaron en estado &quot;en ejecución&quot;.
+
+### Opciones
+
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
+
+#### `--job-code`
 
 Código de trabajo Cron para desbloquear.
 
 - Predeterminado: `[]`
 - Acepta varios valores
 
-### `--help`, `-h`
-
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
-
 
 ## `dev:generate:schema-error`
-
-Genera el archivo dist/error-codes.md a partir del archivo schema.error.yaml.
 
 ```bash
 ece-tools dev:generate:schema-error
 ```
 
-### `--help`, `-h`
+Genera el archivo dist/error-codes.md a partir del archivo schema.error.yaml.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `dev:git:update-composer`
-
-Actualiza el Compositor para la implementación desde Git.
 
 ```bash
 ece-tools dev:git:update-composer
 ```
 
-### `--help`, `-h`
+Actualiza el Compositor para la implementación desde Git.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `env:config:show`
-
-Muestre variables de entorno de configuración de nube codificadas.
 
 ```bash
 ece-tools env:config:show [<variable>...]
 ```
 
+Muestre variables de entorno de configuración de nube codificadas.
 
-### `variable`
+### Argumentos
+
+#### `variable`
 
 Variables de entorno para mostrar, posibles opciones: servicios, rutas, variables
 
 - Predeterminado: `[]`
-
 - Matriz
 
-### `--help`, `-h`
+### Opciones
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `error:show`
-
-Muestra información sobre errores por ID de error o sobre todos los errores de la última implementación.
 
 ```bash
 ece-tools error:show [-j|--json] [--] [<error-code>]
 ```
 
+Muestra información sobre errores por ID de error o sobre todos los errores de la última implementación.
 
-### `error-code`
+### Argumentos
+
+#### `error-code`
 
 Código de error, si no se ha pasado el comando, se muestra información sobre todos los errores de la última implementación
 
+### Opciones
 
-### `--json`, `-j`
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
+
+#### `--json`, `-j`
 
 Se utiliza para obtener los resultados en formato JSON
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--help`, `-h`
-
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
 
 - Predeterminado: `false`
 - No acepta un valor
@@ -1687,456 +650,103 @@ No haga ninguna pregunta interactiva
 
 ## `module:refresh`
 
-Actualiza la configuración para habilitar los módulos recién añadidos.
-
 ```bash
 ece-tools module:refresh
 ```
 
-### `--help`, `-h`
+Actualiza la configuración para habilitar los módulos recién añadidos.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `schema:generate`
-
-Genera el archivo de esquema *.dist.
 
 ```bash
 ece-tools schema:generate
 ```
 
-### `--help`, `-h`
+Genera el archivo de esquema *.dist.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `wizard:ideal-state`
-
-Comprueba el estado ideal de configuración.
 
 ```bash
 ece-tools wizard:ideal-state
 ```
 
-### `--help`, `-h`
+Comprueba el estado ideal de configuración.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `wizard:master-slave`
-
-Comprueba la configuración maestro-esclavo.
 
 ```bash
 ece-tools wizard:master-slave
 ```
 
-### `--help`, `-h`
+Comprueba la configuración maestro-esclavo.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `wizard:scd-on-build`
-
-Comprueba el SCD en la configuración de compilación.
 
 ```bash
 ece-tools wizard:scd-on-build
 ```
 
-### `--help`, `-h`
+Comprueba el SCD en la configuración de compilación.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `wizard:scd-on-demand`
-
-Comprueba la configuración de SCD bajo demanda.
 
 ```bash
 ece-tools wizard:scd-on-demand
 ```
 
-### `--help`, `-h`
+Comprueba la configuración de SCD bajo demanda.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `wizard:scd-on-deploy`
-
-Comprueba el SCD en la configuración de implementación.
 
 ```bash
 ece-tools wizard:scd-on-deploy
 ```
 
-### `--help`, `-h`
+Comprueba el SCD en la configuración de implementación.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
 
 
 ## `wizard:split-db-state`
-
-Comprueba la capacidad de dividir la base de datos y si ya se ha dividido o no.
 
 ```bash
 ece-tools wizard:split-db-state
 ```
 
-### `--help`, `-h`
+Comprueba la capacidad de dividir la base de datos y si ya se ha dividido o no.
 
-Muestra la ayuda del comando especificado. Cuando no se proporciona ningún comando, se muestra la ayuda para el comando de lista
+### Opciones
 
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--quiet`, `-q`
-
-No generar ningún mensaje
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--verbose`, `-v|-vv|-vvv`
-
-Aumente el nivel de detalle de los mensajes: 1 para un resultado normal, 2 para un resultado más detallado y 3 para una depuración
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--version`, `-V`
-
-Mostrar esta versión de la aplicación
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--ansi`
-
-Forzar (o deshabilitar —sin ansi) la salida ANSI
-
-- No acepta un valor
-
-### `--no-ansi`
-
-Anule la opción &quot;—ansi&quot;
-
-- Predeterminado: `false`
-- No acepta un valor
-
-### `--no-interaction`, `-n`
-
-No haga ninguna pregunta interactiva
-
-- Predeterminado: `false`
-- No acepta un valor
-
+Para ver las opciones globales, consulte [Opciones globales](#global-options).
