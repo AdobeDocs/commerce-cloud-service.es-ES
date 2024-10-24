@@ -1,7 +1,7 @@
 ---
-source-git-commit: 762ce3cb6268401b0f5fae5b2280a870aa9c83a5
+source-git-commit: a87039d2e96e39d6d8d19673c5e0d52de8b844a4
 workflow-type: tm+mt
-source-wordcount: '857'
+source-wordcount: '879'
 ht-degree: 0%
 
 ---
@@ -43,11 +43,12 @@ Establezca la opción `_merge` en una de las siguientes opciones:
 ## Asistencia de servicios Pro {#pro-update-service}
 
 >[!TIP]
+>
 >Para los proyectos Pro, debe [enviar un ticket de soporte de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) para instalar o actualizar [servicios](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/service/services-yaml.html) solo en `Staging` y `Production` entornos.
 >
 >Indique los cambios de servicio necesarios, incluya los `.magento.app.yaml` y `services.yaml` archivos actualizados y especifique la versión de PHP en el ticket. Para ver los cambios de autoservicio en la versión, las extensiones o la configuración del entorno de PHP, consulte [Configuración de PHP](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/app/php-settings.html) en _Configuración de la aplicación_.
 >
->Para realizar cambios en un entorno de producción _live_ (**solo Pro**), debe proporcionar un aviso con un mínimo de 48 horas para que el equipo de infraestructura de la nube tenga tiempo suficiente para calcular las referencias de los recursos y realizar una actualización segura. El periodo de aviso no incluye fines de semana. Por ejemplo, si desea que las actualizaciones del servicio se realicen un lunes, debe enviar la solicitud el miércoles anterior.
+>Para los cambios en un entorno de producción activo (**Solo Pro**), se requiere un aviso con un mínimo de 48 horas. Esto permite al equipo de infraestructura en la nube disponer de tiempo suficiente para recopilar recursos y realizar una actualización segura. El periodo de aviso comienza cuando el equipo de infraestructura reconoce la solicitud y programa la actualización, excepto los fines de semana. Por ejemplo, para que las actualizaciones del servicio se completen un lunes, se debe recibir un acuse de recibo de la actualización programada antes del miércoles. Durante los períodos de mayor demanda, puede tardar más tiempo en procesar la solicitud.
 
 ## Backups Pro {#pro-backups}
 
