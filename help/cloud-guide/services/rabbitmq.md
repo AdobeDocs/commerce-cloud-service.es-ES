@@ -3,16 +3,16 @@ title: Configurar el servicio de RabbitMQ
 description: Obtenga información sobre cómo habilitar el servicio de RabbitMQ para administrar las colas de mensajes de Adobe Commerce en la infraestructura en la nube.
 feature: Cloud, Services
 exl-id: 85794b8f-2260-4a6e-b5a6-a1b4c356594e
-source-git-commit: adcfbb7217c70122a4003a66d1bec1a623fbf11a
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
-source-wordcount: '399'
+source-wordcount: '398'
 ht-degree: 0%
 
 ---
 
 # Configurar el servicio [!DNL RabbitMQ]
 
-[Message Queue Framework (MQF)](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/message-queues/message-queue-framework.html) es un sistema de Adobe Commerce que permite que un [módulo](https://glossary.magento.com/module) publique mensajes en colas. También define los consumidores que reciben los mensajes de forma asincrónica.
+[Message Queue Framework (MQF)](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/message-queues/message-queue-framework.html) es un sistema de Adobe Commerce que permite que un [módulo](https://experienceleague.adobe.com/en/docs/commerce-operations/operational-playbook/glossary#module) publique mensajes en colas. También define los consumidores que reciben los mensajes de forma asincrónica.
 
 El MQF usa [RabbitMQ](https://www.rabbitmq.com/) como agente de mensajería, que proporciona una plataforma escalable para enviar y recibir mensajes. También incluye un mecanismo para almacenar mensajes no enviados. [!DNL RabbitMQ] se basa en la especificación 0.9.1 del Protocolo avanzado de Message Queue Server (AMQP).
 
@@ -144,4 +144,4 @@ Cuando inicia sesión en su contenedor de PHP, ingresa cualquier comando `amqp-`
 
 ### Conéctese desde su aplicación PHP
 
-Para conectarse a RabbitMQ con su aplicación PHP, agregue una [biblioteca](https://glossary.magento.com/library) PHP a su árbol de fuentes.
+Para conectarse a RabbitMQ usando su aplicación PHP, agregue una biblioteca PHP a su árbol de fuentes.

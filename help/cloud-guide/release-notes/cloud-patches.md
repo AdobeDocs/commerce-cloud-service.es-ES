@@ -4,9 +4,9 @@ description: Consulte la lista de las mejoras más recientes del paquete Parches
 recommendations: noDisplay, catalog
 last-substantial-update: 2024-10-07T00:00:00Z
 exl-id: ae6b511b-a37d-4776-9a5e-ad7d9f9f6611
-source-git-commit: 30eafa856aaa57bb2fd2ce26e3be2a69aee726e2
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
-source-wordcount: '2275'
+source-wordcount: '2256'
 ht-degree: 0%
 
 ---
@@ -154,7 +154,7 @@ Fecha de lanzamiento: 12 de agosto de 2021
 
 Parche crítico para Adobe Commerce 2.4.3 y 2.3.7-p1:
 
-- **Problema con limitación de velocidad de API**: este parche corrige un límite de velocidad predeterminado que impedía que las API web procesaran solicitudes con más de 20 elementos en una matriz. Este parche aumenta el valor predeterminado del límite de velocidad. Ver las [notas de la versión 2.4.3](https://devdocs.magento.com/guides/v2.4/release-notes/commerce-2-4-3.html#apply-mc-43048__set_rate_limits__243patch-to-address-issue-with-api-rate-limiting) de Adobe Commerce y las [notas de la versión 2.3.7](https://devdocs.magento.com/guides/v2.3/release-notes/2-3-7-p1.html#apply-mc-43048__set_rate_limits__237-p1patch-to-address-issue-with-api-rate-limiting).<!-- MC-43048 -->
+- **Problema con limitación de velocidad de API**: este parche corrige un límite de velocidad predeterminado que impedía que las API web procesaran solicitudes con más de 20 elementos en una matriz. Este parche aumenta el valor predeterminado del límite de velocidad. Ver las notas de la versión de Adobe Commerce [2.4.3](https://experienceleague.adobe.com/en/docs/commerce-operations/release/notes/adobe-commerce/2-4-3#apply-mc-43048__set_rate_limits__243patch-to-address-issue-with-api-rate-limiting).<!-- MC-43048 -->
 
 ## Versión 1.0.11
 
@@ -222,7 +222,7 @@ Fecha de lanzamiento:
 
 Fecha de publicación: 26 de junio de 2020
 
-- **Mejoras de rendimiento de Redis**: agrega características de optimización de Redis a las versiones 2.3.3 y 2.3.4 de Adobe Commerce. Estas correcciones se incluyeron en la versión 2.3.5 de Adobe Commerce. Ver [mejoras de rendimiento](https://devdocs.magento.com/guides/v2.3/release-notes/release-notes-2-3-5-commerce.html#performance-boosts) en las _Notas de la versión de Adobe Commerce 2.3.5_.<!--MCLOUD-5771-->
+- **Mejoras de rendimiento de Redis**: agrega características de optimización de Redis a las versiones 2.3.3 y 2.3.4 de Adobe Commerce. Estas correcciones se incluyeron en la versión 2.3.5 de Adobe Commerce.<!--MCLOUD-5771-->
 
 - **Enriquecidor de registro de New Relic**: agrega la interfaz de procesador monólogo necesaria para admitir mejoras en las funciones de registro de New Relic introducidas en los componentes de nube de Commerce versión 1.0.4. Este parche es necesario para implementar Adobe Commerce 2.1.x. Si no se aplica el parche, la compilación falla durante el proceso `di:compile`.<!--MCLOUD-6029-->
 

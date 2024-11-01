@@ -3,9 +3,9 @@ title: Configurar servicios de Fastly
 description: Aprenda a configurar los servicios de Fastly para su proyecto de Adobe Commerce.
 feature: Cloud, Configuration, Iaas, Cache, Security
 exl-id: c53ff3bd-3df2-45fb-933e-d3b29f7edf4e
-source-git-commit: 8a0523f1714b6ea41887e99b5c31294cf5e5255e
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
-source-wordcount: '1961'
+source-wordcount: '1960'
 ht-degree: 0%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Se requiere rápidamente para Adobe Commerce en entornos de ensayo y producción de infraestructura en la nube.
 
-Fastly trabaja con Varnish para proporcionar capacidades de almacenamiento en caché rápido y una [red de distribución de contenido](https://glossary.magento.com/content-delivery-network) (CDN) para recursos estáticos. Fastly también proporciona un firewall de aplicaciones web (WAF) para proteger el sitio y la infraestructura de nube. Para proteger su sitio y la infraestructura de Cloud del tráfico y los ataques maliciosos, enrute todo el tráfico entrante del sitio a través de Fastly.
+Fastly funciona con Varnish para proporcionar capacidades de almacenamiento en caché rápido y una red de entrega de contenido (CDN) para recursos estáticos. Fastly también proporciona un cortafuegos de aplicaciones web (WAF) para proteger el sitio y la infraestructura de la nube. Para proteger su sitio y la infraestructura de Cloud del tráfico y los ataques maliciosos, enrute todo el tráfico entrante del sitio a través de Fastly.
 
 >[!NOTE]
 >
@@ -64,7 +64,7 @@ El método para ver las credenciales es diferente para los proyectos Pro y Start
 
 >[!NOTE]
 >
->Si no encuentra las credenciales de Fastly para los entornos de ensayo o producción, póngase en contacto con el asesor técnico del cliente (CTA) de Adobe.
+>Si no encuentra las credenciales de Fastly para los entornos de ensayo o producción, póngase en contacto con el asesor técnico del cliente de Adobe (CTA).
 
 ## Habilitar almacenamiento en caché rápido
 

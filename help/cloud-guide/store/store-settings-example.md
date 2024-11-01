@@ -2,9 +2,9 @@
 title: Ejemplo de administración de la configuración específica del sistema
 description: Consulte un ejemplo de cómo administrar y sincronizar las opciones de configuración de tienda en todos los entornos de Adobe Commerce en la nube.
 hidefromtoc: true
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
-source-wordcount: '865'
+source-wordcount: '864'
 ht-degree: 0%
 
 ---
@@ -29,7 +29,7 @@ El ejemplo usa el siguiente procedimiento definido en [Configuración de almacen
 
 Por ejemplo, es posible que desee establecer la siguiente configuración:
 
-* Deshabilite [configuración regional](https://glossary.magento.com/locale) y la configuración de optimización de archivos estáticos en su entorno de integración
+* Deshabilite la configuración regional y de optimización de archivos estáticos en el entorno de integración
 * Habilitar la optimización de archivos estáticos en entornos de ensayo y producción
 * Configure Fastly en Ensayo y producción con credenciales específicas para cada
 
@@ -56,7 +56,7 @@ En el entorno de integración, puede iniciar sesión en Admin para modificar los
    ![Cambiar la configuración regional](../../assets/locale-options.png)
 
 1. Haga clic en **Guardar configuración**.
-1. Si se le solicita, [vacíe la caché](https://docs.magento.com/user-guide/system/cache-management.html).
+1. Si se le solicita, [vacíe la caché](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/tools/cache-management).
 1. Cierre la sesión del administrador.
 
 ## Exportar valores y transferir config.php a su sistema local
@@ -159,7 +159,7 @@ Para añadir valores de configuración en el entorno de integración Administrad
 1. En el panel derecho, expanda **Configuración de JavaScript**.
 1. En la lista **Combinar archivos de JavaScript**, haga clic en **Sí**.
 1. Haga clic en **Guardar configuración**.
-1. Si se le solicita, [vacíe la caché](https://docs.magento.com/user-guide/system/cache-management.html).
+1. Si se le solicita, [vacíe la caché](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/tools/cache-management).
 1. Cierre la sesión del administrador.
 
 Al volver a ejecutar el comando de volcado, la nueva configuración se anexa al archivo.

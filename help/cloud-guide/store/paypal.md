@@ -3,7 +3,7 @@ title: Configurar métodos de pago de PayPal
 description: Configure los métodos de pago de PayPal para Adobe Commerce en la infraestructura en la nube.
 feature: Cloud, Checkout, Payments
 exl-id: e52fd719-f936-4e8b-8222-af133389d9e2
-source-git-commit: aa1a334ca1383559194ca75247679c6fb5411802
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
 source-wordcount: '669'
 ht-degree: 0%
@@ -59,7 +59,7 @@ Para configurar PayPal Express Checkout:
    * **Modo de espacio aislado** seleccione Sí o No para indicar si las credenciales que ha introducido son para espacio aislado. Si ha introducido credenciales de producción, seleccione No.
    * **API utiliza Proxy** seleccione Sí o No para establecer si el sistema utiliza un servidor proxy para establecer una conexión entre Adobe Commerce y el sistema de pago de PayPal. En caso afirmativo, introduzca el host y el puerto del proxy.
 
-1. Para obtener información detallada y ver los pasos para configurar tu cuenta, consulta [Pago y envío exprés de PayPal](https://docs.magento.com/user-guide/payment/paypal-express-checkout.html), a partir del Paso 2, para completar la configuración requerida.
+1. Para obtener información detallada y ver los pasos para configurar tu cuenta, consulta [Pago y envío exprés de PayPal](https://experienceleague.adobe.com/en/docs/commerce-admin/stores-sales/payments/paypal/paypal-express-checkout), a partir del Paso 2, para completar la configuración requerida.
 
 Con la cuenta configurada y autenticada, puedes activar y desactivar las opciones de pago de PayPal en Configuración de PayPal requerida:
 
