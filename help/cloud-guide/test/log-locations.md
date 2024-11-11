@@ -3,7 +3,7 @@ title: Visualización y administración de registros
 description: Comprenda los tipos de archivos de registro disponibles en la infraestructura de la nube y dónde encontrarlos.
 last-substantial-update: 2023-05-23T00:00:00Z
 exl-id: d7f63dab-23bf-4b95-b58c-3ef9b46979d4
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 633e5e75ae23a933d15a0faedae22092797d5d0b
 workflow-type: tm+mt
 source-wordcount: '1056'
 ht-degree: 0%
@@ -208,7 +208,7 @@ Para los entornos de ensayo y producción Pro, los registros de implementación,
 
 ### Archivos de registro archivados
 
-Los registros de la aplicación se comprimen y archivan una vez al día y se conservan durante un año. Los registros comprimidos reciben un nombre mediante un identificador único que corresponde al `Number of Days Ago + 1`. Por ejemplo, en entornos de producción Pro, se almacena un registro de acceso PHP de 21 días en el pasado y se le asigna el siguiente nombre:
+Los registros de la aplicación se comprimen y archivan una vez al día y se conservan durante **30 días**. Los registros comprimidos reciben un nombre mediante un identificador único que corresponde al `Number of Days Ago + 1`. Por ejemplo, en entornos de producción Pro, se almacena un registro de acceso PHP de 21 días en el pasado y se le asigna el siguiente nombre:
 
 ```
 /var/log/platform/<project-ID>/php.access.log.22.gz
@@ -242,4 +242,4 @@ Los registros de servicio se archivan y guardan durante diferentes períodos de 
 
 En entornos Pro Production y Staging, use la [administración de registros de New Relic](../monitor/log-management.md) integrada con su proyecto para administrar los datos de registro agregados de todos los registros asociados con su proyecto Adobe Commerce en la nube.
 
-La aplicación New Relic Logs proporciona un panel de administración de registros centralizado para solucionar problemas y supervisar Adobe Commerce en entornos de ensayo y producción de infraestructuras en la nube. El tablero también proporciona acceso a los datos de registro para los servicios Fastly CDN, Optimización de imágenes y cortafuegos de aplicaciones web (WAF). Consulte [Servicios de New Relic](../monitor/new-relic-service.md).
+La aplicación New Relic Logs proporciona un panel de administración de registros centralizado para solucionar problemas y supervisar Adobe Commerce en entornos de ensayo y producción de infraestructuras en la nube. El tablero también proporciona acceso a los datos de registro para los servicios Fastly CDN, Image Optimization y Web application firewall (WAF). Consulte [Servicios de New Relic](../monitor/new-relic-service.md).
