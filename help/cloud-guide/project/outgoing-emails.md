@@ -2,20 +2,24 @@
 title: Configuración de correos electrónicos salientes
 description: Obtenga información sobre cómo habilitar los correos electrónicos salientes para Adobe Commerce en la infraestructura en la nube.
 exl-id: 814fe2a9-15bf-4bcb-a8de-ae288fd7f284
-source-git-commit: ec9192caa5daa1cd25a3eec6095c2c3cf8fbefb4
+source-git-commit: 75318be63adcbe23bb8b6699b1c59b2b4a3c1a4d
 workflow-type: tm+mt
-source-wordcount: '373'
+source-wordcount: '384'
 ht-degree: 0%
 
 ---
 
 # Configuración de correos electrónicos salientes
 
-Puede habilitar y deshabilitar los correos electrónicos salientes para cada entorno desde [!DNL Cloud Console] o desde la línea de comandos. Habilite los correos electrónicos salientes para los entornos de integración (y de ensayo solo para Starter) para enviar correos electrónicos de autenticación de doble factor o restablecer la contraseña para los usuarios del proyecto en la nube.
+Puede habilitar y deshabilitar los correos electrónicos salientes para los entornos de integración (y ensayo solo para Starter) desde [!DNL Cloud Console] o desde la línea de comandos. Habilite los correos electrónicos salientes para enviar correos electrónicos de autenticación de doble factor o restablecer la contraseña para los usuarios del proyecto en la nube.
 
 De forma predeterminada, los correos electrónicos salientes están habilitados en los entornos Producción y Ensayo (solo Pro). Sin embargo, la configuración de **[!UICONTROL Enable outgoing emails]** puede aparecer deshabilitada en la configuración del entorno independientemente del estado hasta que establezca la propiedad de `enable_smtp` a través de [la línea de comandos](#enable-emails-in-the-cli) o [la consola de Cloud](outgoing-emails.md#enable-emails-in-the-cloud-console).
 
 Al actualizar el valor de la propiedad `enable_smtp` por [línea de comandos](#enable-emails-in-the-cli) también se cambia el valor de configuración [!UICONTROL Enable outgoing emails] para este entorno en la consola de Cloud.
+
+>[!NOTE]
+>
+>Al habilitar o deshabilitar la configuración **[!UICONTROL Enable outgoing emails]**, no se habilitarán o deshabilitarán los mensajes de correo electrónico en los entornos de ensayo o producción profesional.
 
 {{redeploy-warning}}
 
@@ -27,14 +31,14 @@ Si los correos electrónicos salientes deben deshabilitarse o volver a habilitar
 
 >[!TIP]
 >
->Es posible que el estado del correo electrónico saliente no se refleje en los entornos Pro de Cloud Console. En su lugar, use la [línea de comandos](#enable-emails-in-the-cli) para habilitar y probar los correos electrónicos salientes.
+>Es posible que el estado del correo electrónico saliente no se refleje en los entornos de ensayo o producción de Pro en Cloud Console.
 
 **Para administrar la compatibilidad con el correo electrónico de[!DNL Cloud Console]**:
 
 1. Inicie sesión en [[!DNL Cloud Console]](https://console.adobecommerce.com).
 1. Seleccione un proyecto de la lista _Todos los proyectos_.
 1. En el panel Proyecto, haga clic en el icono de configuración en la esquina superior derecha.
-1. Haga clic en **[!UICONTROL Environments]** y seleccione un entorno específico en la lista.
+1. Haga clic en **[!UICONTROL Environments]** y seleccione un entorno específico en la lista (excepto Ensayo y Producción para Pro).
 1. Para habilitar o deshabilitar los mensajes de correo electrónico salientes, alterne _Habilitar los mensajes de correo electrónico salientes_ **Activado** o **Desactivado**.
 
    ![Habilitar configuración de correo electrónico saliente](../../assets/outgoing-emails.png)
