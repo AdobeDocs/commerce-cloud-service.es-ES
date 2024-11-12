@@ -3,9 +3,9 @@ title: Añadir robots de mapa del sitio y de motor de búsqueda
 description: Aprenda a añadir robots de mapa del sitio y de motores de búsqueda a Adobe Commerce en la infraestructura en la nube.
 feature: Cloud, Configuration, Search, Site Navigation
 exl-id: b98f43fa-1878-466d-8ea0-1e7207af8b60
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: fda88fdf03afa4a59f40e52802c16b6136d8716f
 workflow-type: tm+mt
-source-wordcount: '517'
+source-wordcount: '537'
 ht-degree: 0%
 
 ---
@@ -117,10 +117,12 @@ En la configuración de administración de `sitemap`, debe especificar la ubicac
 
 ### Configurar la indexación por motor de búsqueda
 
-Para activar las personalizaciones de `robots.txt`, debe habilitar la opción **Indexación por motores de búsqueda activada para`<environment-name>`** en la configuración del proyecto.
+Para activar las personalizaciones de `robots.txt` en producción, debe habilitar la opción **Indexación por motores de búsqueda activada para`<environment-name>`** en la configuración del proyecto.
 
 ![Use [!DNL Cloud Console] para administrar entornos](../../assets/robots-indexing-by-search-engine.png)
 
 >[!NOTE]
 >
->Si usa el PWA Studio y no puede obtener acceso al archivo `robots.txt` configurado, agregue `robots.txt` a la [Lista de permitidos Nombre principal](https://github.com/magento/magento2-upward-connector#front-name-allowlist) en **Tiendas** > Configuración > **General** > **Web** > Configuración del PWA ascendente.
+>- La indexación por motores de búsqueda solo se puede habilitar en Producción, pero no en ninguno de los entornos inferiores.
+>
+>- Si usa el PWA Studio y no puede obtener acceso al archivo `robots.txt` configurado, agregue `robots.txt` a la [Lista de permitidos Nombre principal](https://github.com/magento/magento2-upward-connector#front-name-allowlist) en **Tiendas** > Configuración > **General** > **Web** > Configuración del PWA ascendente.
