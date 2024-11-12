@@ -3,9 +3,9 @@ title: Actualizar la versión de Commerce
 description: Obtenga información sobre cómo actualizar la versión de Adobe Commerce en el proyecto de infraestructura en la nube.
 feature: Cloud, Upgrade
 exl-id: 87821007-4979-4a20-940b-aa3c82c192d8
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 8851db6ee962bf1a65b31d344e2bd71065e9340d
 workflow-type: tm+mt
-source-wordcount: '1439'
+source-wordcount: '1547'
 ht-degree: 0%
 
 ---
@@ -286,6 +286,19 @@ Revise la información de [versiones de servicio](../services/services-yaml.md#s
    ```bash
    composer update
    ```
+
+1. Revise los parches que se aplican actualmente:
+
+   - Si hay parches instalados en el directorio `m2-hotfixes`, [envíe un ticket de soporte de Adobe Commerce](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#support-case) y trabaje con el soporte técnico de Adobe Commerce para comprobar qué parches se pueden seguir aplicando a la nueva versión. Quite los parches no aplicables del directorio `m2-hotfixes`.
+
+   - Si hay [Parches de calidad] aplicados en el archivo `.magento.env.yaml`, compruebe si aún se pueden aplicar a la nueva versión. Quite los parches no aplicables de la sección `QUALITY_PATCHES` del archivo `.magento.env.yaml`.
+
+   **Método 1**: [Compruebe las versiones aplicables en las notas de la versión de parches de calidad](https://experienceleague.adobe.com/en/docs/commerce-operations/tools/quality-patches-tool/release-notes)
+
+   **Método 2**: [Ver parches y estado disponibles](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/develop/upgrade/apply-patches#view-available-patches-and-status)
+
+   **Método 3**: [Buscar parches](https://experienceleague.adobe.com/tools/commerce-quality-patches/index.html?lang=en)
+
 
 1. Agregar, confirmar y enviar cambios de código.
 
