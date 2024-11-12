@@ -4,9 +4,9 @@ description: Acceda a su cuenta de la nube y configure un proyecto de Adobe Comm
 role: Admin
 recommendations: noDisplay, catalog
 exl-id: c6b768d7-d835-4a8d-aad9-1c0324f7570d
-source-git-commit: abe9aa36b907be8bdfdf42e6f28f1e1eac68fecf
+source-git-commit: f989dc126e1a19f4a69bfdaee70cee151a300c85
 workflow-type: tm+mt
-source-wordcount: '760'
+source-wordcount: '492'
 ht-degree: 0%
 
 ---
@@ -17,41 +17,15 @@ Después de que el Adobe active una suscripción a Commerce en la nube, el acces
 
 El propietario de la licencia es la persona de su empresa u organización financiera que administra pagos y otras transacciones comerciales para la cuenta de Adobe Commerce en la infraestructura de la nube. Esta persona sirve como punto de contacto con el Adobe. Si debe cambiar el propietario de la licencia en su cuenta, debe ponerse en contacto con el equipo de la cuenta de Adobe.
 
-Para incorporarse rápidamente al proyecto y poder empezar a desarrollar el sitio para su implementación activa, debe completar la configuración necesaria y [!DNL onboarding] tareas. Normalmente, el propietario de la licencia inicia el proceso asegurando el acceso del administrador y creando usuarios de administrador técnico que puedan ayudarle con el trabajo de configuración, personalización y desarrollo.
+Para incorporarse rápidamente al proyecto y poder empezar a desarrollar el sitio para su implementación activa, debe completar la configuración necesaria y [!DNL onboarding] tareas. Normalmente, el propietario de la licencia inicia el proceso asegurando el acceso del administrador y creando usuarios administradores que puedan ayudarle con el trabajo de configuración, personalización y desarrollo.
 
 ## Regístrese para obtener una cuenta de Cloud
 
 Si no tiene una cuenta de Adobe Commerce en la infraestructura de la nube, comuníquese con [Ventas]. Al registrarse, Adobe crea su cuenta y le envía un correo electrónico de bienvenida con instrucciones sobre cómo acceder a la interfaz del proyecto. El correo electrónico contiene un vínculo para que pueda iniciar sesión en su cuenta y completar la configuración inicial del proyecto.
 
-### IU de Cloud [!DNL Onboarding]
-
-La página Proyecto de Adobe Commerce en la infraestructura en la nube en la interfaz de usuario ([!DNL Onboarding]) proporciona una lista de comprobación de Introducción para configurar el proyecto y los servicios, determinar el acceso y comenzar con el desarrollo. Desde la interfaz de usuario de OBUI, puede:
-
-- Añada un administrador técnico, un superusuario que pueda administrar el proyecto y las ramas
-- Acceda al entorno de su proyecto, incluido un vínculo al [!DNL Cloud Console]
-- Complete una lista de comprobación de la prueba de aceptación rápida del usuario (UAT) con vínculos a pruebas adicionales
-
-**Para abrir la página del proyecto**:
-
-1. Inicie sesión en su [cuenta de cliente de Adobe Commerce](https://account.magento.com/customer/account/login).
-
-1. En la página _Mi cuenta_, haga clic en la ficha **[!UICONTROL Commerce]** para ver los proyectos de su cuenta.
-
-1. Haga clic en **Ver página del proyecto** en la [sección Proyectos](https://cloud.magento.com/cloud/project/).
-
-1. Haga clic en el nombre del proyecto y abra la página Proyecto en la nube (interfaz de usuario [!DNL Onboarding]).
-
-   ![Página de proyecto OBUI](../assets/onboarding-ui.png)
-
-   Examine el portal para obtener información útil y opciones para empezar a planificar el proyecto, desarrollar código y prepararse para UAT y el lanzamiento del sitio.
-
 ## Acceso al proyecto y adición de usuarios
 
 El propietario de la licencia puede añadir cuentas de usuario para proporcionar acceso al código, administrar ramas, introducir tickets y entornos de asistencia. Estas cuentas de usuario pueden incluir desarrollo interno, consultores y especialistas en soluciones.
-
-Normalmente, el único usuario que el propietario de la licencia debe crear es el _administrador técnico_. El administrador técnico necesita una cuenta de usuario con acceso de administrador para crear cuentas de usuario para desarrolladores, definir permisos de entorno y administrar todas las ramas y entornos. El administrador técnico puede ser un desarrollador, un consultor, un [partner de soluciones de Adobe](https://business.adobe.com/products/magento/partners.html) o usted mismo.
-
-Puede crear un administrador técnico a través del portal del proyecto, desde [!DNL Cloud Console], o desde la línea de comandos utilizando la CLI `magento-cloud`.
 
 ### Registro de usuario
 
@@ -64,18 +38,6 @@ El propietario de la licencia puede configurar el acceso compartido para la cuen
 ### [!DNL Cloud Console]
 
 Puede usar [[!DNL Cloud Console]](cloud-console.md) para administrar su proyecto, agregar cuentas de usuario y comenzar a desarrollar su tienda. El propietario de la licencia, los usuarios de administración técnica y los desarrolladores pueden usar [!DNL Cloud Console] para administrar todos los entornos y ramas, variables de entorno, configuración de entorno y rutas.
-
-**Para tener acceso a[!DNL Cloud Console]**:
-
-1. Inicie sesión en [Mi cuenta](https://account.magento.com/customer/account/login).
-
-1. En la página _Mi cuenta_, haga clic en la ficha **[!UICONTROL Commerce]** para ver los proyectos de su cuenta.
-
-1. Haga clic en la ficha **Proyectos** y seleccione un proyecto.
-
-1. Haga clic en **Acceso a la infraestructura** y, a continuación, haga clic en **Acceso al proyecto (IU web)**.
-
-   ![Portal de proyecto en la nube](../assets/obui-project-access.png)
 
 ## Suscribirse al estado del Adobe
 
