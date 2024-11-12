@@ -3,9 +3,9 @@ title: Arquitectura de inicio
 description: Obtenga información acerca de los entornos admitidos por la arquitectura de inicio.
 feature: Cloud, Paas
 exl-id: 03365d32-4eb4-42d4-82a7-771df5e7b3da
-source-git-commit: e5cb79cab4e22d1c787859ab98e6bab6cd2dc2eb
+source-git-commit: 1fea819aec27002e0e043cddf635f10c4edd7c5b
 workflow-type: tm+mt
-source-wordcount: '942'
+source-wordcount: '956'
 ht-degree: 0%
 
 ---
@@ -65,6 +65,11 @@ Los entornos de integración están diseñados para pruebas y desarrollo limitad
 Para obtener el mejor rendimiento en el entorno de integración, siga estas prácticas recomendadas:
 
 - Restringir el tamaño del catálogo: como referencia, los datos de muestra contienen unos 2048 productos. Pruebe a reducir el tamaño del catálogo a alrededor de 4000-5000 productos.
+Para comprobar el número de productos en el catálogo, ejecute la siguiente consulta MySQL:
+
+  ```sql
+  select distinct count(entity_id) from catalog_product_entity;
+  ```
 
 - Reducir el número de grupos de clientes: tener demasiados grupos de clientes puede afectar al rendimiento de indexación y al rendimiento general.
 
