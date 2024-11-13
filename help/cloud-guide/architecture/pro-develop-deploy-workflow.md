@@ -3,7 +3,7 @@ title: Flujo de trabajo de proyecto profesional
 description: Aprenda a utilizar los flujos de trabajo de desarrollo e implementación de Pro.
 feature: Cloud, Iaas, Paas
 exl-id: 103e90d5-2ef2-4fef-845c-439344666b00
-source-git-commit: 08f43a3b0a50cdb2a5e8a45bd2e2448bc6dbca2b
+source-git-commit: c6d4128792e688485e021bad75d9814a9f4d3b4f
 workflow-type: tm+mt
 source-wordcount: '782'
 ht-degree: 0%
@@ -91,6 +91,8 @@ Combine todos los cambios de código comprobados combinando la rama de desarroll
 El ensayo es un entorno de preproducción que proporciona todos los servicios y configuraciones lo más cerca posible del entorno de producción. Inserte siempre los cambios de código del entorno `integration` al entorno `staging` para que pueda realizar pruebas exhaustivas con todos los servicios. La primera vez que utilice el entorno de ensayo, deberá configurar servicios como [Fastly CDN](../cdn/fastly.md) y [New Relic](../monitor/new-relic-service.md). Configure puertas de enlace de pago, envíos, notificaciones y otros servicios vitales con credenciales de zona protegida o de prueba.
 
 Es mejor probar a fondo cada servicio, verificar sus herramientas de prueba de rendimiento y realizar pruebas UAT como administrador y como cliente, hasta que sienta que su tienda está lista para el entorno de producción. Ver [Implementar tu tienda](../deploy/staging-production.md).
+
+{{second-staging}}
 
 ### Combinar en producción
 
