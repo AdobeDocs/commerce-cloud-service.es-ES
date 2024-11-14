@@ -2,7 +2,7 @@
 title: Iniciar lista de comprobación
 description: Revise los elementos de la lista de comprobación para el lanzamiento del sitio.
 exl-id: 4525742e-18c5-40d1-975d-00ba3f3a51a0
-source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
+source-git-commit: 6ac23cbcf7ab48d09b494ebe8c7136518d213c4e
 workflow-type: tm+mt
 source-wordcount: '1104'
 ht-degree: 0%
@@ -139,7 +139,7 @@ También puede realizar pruebas con las siguientes opciones de terceros:
 
 - [Configuración segura para el usuario administrador](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/security/security-admin)
 
-- [Configuración segura para URL de administrador]https://experienceleague.adobe.com/en/docs/commerce-admin/stores-sales/site-store/store-urls#use-a-custom-admin-url)
+- [Configuración segura para la URL de administración](https://experienceleague.adobe.com/en/docs/commerce-admin/stores-sales/site-store/store-urls#use-a-custom-admin-url)
 
 - [Elimine los usuarios que ya no estén en el proyecto de infraestructura de Adobe Commerce en la nube](../project/user-access.md)
 

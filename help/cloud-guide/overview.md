@@ -2,9 +2,9 @@
 title: Commerce en infraestructura en la nube
 description: Obtenga información sobre la creación, implementación y administración de Commerce en la infraestructura en la nube.
 exl-id: c0accd55-95ac-49d9-b6f4-0da19b82c28f
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: 6ac23cbcf7ab48d09b494ebe8c7136518d213c4e
 workflow-type: tm+mt
-source-wordcount: '224'
+source-wordcount: '236'
 ht-degree: 0%
 
 ---
@@ -19,6 +19,10 @@ Adobe Commerce en la nube proporciona una plataforma de alojamiento automatizada
 - Alojamiento de Amazon Web Service (AWS) que ofrece un entorno escalable y seguro para las ventas y la venta minorista en línea.
 
 ![Ventajas de la nube](../assets/CloudBenefits.svg)
+
+>[!NOTE]
+>
+>Para obtener más información sobre seguridad, consulte la [lista de comprobación de inicio de seguridad](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/launch/checklist#security-configuration).
 
 Vea en detalle [la pila de tecnología](architecture/tech-stack.md) o aprenda más acerca de características específicas y productos compatibles en la [arquitectura de la nube para Commerce](architecture/cloud-architecture.md).
 
