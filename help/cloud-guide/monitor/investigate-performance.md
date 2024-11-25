@@ -4,9 +4,9 @@ description: Obtenga información sobre cómo acceder a su tablero de New Relic 
 feature: Cloud, Observability
 topic: Performance
 exl-id: 8d1e2ad6-14d0-4754-9703-960d93e135a9
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: 38c29e3a2cee1658bb73922f0f56fdfa84af5a6f
 workflow-type: tm+mt
-source-wordcount: '844'
+source-wordcount: '833'
 ht-degree: 0%
 
 ---
@@ -85,11 +85,11 @@ Cuando la infraestructura del sitio o las condiciones de la aplicación alcanzan
 
 No modifique ninguna alerta incluida en la directiva Alertas administradas para Adobe Commerce. La Adobe actualiza y mejora las condiciones de alerta de esta directiva con el tiempo, lo que sobrescribe las personalizaciones que agregue a la directiva.
 
-En lugar de modificar una alerta existente, puede crear una directiva de alertas. A continuación, copie las condiciones de alerta en la nueva directiva. Consulte [Actualizar directivas o condiciones](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/update-or-disable-policies-conditions/) en la documentación de _New Relic_.
+En lugar de modificar una alerta existente, puede crear una directiva de alertas. A continuación, copie las condiciones de alerta en la nueva directiva.
 
 >[!TIP]
 >
->Consulte [Introducción a las alertas](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/learn-alerts/alerts-concepts-workflow/) en la documentación de _New Relic_ para obtener información más detallada sobre las alertas, las directivas de alerta y los flujos de trabajo.
+>Consulte [Introducción a las alertas](https://docs.newrelic.com/docs/alerts/overview/) en la documentación de _New Relic_ para obtener información más detallada sobre las alertas, las directivas de alerta y los flujos de trabajo.
 
 ## Configuración de un flujo de trabajo para notificaciones
 
