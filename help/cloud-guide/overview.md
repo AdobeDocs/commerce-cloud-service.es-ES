@@ -2,9 +2,9 @@
 title: Commerce en infraestructura en la nube
 description: Obtenga información sobre la creación, implementación y administración de Commerce en la infraestructura en la nube.
 exl-id: c0accd55-95ac-49d9-b6f4-0da19b82c28f
-source-git-commit: 6ac23cbcf7ab48d09b494ebe8c7136518d213c4e
+source-git-commit: 5f00b20e599b7ba26e483a238d05d99daf1dd1b8
 workflow-type: tm+mt
-source-wordcount: '236'
+source-wordcount: '293'
 ht-degree: 0%
 
 ---
@@ -32,6 +32,26 @@ Vea en detalle [la pila de tecnología](architecture/tech-stack.md) o aprenda m�
 <div id="recs-overview-body-4"></div>
 <div id="recs-overview-body-5"></div>
 <div id="recs-overview-body-6"></div>
+
+## Regiones de nube
+
+Las secciones siguientes proporcionan detalles sobre las diferentes regiones de AWS y Azure disponibles para Adobe Commerce en la infraestructura en la nube.
+
+## Regiones de AWS
+
+![Diagrama que muestra las regiones de AWS](../assets/aws-regions.svg){zoomable="yes"}
+
+>[!NOTE]
+>
+> Solo local en China y Rusia.
+
+## Regiones de Azure
+
+![Diagrama que muestra regiones de Azure](../assets/azure-regions.svg){zoomable="yes"}
+
+>[!NOTE]
+>
+> Solo local en China y Rusia. Todos los comerciantes que requieran entornos de integración deben utilizar regiones de EE. UU.
 
 ## Documentación de Adobe Commerce
 
