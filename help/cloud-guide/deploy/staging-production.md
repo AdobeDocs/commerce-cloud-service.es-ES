@@ -3,7 +3,7 @@ title: Implementar en ensayo y producción
 description: Aprenda a implementar su código de infraestructura de Adobe Commerce en la nube en los entornos de ensayo y producción para realizar pruebas adicionales.
 feature: Cloud, Console, Deploy, SCD, Storage
 exl-id: 4b82289f-ee04-4b14-a0ed-7a8a19fc6a6a
-source-git-commit: ae7eb6a0c3de773377c8e1efb5ce2e92c06506bd
+source-git-commit: 269681efb9925d78ffb608ecbef657be740b5531
 workflow-type: tm+mt
 source-wordcount: '1310'
 ht-degree: 0%
@@ -140,7 +140,7 @@ La CLI de la nube proporciona comandos para implementar código. Necesita SSH y 
 
 ## Migrar archivos estáticos
 
-[Los archivos estáticos](https://experienceleague.adobe.com/docs/commerce-operations/operational-playbook/glossary.html) se almacenan en `mounts`. Existen dos métodos para migrar archivos desde una ubicación de montaje de origen, como el entorno local, a una ubicación de montaje de destino. Ambos métodos utilizan la utilidad `rsync`, pero el Adobe recomienda utilizar la CLI `magento-cloud` para mover archivos entre el entorno local y el remoto. Y el Adobe recomienda usar el método `rsync` al mover archivos desde un origen remoto a una ubicación remota diferente.
+[Los archivos estáticos](https://experienceleague.adobe.com/en/docs/commerce-operations/implementation-playbook/glossary) se almacenan en `mounts`. Existen dos métodos para migrar archivos desde una ubicación de montaje de origen, como el entorno local, a una ubicación de montaje de destino. Ambos métodos utilizan la utilidad `rsync`, pero el Adobe recomienda utilizar la CLI `magento-cloud` para mover archivos entre el entorno local y el remoto. Y el Adobe recomienda usar el método `rsync` al mover archivos desde un origen remoto a una ubicación remota diferente.
 
 ### Migración de archivos mediante la CLI
 

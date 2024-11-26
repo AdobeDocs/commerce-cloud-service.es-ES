@@ -4,9 +4,9 @@ description: Aprenda a preparar un asesor técnico del cliente de Adobe para apr
 recommendations: noDisplay, catalog
 role: Admin
 exl-id: cfb354b0-c255-4b6e-94aa-c5a6bf7230d6
-source-git-commit: da1dec76b9389244f9d5a65428e09f1bc897fa5f
+source-git-commit: 269681efb9925d78ffb608ecbef657be740b5531
 workflow-type: tm+mt
-source-wordcount: '756'
+source-wordcount: '751'
 ht-degree: 0%
 
 ---
@@ -62,7 +62,7 @@ Consulte [Administrar espacio en disco](../cloud-guide/storage/manage-disk-space
 
 Elija Amazon Web Service (AWS) o Microsoft Azure como base de Infrastructure as a Service (IaaS) para sus proyectos de Adobe Commerce en la nube Pro. Cada proveedor de servicios funciona en varias regiones y proporciona varias zonas de disponibilidad. Seleccione una región adecuada para su ubicación y reduzca el potencial de latencia y los costes.
 
-Ver [un mapa de las regiones de la nube de Adobe Commerce](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/infrastructure/cloud/regions.html) en el _manual de implementación_.
+Ver [un mapa de las regiones de la nube de Adobe Commerce](../cloud-guide/overview.md).
 
 ## Servicio de conexión
 

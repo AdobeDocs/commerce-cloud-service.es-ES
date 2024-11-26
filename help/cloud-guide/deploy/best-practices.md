@@ -3,7 +3,7 @@ title: Prácticas recomendadas de implementación
 description: Descubra las prácticas recomendadas para implementar Adobe Commerce en la infraestructura en la nube.
 feature: Cloud, Deploy, Best Practices
 exl-id: bac3ca83-0eee-4fda-9a5c-a84ab25a837a
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: 269681efb9925d78ffb608ecbef657be740b5531
 workflow-type: tm+mt
 source-wordcount: '1904'
 ht-degree: 0%
@@ -118,7 +118,7 @@ Esta fase también ejecuta `composer install` para recuperar dependencias.
 Esta fase crea la base de código y ejecuta los vínculos en la sección `build` de `.magento.app.yaml`. El vínculo de generación predeterminado es el comando `php ./vendor/bin/ece-tools` y realiza las siguientes acciones:
 
 - Aplica revisiones en `vendor/magento/ece-patches` y revisiones opcionales específicas del proyecto en `m2-hotfixes`
-- Vuelve a generar el código y la configuración [inyección de dependencia](https://experienceleague.adobe.com/docs/commerce-operations/operational-playbook/glossary.html) (es decir, el directorio `generated/`, que incluye `generated/code` y `generated/metapackage`) utilizando `bin/magento setup:di:compile`.
+- Vuelve a generar el código y la configuración [inyección de dependencia](https://experienceleague.adobe.com/en/docs/commerce-operations/implementation-playbook/glossary) (es decir, el directorio `generated/`, que incluye `generated/code` y `generated/metapackage`) utilizando `bin/magento setup:di:compile`.
 - Comprueba si el archivo [`app/etc/config.php`](../store/store-settings.md) existe en la base de código. Adobe Commerce genera automáticamente este archivo si no lo detecta durante la fase de compilación e incluye una lista de módulos y extensiones. Si existe, la fase de compilación continúa con normalidad, comprime los archivos estáticos mediante GZIP e implementa, lo que reduce el tiempo de inactividad en la fase de implementación. Consulte [opciones de compilación](../environment/variables-build.md) para obtener más información sobre cómo personalizar o deshabilitar la compresión de archivos.
 
 >[!WARNING]
@@ -145,7 +145,7 @@ El slug incluye todos los archivos y carpetas **excluyendo los siguientes** mont
 
 ### Fase 4: Implementar slugs y clústeres
 
-Sus aplicaciones y todos los servicios de [backend](https://experienceleague.adobe.com/docs/commerce-operations/operational-playbook/glossary.html) se proporcionan de la siguiente manera:
+Sus aplicaciones y todos los servicios de [backend](https://experienceleague.adobe.com/en/docs/commerce-operations/implementation-playbook/glossary) se proporcionan de la siguiente manera:
 
 - Monta cada servicio en un contenedor, como un servidor web, OpenSearch, [!DNL RabbitMQ]
 - Monta el sistema de archivos de lectura-escritura (montado en una cuadrícula de almacenamiento distribuido de alta disponibilidad)
@@ -183,7 +183,7 @@ Hay dos vínculos de implementación. El vínculo `pre-deploy.php` completa la l
 >
 >El script de implementación utiliza los valores definidos por los archivos de configuración en el directorio `.magento` y, a continuación, el script elimina el directorio y su contenido. Su entorno de desarrollo local no se ve afectado.
 
-### Post-deployment: configuración del enrutamiento
+### Posterior a la implementación: configurar el enrutamiento
 
 Mientras se ejecuta la implementación, el proceso detiene el tráfico entrante en el punto de entrada durante 60 segundos y reconfigura el enrutamiento para que el tráfico web llegue al clúster recién creado.
 
