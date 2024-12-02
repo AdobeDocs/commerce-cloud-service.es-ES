@@ -1,5 +1,5 @@
 ---
-title: '[!DNL ECE-Tools] paquete'
+title: Paquete [!DNL ECE-Tools]
 description: Obtenga información acerca del paquete  [!DNL ECE-Tools] y cómo ayuda a administrar e implementar Adobe Commerce.
 exl-id: 5583a685-29c5-4de5-8d2e-94cff5ff37ab
 source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959

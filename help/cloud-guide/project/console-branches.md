@@ -1,5 +1,5 @@
 ---
-title: "Administrar ramas con  [!DNL Cloud Console]"
+title: Administrar ramas con  [!DNL Cloud Console]
 description: Obtenga información sobre cómo administrar las ramas de entorno para Adobe Commerce en la infraestructura en la nube mediante  [!DNL Cloud Console].
 role: Developer
 feature: Cloud, Install
