@@ -4,9 +4,9 @@ description: Obtenga información acerca de los entornos admitidos por la arquit
 feature: Cloud, Auto Scaling, Iaas, Paas, Storage
 topic: Architecture
 exl-id: d10d5760-44da-4ffe-b4b7-093406d8b702
-source-git-commit: 18f4da5c6e7e5c483f5cf64e977b3fb3fd28bbb0
+source-git-commit: eb33d9867355a4ccfada99c7f5b0e4520dbe44f5
 workflow-type: tm+mt
-source-wordcount: '1573'
+source-wordcount: '1554'
 ht-degree: 0%
 
 ---
@@ -185,7 +185,7 @@ Puede crear una **copia de seguridad manual** de la base de datos para los entor
 
 ### Objetivo de punto de recuperación
 
-El RPO es el tiempo máximo de seis horas para la última copia de seguridad (por ejemplo, a las 06:00, después a las 12:00 y después a las 18:00). La frecuencia de las copias de seguridad depende de la programación de copias de seguridad del plan y del volumen de cambios para escribir en el servicio de almacenamiento.
+Póngase en contacto con el administrador de éxito del cliente de Adobe para obtener más información sobre el objetivo de punto de recuperación tiempo hasta la última copia de seguridad. La frecuencia de las copias de seguridad depende de la programación de copias de seguridad del plan y del volumen de cambios para escribir en el servicio de almacenamiento.
 
 ### Política de retención
 
@@ -203,11 +203,7 @@ Esta política puede variar según su plan de infraestructura en la nube.
 
 ### Objetivo de tiempo de recuperación
 
-RTO depende del tamaño del almacenamiento. Los volúmenes grandes de EBS tardan más tiempo en restaurarse. Los tiempos de restauración pueden variar según el tamaño de la base de datos:
-
-- Una base de datos de gran tamaño (más de 200 GB) puede tardar 5 horas
-- Una base de datos media (150 GB) puede tardar 2 horas y media
-- Una base de datos pequeña (60 GB) puede tardar 1 hora
+RTO depende del tamaño del almacenamiento. Los volúmenes grandes de EBS tardan más tiempo en restaurarse. Los tiempos de restauración pueden variar según el tamaño de la base de datos. Póngase en contacto con el administrador de éxito del cliente de Adobe para obtener más información.
 
 ## Escalado de clúster Pro
 
